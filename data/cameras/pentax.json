@@ -1,0 +1,297 @@
+{
+  "maker": "Pentax",
+  "cameras": [
+    {
+      "id": "pentax-ist-d",
+      "model": "*ist D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-ist-dl",
+      "model": "*ist DL",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-ist-dl2",
+      "model": "*ist DL2",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-ist-ds",
+      "model": "*ist DS",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-ist-ds2",
+      "model": "*ist DS2",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-645d",
+      "model": "645D",
+      "format": "mf-44x33",
+      "mount": "Pentax 645AF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-645z",
+      "model": "645Z",
+      "format": "mf-44x33",
+      "mount": "Pentax 645AF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-01",
+      "model": "K-01",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-1",
+      "model": "K-1",
+      "format": "full-frame",
+      "mount": "Pentax KAF4",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-1-ii",
+      "model": "K-1 II",
+      "format": "full-frame",
+      "mount": "Pentax KAF4",
+      "aliases": [
+        "K-1 Mark II"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-3",
+      "model": "K-3",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-3-ii",
+      "model": "K-3 II",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-3-iii",
+      "model": "K-3 III",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "aliases": [
+        "K-3 Mark III"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-3-iii-monochrome",
+      "model": "K-3 III Monochrome",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "aliases": [
+        "K-3 Mark III Monochrome"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-30",
+      "model": "K-30",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-5",
+      "model": "K-5",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-5-ii",
+      "model": "K-5 II",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-5-iis",
+      "model": "K-5 IIs",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "aliases": [
+        "K-5 II s"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-50",
+      "model": "K-50",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-500",
+      "model": "K-500",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-7",
+      "model": "K-7",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-70",
+      "model": "K-70",
+      "format": "aps-c",
+      "mount": "Pentax KAF4",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-m",
+      "model": "K-m",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-r",
+      "model": "K-r",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-s1",
+      "model": "K-S1",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-s2",
+      "model": "K-S2",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k-x",
+      "model": "K-x",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k100d",
+      "model": "K100D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k100d-super",
+      "model": "K100D Super",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k10d",
+      "model": "K10D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k110d",
+      "model": "K110D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k2000",
+      "model": "K2000",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k200d",
+      "model": "K200D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-k20d",
+      "model": "K20D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-kf",
+      "model": "KF",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-kp",
+      "model": "KP",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-q",
+      "model": "Q",
+      "format": "1-2-3-inch",
+      "mount": "Pentax Q",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-q-s1",
+      "model": "Q-S1",
+      "format": "1-1-7-inch",
+      "mount": "Pentax Q",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-q10",
+      "model": "Q10",
+      "format": "1-2-3-inch",
+      "mount": "Pentax Q",
+      "source": "lensfun"
+    },
+    {
+      "id": "pentax-q7",
+      "model": "Q7",
+      "format": "1-1-7-inch",
+      "mount": "Pentax Q",
+      "source": "lensfun"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "maker": "KMZ",
+  "cameras": [
+    {
+      "id": "kmz-zenit-122",
+      "model": "Zenit 122",
+      "format": "full-frame",
+      "mount": "M42",
+      "source": "lensfun"
+    },
+    {
+      "id": "kmz-zenit-122k",
+      "model": "Zenit 122K",
+      "format": "full-frame",
+      "mount": "Pentax K",
+      "source": "lensfun"
+    },
+    {
+      "id": "kmz-zenit-212k",
+      "model": "Zenit 212K",
+      "format": "full-frame",
+      "mount": "Pentax K",
+      "source": "lensfun"
+    },
+    {
+      "id": "kmz-zenit-312k",
+      "model": "Zenit 312K",
+      "format": "full-frame",
+      "mount": "Pentax K",
+      "source": "lensfun"
+    },
+    {
+      "id": "kmz-zenit-412ls",
+      "model": "Zenit 412LS",
+      "format": "full-frame",
+      "mount": "M42",
+      "source": "lensfun"
+    },
+    {
+      "id": "kmz-zenit-km",
+      "model": "Zenit KM",
+      "format": "full-frame",
+      "mount": "Pentax K",
+      "source": "lensfun"
+    }
+  ]
+}

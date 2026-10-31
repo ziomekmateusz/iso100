@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "grep -qE '(^|[^[:alnum:]_.-])git( +(-C|-c) +[^ ]+| +--?[[:alnum:]-]+(=[^ ]*)?)* +commit([^[:alnum:]_-]|$)' && { echo \"Commit bloccato: in questo repo i commit li fa l'utente. Proponi solo il messaggio.\" >&2; exit 2; } || exit 0"
+          }
+        ]
+      }
+    ]
+  }
+}

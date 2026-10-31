@@ -1,0 +1,649 @@
+{
+  "maker": "Nikon",
+  "cameras": [
+    {
+      "id": "nikon-1-aw1",
+      "model": "1 AW1",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-j1",
+      "model": "1 J1",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-j2",
+      "model": "1 J2",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-j3",
+      "model": "1 J3",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-j4",
+      "model": "1 J4",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-j5",
+      "model": "1 J5",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-s1",
+      "model": "1 S1",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-s2",
+      "model": "1 S2",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-v1",
+      "model": "1 V1",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-v2",
+      "model": "1 V2",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-1-v3",
+      "model": "1 V3",
+      "format": "1-inch",
+      "mount": "Nikon CX",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d1",
+      "model": "D1",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d100",
+      "model": "D100",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d1h",
+      "model": "D1H",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d1x",
+      "model": "D1X",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d200",
+      "model": "D200",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d2h",
+      "model": "D2H",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d2hs",
+      "model": "D2Hs",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d2x",
+      "model": "D2X",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d2xs",
+      "model": "D2Xs",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d3",
+      "model": "D3",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d300",
+      "model": "D300",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d3000",
+      "model": "D3000",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d300s",
+      "model": "D300S",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d3100",
+      "model": "D3100",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d3200",
+      "model": "D3200",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d3300",
+      "model": "D3300",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d3400",
+      "model": "D3400",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d3500",
+      "model": "D3500",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 24,
+        "afPoints": 11,
+        "fps": 5,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 365
+      }
+    },
+    {
+      "id": "nikon-d3s",
+      "model": "D3S",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d3x",
+      "model": "D3X",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d4",
+      "model": "D4",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d40",
+      "model": "D40",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d40x",
+      "model": "D40X",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d4s",
+      "model": "D4s",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d5",
+      "model": "D5",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d50",
+      "model": "D50",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d500",
+      "model": "D500",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 1600000,
+        "resolutionMp": 21,
+        "afPoints": 153,
+        "fps": 10,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 860
+      }
+    },
+    {
+      "id": "nikon-d5000",
+      "model": "D5000",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d5100",
+      "model": "D5100",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d5200",
+      "model": "D5200",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d5300",
+      "model": "D5300",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d5500",
+      "model": "D5500",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d5600",
+      "model": "D5600",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d6",
+      "model": "D6",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d60",
+      "model": "D60",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d600",
+      "model": "D600",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d610",
+      "model": "D610",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d70",
+      "model": "D70",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d700",
+      "model": "D700",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d7000",
+      "model": "D7000",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d70s",
+      "model": "D70s",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d7100",
+      "model": "D7100",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d7200",
+      "model": "D7200",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d750",
+      "model": "D750",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d7500",
+      "model": "D7500",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 1600000,
+        "resolutionMp": 20,
+        "afPoints": 51,
+        "fps": 8,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 640
+      }
+    },
+    {
+      "id": "nikon-d780",
+      "model": "D780",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d80",
+      "model": "D80",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d800",
+      "model": "D800",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d800e",
+      "model": "D800E",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d810",
+      "model": "D810",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-d850",
+      "model": "D850",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 45.7,
+        "afPoints": 151,
+        "fps": 7,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 1015
+      }
+    },
+    {
+      "id": "nikon-d90",
+      "model": "D90",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-df",
+      "model": "Df",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-30",
+      "model": "Z 30",
+      "format": "aps-c",
+      "mount": "Nikon Z",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-5",
+      "model": "Z 5",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-50",
+      "model": "Z 50",
+      "format": "aps-c",
+      "mount": "Nikon Z",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 204800,
+        "resolutionMp": 20.7,
+        "afPoints": 209,
+        "fps": 11,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 397
+      }
+    },
+    {
+      "id": "nikon-z-6",
+      "model": "Z 6",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 204800,
+        "resolutionMp": 24.3,
+        "afPoints": 273,
+        "fps": 12,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 675
+      }
+    },
+    {
+      "id": "nikon-z-6ii",
+      "model": "Z 6II",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z 6_2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-7",
+      "model": "Z 7",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-7ii",
+      "model": "Z 7II",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z 7_2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-8",
+      "model": "Z 8",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-9",
+      "model": "Z 9",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-f",
+      "model": "Z f",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z-fc",
+      "model": "Z fc",
+      "format": "aps-c",
+      "mount": "Nikon Z",
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z50ii",
+      "model": "Z50II",
+      "format": "aps-c",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z50_2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z5ii",
+      "model": "Z5II",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z5_2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z5iic",
+      "model": "Z5IIC",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z5_2C"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-z6iii",
+      "model": "Z6III",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z6_3"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "nikon-zr",
+      "model": "ZR",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "source": "lensfun"
+    }
+  ]
+}

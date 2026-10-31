@@ -1,0 +1,33 @@
+{
+  "maker": "Konica Minolta",
+  "cameras": [
+    {
+      "id": "konica-minolta-dynax-5d",
+      "model": "Dynax 5D",
+      "format": "aps-c",
+      "mount": "Minolta AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "konica-minolta-dynax-7d",
+      "model": "Dynax 7D",
+      "format": "aps-c",
+      "mount": "Minolta AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "konica-minolta-maxxum-5d",
+      "model": "Maxxum 5D",
+      "format": "aps-c",
+      "mount": "Minolta AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "konica-minolta-maxxum-7d",
+      "model": "Maxxum 7D",
+      "format": "aps-c",
+      "mount": "Minolta AF",
+      "source": "lensfun"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "maker": "Leica",
+  "cameras": [
+    {
+      "id": "leica-cl-typ-7323",
+      "model": "CL (Typ 7323)",
+      "format": "aps-c",
+      "mount": "Leica L",
+      "aliases": [
+        "CL"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-digilux-3",
+      "model": "Digilux 3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m-typ-240",
+      "model": "M (Typ 240)",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m-ev1",
+      "model": "M EV1",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m-monochrom-typ-246",
+      "model": "M Monochrom (Typ 246)",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m10",
+      "model": "M10",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m10-monochrom",
+      "model": "M10 Monochrom",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m10-d",
+      "model": "M10-D",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m10-p",
+      "model": "M10-P",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m10-r",
+      "model": "M10-R",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m11",
+      "model": "M11",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m11-monochrom",
+      "model": "M11 Monochrom",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m11-d",
+      "model": "M11-D",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m11-p",
+      "model": "M11-P",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m8",
+      "model": "M8",
+      "format": "aps-h-27x18",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-m9",
+      "model": "M9",
+      "format": "full-frame",
+      "mount": "Leica M",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-s-typ-007",
+      "model": "S (Typ 007)",
+      "format": "mf-45x30",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 12800,
+        "resolutionMp": 37.5,
+        "afPoints": 27,
+        "fps": 3.5,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 1260
+      }
+    },
+    {
+      "id": "leica-sl-typ-601",
+      "model": "SL (Typ 601)",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-sl2",
+      "model": "SL2",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-sl2-s",
+      "model": "SL2-S",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-sl3",
+      "model": "SL3",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-sl3-p",
+      "model": "SL3-P",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-sl3-s",
+      "model": "SL3-S",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-t-typ-701",
+      "model": "T (Typ 701)",
+      "format": "aps-c",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-tl",
+      "model": "TL",
+      "format": "aps-c",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "leica-tl2",
+      "model": "TL2",
+      "format": "aps-c",
+      "mount": "Leica L",
+      "source": "lensfun"
+    }
+  ]
+}

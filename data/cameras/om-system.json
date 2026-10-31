@@ -1,0 +1,53 @@
+{
+  "maker": "OM System",
+  "cameras": [
+    {
+      "id": "om-system-om-1",
+      "model": "OM-1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "om-system-om-1-ii",
+      "model": "OM-1 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "OM-1MarkII"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "om-system-om-3",
+      "model": "OM-3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "om-system-om-5",
+      "model": "OM-5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "om-system-om-5-ii",
+      "model": "OM-5 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "OM-5MarkII"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "om-system-pen",
+      "model": "PEN",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    }
+  ]
+}

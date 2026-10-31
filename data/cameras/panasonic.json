@@ -1,0 +1,535 @@
+{
+  "maker": "Panasonic",
+  "cameras": [
+    {
+      "id": "panasonic-dc-g100",
+      "model": "DC-G100",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g100d",
+      "model": "DC-G100D",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g110",
+      "model": "DC-G110",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g90",
+      "model": "DC-G90",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g91",
+      "model": "DC-G91",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g95",
+      "model": "DC-G95",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g95d",
+      "model": "DC-G95D",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g97",
+      "model": "DC-G97",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g99",
+      "model": "DC-G99",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g99d",
+      "model": "DC-G99D",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-g9m2",
+      "model": "DC-G9M2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-gh5",
+      "model": "DC-GH5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-gh5m2",
+      "model": "DC-GH5M2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-gh5s",
+      "model": "DC-GH5S",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-gh6",
+      "model": "DC-GH6",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-gh7",
+      "model": "DC-GH7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-gx7mk3",
+      "model": "DC-GX7MK3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-gx800",
+      "model": "DC-GX800",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-gx880",
+      "model": "DC-GX880",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s1h",
+      "model": "DC-S1H",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s1m2",
+      "model": "DC-S1M2",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s1m2es",
+      "model": "DC-S1M2ES",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s1r",
+      "model": "DC-S1R",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s1rm2",
+      "model": "DC-S1RM2",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s5",
+      "model": "DC-S5",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s5d",
+      "model": "DC-S5D",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s5m2",
+      "model": "DC-S5M2",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s5m2x",
+      "model": "DC-S5M2X",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dc-s9",
+      "model": "DC-S9",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g1",
+      "model": "DMC-G1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g10",
+      "model": "DMC-G10",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g2",
+      "model": "DMC-G2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g3",
+      "model": "DMC-G3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g5",
+      "model": "DMC-G5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g6",
+      "model": "DMC-G6",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g7",
+      "model": "DMC-G7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g70",
+      "model": "DMC-G70",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g8",
+      "model": "DMC-G8",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g80",
+      "model": "DMC-G80",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g81",
+      "model": "DMC-G81",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-g85",
+      "model": "DMC-G85",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gf1",
+      "model": "DMC-GF1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gf2",
+      "model": "DMC-GF2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gf3",
+      "model": "DMC-GF3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gf5",
+      "model": "DMC-GF5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gf6",
+      "model": "DMC-GF6",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gf7",
+      "model": "DMC-GF7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gf8",
+      "model": "DMC-GF8",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gh1",
+      "model": "DMC-GH1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gh2",
+      "model": "DMC-GH2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gh3",
+      "model": "DMC-GH3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gh4",
+      "model": "DMC-GH4",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gm1",
+      "model": "DMC-GM1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gm5",
+      "model": "DMC-GM5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gx1",
+      "model": "DMC-GX1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gx7",
+      "model": "DMC-GX7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gx8",
+      "model": "DMC-GX8",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gx80",
+      "model": "DMC-GX80",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-gx85",
+      "model": "DMC-GX85",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-l1",
+      "model": "DMC-L1",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-dmc-l10",
+      "model": "DMC-L10",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "panasonic-lumix-fz1000-ii",
+      "model": "Lumix FZ1000 II",
+      "format": "1-inch",
+      "aliases": [
+        "DC-FZ10002"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 20.1,
+        "afPoints": 49,
+        "fps": 12,
+        "stabilization": true,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 808
+      }
+    },
+    {
+      "id": "panasonic-lumix-g9",
+      "model": "Lumix G9",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "DC-G9"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 20.3,
+        "afPoints": 225,
+        "fps": 20,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 658
+      }
+    },
+    {
+      "id": "panasonic-lumix-gx9",
+      "model": "Lumix GX9",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "DC-GX9"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 20.3,
+        "afPoints": 49,
+        "fps": 6,
+        "stabilization": true,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 407
+      }
+    },
+    {
+      "id": "panasonic-lumix-lx100-ii",
+      "model": "Lumix LX100 II",
+      "format": "four-thirds-multi-aspect",
+      "aliases": [
+        "DC-LX100M2"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 17,
+        "afPoints": 49,
+        "fps": 5.5,
+        "stabilization": true,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 392
+      }
+    },
+    {
+      "id": "panasonic-lumix-s1",
+      "model": "Lumix S1",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "aliases": [
+        "DC-S1"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 204800,
+        "resolutionMp": 24.2,
+        "afPoints": 225,
+        "fps": 6,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 1020
+      }
+    }
+  ]
+}

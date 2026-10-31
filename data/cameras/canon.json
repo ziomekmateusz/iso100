@@ -1,0 +1,981 @@
+{
+  "maker": "Canon",
+  "cameras": [
+    {
+      "id": "canon-eos-1000d",
+      "model": "EOS 1000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-100d",
+      "model": "EOS 100D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-10d",
+      "model": "EOS 10D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1100d",
+      "model": "EOS 1100D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1200d",
+      "model": "EOS 1200D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1300d",
+      "model": "EOS 1300D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-2000d",
+      "model": "EOS 2000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-200d",
+      "model": "EOS 200D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-200d-ii",
+      "model": "EOS 200D II",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-20d",
+      "model": "EOS 20D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-250d",
+      "model": "EOS 250D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24,
+        "afPoints": 9,
+        "fps": 5,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 449
+      }
+    },
+    {
+      "id": "canon-eos-300d",
+      "model": "EOS 300D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "aliases": [
+        "EOS 300D DIGITAL"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-30d",
+      "model": "EOS 30D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-350d",
+      "model": "EOS 350D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "aliases": [
+        "EOS 350D DIGITAL"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-4000d",
+      "model": "EOS 4000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-400d",
+      "model": "EOS 400D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "aliases": [
+        "EOS 400D DIGITAL"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-40d",
+      "model": "EOS 40D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-450d",
+      "model": "EOS 450D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-500d",
+      "model": "EOS 500D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-50d",
+      "model": "EOS 50D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-550d",
+      "model": "EOS 550D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-5d",
+      "model": "EOS 5D",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-5d-mark-ii",
+      "model": "EOS 5D Mark II",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-5d-mark-iii",
+      "model": "EOS 5D Mark III",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-5d-mark-iv",
+      "model": "EOS 5D Mark IV",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 30.4,
+        "afPoints": 61,
+        "fps": 7,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 890
+      }
+    },
+    {
+      "id": "canon-eos-5ds",
+      "model": "EOS 5DS",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-5ds-r",
+      "model": "EOS 5DS R",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-600d",
+      "model": "EOS 600D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-60d",
+      "model": "EOS 60D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-650d",
+      "model": "EOS 650D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-6d",
+      "model": "EOS 6D",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-6d-mark-ii",
+      "model": "EOS 6D Mark II",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-700d",
+      "model": "EOS 700D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-70d",
+      "model": "EOS 70D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-750d",
+      "model": "EOS 750D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-760d",
+      "model": "EOS 760D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-77d",
+      "model": "EOS 77D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-7d",
+      "model": "EOS 7D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-7d-mark-ii",
+      "model": "EOS 7D Mark II",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-8000d",
+      "model": "EOS 8000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-800d",
+      "model": "EOS 800D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-80d",
+      "model": "EOS 80D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-850d",
+      "model": "EOS 850D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-9000d",
+      "model": "EOS 9000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-90d",
+      "model": "EOS 90D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 32.5,
+        "afPoints": 45,
+        "fps": 10,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 701
+      }
+    },
+    {
+      "id": "canon-eos-d2000",
+      "model": "EOS D2000",
+      "format": "aps-c-canon",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-d30",
+      "model": "EOS D30",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-d60",
+      "model": "EOS D60",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-digital-rebel",
+      "model": "EOS Digital REBEL",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-digital-rebel-xs",
+      "model": "EOS Digital Rebel XS",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-digital-rebel-xsi",
+      "model": "EOS Digital Rebel XSi",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-digital-rebel-xt",
+      "model": "EOS Digital Rebel XT",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-digital-rebel-xti",
+      "model": "EOS Digital Rebel XTi",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-hi",
+      "model": "EOS Hi",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-digital",
+      "model": "EOS Kiss Digital",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-digital-f",
+      "model": "EOS Kiss Digital F",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-digital-n",
+      "model": "EOS Kiss Digital N",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-digital-x",
+      "model": "EOS Kiss Digital X",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-digital-x2",
+      "model": "EOS Kiss Digital X2",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-m",
+      "model": "EOS KISS M",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x10i",
+      "model": "EOS Kiss X10i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x3",
+      "model": "EOS Kiss X3",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x4",
+      "model": "EOS Kiss X4",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x5",
+      "model": "EOS Kiss X5",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x50",
+      "model": "EOS Kiss X50",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x6i",
+      "model": "EOS Kiss X6i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x7",
+      "model": "EOS Kiss X7",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x70",
+      "model": "EOS Kiss X70",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x7i",
+      "model": "EOS Kiss X7i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x8i",
+      "model": "EOS Kiss X8i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x9",
+      "model": "EOS Kiss X9",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x90",
+      "model": "EOS Kiss X90",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-kiss-x9i",
+      "model": "EOS Kiss X9i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m",
+      "model": "EOS M",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m10",
+      "model": "EOS M10",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m100",
+      "model": "EOS M100",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m2",
+      "model": "EOS M2",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m200",
+      "model": "EOS M200",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m3",
+      "model": "EOS M3",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m5",
+      "model": "EOS M5",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m50",
+      "model": "EOS M50",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24.1,
+        "afPoints": 143,
+        "fps": 7.4,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 390
+      }
+    },
+    {
+      "id": "canon-eos-m50-mark-ii",
+      "model": "EOS M50 Mark II",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "aliases": [
+        "EOS M50m2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m6",
+      "model": "EOS M6",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-m6-mark-ii",
+      "model": "EOS M6 Mark II",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r",
+      "model": "EOS R",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 30.3,
+        "afPoints": 5655,
+        "fps": 5,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 660
+      }
+    },
+    {
+      "id": "canon-eos-r1",
+      "model": "EOS R1",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r10",
+      "model": "EOS R10",
+      "format": "aps-c-canon",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r100",
+      "model": "EOS R100",
+      "format": "aps-c-canon",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r3",
+      "model": "EOS R3",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r5",
+      "model": "EOS R5",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r5-c",
+      "model": "EOS R5 C",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r5-mark-ii",
+      "model": "EOS R5 Mark II",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "aliases": [
+        "EOS R5m2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r50",
+      "model": "EOS R50",
+      "format": "aps-c-canon",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r50-v",
+      "model": "EOS R50 V",
+      "format": "aps-c-canon",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r6",
+      "model": "EOS R6",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r6-mark-ii",
+      "model": "EOS R6 Mark II",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "aliases": [
+        "EOS R6m2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r6-mark-iii",
+      "model": "EOS R6 Mark III",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r6-v",
+      "model": "EOS R6 V",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r7",
+      "model": "EOS R7",
+      "format": "aps-c-canon",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r8",
+      "model": "EOS R8",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-r8-mark-ii",
+      "model": "EOS R8 Mark II",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-sl1",
+      "model": "EOS Rebel SL1",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-sl2",
+      "model": "EOS Rebel SL2",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-sl3",
+      "model": "EOS Rebel SL3",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t100",
+      "model": "EOS Rebel T100",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t1i",
+      "model": "EOS Rebel T1i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t2i",
+      "model": "EOS Rebel T2i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t3",
+      "model": "EOS Rebel T3",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t3i",
+      "model": "EOS Rebel T3i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t4i",
+      "model": "EOS Rebel T4i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t5",
+      "model": "EOS Rebel T5",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t5i",
+      "model": "EOS Rebel T5i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t6",
+      "model": "EOS Rebel T6",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t6i",
+      "model": "EOS Rebel T6i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t6s",
+      "model": "EOS Rebel T6s",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t7",
+      "model": "EOS Rebel T7",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t7i",
+      "model": "EOS Rebel T7i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rebel-t8i",
+      "model": "EOS Rebel T8i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-rp",
+      "model": "EOS RP",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1d",
+      "model": "EOS-1D",
+      "format": "aps-h",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1d-mark-ii",
+      "model": "EOS-1D Mark II",
+      "format": "aps-h",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1d-mark-ii-n",
+      "model": "EOS-1D Mark II N",
+      "format": "aps-h",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1d-mark-iii",
+      "model": "EOS-1D Mark III",
+      "format": "aps-h",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1d-mark-iv",
+      "model": "EOS-1D Mark IV",
+      "format": "aps-h",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1d-x",
+      "model": "EOS-1D X",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1d-x-mark-ii",
+      "model": "EOS-1D X Mark II",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1ds",
+      "model": "EOS-1Ds",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1ds-mark-ii",
+      "model": "EOS-1Ds Mark II",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "canon-eos-1ds-mark-iii",
+      "model": "EOS-1Ds Mark III",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    }
+  ]
+}

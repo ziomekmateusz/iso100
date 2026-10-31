@@ -1,0 +1,364 @@
+{
+  "maker": "Olympus",
+  "cameras": [
+    {
+      "id": "olympus-e-1",
+      "model": "E-1",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-10",
+      "model": "E-10",
+      "format": "2-3-inch",
+      "mount": "olympusE10",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-20-e-20n-e-20p",
+      "model": "E-20, E-20N, E-20P",
+      "format": "2-3-inch",
+      "mount": "olympusE10",
+      "aliases": [
+        "E-20,E-20N,E-20P"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-3",
+      "model": "E-3",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-30",
+      "model": "E-30",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-300",
+      "model": "E-300",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-330",
+      "model": "E-330",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-400",
+      "model": "E-400",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-410",
+      "model": "E-410",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-420",
+      "model": "E-420",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-450",
+      "model": "E-450",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-5",
+      "model": "E-5",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-500",
+      "model": "E-500",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-510",
+      "model": "E-510",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-520",
+      "model": "E-520",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-600",
+      "model": "E-600",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-620",
+      "model": "E-620",
+      "format": "four-thirds",
+      "mount": "4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m1",
+      "model": "E-M1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m1-ii",
+      "model": "E-M1 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M1MarkII"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m1-iii",
+      "model": "E-M1 III",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M1MarkIII"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m10",
+      "model": "E-M10",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m10-ii",
+      "model": "E-M10 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M10MarkII"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m10-iii",
+      "model": "E-M10 III",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M10 Mark III"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m10-iii-s",
+      "model": "E-M10 III S",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M10MarkIIIS"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m10-iv",
+      "model": "E-M10 IV",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M10MarkIV"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m5",
+      "model": "E-M5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m5-ii",
+      "model": "E-M5 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M5MarkII"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-m5-iii",
+      "model": "E-M5 III",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M5MarkIII"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-p1",
+      "model": "E-P1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-p2",
+      "model": "E-P2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-p3",
+      "model": "E-P3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-p5",
+      "model": "E-P5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-p7",
+      "model": "E-P7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl1",
+      "model": "E-PL1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl1s",
+      "model": "E-PL1s",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl2",
+      "model": "E-PL2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl3",
+      "model": "E-PL3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl5",
+      "model": "E-PL5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl6",
+      "model": "E-PL6",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl7",
+      "model": "E-PL7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl8",
+      "model": "E-PL8",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pl9",
+      "model": "E-PL9",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pm1",
+      "model": "E-PM1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-e-pm2",
+      "model": "E-PM2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    },
+    {
+      "id": "olympus-om-d-e-m1x",
+      "model": "OM-D E-M1X",
+      "format": "four-thirds",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 64,
+        "isoMax": 25600,
+        "resolutionMp": 20,
+        "afPoints": 121,
+        "fps": 18,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 997
+      }
+    },
+    {
+      "id": "olympus-pen-f",
+      "model": "PEN-F",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "source": "lensfun"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "maker": "Hasselblad",
+  "cameras": [
+    {
+      "id": "hasselblad-500-mech",
+      "model": "500 mech.",
+      "format": "mf-54x40",
+      "mount": "Hasselblad 500",
+      "source": "lensfun"
+    },
+    {
+      "id": "hasselblad-cfv-100c-907x",
+      "model": "CFV 100C/907X",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X",
+      "source": "lensfun"
+    },
+    {
+      "id": "hasselblad-cfv-ii-50c-907x",
+      "model": "CFV II 50C/907X",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X",
+      "source": "lensfun"
+    },
+    {
+      "id": "hasselblad-h3d",
+      "model": "H3D",
+      "format": "mf-48x36",
+      "mount": "Hasselblad H",
+      "source": "lensfun"
+    },
+    {
+      "id": "hasselblad-x1d-ii-50c",
+      "model": "X1D II 50C",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X",
+      "source": "lensfun"
+    },
+    {
+      "id": "hasselblad-x2d-100c",
+      "model": "X2D 100C",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X",
+      "source": "lensfun"
+    },
+    {
+      "id": "hasselblad-x2d-ii-100c",
+      "model": "X2D II 100C",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X",
+      "source": "lensfun"
+    }
+  ]
+}

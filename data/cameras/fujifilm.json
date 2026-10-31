@@ -1,0 +1,432 @@
+{
+  "maker": "Fujifilm",
+  "cameras": [
+    {
+      "id": "fujifilm-finepix-is-pro",
+      "model": "FinePix IS Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "IS Pro"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-finepix-s1-pro",
+      "model": "FinePix S1 Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "FinePixS1Pro"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-finepix-s2-pro",
+      "model": "FinePix S2 Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "FinePixS2Pro"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-finepix-s3-pro",
+      "model": "FinePix S3 Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "FinePix S3Pro"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-finepix-s5-pro",
+      "model": "FinePix S5 Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "FinePix S5Pro"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-gfx-100",
+      "model": "GFX 100",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 102,
+        "afPoints": 425,
+        "fps": 5,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 1320
+      }
+    },
+    {
+      "id": "fujifilm-gfx-50r",
+      "model": "GFX 50R",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-gfx-50s",
+      "model": "GFX 50S",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-gfx100-ii",
+      "model": "GFX100 II",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-gfx100s",
+      "model": "GFX100S",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-gfx100s-ii",
+      "model": "GFX100S II",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-gfx50s-ii",
+      "model": "GFX50S II",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-a1",
+      "model": "X-A1",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-a10",
+      "model": "X-A10",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-a2",
+      "model": "X-A2",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-a3",
+      "model": "X-A3",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-a5",
+      "model": "X-A5",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-a7",
+      "model": "X-A7",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24,
+        "afPoints": 425,
+        "fps": 6,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 320
+      }
+    },
+    {
+      "id": "fujifilm-x-e1",
+      "model": "X-E1",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-e2",
+      "model": "X-E2",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-e2s",
+      "model": "X-E2S",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-e3",
+      "model": "X-E3",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-e4",
+      "model": "X-E4",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-e5",
+      "model": "X-E5",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-h1",
+      "model": "X-H1",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24.3,
+        "afPoints": 325,
+        "fps": 14,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 623
+      }
+    },
+    {
+      "id": "fujifilm-x-h2",
+      "model": "X-H2",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-h2s",
+      "model": "X-H2S",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-m1",
+      "model": "X-M1",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-m5",
+      "model": "X-M5",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-pro1",
+      "model": "X-Pro1",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-pro2",
+      "model": "X-Pro2",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-pro3",
+      "model": "X-Pro3",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 80,
+        "isoMax": 51200,
+        "resolutionMp": 26.1,
+        "afPoints": 425,
+        "fps": 20,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 497
+      }
+    },
+    {
+      "id": "fujifilm-x-s10",
+      "model": "X-S10",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-s20",
+      "model": "X-S20",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t1",
+      "model": "X-T1",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t10",
+      "model": "X-T10",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t100",
+      "model": "X-T100",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24.2,
+        "afPoints": 91,
+        "fps": 6,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 448
+      }
+    },
+    {
+      "id": "fujifilm-x-t2",
+      "model": "X-T2",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t20",
+      "model": "X-T20",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t200",
+      "model": "X-T200",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t3",
+      "model": "X-T3",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 80,
+        "isoMax": 51200,
+        "resolutionMp": 26.1,
+        "afPoints": 425,
+        "fps": 20,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 539
+      }
+    },
+    {
+      "id": "fujifilm-x-t30",
+      "model": "X-T30",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t30-ii",
+      "model": "X-T30 II",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t30-iii",
+      "model": "X-T30 III",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t4",
+      "model": "X-T4",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t5",
+      "model": "X-T5",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x-t50",
+      "model": "X-T50",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "source": "lensfun"
+    },
+    {
+      "id": "fujifilm-x100f",
+      "model": "X100F",
+      "format": "aps-c",
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24,
+        "afPoints": 325,
+        "fps": 8,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 469
+      }
+    }
+  ]
+}

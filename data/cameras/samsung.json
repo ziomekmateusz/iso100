@@ -1,0 +1,162 @@
+{
+  "maker": "Samsung",
+  "cameras": [
+    {
+      "id": "samsung-galaxy-nx",
+      "model": "Galaxy NX",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "aliases": [
+        "EK-GN120"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-gx-1l",
+      "model": "GX-1L",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-gx-1s",
+      "model": "GX-1S",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-gx10",
+      "model": "GX10",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-gx20",
+      "model": "GX20",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx-mini",
+      "model": "NX mini",
+      "format": "1-inch",
+      "mount": "Samsung NX mini",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx1",
+      "model": "NX1",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx10",
+      "model": "NX10",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx100",
+      "model": "NX100",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx1000",
+      "model": "NX1000",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx11",
+      "model": "NX11",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx1100",
+      "model": "NX1100",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx20",
+      "model": "NX20",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx200",
+      "model": "NX200",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx2000",
+      "model": "NX2000",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx210",
+      "model": "NX210",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx30",
+      "model": "NX30",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx300",
+      "model": "NX300",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx3000",
+      "model": "NX3000",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx300m",
+      "model": "NX300M",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx5",
+      "model": "NX5",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    },
+    {
+      "id": "samsung-nx500",
+      "model": "NX500",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "source": "lensfun"
+    }
+  ]
+}

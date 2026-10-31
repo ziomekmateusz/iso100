@@ -1,0 +1,4838 @@
+{
+  "schemaVersion": 1,
+  "version": "6985c8c2d8f7",
+  "attribution": "Camera data partly derived from the Lensfun database (https://lensfun.github.io), licensed under CC BY-SA 3.0.",
+  "formats": [
+    {
+      "id": "full-frame",
+      "name": "Full Frame (35 mm)",
+      "widthMm": 36,
+      "heightMm": 24
+    },
+    {
+      "id": "aps-h",
+      "name": "APS-H (Canon)",
+      "widthMm": 28.7,
+      "heightMm": 19
+    },
+    {
+      "id": "aps-h-27x18",
+      "name": "APS-H 27×18 (Leica M8, Sigma sd Quattro H)",
+      "widthMm": 27,
+      "heightMm": 18
+    },
+    {
+      "id": "aps-c",
+      "name": "APS-C",
+      "widthMm": 23.5,
+      "heightMm": 15.6
+    },
+    {
+      "id": "aps-c-canon",
+      "name": "APS-C (Canon)",
+      "widthMm": 22.3,
+      "heightMm": 14.9
+    },
+    {
+      "id": "aps-c-sigma",
+      "name": "APS-C (Sigma Foveon)",
+      "widthMm": 20.7,
+      "heightMm": 13.8
+    },
+    {
+      "id": "four-thirds",
+      "name": "Four Thirds / Micro 4/3",
+      "widthMm": 17.3,
+      "heightMm": 13
+    },
+    {
+      "id": "four-thirds-multi-aspect",
+      "name": "4/3 multi-aspect (LX100, D-Lux)",
+      "widthMm": 15.7,
+      "heightMm": 11.8
+    },
+    {
+      "id": "1-inch",
+      "name": "1\"",
+      "widthMm": 13.2,
+      "heightMm": 8.8
+    },
+    {
+      "id": "2-3-inch",
+      "name": "2/3\"",
+      "widthMm": 8.8,
+      "heightMm": 6.6
+    },
+    {
+      "id": "1-1-7-inch",
+      "name": "1/1.7\"",
+      "widthMm": 7.6,
+      "heightMm": 5.7
+    },
+    {
+      "id": "1-1-8-inch",
+      "name": "1/1.8\"",
+      "widthMm": 7.18,
+      "heightMm": 5.32
+    },
+    {
+      "id": "1-2-3-inch",
+      "name": "1/2.3\"",
+      "widthMm": 6.17,
+      "heightMm": 4.55
+    },
+    {
+      "id": "1-2-5-inch",
+      "name": "1/2.5\"",
+      "widthMm": 5.76,
+      "heightMm": 4.29
+    },
+    {
+      "id": "mf-44x33",
+      "name": "Medio formato 44×33",
+      "widthMm": 43.8,
+      "heightMm": 32.9
+    },
+    {
+      "id": "mf-45x30",
+      "name": "Medio formato 45×30 (Leica S)",
+      "widthMm": 45,
+      "heightMm": 30
+    },
+    {
+      "id": "mf-48x36",
+      "name": "Medio formato 48×36",
+      "widthMm": 48,
+      "heightMm": 36
+    },
+    {
+      "id": "mf-54x40",
+      "name": "Medio formato 54×40",
+      "widthMm": 53.4,
+      "heightMm": 40
+    }
+  ],
+  "cameras": [
+    {
+      "id": "canon-eos-1000d",
+      "maker": "Canon",
+      "model": "EOS 1000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-100d",
+      "maker": "Canon",
+      "model": "EOS 100D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-10d",
+      "maker": "Canon",
+      "model": "EOS 10D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-1100d",
+      "maker": "Canon",
+      "model": "EOS 1100D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-1200d",
+      "maker": "Canon",
+      "model": "EOS 1200D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-1300d",
+      "maker": "Canon",
+      "model": "EOS 1300D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-2000d",
+      "maker": "Canon",
+      "model": "EOS 2000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-200d",
+      "maker": "Canon",
+      "model": "EOS 200D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-200d-ii",
+      "maker": "Canon",
+      "model": "EOS 200D II",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-20d",
+      "maker": "Canon",
+      "model": "EOS 20D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-250d",
+      "maker": "Canon",
+      "model": "EOS 250D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24,
+        "afPoints": 9,
+        "fps": 5,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 449
+      }
+    },
+    {
+      "id": "canon-eos-300d",
+      "maker": "Canon",
+      "model": "EOS 300D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "aliases": [
+        "EOS 300D DIGITAL"
+      ]
+    },
+    {
+      "id": "canon-eos-30d",
+      "maker": "Canon",
+      "model": "EOS 30D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-350d",
+      "maker": "Canon",
+      "model": "EOS 350D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "aliases": [
+        "EOS 350D DIGITAL"
+      ]
+    },
+    {
+      "id": "canon-eos-4000d",
+      "maker": "Canon",
+      "model": "EOS 4000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-400d",
+      "maker": "Canon",
+      "model": "EOS 400D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "aliases": [
+        "EOS 400D DIGITAL"
+      ]
+    },
+    {
+      "id": "canon-eos-40d",
+      "maker": "Canon",
+      "model": "EOS 40D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-450d",
+      "maker": "Canon",
+      "model": "EOS 450D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-500d",
+      "maker": "Canon",
+      "model": "EOS 500D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-50d",
+      "maker": "Canon",
+      "model": "EOS 50D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-550d",
+      "maker": "Canon",
+      "model": "EOS 550D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-5d",
+      "maker": "Canon",
+      "model": "EOS 5D",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-5d-mark-ii",
+      "maker": "Canon",
+      "model": "EOS 5D Mark II",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-5d-mark-iii",
+      "maker": "Canon",
+      "model": "EOS 5D Mark III",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-5d-mark-iv",
+      "maker": "Canon",
+      "model": "EOS 5D Mark IV",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 30.4,
+        "afPoints": 61,
+        "fps": 7,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 890
+      }
+    },
+    {
+      "id": "canon-eos-5ds",
+      "maker": "Canon",
+      "model": "EOS 5DS",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-5ds-r",
+      "maker": "Canon",
+      "model": "EOS 5DS R",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-600d",
+      "maker": "Canon",
+      "model": "EOS 600D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-60d",
+      "maker": "Canon",
+      "model": "EOS 60D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-650d",
+      "maker": "Canon",
+      "model": "EOS 650D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-6d",
+      "maker": "Canon",
+      "model": "EOS 6D",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-6d-mark-ii",
+      "maker": "Canon",
+      "model": "EOS 6D Mark II",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-700d",
+      "maker": "Canon",
+      "model": "EOS 700D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-70d",
+      "maker": "Canon",
+      "model": "EOS 70D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-750d",
+      "maker": "Canon",
+      "model": "EOS 750D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-760d",
+      "maker": "Canon",
+      "model": "EOS 760D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-77d",
+      "maker": "Canon",
+      "model": "EOS 77D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-7d",
+      "maker": "Canon",
+      "model": "EOS 7D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-7d-mark-ii",
+      "maker": "Canon",
+      "model": "EOS 7D Mark II",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-8000d",
+      "maker": "Canon",
+      "model": "EOS 8000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-800d",
+      "maker": "Canon",
+      "model": "EOS 800D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-80d",
+      "maker": "Canon",
+      "model": "EOS 80D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-850d",
+      "maker": "Canon",
+      "model": "EOS 850D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-9000d",
+      "maker": "Canon",
+      "model": "EOS 9000D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-90d",
+      "maker": "Canon",
+      "model": "EOS 90D",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 32.5,
+        "afPoints": 45,
+        "fps": 10,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 701
+      }
+    },
+    {
+      "id": "canon-eos-d2000",
+      "maker": "Canon",
+      "model": "EOS D2000",
+      "format": "aps-c-canon",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-d30",
+      "maker": "Canon",
+      "model": "EOS D30",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-d60",
+      "maker": "Canon",
+      "model": "EOS D60",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-digital-rebel",
+      "maker": "Canon",
+      "model": "EOS Digital REBEL",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-digital-rebel-xs",
+      "maker": "Canon",
+      "model": "EOS Digital Rebel XS",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-digital-rebel-xsi",
+      "maker": "Canon",
+      "model": "EOS Digital Rebel XSi",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-digital-rebel-xt",
+      "maker": "Canon",
+      "model": "EOS Digital Rebel XT",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-digital-rebel-xti",
+      "maker": "Canon",
+      "model": "EOS Digital Rebel XTi",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-hi",
+      "maker": "Canon",
+      "model": "EOS Hi",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-digital",
+      "maker": "Canon",
+      "model": "EOS Kiss Digital",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-digital-f",
+      "maker": "Canon",
+      "model": "EOS Kiss Digital F",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-digital-n",
+      "maker": "Canon",
+      "model": "EOS Kiss Digital N",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-digital-x",
+      "maker": "Canon",
+      "model": "EOS Kiss Digital X",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-digital-x2",
+      "maker": "Canon",
+      "model": "EOS Kiss Digital X2",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-m",
+      "maker": "Canon",
+      "model": "EOS KISS M",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-kiss-x10i",
+      "maker": "Canon",
+      "model": "EOS Kiss X10i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x3",
+      "maker": "Canon",
+      "model": "EOS Kiss X3",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x4",
+      "maker": "Canon",
+      "model": "EOS Kiss X4",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x5",
+      "maker": "Canon",
+      "model": "EOS Kiss X5",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x50",
+      "maker": "Canon",
+      "model": "EOS Kiss X50",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x6i",
+      "maker": "Canon",
+      "model": "EOS Kiss X6i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x7",
+      "maker": "Canon",
+      "model": "EOS Kiss X7",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x70",
+      "maker": "Canon",
+      "model": "EOS Kiss X70",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x7i",
+      "maker": "Canon",
+      "model": "EOS Kiss X7i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x8i",
+      "maker": "Canon",
+      "model": "EOS Kiss X8i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x9",
+      "maker": "Canon",
+      "model": "EOS Kiss X9",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x90",
+      "maker": "Canon",
+      "model": "EOS Kiss X90",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-kiss-x9i",
+      "maker": "Canon",
+      "model": "EOS Kiss X9i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-m",
+      "maker": "Canon",
+      "model": "EOS M",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-m10",
+      "maker": "Canon",
+      "model": "EOS M10",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-m100",
+      "maker": "Canon",
+      "model": "EOS M100",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-m2",
+      "maker": "Canon",
+      "model": "EOS M2",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-m200",
+      "maker": "Canon",
+      "model": "EOS M200",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-m3",
+      "maker": "Canon",
+      "model": "EOS M3",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-m5",
+      "maker": "Canon",
+      "model": "EOS M5",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-m50",
+      "maker": "Canon",
+      "model": "EOS M50",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24.1,
+        "afPoints": 143,
+        "fps": 7.4,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 390
+      }
+    },
+    {
+      "id": "canon-eos-m50-mark-ii",
+      "maker": "Canon",
+      "model": "EOS M50 Mark II",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M",
+      "aliases": [
+        "EOS M50m2"
+      ]
+    },
+    {
+      "id": "canon-eos-m6",
+      "maker": "Canon",
+      "model": "EOS M6",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-m6-mark-ii",
+      "maker": "Canon",
+      "model": "EOS M6 Mark II",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-M"
+    },
+    {
+      "id": "canon-eos-r",
+      "maker": "Canon",
+      "model": "EOS R",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 30.3,
+        "afPoints": 5655,
+        "fps": 5,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 660
+      }
+    },
+    {
+      "id": "canon-eos-r1",
+      "maker": "Canon",
+      "model": "EOS R1",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r10",
+      "maker": "Canon",
+      "model": "EOS R10",
+      "format": "aps-c-canon",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r100",
+      "maker": "Canon",
+      "model": "EOS R100",
+      "format": "aps-c-canon",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r3",
+      "maker": "Canon",
+      "model": "EOS R3",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r5",
+      "maker": "Canon",
+      "model": "EOS R5",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r5-c",
+      "maker": "Canon",
+      "model": "EOS R5 C",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r5-mark-ii",
+      "maker": "Canon",
+      "model": "EOS R5 Mark II",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "aliases": [
+        "EOS R5m2"
+      ]
+    },
+    {
+      "id": "canon-eos-r50",
+      "maker": "Canon",
+      "model": "EOS R50",
+      "format": "aps-c-canon",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r50-v",
+      "maker": "Canon",
+      "model": "EOS R50 V",
+      "format": "aps-c-canon",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r6",
+      "maker": "Canon",
+      "model": "EOS R6",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r6-mark-ii",
+      "maker": "Canon",
+      "model": "EOS R6 Mark II",
+      "format": "full-frame",
+      "mount": "Canon RF",
+      "aliases": [
+        "EOS R6m2"
+      ]
+    },
+    {
+      "id": "canon-eos-r6-mark-iii",
+      "maker": "Canon",
+      "model": "EOS R6 Mark III",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r6-v",
+      "maker": "Canon",
+      "model": "EOS R6 V",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r7",
+      "maker": "Canon",
+      "model": "EOS R7",
+      "format": "aps-c-canon",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r8",
+      "maker": "Canon",
+      "model": "EOS R8",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-r8-mark-ii",
+      "maker": "Canon",
+      "model": "EOS R8 Mark II",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-rebel-sl1",
+      "maker": "Canon",
+      "model": "EOS Rebel SL1",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-sl2",
+      "maker": "Canon",
+      "model": "EOS Rebel SL2",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-sl3",
+      "maker": "Canon",
+      "model": "EOS Rebel SL3",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t100",
+      "maker": "Canon",
+      "model": "EOS Rebel T100",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t1i",
+      "maker": "Canon",
+      "model": "EOS Rebel T1i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t2i",
+      "maker": "Canon",
+      "model": "EOS Rebel T2i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t3",
+      "maker": "Canon",
+      "model": "EOS Rebel T3",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t3i",
+      "maker": "Canon",
+      "model": "EOS Rebel T3i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t4i",
+      "maker": "Canon",
+      "model": "EOS Rebel T4i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t5",
+      "maker": "Canon",
+      "model": "EOS Rebel T5",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t5i",
+      "maker": "Canon",
+      "model": "EOS Rebel T5i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t6",
+      "maker": "Canon",
+      "model": "EOS Rebel T6",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t6i",
+      "maker": "Canon",
+      "model": "EOS Rebel T6i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t6s",
+      "maker": "Canon",
+      "model": "EOS Rebel T6s",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t7",
+      "maker": "Canon",
+      "model": "EOS Rebel T7",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t7i",
+      "maker": "Canon",
+      "model": "EOS Rebel T7i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rebel-t8i",
+      "maker": "Canon",
+      "model": "EOS Rebel T8i",
+      "format": "aps-c-canon",
+      "mount": "Canon EF-S"
+    },
+    {
+      "id": "canon-eos-rp",
+      "maker": "Canon",
+      "model": "EOS RP",
+      "format": "full-frame",
+      "mount": "Canon RF"
+    },
+    {
+      "id": "canon-eos-1d",
+      "maker": "Canon",
+      "model": "EOS-1D",
+      "format": "aps-h",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1d-mark-ii",
+      "maker": "Canon",
+      "model": "EOS-1D Mark II",
+      "format": "aps-h",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1d-mark-ii-n",
+      "maker": "Canon",
+      "model": "EOS-1D Mark II N",
+      "format": "aps-h",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1d-mark-iii",
+      "maker": "Canon",
+      "model": "EOS-1D Mark III",
+      "format": "aps-h",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1d-mark-iv",
+      "maker": "Canon",
+      "model": "EOS-1D Mark IV",
+      "format": "aps-h",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1d-x",
+      "maker": "Canon",
+      "model": "EOS-1D X",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1d-x-mark-ii",
+      "maker": "Canon",
+      "model": "EOS-1D X Mark II",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1ds",
+      "maker": "Canon",
+      "model": "EOS-1Ds",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1ds-mark-ii",
+      "maker": "Canon",
+      "model": "EOS-1Ds Mark II",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "canon-eos-1ds-mark-iii",
+      "maker": "Canon",
+      "model": "EOS-1Ds Mark III",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "fujifilm-finepix-is-pro",
+      "maker": "Fujifilm",
+      "model": "FinePix IS Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "IS Pro"
+      ]
+    },
+    {
+      "id": "fujifilm-finepix-s1-pro",
+      "maker": "Fujifilm",
+      "model": "FinePix S1 Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "FinePixS1Pro"
+      ]
+    },
+    {
+      "id": "fujifilm-finepix-s2-pro",
+      "maker": "Fujifilm",
+      "model": "FinePix S2 Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "FinePixS2Pro"
+      ]
+    },
+    {
+      "id": "fujifilm-finepix-s3-pro",
+      "maker": "Fujifilm",
+      "model": "FinePix S3 Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "FinePix S3Pro"
+      ]
+    },
+    {
+      "id": "fujifilm-finepix-s5-pro",
+      "maker": "Fujifilm",
+      "model": "FinePix S5 Pro",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "aliases": [
+        "FinePix S5Pro"
+      ]
+    },
+    {
+      "id": "fujifilm-gfx-100",
+      "maker": "Fujifilm",
+      "model": "GFX 100",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 102,
+        "afPoints": 425,
+        "fps": 5,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 1320
+      }
+    },
+    {
+      "id": "fujifilm-gfx-50r",
+      "maker": "Fujifilm",
+      "model": "GFX 50R",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G"
+    },
+    {
+      "id": "fujifilm-gfx-50s",
+      "maker": "Fujifilm",
+      "model": "GFX 50S",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G"
+    },
+    {
+      "id": "fujifilm-gfx100-ii",
+      "maker": "Fujifilm",
+      "model": "GFX100 II",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G"
+    },
+    {
+      "id": "fujifilm-gfx100s",
+      "maker": "Fujifilm",
+      "model": "GFX100S",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G"
+    },
+    {
+      "id": "fujifilm-gfx100s-ii",
+      "maker": "Fujifilm",
+      "model": "GFX100S II",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G"
+    },
+    {
+      "id": "fujifilm-gfx50s-ii",
+      "maker": "Fujifilm",
+      "model": "GFX50S II",
+      "format": "mf-44x33",
+      "mount": "Fujifilm G"
+    },
+    {
+      "id": "fujifilm-x-a1",
+      "maker": "Fujifilm",
+      "model": "X-A1",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-a10",
+      "maker": "Fujifilm",
+      "model": "X-A10",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-a2",
+      "maker": "Fujifilm",
+      "model": "X-A2",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-a3",
+      "maker": "Fujifilm",
+      "model": "X-A3",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-a5",
+      "maker": "Fujifilm",
+      "model": "X-A5",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-a7",
+      "maker": "Fujifilm",
+      "model": "X-A7",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24,
+        "afPoints": 425,
+        "fps": 6,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 320
+      }
+    },
+    {
+      "id": "fujifilm-x-e1",
+      "maker": "Fujifilm",
+      "model": "X-E1",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-e2",
+      "maker": "Fujifilm",
+      "model": "X-E2",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-e2s",
+      "maker": "Fujifilm",
+      "model": "X-E2S",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-e3",
+      "maker": "Fujifilm",
+      "model": "X-E3",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-e4",
+      "maker": "Fujifilm",
+      "model": "X-E4",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-e5",
+      "maker": "Fujifilm",
+      "model": "X-E5",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-h1",
+      "maker": "Fujifilm",
+      "model": "X-H1",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24.3,
+        "afPoints": 325,
+        "fps": 14,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 623
+      }
+    },
+    {
+      "id": "fujifilm-x-h2",
+      "maker": "Fujifilm",
+      "model": "X-H2",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-h2s",
+      "maker": "Fujifilm",
+      "model": "X-H2S",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-m1",
+      "maker": "Fujifilm",
+      "model": "X-M1",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-m5",
+      "maker": "Fujifilm",
+      "model": "X-M5",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-pro1",
+      "maker": "Fujifilm",
+      "model": "X-Pro1",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-pro2",
+      "maker": "Fujifilm",
+      "model": "X-Pro2",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-pro3",
+      "maker": "Fujifilm",
+      "model": "X-Pro3",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "specs": {
+        "isoMin": 80,
+        "isoMax": 51200,
+        "resolutionMp": 26.1,
+        "afPoints": 425,
+        "fps": 20,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 497
+      }
+    },
+    {
+      "id": "fujifilm-x-s10",
+      "maker": "Fujifilm",
+      "model": "X-S10",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-s20",
+      "maker": "Fujifilm",
+      "model": "X-S20",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t1",
+      "maker": "Fujifilm",
+      "model": "X-T1",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t10",
+      "maker": "Fujifilm",
+      "model": "X-T10",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t100",
+      "maker": "Fujifilm",
+      "model": "X-T100",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24.2,
+        "afPoints": 91,
+        "fps": 6,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 448
+      }
+    },
+    {
+      "id": "fujifilm-x-t2",
+      "maker": "Fujifilm",
+      "model": "X-T2",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t20",
+      "maker": "Fujifilm",
+      "model": "X-T20",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t200",
+      "maker": "Fujifilm",
+      "model": "X-T200",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t3",
+      "maker": "Fujifilm",
+      "model": "X-T3",
+      "format": "aps-c",
+      "mount": "Fujifilm X",
+      "specs": {
+        "isoMin": 80,
+        "isoMax": 51200,
+        "resolutionMp": 26.1,
+        "afPoints": 425,
+        "fps": 20,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 539
+      }
+    },
+    {
+      "id": "fujifilm-x-t30",
+      "maker": "Fujifilm",
+      "model": "X-T30",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t30-ii",
+      "maker": "Fujifilm",
+      "model": "X-T30 II",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t30-iii",
+      "maker": "Fujifilm",
+      "model": "X-T30 III",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t4",
+      "maker": "Fujifilm",
+      "model": "X-T4",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t5",
+      "maker": "Fujifilm",
+      "model": "X-T5",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x-t50",
+      "maker": "Fujifilm",
+      "model": "X-T50",
+      "format": "aps-c",
+      "mount": "Fujifilm X"
+    },
+    {
+      "id": "fujifilm-x100f",
+      "maker": "Fujifilm",
+      "model": "X100F",
+      "format": "aps-c",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 51200,
+        "resolutionMp": 24,
+        "afPoints": 325,
+        "fps": 8,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 469
+      }
+    },
+    {
+      "id": "hasselblad-500-mech",
+      "maker": "Hasselblad",
+      "model": "500 mech.",
+      "format": "mf-54x40",
+      "mount": "Hasselblad 500"
+    },
+    {
+      "id": "hasselblad-cfv-100c-907x",
+      "maker": "Hasselblad",
+      "model": "CFV 100C/907X",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X"
+    },
+    {
+      "id": "hasselblad-cfv-ii-50c-907x",
+      "maker": "Hasselblad",
+      "model": "CFV II 50C/907X",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X"
+    },
+    {
+      "id": "hasselblad-h3d",
+      "maker": "Hasselblad",
+      "model": "H3D",
+      "format": "mf-48x36",
+      "mount": "Hasselblad H"
+    },
+    {
+      "id": "hasselblad-x1d-ii-50c",
+      "maker": "Hasselblad",
+      "model": "X1D II 50C",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X"
+    },
+    {
+      "id": "hasselblad-x2d-100c",
+      "maker": "Hasselblad",
+      "model": "X2D 100C",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X"
+    },
+    {
+      "id": "hasselblad-x2d-ii-100c",
+      "maker": "Hasselblad",
+      "model": "X2D II 100C",
+      "format": "mf-44x33",
+      "mount": "Hasselblad X"
+    },
+    {
+      "id": "kmz-zenit-122",
+      "maker": "KMZ",
+      "model": "Zenit 122",
+      "format": "full-frame",
+      "mount": "M42"
+    },
+    {
+      "id": "kmz-zenit-122k",
+      "maker": "KMZ",
+      "model": "Zenit 122K",
+      "format": "full-frame",
+      "mount": "Pentax K"
+    },
+    {
+      "id": "kmz-zenit-212k",
+      "maker": "KMZ",
+      "model": "Zenit 212K",
+      "format": "full-frame",
+      "mount": "Pentax K"
+    },
+    {
+      "id": "kmz-zenit-312k",
+      "maker": "KMZ",
+      "model": "Zenit 312K",
+      "format": "full-frame",
+      "mount": "Pentax K"
+    },
+    {
+      "id": "kmz-zenit-412ls",
+      "maker": "KMZ",
+      "model": "Zenit 412LS",
+      "format": "full-frame",
+      "mount": "M42"
+    },
+    {
+      "id": "kmz-zenit-km",
+      "maker": "KMZ",
+      "model": "Zenit KM",
+      "format": "full-frame",
+      "mount": "Pentax K"
+    },
+    {
+      "id": "kodak-dcs-520",
+      "maker": "Kodak",
+      "model": "DCS 520",
+      "format": "aps-c-canon",
+      "mount": "Canon EF",
+      "aliases": [
+        "DCS520"
+      ]
+    },
+    {
+      "id": "kodak-dcs-pro-14n-dcs-14n",
+      "maker": "Kodak",
+      "model": "DCS Pro 14N (DCS-14n)",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "kodak-dcs-pro-14nx",
+      "maker": "Kodak",
+      "model": "DCS Pro 14nx",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "kodak-dcs-pro-slr-c",
+      "maker": "Kodak",
+      "model": "DCS Pro SLR/c",
+      "format": "full-frame",
+      "mount": "Canon EF"
+    },
+    {
+      "id": "kodak-dcs-pro-slr-n",
+      "maker": "Kodak",
+      "model": "DCS Pro SLR/n",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "konica-minolta-dynax-5d",
+      "maker": "Konica Minolta",
+      "model": "Dynax 5D",
+      "format": "aps-c",
+      "mount": "Minolta AF"
+    },
+    {
+      "id": "konica-minolta-dynax-7d",
+      "maker": "Konica Minolta",
+      "model": "Dynax 7D",
+      "format": "aps-c",
+      "mount": "Minolta AF"
+    },
+    {
+      "id": "konica-minolta-maxxum-5d",
+      "maker": "Konica Minolta",
+      "model": "Maxxum 5D",
+      "format": "aps-c",
+      "mount": "Minolta AF"
+    },
+    {
+      "id": "konica-minolta-maxxum-7d",
+      "maker": "Konica Minolta",
+      "model": "Maxxum 7D",
+      "format": "aps-c",
+      "mount": "Minolta AF"
+    },
+    {
+      "id": "leica-cl-typ-7323",
+      "maker": "Leica",
+      "model": "CL (Typ 7323)",
+      "format": "aps-c",
+      "mount": "Leica L",
+      "aliases": [
+        "CL"
+      ]
+    },
+    {
+      "id": "leica-digilux-3",
+      "maker": "Leica",
+      "model": "Digilux 3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "leica-m-typ-240",
+      "maker": "Leica",
+      "model": "M (Typ 240)",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m-ev1",
+      "maker": "Leica",
+      "model": "M EV1",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m-monochrom-typ-246",
+      "maker": "Leica",
+      "model": "M Monochrom (Typ 246)",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m10",
+      "maker": "Leica",
+      "model": "M10",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m10-monochrom",
+      "maker": "Leica",
+      "model": "M10 Monochrom",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m10-d",
+      "maker": "Leica",
+      "model": "M10-D",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m10-p",
+      "maker": "Leica",
+      "model": "M10-P",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m10-r",
+      "maker": "Leica",
+      "model": "M10-R",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m11",
+      "maker": "Leica",
+      "model": "M11",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m11-monochrom",
+      "maker": "Leica",
+      "model": "M11 Monochrom",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m11-d",
+      "maker": "Leica",
+      "model": "M11-D",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m11-p",
+      "maker": "Leica",
+      "model": "M11-P",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m8",
+      "maker": "Leica",
+      "model": "M8",
+      "format": "aps-h-27x18",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-m9",
+      "maker": "Leica",
+      "model": "M9",
+      "format": "full-frame",
+      "mount": "Leica M"
+    },
+    {
+      "id": "leica-s-typ-007",
+      "maker": "Leica",
+      "model": "S (Typ 007)",
+      "format": "mf-45x30",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 12800,
+        "resolutionMp": 37.5,
+        "afPoints": 27,
+        "fps": 3.5,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 1260
+      }
+    },
+    {
+      "id": "leica-sl-typ-601",
+      "maker": "Leica",
+      "model": "SL (Typ 601)",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "leica-sl2",
+      "maker": "Leica",
+      "model": "SL2",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "leica-sl2-s",
+      "maker": "Leica",
+      "model": "SL2-S",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "leica-sl3",
+      "maker": "Leica",
+      "model": "SL3",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "leica-sl3-p",
+      "maker": "Leica",
+      "model": "SL3-P",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "leica-sl3-s",
+      "maker": "Leica",
+      "model": "SL3-S",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "leica-t-typ-701",
+      "maker": "Leica",
+      "model": "T (Typ 701)",
+      "format": "aps-c",
+      "mount": "Leica L"
+    },
+    {
+      "id": "leica-tl",
+      "maker": "Leica",
+      "model": "TL",
+      "format": "aps-c",
+      "mount": "Leica L"
+    },
+    {
+      "id": "leica-tl2",
+      "maker": "Leica",
+      "model": "TL2",
+      "format": "aps-c",
+      "mount": "Leica L"
+    },
+    {
+      "id": "nikon-1-aw1",
+      "maker": "Nikon",
+      "model": "1 AW1",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-j1",
+      "maker": "Nikon",
+      "model": "1 J1",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-j2",
+      "maker": "Nikon",
+      "model": "1 J2",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-j3",
+      "maker": "Nikon",
+      "model": "1 J3",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-j4",
+      "maker": "Nikon",
+      "model": "1 J4",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-j5",
+      "maker": "Nikon",
+      "model": "1 J5",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-s1",
+      "maker": "Nikon",
+      "model": "1 S1",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-s2",
+      "maker": "Nikon",
+      "model": "1 S2",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-v1",
+      "maker": "Nikon",
+      "model": "1 V1",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-v2",
+      "maker": "Nikon",
+      "model": "1 V2",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-1-v3",
+      "maker": "Nikon",
+      "model": "1 V3",
+      "format": "1-inch",
+      "mount": "Nikon CX"
+    },
+    {
+      "id": "nikon-d1",
+      "maker": "Nikon",
+      "model": "D1",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d100",
+      "maker": "Nikon",
+      "model": "D100",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d1h",
+      "maker": "Nikon",
+      "model": "D1H",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d1x",
+      "maker": "Nikon",
+      "model": "D1X",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d200",
+      "maker": "Nikon",
+      "model": "D200",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d2h",
+      "maker": "Nikon",
+      "model": "D2H",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d2hs",
+      "maker": "Nikon",
+      "model": "D2Hs",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d2x",
+      "maker": "Nikon",
+      "model": "D2X",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d2xs",
+      "maker": "Nikon",
+      "model": "D2Xs",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d3",
+      "maker": "Nikon",
+      "model": "D3",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d300",
+      "maker": "Nikon",
+      "model": "D300",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d3000",
+      "maker": "Nikon",
+      "model": "D3000",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d300s",
+      "maker": "Nikon",
+      "model": "D300S",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d3100",
+      "maker": "Nikon",
+      "model": "D3100",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d3200",
+      "maker": "Nikon",
+      "model": "D3200",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d3300",
+      "maker": "Nikon",
+      "model": "D3300",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d3400",
+      "maker": "Nikon",
+      "model": "D3400",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d3500",
+      "maker": "Nikon",
+      "model": "D3500",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 24,
+        "afPoints": 11,
+        "fps": 5,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 365
+      }
+    },
+    {
+      "id": "nikon-d3s",
+      "maker": "Nikon",
+      "model": "D3S",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d3x",
+      "maker": "Nikon",
+      "model": "D3X",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d4",
+      "maker": "Nikon",
+      "model": "D4",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d40",
+      "maker": "Nikon",
+      "model": "D40",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d40x",
+      "maker": "Nikon",
+      "model": "D40X",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d4s",
+      "maker": "Nikon",
+      "model": "D4s",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d5",
+      "maker": "Nikon",
+      "model": "D5",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d50",
+      "maker": "Nikon",
+      "model": "D50",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d500",
+      "maker": "Nikon",
+      "model": "D500",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 1600000,
+        "resolutionMp": 21,
+        "afPoints": 153,
+        "fps": 10,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 860
+      }
+    },
+    {
+      "id": "nikon-d5000",
+      "maker": "Nikon",
+      "model": "D5000",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d5100",
+      "maker": "Nikon",
+      "model": "D5100",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d5200",
+      "maker": "Nikon",
+      "model": "D5200",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d5300",
+      "maker": "Nikon",
+      "model": "D5300",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d5500",
+      "maker": "Nikon",
+      "model": "D5500",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d5600",
+      "maker": "Nikon",
+      "model": "D5600",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d6",
+      "maker": "Nikon",
+      "model": "D6",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d60",
+      "maker": "Nikon",
+      "model": "D60",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d600",
+      "maker": "Nikon",
+      "model": "D600",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d610",
+      "maker": "Nikon",
+      "model": "D610",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d70",
+      "maker": "Nikon",
+      "model": "D70",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d700",
+      "maker": "Nikon",
+      "model": "D700",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d7000",
+      "maker": "Nikon",
+      "model": "D7000",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d70s",
+      "maker": "Nikon",
+      "model": "D70s",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d7100",
+      "maker": "Nikon",
+      "model": "D7100",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d7200",
+      "maker": "Nikon",
+      "model": "D7200",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d750",
+      "maker": "Nikon",
+      "model": "D750",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d7500",
+      "maker": "Nikon",
+      "model": "D7500",
+      "format": "aps-c",
+      "mount": "Nikon F AF",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 1600000,
+        "resolutionMp": 20,
+        "afPoints": 51,
+        "fps": 8,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 640
+      }
+    },
+    {
+      "id": "nikon-d780",
+      "maker": "Nikon",
+      "model": "D780",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d80",
+      "maker": "Nikon",
+      "model": "D80",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d800",
+      "maker": "Nikon",
+      "model": "D800",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d800e",
+      "maker": "Nikon",
+      "model": "D800E",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d810",
+      "maker": "Nikon",
+      "model": "D810",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-d850",
+      "maker": "Nikon",
+      "model": "D850",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 45.7,
+        "afPoints": 151,
+        "fps": 7,
+        "stabilization": false,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 1015
+      }
+    },
+    {
+      "id": "nikon-d90",
+      "maker": "Nikon",
+      "model": "D90",
+      "format": "aps-c",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-df",
+      "maker": "Nikon",
+      "model": "Df",
+      "format": "full-frame",
+      "mount": "Nikon F AF"
+    },
+    {
+      "id": "nikon-z-30",
+      "maker": "Nikon",
+      "model": "Z 30",
+      "format": "aps-c",
+      "mount": "Nikon Z"
+    },
+    {
+      "id": "nikon-z-5",
+      "maker": "Nikon",
+      "model": "Z 5",
+      "format": "full-frame",
+      "mount": "Nikon Z"
+    },
+    {
+      "id": "nikon-z-50",
+      "maker": "Nikon",
+      "model": "Z 50",
+      "format": "aps-c",
+      "mount": "Nikon Z",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 204800,
+        "resolutionMp": 20.7,
+        "afPoints": 209,
+        "fps": 11,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 397
+      }
+    },
+    {
+      "id": "nikon-z-6",
+      "maker": "Nikon",
+      "model": "Z 6",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 204800,
+        "resolutionMp": 24.3,
+        "afPoints": 273,
+        "fps": 12,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 675
+      }
+    },
+    {
+      "id": "nikon-z-6ii",
+      "maker": "Nikon",
+      "model": "Z 6II",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z 6_2"
+      ]
+    },
+    {
+      "id": "nikon-z-7",
+      "maker": "Nikon",
+      "model": "Z 7",
+      "format": "full-frame",
+      "mount": "Nikon Z"
+    },
+    {
+      "id": "nikon-z-7ii",
+      "maker": "Nikon",
+      "model": "Z 7II",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z 7_2"
+      ]
+    },
+    {
+      "id": "nikon-z-8",
+      "maker": "Nikon",
+      "model": "Z 8",
+      "format": "full-frame",
+      "mount": "Nikon Z"
+    },
+    {
+      "id": "nikon-z-9",
+      "maker": "Nikon",
+      "model": "Z 9",
+      "format": "full-frame",
+      "mount": "Nikon Z"
+    },
+    {
+      "id": "nikon-z-f",
+      "maker": "Nikon",
+      "model": "Z f",
+      "format": "full-frame",
+      "mount": "Nikon Z"
+    },
+    {
+      "id": "nikon-z-fc",
+      "maker": "Nikon",
+      "model": "Z fc",
+      "format": "aps-c",
+      "mount": "Nikon Z"
+    },
+    {
+      "id": "nikon-z50ii",
+      "maker": "Nikon",
+      "model": "Z50II",
+      "format": "aps-c",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z50_2"
+      ]
+    },
+    {
+      "id": "nikon-z5ii",
+      "maker": "Nikon",
+      "model": "Z5II",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z5_2"
+      ]
+    },
+    {
+      "id": "nikon-z5iic",
+      "maker": "Nikon",
+      "model": "Z5IIC",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z5_2C"
+      ]
+    },
+    {
+      "id": "nikon-z6iii",
+      "maker": "Nikon",
+      "model": "Z6III",
+      "format": "full-frame",
+      "mount": "Nikon Z",
+      "aliases": [
+        "Z6_3"
+      ]
+    },
+    {
+      "id": "nikon-zr",
+      "maker": "Nikon",
+      "model": "ZR",
+      "format": "full-frame",
+      "mount": "Nikon Z"
+    },
+    {
+      "id": "olympus-e-1",
+      "maker": "Olympus",
+      "model": "E-1",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-10",
+      "maker": "Olympus",
+      "model": "E-10",
+      "format": "2-3-inch",
+      "mount": "olympusE10"
+    },
+    {
+      "id": "olympus-e-20-e-20n-e-20p",
+      "maker": "Olympus",
+      "model": "E-20, E-20N, E-20P",
+      "format": "2-3-inch",
+      "mount": "olympusE10",
+      "aliases": [
+        "E-20,E-20N,E-20P"
+      ]
+    },
+    {
+      "id": "olympus-e-3",
+      "maker": "Olympus",
+      "model": "E-3",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-30",
+      "maker": "Olympus",
+      "model": "E-30",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-300",
+      "maker": "Olympus",
+      "model": "E-300",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-330",
+      "maker": "Olympus",
+      "model": "E-330",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-400",
+      "maker": "Olympus",
+      "model": "E-400",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-410",
+      "maker": "Olympus",
+      "model": "E-410",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-420",
+      "maker": "Olympus",
+      "model": "E-420",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-450",
+      "maker": "Olympus",
+      "model": "E-450",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-5",
+      "maker": "Olympus",
+      "model": "E-5",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-500",
+      "maker": "Olympus",
+      "model": "E-500",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-510",
+      "maker": "Olympus",
+      "model": "E-510",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-520",
+      "maker": "Olympus",
+      "model": "E-520",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-600",
+      "maker": "Olympus",
+      "model": "E-600",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-620",
+      "maker": "Olympus",
+      "model": "E-620",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "olympus-e-m1",
+      "maker": "Olympus",
+      "model": "E-M1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-m1-ii",
+      "maker": "Olympus",
+      "model": "E-M1 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M1MarkII"
+      ]
+    },
+    {
+      "id": "olympus-e-m1-iii",
+      "maker": "Olympus",
+      "model": "E-M1 III",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M1MarkIII"
+      ]
+    },
+    {
+      "id": "olympus-e-m10",
+      "maker": "Olympus",
+      "model": "E-M10",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-m10-ii",
+      "maker": "Olympus",
+      "model": "E-M10 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M10MarkII"
+      ]
+    },
+    {
+      "id": "olympus-e-m10-iii",
+      "maker": "Olympus",
+      "model": "E-M10 III",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M10 Mark III"
+      ]
+    },
+    {
+      "id": "olympus-e-m10-iii-s",
+      "maker": "Olympus",
+      "model": "E-M10 III S",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M10MarkIIIS"
+      ]
+    },
+    {
+      "id": "olympus-e-m10-iv",
+      "maker": "Olympus",
+      "model": "E-M10 IV",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M10MarkIV"
+      ]
+    },
+    {
+      "id": "olympus-e-m5",
+      "maker": "Olympus",
+      "model": "E-M5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-m5-ii",
+      "maker": "Olympus",
+      "model": "E-M5 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M5MarkII"
+      ]
+    },
+    {
+      "id": "olympus-e-m5-iii",
+      "maker": "Olympus",
+      "model": "E-M5 III",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "E-M5MarkIII"
+      ]
+    },
+    {
+      "id": "olympus-e-p1",
+      "maker": "Olympus",
+      "model": "E-P1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-p2",
+      "maker": "Olympus",
+      "model": "E-P2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-p3",
+      "maker": "Olympus",
+      "model": "E-P3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-p5",
+      "maker": "Olympus",
+      "model": "E-P5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-p7",
+      "maker": "Olympus",
+      "model": "E-P7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl1",
+      "maker": "Olympus",
+      "model": "E-PL1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl1s",
+      "maker": "Olympus",
+      "model": "E-PL1s",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl2",
+      "maker": "Olympus",
+      "model": "E-PL2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl3",
+      "maker": "Olympus",
+      "model": "E-PL3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl5",
+      "maker": "Olympus",
+      "model": "E-PL5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl6",
+      "maker": "Olympus",
+      "model": "E-PL6",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl7",
+      "maker": "Olympus",
+      "model": "E-PL7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl8",
+      "maker": "Olympus",
+      "model": "E-PL8",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pl9",
+      "maker": "Olympus",
+      "model": "E-PL9",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pm1",
+      "maker": "Olympus",
+      "model": "E-PM1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-e-pm2",
+      "maker": "Olympus",
+      "model": "E-PM2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "olympus-om-d-e-m1x",
+      "maker": "Olympus",
+      "model": "OM-D E-M1X",
+      "format": "four-thirds",
+      "specs": {
+        "isoMin": 64,
+        "isoMax": 25600,
+        "resolutionMp": 20,
+        "afPoints": 121,
+        "fps": 18,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 997
+      }
+    },
+    {
+      "id": "olympus-pen-f",
+      "maker": "Olympus",
+      "model": "PEN-F",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "om-system-om-1",
+      "maker": "OM System",
+      "model": "OM-1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "om-system-om-1-ii",
+      "maker": "OM System",
+      "model": "OM-1 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "OM-1MarkII"
+      ]
+    },
+    {
+      "id": "om-system-om-3",
+      "maker": "OM System",
+      "model": "OM-3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "om-system-om-5",
+      "maker": "OM System",
+      "model": "OM-5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "om-system-om-5-ii",
+      "maker": "OM System",
+      "model": "OM-5 II",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "OM-5MarkII"
+      ]
+    },
+    {
+      "id": "om-system-pen",
+      "maker": "OM System",
+      "model": "PEN",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g100",
+      "maker": "Panasonic",
+      "model": "DC-G100",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g100d",
+      "maker": "Panasonic",
+      "model": "DC-G100D",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g110",
+      "maker": "Panasonic",
+      "model": "DC-G110",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g90",
+      "maker": "Panasonic",
+      "model": "DC-G90",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g91",
+      "maker": "Panasonic",
+      "model": "DC-G91",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g95",
+      "maker": "Panasonic",
+      "model": "DC-G95",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g95d",
+      "maker": "Panasonic",
+      "model": "DC-G95D",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g97",
+      "maker": "Panasonic",
+      "model": "DC-G97",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g99",
+      "maker": "Panasonic",
+      "model": "DC-G99",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g99d",
+      "maker": "Panasonic",
+      "model": "DC-G99D",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-g9m2",
+      "maker": "Panasonic",
+      "model": "DC-G9M2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-gh5",
+      "maker": "Panasonic",
+      "model": "DC-GH5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-gh5m2",
+      "maker": "Panasonic",
+      "model": "DC-GH5M2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-gh5s",
+      "maker": "Panasonic",
+      "model": "DC-GH5S",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-gh6",
+      "maker": "Panasonic",
+      "model": "DC-GH6",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-gh7",
+      "maker": "Panasonic",
+      "model": "DC-GH7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-gx7mk3",
+      "maker": "Panasonic",
+      "model": "DC-GX7MK3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-gx800",
+      "maker": "Panasonic",
+      "model": "DC-GX800",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-gx880",
+      "maker": "Panasonic",
+      "model": "DC-GX880",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dc-s1h",
+      "maker": "Panasonic",
+      "model": "DC-S1H",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s1m2",
+      "maker": "Panasonic",
+      "model": "DC-S1M2",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s1m2es",
+      "maker": "Panasonic",
+      "model": "DC-S1M2ES",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s1r",
+      "maker": "Panasonic",
+      "model": "DC-S1R",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s1rm2",
+      "maker": "Panasonic",
+      "model": "DC-S1RM2",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s5",
+      "maker": "Panasonic",
+      "model": "DC-S5",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s5d",
+      "maker": "Panasonic",
+      "model": "DC-S5D",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s5m2",
+      "maker": "Panasonic",
+      "model": "DC-S5M2",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s5m2x",
+      "maker": "Panasonic",
+      "model": "DC-S5M2X",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dc-s9",
+      "maker": "Panasonic",
+      "model": "DC-S9",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "panasonic-dmc-g1",
+      "maker": "Panasonic",
+      "model": "DMC-G1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g10",
+      "maker": "Panasonic",
+      "model": "DMC-G10",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g2",
+      "maker": "Panasonic",
+      "model": "DMC-G2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g3",
+      "maker": "Panasonic",
+      "model": "DMC-G3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g5",
+      "maker": "Panasonic",
+      "model": "DMC-G5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g6",
+      "maker": "Panasonic",
+      "model": "DMC-G6",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g7",
+      "maker": "Panasonic",
+      "model": "DMC-G7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g70",
+      "maker": "Panasonic",
+      "model": "DMC-G70",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g8",
+      "maker": "Panasonic",
+      "model": "DMC-G8",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g80",
+      "maker": "Panasonic",
+      "model": "DMC-G80",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g81",
+      "maker": "Panasonic",
+      "model": "DMC-G81",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-g85",
+      "maker": "Panasonic",
+      "model": "DMC-G85",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gf1",
+      "maker": "Panasonic",
+      "model": "DMC-GF1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gf2",
+      "maker": "Panasonic",
+      "model": "DMC-GF2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gf3",
+      "maker": "Panasonic",
+      "model": "DMC-GF3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gf5",
+      "maker": "Panasonic",
+      "model": "DMC-GF5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gf6",
+      "maker": "Panasonic",
+      "model": "DMC-GF6",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gf7",
+      "maker": "Panasonic",
+      "model": "DMC-GF7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gf8",
+      "maker": "Panasonic",
+      "model": "DMC-GF8",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gh1",
+      "maker": "Panasonic",
+      "model": "DMC-GH1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gh2",
+      "maker": "Panasonic",
+      "model": "DMC-GH2",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gh3",
+      "maker": "Panasonic",
+      "model": "DMC-GH3",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gh4",
+      "maker": "Panasonic",
+      "model": "DMC-GH4",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gm1",
+      "maker": "Panasonic",
+      "model": "DMC-GM1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gm5",
+      "maker": "Panasonic",
+      "model": "DMC-GM5",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gx1",
+      "maker": "Panasonic",
+      "model": "DMC-GX1",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gx7",
+      "maker": "Panasonic",
+      "model": "DMC-GX7",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gx8",
+      "maker": "Panasonic",
+      "model": "DMC-GX8",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gx80",
+      "maker": "Panasonic",
+      "model": "DMC-GX80",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-gx85",
+      "maker": "Panasonic",
+      "model": "DMC-GX85",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-l1",
+      "maker": "Panasonic",
+      "model": "DMC-L1",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "panasonic-dmc-l10",
+      "maker": "Panasonic",
+      "model": "DMC-L10",
+      "format": "four-thirds",
+      "mount": "4/3 System"
+    },
+    {
+      "id": "panasonic-lumix-fz1000-ii",
+      "maker": "Panasonic",
+      "model": "Lumix FZ1000 II",
+      "format": "1-inch",
+      "aliases": [
+        "DC-FZ10002"
+      ],
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 20.1,
+        "afPoints": 49,
+        "fps": 12,
+        "stabilization": true,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 808
+      }
+    },
+    {
+      "id": "panasonic-lumix-g9",
+      "maker": "Panasonic",
+      "model": "Lumix G9",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "DC-G9"
+      ],
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 20.3,
+        "afPoints": 225,
+        "fps": 20,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 658
+      }
+    },
+    {
+      "id": "panasonic-lumix-gx9",
+      "maker": "Panasonic",
+      "model": "Lumix GX9",
+      "format": "four-thirds",
+      "mount": "Micro 4/3 System",
+      "aliases": [
+        "DC-GX9"
+      ],
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 20.3,
+        "afPoints": 49,
+        "fps": 6,
+        "stabilization": true,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 407
+      }
+    },
+    {
+      "id": "panasonic-lumix-lx100-ii",
+      "maker": "Panasonic",
+      "model": "Lumix LX100 II",
+      "format": "four-thirds-multi-aspect",
+      "aliases": [
+        "DC-LX100M2"
+      ],
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 25600,
+        "resolutionMp": 17,
+        "afPoints": 49,
+        "fps": 5.5,
+        "stabilization": true,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 392
+      }
+    },
+    {
+      "id": "panasonic-lumix-s1",
+      "maker": "Panasonic",
+      "model": "Lumix S1",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "aliases": [
+        "DC-S1"
+      ],
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 204800,
+        "resolutionMp": 24.2,
+        "afPoints": 225,
+        "fps": 6,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 1020
+      }
+    },
+    {
+      "id": "pentax-ist-d",
+      "maker": "Pentax",
+      "model": "*ist D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-ist-dl",
+      "maker": "Pentax",
+      "model": "*ist DL",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-ist-dl2",
+      "maker": "Pentax",
+      "model": "*ist DL2",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-ist-ds",
+      "maker": "Pentax",
+      "model": "*ist DS",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-ist-ds2",
+      "maker": "Pentax",
+      "model": "*ist DS2",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-645d",
+      "maker": "Pentax",
+      "model": "645D",
+      "format": "mf-44x33",
+      "mount": "Pentax 645AF2"
+    },
+    {
+      "id": "pentax-645z",
+      "maker": "Pentax",
+      "model": "645Z",
+      "format": "mf-44x33",
+      "mount": "Pentax 645AF2"
+    },
+    {
+      "id": "pentax-k-01",
+      "maker": "Pentax",
+      "model": "K-01",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-1",
+      "maker": "Pentax",
+      "model": "K-1",
+      "format": "full-frame",
+      "mount": "Pentax KAF4"
+    },
+    {
+      "id": "pentax-k-1-ii",
+      "maker": "Pentax",
+      "model": "K-1 II",
+      "format": "full-frame",
+      "mount": "Pentax KAF4",
+      "aliases": [
+        "K-1 Mark II"
+      ]
+    },
+    {
+      "id": "pentax-k-3",
+      "maker": "Pentax",
+      "model": "K-3",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-3-ii",
+      "maker": "Pentax",
+      "model": "K-3 II",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-3-iii",
+      "maker": "Pentax",
+      "model": "K-3 III",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "aliases": [
+        "K-3 Mark III"
+      ]
+    },
+    {
+      "id": "pentax-k-3-iii-monochrome",
+      "maker": "Pentax",
+      "model": "K-3 III Monochrome",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "aliases": [
+        "K-3 Mark III Monochrome"
+      ]
+    },
+    {
+      "id": "pentax-k-30",
+      "maker": "Pentax",
+      "model": "K-30",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-5",
+      "maker": "Pentax",
+      "model": "K-5",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-5-ii",
+      "maker": "Pentax",
+      "model": "K-5 II",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-5-iis",
+      "maker": "Pentax",
+      "model": "K-5 IIs",
+      "format": "aps-c",
+      "mount": "Pentax KAF2",
+      "aliases": [
+        "K-5 II s"
+      ]
+    },
+    {
+      "id": "pentax-k-50",
+      "maker": "Pentax",
+      "model": "K-50",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-500",
+      "maker": "Pentax",
+      "model": "K-500",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-7",
+      "maker": "Pentax",
+      "model": "K-7",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-70",
+      "maker": "Pentax",
+      "model": "K-70",
+      "format": "aps-c",
+      "mount": "Pentax KAF4"
+    },
+    {
+      "id": "pentax-k-m",
+      "maker": "Pentax",
+      "model": "K-m",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-r",
+      "maker": "Pentax",
+      "model": "K-r",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-s1",
+      "maker": "Pentax",
+      "model": "K-S1",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-s2",
+      "maker": "Pentax",
+      "model": "K-S2",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k-x",
+      "maker": "Pentax",
+      "model": "K-x",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k100d",
+      "maker": "Pentax",
+      "model": "K100D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k100d-super",
+      "maker": "Pentax",
+      "model": "K100D Super",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k10d",
+      "maker": "Pentax",
+      "model": "K10D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k110d",
+      "maker": "Pentax",
+      "model": "K110D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k2000",
+      "maker": "Pentax",
+      "model": "K2000",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k200d",
+      "maker": "Pentax",
+      "model": "K200D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-k20d",
+      "maker": "Pentax",
+      "model": "K20D",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-kf",
+      "maker": "Pentax",
+      "model": "KF",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-kp",
+      "maker": "Pentax",
+      "model": "KP",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "pentax-q",
+      "maker": "Pentax",
+      "model": "Q",
+      "format": "1-2-3-inch",
+      "mount": "Pentax Q"
+    },
+    {
+      "id": "pentax-q-s1",
+      "maker": "Pentax",
+      "model": "Q-S1",
+      "format": "1-1-7-inch",
+      "mount": "Pentax Q"
+    },
+    {
+      "id": "pentax-q10",
+      "maker": "Pentax",
+      "model": "Q10",
+      "format": "1-2-3-inch",
+      "mount": "Pentax Q"
+    },
+    {
+      "id": "pentax-q7",
+      "maker": "Pentax",
+      "model": "Q7",
+      "format": "1-1-7-inch",
+      "mount": "Pentax Q"
+    },
+    {
+      "id": "samsung-galaxy-nx",
+      "maker": "Samsung",
+      "model": "Galaxy NX",
+      "format": "aps-c",
+      "mount": "Samsung NX",
+      "aliases": [
+        "EK-GN120"
+      ]
+    },
+    {
+      "id": "samsung-gx-1l",
+      "maker": "Samsung",
+      "model": "GX-1L",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "samsung-gx-1s",
+      "maker": "Samsung",
+      "model": "GX-1S",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "samsung-gx10",
+      "maker": "Samsung",
+      "model": "GX10",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "samsung-gx20",
+      "maker": "Samsung",
+      "model": "GX20",
+      "format": "aps-c",
+      "mount": "Pentax KAF2"
+    },
+    {
+      "id": "samsung-nx-mini",
+      "maker": "Samsung",
+      "model": "NX mini",
+      "format": "1-inch",
+      "mount": "Samsung NX mini"
+    },
+    {
+      "id": "samsung-nx1",
+      "maker": "Samsung",
+      "model": "NX1",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx10",
+      "maker": "Samsung",
+      "model": "NX10",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx100",
+      "maker": "Samsung",
+      "model": "NX100",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx1000",
+      "maker": "Samsung",
+      "model": "NX1000",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx11",
+      "maker": "Samsung",
+      "model": "NX11",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx1100",
+      "maker": "Samsung",
+      "model": "NX1100",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx20",
+      "maker": "Samsung",
+      "model": "NX20",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx200",
+      "maker": "Samsung",
+      "model": "NX200",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx2000",
+      "maker": "Samsung",
+      "model": "NX2000",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx210",
+      "maker": "Samsung",
+      "model": "NX210",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx30",
+      "maker": "Samsung",
+      "model": "NX30",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx300",
+      "maker": "Samsung",
+      "model": "NX300",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx3000",
+      "maker": "Samsung",
+      "model": "NX3000",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx300m",
+      "maker": "Samsung",
+      "model": "NX300M",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx5",
+      "maker": "Samsung",
+      "model": "NX5",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "samsung-nx500",
+      "maker": "Samsung",
+      "model": "NX500",
+      "format": "aps-c",
+      "mount": "Samsung NX"
+    },
+    {
+      "id": "sigma-bf",
+      "maker": "Sigma",
+      "model": "BF",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "sigma-fp",
+      "maker": "Sigma",
+      "model": "fp",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "sigma-fp-l",
+      "maker": "Sigma",
+      "model": "fp L",
+      "format": "full-frame",
+      "mount": "Leica L"
+    },
+    {
+      "id": "sigma-sd-quattro",
+      "maker": "Sigma",
+      "model": "sd Quattro",
+      "format": "aps-c",
+      "mount": "Sigma SA"
+    },
+    {
+      "id": "sigma-sd-quattro-h",
+      "maker": "Sigma",
+      "model": "sd Quattro H",
+      "format": "aps-h-27x18",
+      "mount": "Sigma SA"
+    },
+    {
+      "id": "sigma-sd1",
+      "maker": "Sigma",
+      "model": "SD1",
+      "format": "aps-c",
+      "mount": "Sigma SA"
+    },
+    {
+      "id": "sigma-sd1-merrill",
+      "maker": "Sigma",
+      "model": "SD1 Merrill",
+      "format": "aps-c",
+      "mount": "Sigma SA"
+    },
+    {
+      "id": "sigma-sd10",
+      "maker": "Sigma",
+      "model": "SD10",
+      "format": "aps-c-sigma",
+      "mount": "Sigma SA"
+    },
+    {
+      "id": "sigma-sd14",
+      "maker": "Sigma",
+      "model": "SD14",
+      "format": "aps-c-sigma",
+      "mount": "Sigma SA"
+    },
+    {
+      "id": "sigma-sd15",
+      "maker": "Sigma",
+      "model": "SD15",
+      "format": "aps-c-sigma",
+      "mount": "Sigma SA"
+    },
+    {
+      "id": "sigma-sd9",
+      "maker": "Sigma",
+      "model": "SD9",
+      "format": "aps-c-sigma",
+      "mount": "Sigma SA"
+    },
+    {
+      "id": "sony-alpha-1",
+      "maker": "Sony",
+      "model": "Alpha 1",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-1"
+      ]
+    },
+    {
+      "id": "sony-alpha-1-ii",
+      "maker": "Sony",
+      "model": "Alpha 1 II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-1M2"
+      ]
+    },
+    {
+      "id": "sony-alpha-100",
+      "maker": "Sony",
+      "model": "Alpha 100",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A100"
+      ]
+    },
+    {
+      "id": "sony-alpha-200",
+      "maker": "Sony",
+      "model": "Alpha 200",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A200"
+      ]
+    },
+    {
+      "id": "sony-alpha-230",
+      "maker": "Sony",
+      "model": "Alpha 230",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A230"
+      ]
+    },
+    {
+      "id": "sony-alpha-290",
+      "maker": "Sony",
+      "model": "Alpha 290",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A290"
+      ]
+    },
+    {
+      "id": "sony-alpha-300",
+      "maker": "Sony",
+      "model": "Alpha 300",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A300"
+      ]
+    },
+    {
+      "id": "sony-alpha-3000",
+      "maker": "Sony",
+      "model": "Alpha 3000",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-3000"
+      ]
+    },
+    {
+      "id": "sony-alpha-33",
+      "maker": "Sony",
+      "model": "Alpha 33",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A33"
+      ]
+    },
+    {
+      "id": "sony-alpha-330",
+      "maker": "Sony",
+      "model": "Alpha 330",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A330"
+      ]
+    },
+    {
+      "id": "sony-alpha-35",
+      "maker": "Sony",
+      "model": "Alpha 35",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A35"
+      ]
+    },
+    {
+      "id": "sony-alpha-350",
+      "maker": "Sony",
+      "model": "Alpha 350",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A350"
+      ]
+    },
+    {
+      "id": "sony-alpha-37",
+      "maker": "Sony",
+      "model": "Alpha 37",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A37"
+      ]
+    },
+    {
+      "id": "sony-alpha-380",
+      "maker": "Sony",
+      "model": "Alpha 380",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A380"
+      ]
+    },
+    {
+      "id": "sony-alpha-390",
+      "maker": "Sony",
+      "model": "Alpha 390",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A390"
+      ]
+    },
+    {
+      "id": "sony-alpha-450",
+      "maker": "Sony",
+      "model": "Alpha 450",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A450"
+      ]
+    },
+    {
+      "id": "sony-alpha-500",
+      "maker": "Sony",
+      "model": "Alpha 500",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A500"
+      ]
+    },
+    {
+      "id": "sony-alpha-5000",
+      "maker": "Sony",
+      "model": "Alpha 5000",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-5000"
+      ]
+    },
+    {
+      "id": "sony-alpha-5100",
+      "maker": "Sony",
+      "model": "Alpha 5100",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-5100"
+      ]
+    },
+    {
+      "id": "sony-alpha-55",
+      "maker": "Sony",
+      "model": "Alpha 55",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A55V"
+      ]
+    },
+    {
+      "id": "sony-alpha-550",
+      "maker": "Sony",
+      "model": "Alpha 550",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A550"
+      ]
+    },
+    {
+      "id": "sony-alpha-560",
+      "maker": "Sony",
+      "model": "Alpha 560",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A560"
+      ]
+    },
+    {
+      "id": "sony-alpha-57",
+      "maker": "Sony",
+      "model": "Alpha 57",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A57"
+      ]
+    },
+    {
+      "id": "sony-alpha-58",
+      "maker": "Sony",
+      "model": "Alpha 58",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A58"
+      ]
+    },
+    {
+      "id": "sony-alpha-580",
+      "maker": "Sony",
+      "model": "Alpha 580",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A580"
+      ]
+    },
+    {
+      "id": "sony-alpha-6000",
+      "maker": "Sony",
+      "model": "Alpha 6000",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6000"
+      ]
+    },
+    {
+      "id": "sony-alpha-6100",
+      "maker": "Sony",
+      "model": "Alpha 6100",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6100"
+      ]
+    },
+    {
+      "id": "sony-alpha-6100a",
+      "maker": "Sony",
+      "model": "Alpha 6100A",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6100A"
+      ]
+    },
+    {
+      "id": "sony-alpha-6300",
+      "maker": "Sony",
+      "model": "Alpha 6300",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6300"
+      ]
+    },
+    {
+      "id": "sony-alpha-6400",
+      "maker": "Sony",
+      "model": "Alpha 6400",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6400"
+      ],
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 102400,
+        "resolutionMp": 24.2,
+        "afPoints": 425,
+        "fps": 11,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 403
+      }
+    },
+    {
+      "id": "sony-alpha-6400a",
+      "maker": "Sony",
+      "model": "Alpha 6400A",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6400A"
+      ]
+    },
+    {
+      "id": "sony-alpha-65",
+      "maker": "Sony",
+      "model": "Alpha 65",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A65V"
+      ]
+    },
+    {
+      "id": "sony-alpha-6500",
+      "maker": "Sony",
+      "model": "Alpha 6500",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6500"
+      ]
+    },
+    {
+      "id": "sony-alpha-6600",
+      "maker": "Sony",
+      "model": "Alpha 6600",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6600"
+      ],
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 24.2,
+        "afPoints": 425,
+        "fps": 11,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 503
+      }
+    },
+    {
+      "id": "sony-alpha-6700",
+      "maker": "Sony",
+      "model": "Alpha 6700",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6700"
+      ]
+    },
+    {
+      "id": "sony-alpha-68",
+      "maker": "Sony",
+      "model": "Alpha 68",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "ILCA-68"
+      ]
+    },
+    {
+      "id": "sony-alpha-7",
+      "maker": "Sony",
+      "model": "Alpha 7",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7"
+      ]
+    },
+    {
+      "id": "sony-alpha-7-ii",
+      "maker": "Sony",
+      "model": "Alpha 7 II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7M2"
+      ]
+    },
+    {
+      "id": "sony-alpha-7-iii",
+      "maker": "Sony",
+      "model": "Alpha 7 III",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7M3"
+      ],
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 204800,
+        "resolutionMp": 24.2,
+        "afPoints": 693,
+        "fps": 10,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 650
+      }
+    },
+    {
+      "id": "sony-alpha-7-iv",
+      "maker": "Sony",
+      "model": "Alpha 7 IV",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7M4"
+      ]
+    },
+    {
+      "id": "sony-alpha-7-v",
+      "maker": "Sony",
+      "model": "Alpha 7 V",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7M5"
+      ]
+    },
+    {
+      "id": "sony-alpha-700",
+      "maker": "Sony",
+      "model": "Alpha 700",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A700"
+      ]
+    },
+    {
+      "id": "sony-alpha-77",
+      "maker": "Sony",
+      "model": "Alpha 77",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A77V"
+      ]
+    },
+    {
+      "id": "sony-alpha-77-ii",
+      "maker": "Sony",
+      "model": "Alpha 77 II",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "ILCA-77M2"
+      ]
+    },
+    {
+      "id": "sony-alpha-7c",
+      "maker": "Sony",
+      "model": "Alpha 7C",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7C"
+      ]
+    },
+    {
+      "id": "sony-alpha-7c-ii",
+      "maker": "Sony",
+      "model": "Alpha 7C II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7CM2"
+      ]
+    },
+    {
+      "id": "sony-alpha-7cr",
+      "maker": "Sony",
+      "model": "Alpha 7CR",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7CR"
+      ]
+    },
+    {
+      "id": "sony-alpha-7r",
+      "maker": "Sony",
+      "model": "Alpha 7R",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7R"
+      ]
+    },
+    {
+      "id": "sony-alpha-7r-ii",
+      "maker": "Sony",
+      "model": "Alpha 7R II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM2"
+      ]
+    },
+    {
+      "id": "sony-alpha-7r-iii",
+      "maker": "Sony",
+      "model": "Alpha 7R III",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM3"
+      ]
+    },
+    {
+      "id": "sony-alpha-7r-iiia",
+      "maker": "Sony",
+      "model": "Alpha 7R IIIA",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM3A"
+      ]
+    },
+    {
+      "id": "sony-alpha-7r-iv",
+      "maker": "Sony",
+      "model": "Alpha 7R IV",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM4"
+      ],
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 61,
+        "afPoints": 567,
+        "fps": 10,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 665
+      }
+    },
+    {
+      "id": "sony-alpha-7r-iva",
+      "maker": "Sony",
+      "model": "Alpha 7R IVA",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM4A"
+      ]
+    },
+    {
+      "id": "sony-alpha-7r-v",
+      "maker": "Sony",
+      "model": "Alpha 7R V",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM5"
+      ]
+    },
+    {
+      "id": "sony-alpha-7r-vi",
+      "maker": "Sony",
+      "model": "Alpha 7R VI",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM6"
+      ]
+    },
+    {
+      "id": "sony-alpha-7s",
+      "maker": "Sony",
+      "model": "Alpha 7S",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7S"
+      ]
+    },
+    {
+      "id": "sony-alpha-7s-ii",
+      "maker": "Sony",
+      "model": "Alpha 7S II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7SM2"
+      ]
+    },
+    {
+      "id": "sony-alpha-7s-iii",
+      "maker": "Sony",
+      "model": "Alpha 7S III",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7SM3"
+      ]
+    },
+    {
+      "id": "sony-alpha-850",
+      "maker": "Sony",
+      "model": "Alpha 850",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A850"
+      ]
+    },
+    {
+      "id": "sony-alpha-9",
+      "maker": "Sony",
+      "model": "Alpha 9",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-9"
+      ]
+    },
+    {
+      "id": "sony-alpha-9-ii",
+      "maker": "Sony",
+      "model": "Alpha 9 II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-9M2"
+      ],
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 204800,
+        "resolutionMp": 24.3,
+        "afPoints": 693,
+        "fps": 20,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 678
+      }
+    },
+    {
+      "id": "sony-alpha-9-iii",
+      "maker": "Sony",
+      "model": "Alpha 9 III",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-9M3"
+      ]
+    },
+    {
+      "id": "sony-alpha-900",
+      "maker": "Sony",
+      "model": "Alpha 900",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A900"
+      ]
+    },
+    {
+      "id": "sony-alpha-99",
+      "maker": "Sony",
+      "model": "Alpha 99",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A99"
+      ]
+    },
+    {
+      "id": "sony-alpha-99-ii",
+      "maker": "Sony",
+      "model": "Alpha 99 II",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "ILCA-99M2"
+      ]
+    },
+    {
+      "id": "sony-alpha-99v",
+      "maker": "Sony",
+      "model": "Alpha 99V",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A99V"
+      ]
+    },
+    {
+      "id": "sony-fx2",
+      "maker": "Sony",
+      "model": "FX2",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILME-FX2"
+      ]
+    },
+    {
+      "id": "sony-fx3",
+      "maker": "Sony",
+      "model": "FX3",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILME-FX3"
+      ]
+    },
+    {
+      "id": "sony-fx30",
+      "maker": "Sony",
+      "model": "FX30",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILME-FX30"
+      ]
+    },
+    {
+      "id": "sony-nex-3",
+      "maker": "Sony",
+      "model": "NEX-3",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-3n",
+      "maker": "Sony",
+      "model": "NEX-3N",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-5",
+      "maker": "Sony",
+      "model": "NEX-5",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-5n",
+      "maker": "Sony",
+      "model": "NEX-5N",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-5r",
+      "maker": "Sony",
+      "model": "NEX-5R",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-5t",
+      "maker": "Sony",
+      "model": "NEX-5T",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-6",
+      "maker": "Sony",
+      "model": "NEX-6",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-7",
+      "maker": "Sony",
+      "model": "NEX-7",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-c3",
+      "maker": "Sony",
+      "model": "NEX-C3",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-nex-f3",
+      "maker": "Sony",
+      "model": "NEX-F3",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-rx100-vii",
+      "maker": "Sony",
+      "model": "RX100 VII",
+      "format": "1-inch",
+      "aliases": [
+        "DSC-RX100M7"
+      ],
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 12800,
+        "resolutionMp": 20,
+        "afPoints": 357,
+        "fps": 20,
+        "stabilization": true,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 302
+      }
+    },
+    {
+      "id": "sony-zv-e1",
+      "maker": "Sony",
+      "model": "ZV-E1",
+      "format": "full-frame",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-zv-e10",
+      "maker": "Sony",
+      "model": "ZV-E10",
+      "format": "aps-c",
+      "mount": "Sony E"
+    },
+    {
+      "id": "sony-zv-e10-ii",
+      "maker": "Sony",
+      "model": "ZV-E10 II",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ZV-E10M2"
+      ]
+    }
+  ]
+}

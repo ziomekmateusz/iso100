@@ -1,0 +1,864 @@
+{
+  "maker": "Sony",
+  "cameras": [
+    {
+      "id": "sony-alpha-1",
+      "model": "Alpha 1",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-1"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-1-ii",
+      "model": "Alpha 1 II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-1M2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-100",
+      "model": "Alpha 100",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A100"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-200",
+      "model": "Alpha 200",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A200"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-230",
+      "model": "Alpha 230",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A230"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-290",
+      "model": "Alpha 290",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A290"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-300",
+      "model": "Alpha 300",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A300"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-3000",
+      "model": "Alpha 3000",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-3000"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-33",
+      "model": "Alpha 33",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A33"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-330",
+      "model": "Alpha 330",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A330"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-35",
+      "model": "Alpha 35",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A35"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-350",
+      "model": "Alpha 350",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A350"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-37",
+      "model": "Alpha 37",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A37"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-380",
+      "model": "Alpha 380",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A380"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-390",
+      "model": "Alpha 390",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A390"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-450",
+      "model": "Alpha 450",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A450"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-500",
+      "model": "Alpha 500",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A500"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-5000",
+      "model": "Alpha 5000",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-5000"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-5100",
+      "model": "Alpha 5100",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-5100"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-55",
+      "model": "Alpha 55",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A55V"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-550",
+      "model": "Alpha 550",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A550"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-560",
+      "model": "Alpha 560",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A560"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-57",
+      "model": "Alpha 57",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A57"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-58",
+      "model": "Alpha 58",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A58"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-580",
+      "model": "Alpha 580",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A580"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-6000",
+      "model": "Alpha 6000",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6000"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-6100",
+      "model": "Alpha 6100",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6100"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-6100a",
+      "model": "Alpha 6100A",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6100A"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-6300",
+      "model": "Alpha 6300",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6300"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-6400",
+      "model": "Alpha 6400",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6400"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 100,
+        "isoMax": 102400,
+        "resolutionMp": 24.2,
+        "afPoints": 425,
+        "fps": 11,
+        "stabilization": false,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 403
+      }
+    },
+    {
+      "id": "sony-alpha-6400a",
+      "model": "Alpha 6400A",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6400A"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-65",
+      "model": "Alpha 65",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A65V"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-6500",
+      "model": "Alpha 6500",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6500"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-6600",
+      "model": "Alpha 6600",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6600"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 24.2,
+        "afPoints": 425,
+        "fps": 11,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 503
+      }
+    },
+    {
+      "id": "sony-alpha-6700",
+      "model": "Alpha 6700",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-6700"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-68",
+      "model": "Alpha 68",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "ILCA-68"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7",
+      "model": "Alpha 7",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7-ii",
+      "model": "Alpha 7 II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7M2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7-iii",
+      "model": "Alpha 7 III",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7M3"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 204800,
+        "resolutionMp": 24.2,
+        "afPoints": 693,
+        "fps": 10,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 650
+      }
+    },
+    {
+      "id": "sony-alpha-7-iv",
+      "model": "Alpha 7 IV",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7M4"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7-v",
+      "model": "Alpha 7 V",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7M5"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-700",
+      "model": "Alpha 700",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A700"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-77",
+      "model": "Alpha 77",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A77V"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-77-ii",
+      "model": "Alpha 77 II",
+      "format": "aps-c",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "ILCA-77M2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7c",
+      "model": "Alpha 7C",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7C"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7c-ii",
+      "model": "Alpha 7C II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7CM2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7cr",
+      "model": "Alpha 7CR",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7CR"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7r",
+      "model": "Alpha 7R",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7R"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7r-ii",
+      "model": "Alpha 7R II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7r-iii",
+      "model": "Alpha 7R III",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM3"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7r-iiia",
+      "model": "Alpha 7R IIIA",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM3A"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7r-iv",
+      "model": "Alpha 7R IV",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM4"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 102400,
+        "resolutionMp": 61,
+        "afPoints": 567,
+        "fps": 10,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 665
+      }
+    },
+    {
+      "id": "sony-alpha-7r-iva",
+      "model": "Alpha 7R IVA",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM4A"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7r-v",
+      "model": "Alpha 7R V",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM5"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7r-vi",
+      "model": "Alpha 7R VI",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7RM6"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7s",
+      "model": "Alpha 7S",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7S"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7s-ii",
+      "model": "Alpha 7S II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7SM2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-7s-iii",
+      "model": "Alpha 7S III",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-7SM3"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-850",
+      "model": "Alpha 850",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A850"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-9",
+      "model": "Alpha 9",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-9"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-9-ii",
+      "model": "Alpha 9 II",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-9M2"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 204800,
+        "resolutionMp": 24.3,
+        "afPoints": 693,
+        "fps": 20,
+        "stabilization": true,
+        "weatherSealed": true,
+        "wifi": true,
+        "weightG": 678
+      }
+    },
+    {
+      "id": "sony-alpha-9-iii",
+      "model": "Alpha 9 III",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILCE-9M3"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-900",
+      "model": "Alpha 900",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "DSLR-A900"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-99",
+      "model": "Alpha 99",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A99"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-99-ii",
+      "model": "Alpha 99 II",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "ILCA-99M2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-alpha-99v",
+      "model": "Alpha 99V",
+      "format": "full-frame",
+      "mount": "Sony Alpha",
+      "aliases": [
+        "SLT-A99V"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-fx2",
+      "model": "FX2",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILME-FX2"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-fx3",
+      "model": "FX3",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "aliases": [
+        "ILME-FX3"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-fx30",
+      "model": "FX30",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ILME-FX30"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-3",
+      "model": "NEX-3",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-3n",
+      "model": "NEX-3N",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-5",
+      "model": "NEX-5",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-5n",
+      "model": "NEX-5N",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-5r",
+      "model": "NEX-5R",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-5t",
+      "model": "NEX-5T",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-6",
+      "model": "NEX-6",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-7",
+      "model": "NEX-7",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-c3",
+      "model": "NEX-C3",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-nex-f3",
+      "model": "NEX-F3",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-rx100-vii",
+      "model": "RX100 VII",
+      "format": "1-inch",
+      "aliases": [
+        "DSC-RX100M7"
+      ],
+      "source": "iso100",
+      "specs": {
+        "isoMin": 50,
+        "isoMax": 12800,
+        "resolutionMp": 20,
+        "afPoints": 357,
+        "fps": 20,
+        "stabilization": true,
+        "weatherSealed": false,
+        "wifi": true,
+        "weightG": 302
+      }
+    },
+    {
+      "id": "sony-zv-e1",
+      "model": "ZV-E1",
+      "format": "full-frame",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-zv-e10",
+      "model": "ZV-E10",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "source": "lensfun"
+    },
+    {
+      "id": "sony-zv-e10-ii",
+      "model": "ZV-E10 II",
+      "format": "aps-c",
+      "mount": "Sony E",
+      "aliases": [
+        "ZV-E10M2"
+      ],
+      "source": "lensfun"
+    }
+  ]
+}

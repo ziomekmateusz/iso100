@@ -1,0 +1,43 @@
+{
+  "maker": "Kodak",
+  "cameras": [
+    {
+      "id": "kodak-dcs-520",
+      "model": "DCS 520",
+      "format": "aps-c-canon",
+      "mount": "Canon EF",
+      "aliases": [
+        "DCS520"
+      ],
+      "source": "lensfun"
+    },
+    {
+      "id": "kodak-dcs-pro-14n-dcs-14n",
+      "model": "DCS Pro 14N (DCS-14n)",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "kodak-dcs-pro-14nx",
+      "model": "DCS Pro 14nx",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    },
+    {
+      "id": "kodak-dcs-pro-slr-c",
+      "model": "DCS Pro SLR/c",
+      "format": "full-frame",
+      "mount": "Canon EF",
+      "source": "lensfun"
+    },
+    {
+      "id": "kodak-dcs-pro-slr-n",
+      "model": "DCS Pro SLR/n",
+      "format": "full-frame",
+      "mount": "Nikon F AF",
+      "source": "lensfun"
+    }
+  ]
+}

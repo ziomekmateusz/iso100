@@ -1,0 +1,18 @@
+# Go (tools/)
+/dist/
+*.test
+*.out
+
+# Gradle e Kotlin (android/)
+.gradle/
+.kotlin/
+build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Claude Code: impostazioni personali
+.claude/settings.local.json

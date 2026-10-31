@@ -1,0 +1,21 @@
+name: catalog
+
+on:
+  push:
+    paths: ["data/**", "tools/**", "go.work", ".github/workflows/catalog.yml"]
+  pull_request:
+    paths: ["data/**", "tools/**", "go.work", ".github/workflows/catalog.yml"]
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: tools/go.mod
+      - run: go vet ./tools/...
+      - run: go test ./tools/...
+      - run: go run ./tools/cmd/catalog validate
+      - run: go run ./tools/cmd/catalog fmt -check
+      - run: go run ./tools/cmd/catalog build -check -out android/app/src/main/assets/catalog.json

@@ -1,0 +1,82 @@
+{
+  "maker": "Sigma",
+  "cameras": [
+    {
+      "id": "sigma-bf",
+      "model": "BF",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-fp",
+      "model": "fp",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-fp-l",
+      "model": "fp L",
+      "format": "full-frame",
+      "mount": "Leica L",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-sd-quattro",
+      "model": "sd Quattro",
+      "format": "aps-c",
+      "mount": "Sigma SA",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-sd-quattro-h",
+      "model": "sd Quattro H",
+      "format": "aps-h-27x18",
+      "mount": "Sigma SA",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-sd1",
+      "model": "SD1",
+      "format": "aps-c",
+      "mount": "Sigma SA",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-sd1-merrill",
+      "model": "SD1 Merrill",
+      "format": "aps-c",
+      "mount": "Sigma SA",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-sd10",
+      "model": "SD10",
+      "format": "aps-c-sigma",
+      "mount": "Sigma SA",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-sd14",
+      "model": "SD14",
+      "format": "aps-c-sigma",
+      "mount": "Sigma SA",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-sd15",
+      "model": "SD15",
+      "format": "aps-c-sigma",
+      "mount": "Sigma SA",
+      "source": "lensfun"
+    },
+    {
+      "id": "sigma-sd9",
+      "model": "SD9",
+      "format": "aps-c-sigma",
+      "mount": "Sigma SA",
+      "source": "lensfun"
+    }
+  ]
+}

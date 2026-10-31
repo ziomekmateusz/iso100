@@ -1,0 +1,22 @@
+{
+  "formats": [
+    { "id": "full-frame", "name": "Full Frame (35 mm)", "widthMm": 36, "heightMm": 24 },
+    { "id": "aps-h", "name": "APS-H (Canon)", "widthMm": 28.7, "heightMm": 19 },
+    { "id": "aps-h-27x18", "name": "APS-H 27×18 (Leica M8, Sigma sd Quattro H)", "widthMm": 27, "heightMm": 18 },
+    { "id": "aps-c", "name": "APS-C", "widthMm": 23.5, "heightMm": 15.6 },
+    { "id": "aps-c-canon", "name": "APS-C (Canon)", "widthMm": 22.3, "heightMm": 14.9 },
+    { "id": "aps-c-sigma", "name": "APS-C (Sigma Foveon)", "widthMm": 20.7, "heightMm": 13.8 },
+    { "id": "four-thirds", "name": "Four Thirds / Micro 4/3", "widthMm": 17.3, "heightMm": 13 },
+    { "id": "four-thirds-multi-aspect", "name": "4/3 multi-aspect (LX100, D-Lux)", "widthMm": 15.7, "heightMm": 11.8 },
+    { "id": "1-inch", "name": "1\"", "widthMm": 13.2, "heightMm": 8.8 },
+    { "id": "2-3-inch", "name": "2/3\"", "widthMm": 8.8, "heightMm": 6.6 },
+    { "id": "1-1-7-inch", "name": "1/1.7\"", "widthMm": 7.6, "heightMm": 5.7 },
+    { "id": "1-1-8-inch", "name": "1/1.8\"", "widthMm": 7.18, "heightMm": 5.32 },
+    { "id": "1-2-3-inch", "name": "1/2.3\"", "widthMm": 6.17, "heightMm": 4.55 },
+    { "id": "1-2-5-inch", "name": "1/2.5\"", "widthMm": 5.76, "heightMm": 4.29 },
+    { "id": "mf-44x33", "name": "Medio formato 44×33", "widthMm": 43.8, "heightMm": 32.9 },
+    { "id": "mf-45x30", "name": "Medio formato 45×30 (Leica S)", "widthMm": 45, "heightMm": 30 },
+    { "id": "mf-48x36", "name": "Medio formato 48×36", "widthMm": 48, "heightMm": 36 },
+    { "id": "mf-54x40", "name": "Medio formato 54×40", "widthMm": 53.4, "heightMm": 40 }
+  ]
+}
