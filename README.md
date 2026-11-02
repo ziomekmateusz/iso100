@@ -111,12 +111,11 @@ the NOAA Solar Calculator and the US Naval Observatory.
 
 ## Use of AI
 
-This app was developed largely with Claude Code (Anthropic), under my direction: that covers the
+This app (or rather rewrite of the original app) was developed largely with Claude Code (Anthropic), under my direction: that covers the
 code, tests and documentation. The design and the icon also came from AI tools.
 
 The calculations are checked by tests against values worked out by hand and published sun and moon
-data. The app itself has no AI features. Responsibility for the project remains mine: if you find a
-mistake, please open an issue.
+data. The app itself has no AI features. 
 
 ## License
 
