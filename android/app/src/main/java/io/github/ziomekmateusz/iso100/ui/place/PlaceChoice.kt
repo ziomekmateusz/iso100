@@ -33,6 +33,9 @@ fun choosePlace(placeId: String?, saved: List<SavedPlace>, location: LocationSta
     return if (location is LocationState.Found) PlaceChoice.Ready(location.place, location.name, current = true) else PlaceChoice.Unavailable(location)
 }
 
+fun shouldLocate(settings: Settings, saved: List<SavedPlace>, location: LocationState): Boolean =
+    settings.autoLocation && location == LocationState.Unknown && saved.none { it.id == settings.placeId }
+
 /** The place of the screen and how to ask for the position: the permission first, then [LocationStore.refresh]. */
 class PlaceHandle(val choice: PlaceChoice, val locate: () -> Unit)
 
@@ -54,8 +57,7 @@ fun rememberPlace(app: AppContainer): PlaceHandle {
         }
     }
     LaunchedEffect(app) {
-        val stored = app.settings.settings.first()
-        if (stored.autoLocation && stored.placeId == null && app.location.state.value == LocationState.Unknown) locate()
+        if (shouldLocate(app.settings.settings.first(), app.savedPlaces.places.first(), app.location.state.value)) locate()
     }
     val choice = remember(settings.placeId, saved, location) { choosePlace(settings.placeId, saved, location) }
     return PlaceHandle(choice, locate)

@@ -14,6 +14,7 @@ import androidx.core.location.LocationManagerCompat
 import io.github.ziomekmateusz.iso100.calc.astro.Place
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -46,11 +47,16 @@ class LocationStore(private val context: Context, private val geocoding: Geocodi
     private val _state = MutableStateFlow<LocationState>(LocationState.Unknown)
     val state: StateFlow<LocationState> = _state.asStateFlow()
 
-    /** Asks for the position again; a request already running is not restarted, for example on rotation. */
+    private var refreshing: Job? = null
+
+    /** Asks for the position again, unless a request is running; a known position stays if no new one arrives. */
     fun refresh() {
-        if (_state.value == LocationState.Locating) return
-        _state.value = LocationState.Locating
-        scope.launch { _state.value = locate() }
+        if (refreshing?.isActive == true) return
+        if (_state.value !is LocationState.Found) _state.value = LocationState.Locating
+        refreshing = scope.launch {
+            val located = locate()
+            if (located is LocationState.Found || _state.value !is LocationState.Found) _state.value = located
+        }
     }
 
     private suspend fun locate(): LocationState {
@@ -58,18 +64,25 @@ class LocationStore(private val context: Context, private val geocoding: Geocodi
         if (granted != PackageManager.PERMISSION_GRANTED) return LocationState.PermissionDenied
         val manager = context.getSystemService(LocationManager::class.java)
         if (!LocationManagerCompat.isLocationEnabled(manager)) return LocationState.LocationOff
-        val location = currentLocation(manager) ?: return LocationState.NotFound
+        val providers = providers(manager)
+        val location = providers.firstOrNull()?.let { currentLocation(manager, it) }
+            ?: lastKnownLocation(manager, providers)
+            ?: return LocationState.NotFound
         val place = Place(location.latitude, location.longitude, ZoneId.systemDefault())
         return LocationState.Found(place, geocoding.name(location.latitude, location.longitude))
     }
 
-    // permission checked in locate(); FUSED_PROVIDER does not exist on API 30, so it is skipped there
-    @SuppressLint("MissingPermission", "InlinedApi")
-    private suspend fun currentLocation(manager: LocationManager): Location? {
-        // with the coarse permission only the network and fused providers answer
-        val provider = listOf(LocationManager.FUSED_PROVIDER, LocationManager.NETWORK_PROVIDER)
-            .firstOrNull { LocationManagerCompat.hasProvider(manager, it) && manager.isProviderEnabled(it) }
-            ?: return null
+    @SuppressLint("InlinedApi")
+    private fun providers(manager: LocationManager): List<String> =
+        listOf(LocationManager.FUSED_PROVIDER, LocationManager.NETWORK_PROVIDER)
+            .filter { LocationManagerCompat.hasProvider(manager, it) && manager.isProviderEnabled(it) }
+
+    @SuppressLint("MissingPermission")
+    private fun lastKnownLocation(manager: LocationManager, providers: List<String>): Location? =
+        providers.mapNotNull { manager.getLastKnownLocation(it) }.maxByOrNull { it.elapsedRealtimeNanos }
+
+    @SuppressLint("MissingPermission")
+    private suspend fun currentLocation(manager: LocationManager, provider: String): Location? {
         return suspendCancellableCoroutine { continuation ->
             val cancel = CancellationSignal()
             continuation.invokeOnCancellation { cancel.cancel() }

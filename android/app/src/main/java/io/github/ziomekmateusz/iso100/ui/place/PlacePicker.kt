@@ -87,7 +87,7 @@ fun PlacePickerSheet(onDismiss: () -> Unit, onLocate: () -> Unit, app: AppContai
                 is PlacePickerAction.Search -> query = action.query
                 PlacePickerAction.ChooseCurrent -> {
                     app.scope.launch { app.settings.setPlace(null) }
-                    if (location !is LocationState.Found) onLocate()
+                    onLocate()
                     onDismiss()
                 }
                 is PlacePickerAction.ChooseSaved -> {
