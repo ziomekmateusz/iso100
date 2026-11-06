@@ -1,11 +1,11 @@
 package io.github.ziomekmateusz.iso100.ui.home
 
-import io.github.ziomekmateusz.iso100.data.Selection
 import io.github.ziomekmateusz.iso100.ui.moon.MoonInput
 import io.github.ziomekmateusz.iso100.ui.moon.MoonUiState
 import io.github.ziomekmateusz.iso100.ui.place.PlaceChoice
 import io.github.ziomekmateusz.iso100.ui.sun.SunInput
 import io.github.ziomekmateusz.iso100.ui.sun.SunUiState
+import java.time.Duration
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZonedDateTime
@@ -14,27 +14,29 @@ import java.time.ZonedDateTime
 data class TodayUiState(
     val place: PlaceChoice,
     val date: LocalDate,
+    val now: Instant,
     /** The start of the evening golden hour; null when there is none (polar days). */
     val goldenHour: ZonedDateTime?,
     val sunset: ZonedDateTime?,
     val moonIllumination: Double,
     val moonWaxing: Boolean,
-    /** "Alpha 7 III", or the format alone; null when nothing is chosen. */
-    val camera: String?,
 ) {
     companion object {
-        fun from(place: PlaceChoice, selection: Selection?, now: Instant): TodayUiState {
+        fun from(place: PlaceChoice, now: Instant): TodayUiState {
             val sun = SunUiState.from(SunInput(), place, now)
             val moon = MoonUiState.from(MoonInput(), place, now)
             return TodayUiState(
                 place = place,
                 date = sun.date,
+                now = now,
                 goldenHour = sun.goldenHours.evening?.start,
                 sunset = sun.day?.sunriseSunset?.set,
                 moonIllumination = moon.moon.illumination,
                 moonWaxing = moon.moon.waxing,
-                camera = selection?.let { it.camera?.model ?: it.format.name },
             )
         }
     }
 }
+
+/** Whole minutes from [now] to [event]; negative once it has passed. */
+fun minutesBetween(now: Instant, event: Instant): Long = Duration.between(now, event).toMinutes()

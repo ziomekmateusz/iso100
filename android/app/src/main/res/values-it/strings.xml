@@ -2,10 +2,6 @@
     <string name="back">Indietro</string>
     <string name="settings">Impostazioni</string>
 
-    <string name="group_exposure">Esposizione</string>
-    <string name="group_optics">Ottica</string>
-    <string name="group_sky">Cielo</string>
-    <string name="group_time">Tempo</string>
 
     <string name="tool_exposure">Equivalente</string>
     <string name="tool_exposure_hint">ISO, diaframma, tempo, ND</string>
@@ -238,6 +234,9 @@
     <string name="today_plain">Oggi · %1$s</string>
     <string name="moon_waxing">crescente</string>
     <string name="moon_waning">calante</string>
+    <string name="today_in_time">tra %1$s</string>
+    <string name="today_time_ago">%1$s fa</string>
+    <string name="today_now">ora</string>
     <plurals name="moon_disc_description">
         <item quantity="one">Luna illuminata all\'%1$d per cento, %2$s</item>
         <item quantity="many">Luna illuminata al %1$d per cento, %2$s</item>

@@ -2,10 +2,6 @@
     <string name="back">Wstecz</string>
     <string name="settings">Ustawienia</string>
 
-    <string name="group_exposure">Ekspozycja</string>
-    <string name="group_optics">Optyka</string>
-    <string name="group_sky">Niebo</string>
-    <string name="group_time">Czas</string>
 
     <string name="tool_exposure">Ekwiwalent</string>
     <string name="tool_exposure_hint">ISO, przysłona, czas, ND</string>
@@ -240,6 +236,9 @@
     <string name="today_plain">Dziś · %1$s</string>
     <string name="moon_waxing">przybywa</string>
     <string name="moon_waning">ubywa</string>
+    <string name="today_in_time">za %1$s</string>
+    <string name="today_time_ago">%1$s temu</string>
+    <string name="today_now">teraz</string>
     <plurals name="moon_disc_description">
         <item quantity="one">Księżyc oświetlony w %1$d procencie, %2$s</item>
         <item quantity="few">Księżyc oświetlony w %1$d procentach, %2$s</item>

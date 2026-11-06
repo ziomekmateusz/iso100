@@ -3,10 +3,6 @@
     <string name="back">Back</string>
     <string name="settings">Settings</string>
 
-    <string name="group_exposure">Exposure</string>
-    <string name="group_optics">Optics</string>
-    <string name="group_sky">Sky</string>
-    <string name="group_time">Time</string>
 
     <string name="tool_exposure">Equivalent</string>
     <string name="tool_exposure_hint">ISO, aperture, shutter, ND</string>
@@ -273,6 +269,9 @@
     <string name="today_plain">Today · %1$s</string>
     <string name="moon_waxing">waxing</string>
     <string name="moon_waning">waning</string>
+    <string name="today_in_time">in %1$s</string>
+    <string name="today_time_ago">%1$s ago</string>
+    <string name="today_now">now</string>
     <plurals name="moon_disc_description">
         <item quantity="one">Moon %1$d percent lit, %2$s</item>
         <item quantity="other">Moon %1$d percent lit, %2$s</item>
