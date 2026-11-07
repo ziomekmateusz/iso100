@@ -39,9 +39,7 @@ import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withLink
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
@@ -56,6 +54,7 @@ import io.github.ziomekmateusz.iso100.calc.units.UnitSystem
 import io.github.ziomekmateusz.iso100.data.AppTheme
 import io.github.ziomekmateusz.iso100.data.Settings
 import io.github.ziomekmateusz.iso100.ui.CameraLabel
+import io.github.ziomekmateusz.iso100.ui.components.CameraSelector
 import io.github.ziomekmateusz.iso100.ui.components.SegmentedChoice
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
 import io.github.ziomekmateusz.iso100.ui.place.PlaceChoice
@@ -82,7 +81,6 @@ fun SettingsScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, onSavedPlaces
     SettingsContent(
         state,
         onAction = { action ->
-            // the choices are saved on the app scope; AppCompat stores the language and recreates the activity
             when (action) {
                 is SettingsAction.SetStopStep -> app.scope.launch { app.settings.setStopStep(action.step) }
                 is SettingsAction.SetUnits -> app.scope.launch { app.settings.setUnits(action.units) }
@@ -109,75 +107,106 @@ fun SettingsScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, onSavedPlaces
 
 @Composable
 fun SettingsContent(state: SettingsUiState, onAction: (SettingsAction) -> Unit, onBack: () -> Unit) {
-    val colors = MaterialTheme.colorScheme
-    val settings = state.settings
     ToolScaffold(title = stringResource(R.string.settings), onBack = onBack) {
-        CameraRow(state.camera) { onAction(SettingsAction.ChooseCamera) }
-        Surface(shape = MaterialTheme.shapes.medium, color = colors.surface) {
-            Column(Modifier.padding(horizontal = 16.dp, vertical = 14.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-                Choice(
-                    stringResource(R.string.stop_step_label),
-                    listOf(R.string.stop_full, R.string.stop_half, R.string.stop_third),
-                    listOf(StopStep.FULL, StopStep.HALF, StopStep.THIRD).indexOf(settings.stopStep),
-                ) { onAction(SettingsAction.SetStopStep(listOf(StopStep.FULL, StopStep.HALF, StopStep.THIRD)[it])) }
-                Choice(
-                    stringResource(R.string.units_label),
-                    listOf(R.string.units_metric, R.string.units_imperial),
-                    listOf(UnitSystem.METRIC, UnitSystem.IMPERIAL).indexOf(settings.units),
-                ) { onAction(SettingsAction.SetUnits(listOf(UnitSystem.METRIC, UnitSystem.IMPERIAL)[it])) }
-                Choice(
-                    stringResource(R.string.theme_label),
-                    listOf(R.string.theme_system, R.string.theme_dark, R.string.theme_light, R.string.theme_red_night),
-                    THEMES.indexOf(settings.theme),
-                ) { onAction(SettingsAction.SetTheme(THEMES[it])) }
-            }
-        }
-        Surface(shape = MaterialTheme.shapes.medium, color = colors.surface) {
-            Column(Modifier.padding(horizontal = 16.dp)) {
-                SwitchRow(
-                    stringResource(R.string.auto_red_night),
-                    stringResource(if (settings.autoRedNight && !state.hasPlace) R.string.auto_red_night_needs_place else R.string.auto_red_night_hint),
-                    settings.autoRedNight,
-                ) { onAction(SettingsAction.SetAutoRedNight(it)) }
-                HorizontalDivider(color = colors.surfaceContainerHigh)
-                SwitchRow(stringResource(R.string.auto_location), stringResource(R.string.auto_location_hint), settings.autoLocation) {
-                    onAction(SettingsAction.SetAutoLocation(it))
-                }
-                HorizontalDivider(color = colors.surfaceContainerHigh)
-                LinkRow(stringResource(R.string.title_saved_places), state.savedPlaces.toString()) { onAction(SettingsAction.OpenSavedPlaces) }
-                HorizontalDivider(color = colors.surfaceContainerHigh)
-                LinkRow(stringResource(R.string.language), languageName(state.language)) { onAction(SettingsAction.OpenLanguage) }
-                HorizontalDivider(color = colors.surfaceContainerHigh)
-                LinkRow(stringResource(R.string.title_licenses), "") { onAction(SettingsAction.OpenLicenses) }
-            }
-        }
+        CameraSelector(state.camera) { onAction(SettingsAction.ChooseCamera) }
+        CalculationCard(state.settings, onAction)
+        AppCard(state, onAction)
         Footer(state)
     }
-    if (state.languageDialog) LanguageDialog(state.language, { onAction(SettingsAction.SetLanguage(it)) }, { onAction(SettingsAction.Dismiss) })
+    if (state.languageDialog) LanguageDialog(
+        state.language,
+        { onAction(SettingsAction.SetLanguage(it)) },
+        { onAction(SettingsAction.Dismiss) })
 }
 
-private val THEMES = listOf(AppTheme.SYSTEM, AppTheme.DARK, AppTheme.LIGHT, AppTheme.RED_NIGHT)
-
+/** Stop step, units and theme: how the tools count and look. */
 @Composable
-private fun CameraRow(camera: CameraLabel?, onClick: () -> Unit) {
-    val colors = MaterialTheme.colorScheme
-    Surface(onClick = onClick, shape = MaterialTheme.shapes.medium, color = colors.surface) {
-        Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
-            Column(Modifier.weight(1f)) {
-                Text(stringResource(R.string.title_camera), fontSize = 14.sp, color = colors.onSurfaceVariant)
-                Text(
-                    buildAnnotatedString {
-                        append(camera?.title ?: stringResource(R.string.choose_camera))
-                        camera?.detail?.let { withStyle(SpanStyle(fontWeight = FontWeight.Normal, color = colors.onSurfaceVariant)) { append(" " + stringResource(R.string.separator) + it) } }
-                    },
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.SemiBold,
-                )
-            }
-            Icon(painterResource(R.drawable.ic_forward), null, Modifier.size(20.dp), tint = colors.onSurfaceVariant)
+private fun CalculationCard(settings: Settings, onAction: (SettingsAction) -> Unit) {
+    SettingsCard {
+        Column(
+            Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp)
+        ) {
+            Choice(
+                stringResource(R.string.stop_step_label),
+                listOf(R.string.stop_full, R.string.stop_half, R.string.stop_third),
+                STOP_STEPS.indexOf(settings.stopStep),
+            ) { onAction(SettingsAction.SetStopStep(STOP_STEPS[it])) }
+            Choice(
+                stringResource(R.string.units_label),
+                listOf(R.string.units_metric, R.string.units_imperial),
+                UNIT_SYSTEMS.indexOf(settings.units),
+            ) { onAction(SettingsAction.SetUnits(UNIT_SYSTEMS[it])) }
+            Choice(
+                stringResource(R.string.theme_label),
+                listOf(
+                    R.string.theme_system,
+                    R.string.theme_dark,
+                    R.string.theme_light,
+                    R.string.theme_red_night
+                ),
+                THEMES.indexOf(settings.theme),
+            ) { onAction(SettingsAction.SetTheme(THEMES[it])) }
         }
     }
 }
+
+/** Red night, location, places, language and licenses: the app around the tools. */
+@Composable
+private fun AppCard(state: SettingsUiState, onAction: (SettingsAction) -> Unit) {
+    val settings = state.settings
+    SettingsCard {
+        Column(Modifier.padding(horizontal = 16.dp)) {
+            SwitchRow(
+                stringResource(R.string.auto_red_night),
+                stringResource(if (settings.autoRedNight && !state.hasPlace) R.string.auto_red_night_needs_place else R.string.auto_red_night_hint),
+                settings.autoRedNight,
+            ) { onAction(SettingsAction.SetAutoRedNight(it)) }
+            RowDivider()
+            SwitchRow(
+                stringResource(R.string.auto_location),
+                stringResource(R.string.auto_location_hint),
+                settings.autoLocation
+            ) {
+                onAction(SettingsAction.SetAutoLocation(it))
+            }
+            RowDivider()
+            LinkRow(
+                stringResource(R.string.title_saved_places),
+                state.savedPlaces.toString()
+            ) { onAction(SettingsAction.OpenSavedPlaces) }
+            RowDivider()
+            LinkRow(stringResource(R.string.language), languageName(state.language)) {
+                onAction(
+                    SettingsAction.OpenLanguage
+                )
+            }
+            RowDivider()
+            LinkRow(
+                stringResource(R.string.title_licenses),
+                ""
+            ) { onAction(SettingsAction.OpenLicenses) }
+        }
+    }
+}
+
+@Composable
+private fun SettingsCard(content: @Composable () -> Unit) {
+    Surface(
+        shape = MaterialTheme.shapes.medium,
+        color = MaterialTheme.colorScheme.surface,
+        content = content
+    )
+}
+
+@Composable
+private fun RowDivider() {
+    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+}
+
+private val STOP_STEPS = listOf(StopStep.FULL, StopStep.HALF, StopStep.THIRD)
+private val UNIT_SYSTEMS = listOf(UnitSystem.METRIC, UnitSystem.IMPERIAL)
+private val THEMES = listOf(AppTheme.SYSTEM, AppTheme.DARK, AppTheme.LIGHT, AppTheme.RED_NIGHT)
 
 @Composable
 private fun Choice(label: String, options: List<Int>, selected: Int, onSelect: (Int) -> Unit) {
@@ -191,7 +220,11 @@ private fun Choice(label: String, options: List<Int>, selected: Int, onSelect: (
 private fun SwitchRow(label: String, hint: String, checked: Boolean, onChange: (Boolean) -> Unit) {
     val colors = MaterialTheme.colorScheme
     Row(
-        Modifier.fillMaxWidth().heightIn(min = 64.dp).toggleable(checked, role = Role.Switch, onValueChange = onChange).padding(vertical = 8.dp),
+        Modifier
+            .fillMaxWidth()
+            .heightIn(min = 64.dp)
+            .toggleable(checked, role = Role.Switch, onValueChange = onChange)
+            .padding(vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -217,7 +250,11 @@ private fun SwitchRow(label: String, hint: String, checked: Boolean, onChange: (
 @Composable
 private fun LinkRow(label: String, value: String, onClick: () -> Unit) {
     Row(
-        Modifier.fillMaxWidth().heightIn(min = 56.dp).selectable(selected = false, onClick = onClick, role = Role.Button).padding(vertical = 8.dp),
+        Modifier
+            .fillMaxWidth()
+            .heightIn(min = 56.dp)
+            .selectable(selected = false, onClick = onClick, role = Role.Button)
+            .padding(vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -270,7 +307,14 @@ private fun LanguageDialog(current: String?, onPick: (String?) -> Unit, onDismis
             Column(Modifier.selectableGroup()) {
                 LANGUAGES.forEach { tag ->
                     Row(
-                        Modifier.fillMaxWidth().heightIn(min = 48.dp).selectable(tag == current, onClick = { onPick(tag) }, role = Role.RadioButton),
+                        Modifier
+                            .fillMaxWidth()
+                            .heightIn(min = 48.dp)
+                            .selectable(
+                                tag == current,
+                                onClick = { onPick(tag) },
+                                role = Role.RadioButton
+                            ),
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {

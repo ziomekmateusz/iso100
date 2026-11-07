@@ -69,61 +69,17 @@ fun TimelapseScreen(onBack: () -> Unit) {
 
 @Composable
 fun TimelapseContent(state: TimelapseUiState, onAction: (TimelapseAction) -> Unit, onBack: () -> Unit) {
-    // the messages of :calc speak in seconds whatever the units
-    fun error(input: Input) = state.invalid.takeIf { it?.input == input }
     ToolScaffold(
         title = stringResource(R.string.tool_timelapse),
         onBack = onBack,
-        footer = { padding ->
-            ControlSheet(padding) {
-                if (state.solve != TimelapseTarget.RECORDING) {
-                    DurationField(
-                        label = stringResource(R.string.recording_time),
-                        seconds = state.recordingS,
-                        onValueChange = { onAction(TimelapseAction.SetRecording(it)) },
-                        error = error(Input.RECORDING_TIME).messageFor(Input.RECORDING_TIME, UnitSystem.METRIC),
-                    )
-                }
-                if (state.solve != TimelapseTarget.INTERVAL) {
-                    NumberField(
-                        label = stringResource(R.string.interval_label),
-                        value = state.intervalS,
-                        unit = stringResource(R.string.symbol_s),
-                        onValueChange = { onAction(TimelapseAction.SetInterval(it)) },
-                        onDecrease = { onAction(TimelapseAction.StepInterval(up = false)) },
-                        onIncrease = { onAction(TimelapseAction.StepInterval(up = true)) },
-                        decreaseDescription = stringResource(R.string.interval_shorter),
-                        increaseDescription = stringResource(R.string.interval_longer),
-                        error = error(Input.INTERVAL).messageFor(Input.INTERVAL, UnitSystem.METRIC),
-                    )
-                }
-                if (state.solve != TimelapseTarget.CLIP) {
-                    NumberField(
-                        label = stringResource(R.string.clip_label),
-                        value = state.clipS,
-                        unit = stringResource(R.string.symbol_s),
-                        onValueChange = { onAction(TimelapseAction.SetClip(it)) },
-                        onDecrease = { onAction(TimelapseAction.StepClip(up = false)) },
-                        onIncrease = { onAction(TimelapseAction.StepClip(up = true)) },
-                        decreaseDescription = stringResource(R.string.clip_shorter),
-                        increaseDescription = stringResource(R.string.clip_longer),
-                        error = error(Input.CLIP_LENGTH).messageFor(Input.CLIP_LENGTH, UnitSystem.METRIC),
-                    )
-                }
-                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    FpsChoice(state.fps, { onAction(TimelapseAction.SetFps(it)) }, Modifier.weight(1.4f))
-                    PhotoSizeField(
-                        state.photoSizeMb,
-                        { onAction(TimelapseAction.SetPhotoSize(it)) },
-                        error(Input.PHOTO_SIZE).messageFor(Input.PHOTO_SIZE, UnitSystem.METRIC),
-                        Modifier.weight(1f),
-                    )
-                }
-            }
-        },
+        footer = { padding -> ControlSheet(padding) { TimelapseControls(state, onAction) } },
     ) {
         SegmentedChoice(
-            options = listOf(stringResource(R.string.timelapse_clip), stringResource(R.string.timelapse_interval), stringResource(R.string.timelapse_recording)),
+            options = listOf(
+                stringResource(R.string.timelapse_clip),
+                stringResource(R.string.timelapse_interval),
+                stringResource(R.string.timelapse_recording)
+            ),
             selected = state.solve.ordinal,
             onSelect = { onAction(TimelapseAction.Solve(TimelapseTarget.entries[it])) },
             description = stringResource(R.string.solve_label),
@@ -131,6 +87,68 @@ fun TimelapseContent(state: TimelapseUiState, onAction: (TimelapseAction) -> Uni
         ResultCard { Result(state) }
     }
 }
+
+/** The two values that are not being solved, then fps and photo size. */
+@Composable
+private fun TimelapseControls(state: TimelapseUiState, onAction: (TimelapseAction) -> Unit) {
+    if (state.solve != TimelapseTarget.RECORDING) RecordingField(state, onAction)
+    if (state.solve != TimelapseTarget.INTERVAL) IntervalField(state, onAction)
+    if (state.solve != TimelapseTarget.CLIP) ClipField(state, onAction)
+    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+        FpsChoice(state.fps, { onAction(TimelapseAction.SetFps(it)) }, Modifier.weight(1.4f))
+        PhotoSizeField(
+            state.photoSizeMb,
+            { onAction(TimelapseAction.SetPhotoSize(it)) },
+            state.errorFor(Input.PHOTO_SIZE),
+            Modifier.weight(1f),
+        )
+    }
+}
+
+@Composable
+private fun RecordingField(state: TimelapseUiState, onAction: (TimelapseAction) -> Unit) {
+    DurationField(
+        label = stringResource(R.string.recording_time),
+        seconds = state.recordingS,
+        onValueChange = { onAction(TimelapseAction.SetRecording(it)) },
+        error = state.errorFor(Input.RECORDING_TIME),
+    )
+}
+
+@Composable
+private fun IntervalField(state: TimelapseUiState, onAction: (TimelapseAction) -> Unit) {
+    NumberField(
+        label = stringResource(R.string.interval_label),
+        value = state.intervalS,
+        unit = stringResource(R.string.symbol_s),
+        onValueChange = { onAction(TimelapseAction.SetInterval(it)) },
+        onDecrease = { onAction(TimelapseAction.StepInterval(up = false)) },
+        onIncrease = { onAction(TimelapseAction.StepInterval(up = true)) },
+        decreaseDescription = stringResource(R.string.interval_shorter),
+        increaseDescription = stringResource(R.string.interval_longer),
+        error = state.errorFor(Input.INTERVAL),
+    )
+}
+
+@Composable
+private fun ClipField(state: TimelapseUiState, onAction: (TimelapseAction) -> Unit) {
+    NumberField(
+        label = stringResource(R.string.clip_label),
+        value = state.clipS,
+        unit = stringResource(R.string.symbol_s),
+        onValueChange = { onAction(TimelapseAction.SetClip(it)) },
+        onDecrease = { onAction(TimelapseAction.StepClip(up = false)) },
+        onIncrease = { onAction(TimelapseAction.StepClip(up = true)) },
+        decreaseDescription = stringResource(R.string.clip_shorter),
+        increaseDescription = stringResource(R.string.clip_longer),
+        error = state.errorFor(Input.CLIP_LENGTH),
+    )
+}
+
+/** In seconds: the messages of :calc speak in seconds whatever the units. */
+@Composable
+private fun TimelapseUiState.errorFor(input: Input): String? =
+    invalid.messageFor(input, UnitSystem.METRIC)
 
 @Composable
 private fun Result(state: TimelapseUiState) {

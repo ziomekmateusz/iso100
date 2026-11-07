@@ -10,10 +10,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,12 +21,9 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -56,6 +53,7 @@ import io.github.ziomekmateusz.iso100.data.LocationState
 import io.github.ziomekmateusz.iso100.data.PlaceCandidate
 import io.github.ziomekmateusz.iso100.data.SavedPlace
 import io.github.ziomekmateusz.iso100.data.Settings
+import io.github.ziomekmateusz.iso100.ui.components.AppBottomSheet
 import io.github.ziomekmateusz.iso100.ui.currentLocale
 import io.github.ziomekmateusz.iso100.ui.number
 import kotlinx.coroutines.delay
@@ -125,54 +123,100 @@ sealed interface PlacePickerAction {
     data class ChooseFound(val candidate: PlaceCandidate) : PlacePickerAction
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlacePickerContent(state: PlacePickerUiState, onAction: (PlacePickerAction) -> Unit, onDismiss: () -> Unit) {
-    val colors = MaterialTheme.colorScheme
-    ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), containerColor = colors.surface) {
-        LazyColumn(Modifier.navigationBarsPadding().padding(bottom = 16.dp)) {
+    AppBottomSheet(onDismiss = onDismiss) {
+        LazyColumn(Modifier.padding(bottom = 16.dp)) {
             item { Text(stringResource(R.string.choose_place), Modifier.padding(horizontal = 16.dp), style = MaterialTheme.typography.titleLarge) }
-            item {
-                val current = state.location
-                PlaceRow(
-                    title = stringResource(R.string.current_position),
-                    detail = when (current) {
-                        is LocationState.Found -> placeName(current.name, current.place)
-                        LocationState.Locating -> stringResource(R.string.location_locating)
-                        else -> null
-                    },
-                    selected = state.placeId == null || state.saved.none { it.id == state.placeId },
-                    onClick = { onAction(PlacePickerAction.ChooseCurrent) },
+            item { CurrentPlace(state) { onAction(PlacePickerAction.ChooseCurrent) } }
+            savedPlaces(state) { onAction(PlacePickerAction.ChooseSaved(it)) }
+            placeSearch(state, onAction)
+        }
+    }
+}
+
+/** The phone's position, chosen when no saved place is. */
+@Composable
+private fun CurrentPlace(state: PlacePickerUiState, onChoose: () -> Unit) {
+    val current = state.location
+    PlaceRow(
+        title = stringResource(R.string.current_position),
+        detail = when (current) {
+            is LocationState.Found -> placeName(current.name, current.place)
+            LocationState.Locating -> stringResource(R.string.location_locating)
+            else -> null
+        },
+        selected = state.placeId == null || state.saved.none { it.id == state.placeId },
+        onClick = onChoose,
+    )
+}
+
+private fun LazyListScope.savedPlaces(state: PlacePickerUiState, onChoose: (String) -> Unit) {
+    if (state.saved.isEmpty()) return
+    item { Header(stringResource(R.string.title_saved_places)) }
+    items(state.saved, key = { it.id }) { place ->
+        PlaceRow(place.name, place.zoneId, place.id == state.placeId, { onChoose(place.id) })
+    }
+}
+
+/** The search field and what it found, or why there is no search. */
+private fun LazyListScope.placeSearch(
+    state: PlacePickerUiState,
+    onAction: (PlacePickerAction) -> Unit
+) {
+    item { Header(stringResource(R.string.place_search)) }
+    if (!state.searchAvailable) {
+        item { Note(stringResource(R.string.place_search_unavailable)) }
+        return
+    }
+    item { SearchField(state.query) { onAction(PlacePickerAction.Search(it)) } }
+    val found = state.found
+    when {
+        found == null -> item { Searching() }
+        found.isEmpty() && state.query.isNotBlank() -> item {
+            Note(
+                stringResource(
+                    R.string.place_not_found,
+                    state.query.trim()
                 )
-            }
-            if (state.saved.isNotEmpty()) {
-                item { Header(stringResource(R.string.title_saved_places)) }
-                items(state.saved, key = { it.id }) { place ->
-                    PlaceRow(place.name, place.zoneId, place.id == state.placeId, { onAction(PlacePickerAction.ChooseSaved(place.id)) })
-                }
-            }
-            item { Header(stringResource(R.string.place_search)) }
-            if (!state.searchAvailable) {
-                item { Note(stringResource(R.string.place_search_unavailable)) }
-            } else {
-                item { SearchField(state.query) { onAction(PlacePickerAction.Search(it)) } }
-                val found = state.found
-                when {
-                    found == null -> item { Box(Modifier.fillMaxWidth().padding(16.dp), contentAlignment = Alignment.Center) { CircularProgressIndicator(Modifier.size(24.dp)) } }
-                    found.isEmpty() && state.query.isNotBlank() -> item { Note(stringResource(R.string.place_not_found, state.query.trim())) }
-                    else -> items(found) { candidate ->
-                        val locale = currentLocale()
-                        PlaceRow(
-                            candidate.name,
-                            stringResource(R.string.coordinates, number(candidate.latitude, 2, locale), number(candidate.longitude, 2, locale)),
-                            selected = false,
-                            onClick = { onAction(PlacePickerAction.ChooseFound(candidate)) },
-                        )
-                    }
-                }
+            )
+        }
+
+        else -> items(found) { candidate ->
+            FoundPlace(candidate) {
+                onAction(
+                    PlacePickerAction.ChooseFound(
+                        candidate
+                    )
+                )
             }
         }
     }
+}
+
+@Composable
+private fun FoundPlace(candidate: PlaceCandidate, onChoose: () -> Unit) {
+    val locale = currentLocale()
+    PlaceRow(
+        candidate.name,
+        stringResource(
+            R.string.coordinates,
+            number(candidate.latitude, 2, locale),
+            number(candidate.longitude, 2, locale)
+        ),
+        selected = false,
+        onClick = onChoose,
+    )
+}
+
+@Composable
+private fun Searching() {
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) { CircularProgressIndicator(Modifier.size(24.dp)) }
 }
 
 @Composable
@@ -213,7 +257,10 @@ private fun SearchField(query: String, onQueryChange: (String) -> Unit) {
     BasicTextField(
         value = query,
         onValueChange = onQueryChange,
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp).semantics { contentDescription = description },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 4.dp)
+            .semantics { contentDescription = description },
         textStyle = TextStyle(fontSize = 18.sp, color = colors.onSurface, fontFamily = MaterialTheme.typography.bodyLarge.fontFamily),
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
         keyboardActions = KeyboardActions(onSearch = { keyboard?.hide() }),
@@ -222,7 +269,11 @@ private fun SearchField(query: String, onQueryChange: (String) -> Unit) {
         decorationBox = { inner ->
             val shape = RoundedCornerShape(28.dp)
             Row(
-                Modifier.height(56.dp).background(colors.background, shape).border(1.dp, colors.outlineVariant, shape).padding(horizontal = 16.dp),
+                Modifier
+                    .height(56.dp)
+                    .background(colors.background, shape)
+                    .border(1.dp, colors.outlineVariant, shape)
+                    .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {

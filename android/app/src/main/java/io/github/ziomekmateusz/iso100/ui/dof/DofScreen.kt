@@ -41,15 +41,16 @@ import io.github.ziomekmateusz.iso100.calc.units.UnitSystem
 import io.github.ziomekmateusz.iso100.data.AppTheme
 import io.github.ziomekmateusz.iso100.data.Settings
 import io.github.ziomekmateusz.iso100.ui.CameraLabel
-import io.github.ziomekmateusz.iso100.ui.components.CameraChip
+import io.github.ziomekmateusz.iso100.ui.components.ApertureDial
+import io.github.ziomekmateusz.iso100.ui.components.CameraSelector
 import io.github.ziomekmateusz.iso100.ui.components.ChooseCameraCard
 import io.github.ziomekmateusz.iso100.ui.components.ControlSheet
 import io.github.ziomekmateusz.iso100.ui.components.DofBar
+import io.github.ziomekmateusz.iso100.ui.components.FocalLengthField
 import io.github.ziomekmateusz.iso100.ui.components.NumberField
 import io.github.ziomekmateusz.iso100.ui.components.ResultCard
 import io.github.ziomekmateusz.iso100.ui.components.ResultTile
 import io.github.ziomekmateusz.iso100.ui.components.RollingText
-import io.github.ziomekmateusz.iso100.ui.components.StopDial
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
 import io.github.ziomekmateusz.iso100.ui.components.dial
 import io.github.ziomekmateusz.iso100.ui.components.twoDigits
@@ -74,86 +75,110 @@ fun DofScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, app: AppContainer 
 
 @Composable
 fun DofContent(state: DofUiState, onAction: (DofAction) -> Unit, onBack: () -> Unit, onChooseCamera: () -> Unit) {
-    val units = state.units
-    val locale = currentLocale()
     ToolScaffold(
         title = stringResource(R.string.tool_dof),
         onBack = onBack,
-        footer = { padding ->
-            ControlSheet(padding) {
-                StopDial(
-                    label = stringResource(R.string.aperture),
-                    dial = state.aperture,
-                    onSelect = { onAction(DofAction.SetAperture(it.actual)) },
-                    valueText = { stringResource(R.string.aperture_value, shortNumber(it.nominal, locale)) },
-                    tickLabel = { shortNumber(it.nominal, locale) },
-                    trailing = stopStepText(state.step),
-                )
-                NumberField(
-                    label = stringResource(R.string.focal_length),
-                    value = state.focalLengthMm,
-                    unit = stringResource(R.string.symbol_mm),
-                    onValueChange = { onAction(DofAction.SetFocalLength(it)) },
-                    onDecrease = { onAction(DofAction.StepFocalLength(up = false)) },
-                    onIncrease = { onAction(DofAction.StepFocalLength(up = true)) },
-                    decreaseDescription = stringResource(R.string.focal_length_shorter),
-                    increaseDescription = stringResource(R.string.focal_length_longer),
-                    error = state.invalid.messageFor(Input.FOCAL_LENGTH, units),
-                )
-                NumberField(
-                    label = stringResource(R.string.focus_distance),
-                    value = state.focus,
-                    unit = distanceSymbol(units),
-                    onValueChange = { onAction(DofAction.SetFocus(it, units)) },
-                    onDecrease = { onAction(DofAction.StepFocus(up = false, units)) },
-                    onIncrease = { onAction(DofAction.StepFocus(up = true, units)) },
-                    decreaseDescription = stringResource(R.string.focus_closer),
-                    increaseDescription = stringResource(R.string.focus_farther),
-                    error = state.invalid.messageFor(Input.FOCUS_DISTANCE, units),
-                    labelAction = state.result?.let { result -> { HyperfocalButton { onAction(DofAction.FocusAt(result.hyperfocalM)) } } },
-                )
-            }
-        },
+        footer = { padding -> ControlSheet(padding) { DofControls(state, onAction) } },
     ) {
-        CameraChip(state.camera?.title, state.camera?.detail, onChooseCamera)
         if (state.camera == null) {
             ChooseCameraCard(stringResource(R.string.empty_format_dof), onChooseCamera)
         } else {
-            ResultCard {
-                SharpZone(state.result, units)
-                state.result?.let {
-                    DofBar(
-                        nearM = it.nearM,
-                        focusM = state.focusM,
-                        farM = it.farM,
-                        hyperfocalM = it.hyperfocalM,
-                        scale = barScale(units),
-                        description = stringResource(
-                            R.string.dof_bar_description,
-                            distanceText(it.nearM, units),
-                            farText(it.farM, units),
-                            distanceText(state.focusM, units),
-                            distanceText(it.hyperfocalM, units),
-                        ),
-                        onFocus = { meters ->
-                            onAction(
-                                DofAction.SetFocus(
-                                    twoDigits(
-                                        units.fromMeters(
-                                            meters
-                                        )
-                                    ), units
-                                )
-                            )
-                        },
+            CameraSelector(camera = state.camera, onClick = onChooseCamera)
+            ResultCard { DofResult(state, onAction) }
+        }
+    }
+}
+
+@Composable
+private fun DofControls(state: DofUiState, onAction: (DofAction) -> Unit) {
+    ApertureDial(
+        state.aperture,
+        trailing = stopStepText(state.step)
+    ) { onAction(DofAction.SetAperture(it)) }
+    FocalLengthField(
+        state.focalLengthMm,
+        state.invalid.messageFor(Input.FOCAL_LENGTH, state.units),
+        onValueChange = { onAction(DofAction.SetFocalLength(it)) },
+        onStep = { onAction(DofAction.StepFocalLength(it)) },
+    )
+    FocusField(state, onAction)
+}
+
+/** The focus distance, with "at the hyperfocal" once there is a result to take it from. */
+@Composable
+private fun FocusField(state: DofUiState, onAction: (DofAction) -> Unit) {
+    val units = state.units
+    NumberField(
+        label = stringResource(R.string.focus_distance),
+        value = state.focus,
+        unit = distanceSymbol(units),
+        onValueChange = { onAction(DofAction.SetFocus(it, units)) },
+        onDecrease = { onAction(DofAction.StepFocus(up = false, units)) },
+        onIncrease = { onAction(DofAction.StepFocus(up = true, units)) },
+        decreaseDescription = stringResource(R.string.focus_closer),
+        increaseDescription = stringResource(R.string.focus_farther),
+        error = state.invalid.messageFor(Input.FOCUS_DISTANCE, units),
+        labelAction = state.result?.let { result ->
+            {
+                HyperfocalButton {
+                    onAction(
+                        DofAction.FocusAt(
+                            result.hyperfocalM
+                        )
                     )
-                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                        ResultTile(stringResource(R.string.dof_depth), it.depthM?.let { d -> distanceText(d, units) } ?: stringResource(R.string.infinity), Modifier.weight(1f))
-                        ResultTile(stringResource(R.string.dof_hyperfocal), distanceText(it.hyperfocalM, units), Modifier.weight(1f))
-                    }
                 }
             }
-        }
+        },
+    )
+}
+
+@Composable
+private fun DofResult(state: DofUiState, onAction: (DofAction) -> Unit) {
+    SharpZone(state.result, state.units)
+    state.result?.let { result ->
+        FocusBar(result, state, onAction)
+        DepthTiles(result, state.units)
+    }
+}
+
+/** The sharp zone on the bar; dragging the focus sets it, kept to two digits in the user's units. */
+@Composable
+private fun FocusBar(result: DepthOfField, state: DofUiState, onAction: (DofAction) -> Unit) {
+    val units = state.units
+    DofBar(
+        nearM = result.nearM,
+        focusM = state.focusM,
+        farM = result.farM,
+        hyperfocalM = result.hyperfocalM,
+        scale = barScale(units),
+        description = stringResource(
+            R.string.dof_bar_description,
+            distanceText(result.nearM, units),
+            farText(result.farM, units),
+            distanceText(state.focusM, units),
+            distanceText(result.hyperfocalM, units),
+        ),
+        onFocus = { meters ->
+            onAction(
+                DofAction.SetFocus(
+                    twoDigits(units.fromMeters(meters)),
+                    units
+                )
+            )
+        },
+    )
+}
+
+@Composable
+private fun DepthTiles(result: DepthOfField, units: UnitSystem) {
+    val depth = result.depthM?.let { distanceText(it, units) } ?: stringResource(R.string.infinity)
+    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        ResultTile(stringResource(R.string.dof_depth), depth, Modifier.weight(1f))
+        ResultTile(
+            stringResource(R.string.dof_hyperfocal),
+            distanceText(result.hyperfocalM, units),
+            Modifier.weight(1f)
+        )
     }
 }
 

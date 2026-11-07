@@ -7,39 +7,40 @@ import io.github.ziomekmateusz.iso100.data.Settings
 import kotlinx.parcelize.Parcelize
 
 /**
- * What the user typed, whether they asked for the list of sensor formats instead of the cameras, and
- * the camera whose characteristics are open ([details], its id).
+ * What the user typed, whether the sheet of the sensor formats is open, and the camera whose
+ * characteristics are open ([details], its id).
  */
 @Parcelize
-data class CameraPickerInput(val query: String = "", val formatsOnly: Boolean = false, val details: String? = null) : Parcelable
+data class CameraPickerInput(
+    val query: String = "",
+    val formatSheet: Boolean = false,
+    val details: String? = null
+) : Parcelable
 
 sealed interface CameraPickerAction {
     data class Search(val query: String) : CameraPickerAction
     data object ShowFormats : CameraPickerAction
-    data object ShowCameras : CameraPickerAction
+    data object HideFormats : CameraPickerAction
     data class ShowDetails(val id: String) : CameraPickerAction
     data object HideDetails : CameraPickerAction
 
     /** Saved in the settings by the screen, which then closes. */
     data class ChooseCamera(val id: String) : CameraPickerAction
-    data class ChooseFormat(val id: String) : CameraPickerAction
 }
 
 fun CameraPickerInput.reduce(action: CameraPickerAction): CameraPickerInput = when (action) {
     is CameraPickerAction.Search -> copy(query = action.query)
-    CameraPickerAction.ShowFormats -> copy(formatsOnly = true)
-    CameraPickerAction.ShowCameras -> copy(formatsOnly = false)
+    CameraPickerAction.ShowFormats -> copy(formatSheet = true)
+    CameraPickerAction.HideFormats -> copy(formatSheet = false)
     is CameraPickerAction.ShowDetails -> copy(details = action.id)
     CameraPickerAction.HideDetails -> copy(details = null)
-    is CameraPickerAction.ChooseCamera, is CameraPickerAction.ChooseFormat -> this
+    is CameraPickerAction.ChooseCamera -> this
 }
 
 /** [alias] is the first EXIF name, [format] the short name of the format: "Full Frame", "APS-C". */
 data class CameraRow(val id: String, val model: String, val alias: String?, val format: String, val selected: Boolean, val hasSpecs: Boolean)
 
 data class CameraGroup(val maker: String, val cameras: List<CameraRow>)
-
-data class FormatRow(val id: String, val name: String, val widthMm: Double, val heightMm: Double, val selected: Boolean)
 
 /** The characteristics of a camera that has them: only some models, from an old and unverified source. */
 data class CameraDetails(
@@ -53,9 +54,8 @@ data class CameraDetails(
 
 data class CameraPickerUiState(
     val query: String,
-    val formatsOnly: Boolean,
+    val formatSheet: Boolean,
     val groups: List<CameraGroup>,
-    val formats: List<FormatRow>,
     val failed: Boolean,
     val details: CameraDetails?,
 ) {
@@ -74,16 +74,18 @@ data class CameraPickerUiState(
                         },
                     )
                 }
-            val formats = catalog?.formats.orEmpty().map {
-                // a format is chosen on its own only when no camera is
-                FormatRow(it.id, it.name, it.widthMm, it.heightMm, selection?.camera == null && it.id == selection?.format?.id)
-            }
             val details = catalog?.camera(input.details)?.let { camera ->
                 camera.specs?.let { specs ->
                     CameraDetails(camera.id, "${camera.maker} ${camera.model}", catalog.format(camera.format)?.name.orEmpty(), camera.mount, camera.aliases, specs)
                 }
             }
-            return CameraPickerUiState(input.query, input.formatsOnly, groups, formats, catalogState is CatalogState.Failed, details)
+            return CameraPickerUiState(
+                input.query,
+                input.formatSheet,
+                groups,
+                catalogState is CatalogState.Failed,
+                details
+            )
         }
     }
 }

@@ -3,6 +3,7 @@ package io.github.ziomekmateusz.iso100.ui.fov
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
@@ -45,9 +46,10 @@ import io.github.ziomekmateusz.iso100.data.AppTheme
 import io.github.ziomekmateusz.iso100.data.Settings
 import io.github.ziomekmateusz.iso100.data.formats
 import io.github.ziomekmateusz.iso100.ui.CameraLabel
-import io.github.ziomekmateusz.iso100.ui.components.CameraChip
+import io.github.ziomekmateusz.iso100.ui.components.CameraSelector
 import io.github.ziomekmateusz.iso100.ui.components.ChooseCameraCard
 import io.github.ziomekmateusz.iso100.ui.components.ControlSheet
+import io.github.ziomekmateusz.iso100.ui.components.FocalLengthField
 import io.github.ziomekmateusz.iso100.ui.components.NumberField
 import io.github.ziomekmateusz.iso100.ui.components.ResultCard
 import io.github.ziomekmateusz.iso100.ui.components.RollingText
@@ -71,47 +73,48 @@ fun FovScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, app: AppContainer 
 
 @Composable
 fun FovContent(state: FovUiState, onAction: (FovAction) -> Unit, onBack: () -> Unit, onChooseCamera: () -> Unit) {
-    val units = state.units
     ToolScaffold(
         title = stringResource(R.string.tool_fov),
         onBack = onBack,
-        footer = { padding ->
-            ControlSheet(padding) {
-                NumberField(
-                    label = stringResource(R.string.focal_length),
-                    value = state.focalLengthMm,
-                    unit = stringResource(R.string.symbol_mm),
-                    onValueChange = { onAction(FovAction.SetFocalLength(it)) },
-                    onDecrease = { onAction(FovAction.StepFocalLength(up = false)) },
-                    onIncrease = { onAction(FovAction.StepFocalLength(up = true)) },
-                    decreaseDescription = stringResource(R.string.focal_length_shorter),
-                    increaseDescription = stringResource(R.string.focal_length_longer),
-                    error = state.invalid.messageFor(Input.FOCAL_LENGTH, units),
-                )
-                NumberField(
-                    label = stringResource(R.string.subject_distance),
-                    value = state.distance,
-                    unit = distanceSymbol(units),
-                    onValueChange = { onAction(FovAction.SetDistance(it, units)) },
-                    onDecrease = { onAction(FovAction.StepDistance(up = false, units)) },
-                    onIncrease = { onAction(FovAction.StepDistance(up = true, units)) },
-                    decreaseDescription = stringResource(R.string.distance_closer),
-                    increaseDescription = stringResource(R.string.distance_farther),
-                    error = state.invalid.messageFor(Input.SUBJECT_DISTANCE, units),
-                )
-            }
-        },
+        footer = { padding -> ControlSheet(padding) { FovControls(state, onAction) } },
     ) {
-        CameraChip(state.camera?.title, state.camera?.detail, onChooseCamera)
         if (state.camera == null) {
             ChooseCameraCard(stringResource(R.string.empty_format_fov), onChooseCamera)
         } else {
+            CameraSelector(state.camera, onChooseCamera)
             ResultCard {
                 Angles(state.result)
                 state.result?.let { Frame(it, state) }
             }
         }
     }
+}
+
+@Composable
+private fun FovControls(state: FovUiState, onAction: (FovAction) -> Unit) {
+    FocalLengthField(
+        state.focalLengthMm,
+        state.invalid.messageFor(Input.FOCAL_LENGTH, state.units),
+        onValueChange = { onAction(FovAction.SetFocalLength(it)) },
+        onStep = { onAction(FovAction.StepFocalLength(it)) },
+    )
+    DistanceField(state, onAction)
+}
+
+@Composable
+private fun DistanceField(state: FovUiState, onAction: (FovAction) -> Unit) {
+    val units = state.units
+    NumberField(
+        label = stringResource(R.string.subject_distance),
+        value = state.distance,
+        unit = distanceSymbol(units),
+        onValueChange = { onAction(FovAction.SetDistance(it, units)) },
+        onDecrease = { onAction(FovAction.StepDistance(up = false, units)) },
+        onIncrease = { onAction(FovAction.StepDistance(up = true, units)) },
+        decreaseDescription = stringResource(R.string.distance_closer),
+        increaseDescription = stringResource(R.string.distance_farther),
+        error = state.invalid.messageFor(Input.SUBJECT_DISTANCE, units),
+    )
 }
 
 @Composable
@@ -152,54 +155,92 @@ private fun Frame(result: FieldOfView, state: FovUiState) {
                 .border(2.dp, colors.primary, RoundedCornerShape(6.dp))
                 .semantics { contentDescription = description },
         ) {
-            val label = MaterialTheme.typography.labelLarge.copy(fontSize = 15.sp, fontWeight = FontWeight.SemiBold, fontFeatureSettings = "tnum")
-            Text(width, Modifier
-                .align(Alignment.TopCenter)
-                .padding(top = 6.dp), style = label, color = colors.primary)
-            Text(height, Modifier
-                .align(Alignment.CenterStart)
-                .padding(start = 6.dp), style = label, color = colors.primary)
-            state.frames.forEachIndexed { i, frame ->
-                val stroke = colors.onSurfaceVariant.copy(alpha = if (i == 0) 1f else 0.6f)
-                Box(
-                    Modifier
-                        .align(Alignment.Center)
-                        .fillMaxWidth(frame.widthRatio.toFloat())
-                        .fillMaxHeight(frame.heightRatio.toFloat())
-                        .drawBehind {
-                            val dash = if (i == 0) floatArrayOf(
-                                6.dp.toPx(),
-                                4.dp.toPx()
-                            ) else floatArrayOf(2.dp.toPx(), 3.dp.toPx())
-                            drawRoundRect(
-                                color = stroke,
-                                cornerRadius = CornerRadius(4.dp.toPx()),
-                                style = Stroke(
-                                    width = 1.5.dp.toPx(),
-                                    pathEffect = PathEffect.dashPathEffect(dash)
-                                ),
-                            )
-                        },
-                ) {
-                    Text(
-                        stringResource(formatShortName(frame.formatId)),
-                        Modifier
-                            .align(if (i == 0) Alignment.TopEnd else Alignment.BottomStart)
-                            .padding(horizontal = 6.dp, vertical = 4.dp),
-                        fontSize = 13.sp,
-                        color = colors.onSurfaceVariant,
-                    )
-                }
+            FrameSizeLabels(width, height)
+            state.frames.forEachIndexed { index, frame ->
+                ComparedFormat(
+                    frame,
+                    closest = index == 0
+                )
             }
         }
+        FrameCaption(distance, compared = state.frames.isNotEmpty())
+    }
+}
+
+/** The width along the top edge and the height along the left one. */
+@Composable
+private fun BoxScope.FrameSizeLabels(width: String, height: String) {
+    val primary = MaterialTheme.colorScheme.primary
+    val label = MaterialTheme.typography.labelLarge.copy(
+        fontSize = 15.sp,
+        fontWeight = FontWeight.SemiBold,
+        fontFeatureSettings = "tnum"
+    )
+    Text(
+        width,
+        Modifier
+            .align(Alignment.TopCenter)
+            .padding(top = 6.dp),
+        style = label,
+        color = primary
+    )
+    Text(
+        height,
+        Modifier
+            .align(Alignment.CenterStart)
+            .padding(start = 6.dp),
+        style = label,
+        color = primary
+    )
+}
+
+/** What another format would frame from the same place, dashed; the [closest] one stronger, named at the top. */
+@Composable
+private fun BoxScope.ComparedFormat(frame: FovFrame, closest: Boolean) {
+    val stroke = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (closest) 1f else 0.6f)
+    Box(
+        Modifier
+            .align(Alignment.Center)
+            .fillMaxWidth(frame.widthRatio.toFloat())
+            .fillMaxHeight(frame.heightRatio.toFloat())
+            .drawBehind {
+                val dash = if (closest) floatArrayOf(
+                    6.dp.toPx(),
+                    4.dp.toPx()
+                ) else floatArrayOf(2.dp.toPx(), 3.dp.toPx())
+                drawRoundRect(
+                    color = stroke,
+                    cornerRadius = CornerRadius(4.dp.toPx()),
+                    style = Stroke(
+                        width = 1.5.dp.toPx(),
+                        pathEffect = PathEffect.dashPathEffect(dash)
+                    ),
+                )
+            },
+    ) {
         Text(
-            if (state.frames.isEmpty()) stringResource(R.string.fov_caption, distance) else stringResource(R.string.fov_caption_compared, distance),
-            Modifier.fillMaxWidth(),
-            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal),
-            color = colors.onSurfaceVariant,
-            textAlign = TextAlign.Center,
+            stringResource(formatShortName(frame.formatId)),
+            Modifier
+                .align(if (closest) Alignment.TopEnd else Alignment.BottomStart)
+                .padding(horizontal = 6.dp, vertical = 4.dp),
+            fontSize = 13.sp,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
+}
+
+@Composable
+private fun FrameCaption(distance: String, compared: Boolean) {
+    Text(
+        stringResource(
+            if (compared) R.string.fov_caption_compared else R.string.fov_caption,
+            distance
+        ),
+        Modifier.fillMaxWidth(),
+        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal),
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textAlign = TextAlign.Center,
+    )
 }
 
 private fun formatShortName(id: String): Int = when (id) {

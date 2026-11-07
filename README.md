@@ -61,6 +61,12 @@ Without a ViewModel the risk is logic sliding into composables, so each screen h
 `XxxScreen` only wires them to `rememberSaveable` and the stores; `XxxContent` is stateless and has
 the previews.
 
+`XxxContent` reads as an outline of the screen: it composes small named composables (`DofControls`,
+`DofResult`, `PickerTopBar`, `CameraItem`) instead of building everything from `Row`, `Column` and
+`Text` in one block. Controls shared by several tools live in `ui/components` (`FocalLengthField`,
+`ApertureDial`); list sections are `LazyListScope` extensions (`cameraGroups`). A part used once and only
+a few lines long stays inline.
+
 A ViewModel would be justified only by a screen with work of its own that must survive rotation, and
 even then a store comes first.
 

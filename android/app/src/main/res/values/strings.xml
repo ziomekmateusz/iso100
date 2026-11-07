@@ -84,7 +84,6 @@
     <string name="dof_sharp_description">Sharp from %1$s to %2$s</string>
     <string name="dof_bar_description">Sharp zone from %1$s to %2$s, focus at %3$s, hyperfocal %4$s</string>
     <string name="format_size" translatable="false">%1$s × %2$s mm</string>
-    <string name="close">Close</string>
     <string name="title_format">Sensor format</string>
     <string name="camera_search">Search by model or EXIF name</string>
     <string name="camera_search_hint">Model or EXIF name, e.g. ILCE-7M3</string>

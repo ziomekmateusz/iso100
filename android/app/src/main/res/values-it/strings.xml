@@ -68,7 +68,6 @@
     <string name="dof_hyperfocal">Iperfocale</string>
     <string name="dof_sharp_description">Nitido da %1$s a %2$s</string>
     <string name="dof_bar_description">Zona nitida da %1$s a %2$s, fuoco a %3$s, iperfocale %4$s</string>
-    <string name="close">Chiudi</string>
     <string name="title_format">Formato del sensore</string>
     <string name="camera_search">Cerca per modello o nome EXIF</string>
     <string name="camera_search_hint">Modello o nome EXIF, es. ILCE-7M3</string>

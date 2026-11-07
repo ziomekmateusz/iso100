@@ -36,20 +36,19 @@ import io.github.ziomekmateusz.iso100.data.CatalogCamera
 import io.github.ziomekmateusz.iso100.data.CatalogFormat
 import io.github.ziomekmateusz.iso100.data.Selection
 import io.github.ziomekmateusz.iso100.data.Settings
-import io.github.ziomekmateusz.iso100.ui.components.CameraChip
+import io.github.ziomekmateusz.iso100.ui.components.ApertureDial
+import io.github.ziomekmateusz.iso100.ui.components.CameraSelector
 import io.github.ziomekmateusz.iso100.ui.components.ChooseCameraCard
 import io.github.ziomekmateusz.iso100.ui.components.ControlSheet
-import io.github.ziomekmateusz.iso100.ui.components.NumberField
+import io.github.ziomekmateusz.iso100.ui.components.FocalLengthField
 import io.github.ziomekmateusz.iso100.ui.components.ResultCard
 import io.github.ziomekmateusz.iso100.ui.components.RollingText
 import io.github.ziomekmateusz.iso100.ui.components.SegmentedChoice
-import io.github.ziomekmateusz.iso100.ui.components.StopDial
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
 import io.github.ziomekmateusz.iso100.ui.currentLocale
 import io.github.ziomekmateusz.iso100.ui.durationText
 import io.github.ziomekmateusz.iso100.ui.messageFor
 import io.github.ziomekmateusz.iso100.ui.number
-import io.github.ziomekmateusz.iso100.ui.shortNumber
 import io.github.ziomekmateusz.iso100.ui.shutterText
 import io.github.ziomekmateusz.iso100.ui.theme.Barlow
 import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
@@ -66,43 +65,16 @@ fun StarsScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, app: AppContaine
 
 @Composable
 fun StarsContent(state: StarsUiState, onAction: (StarsAction) -> Unit, onBack: () -> Unit, onChooseCamera: () -> Unit) {
-    val locale = currentLocale()
     ToolScaffold(
         title = stringResource(R.string.title_stars),
         onBack = onBack,
-        footer = { padding ->
-            ControlSheet(padding) {
-                NumberField(
-                    label = stringResource(R.string.focal_length),
-                    value = state.focalLengthMm,
-                    unit = stringResource(R.string.symbol_mm),
-                    onValueChange = { onAction(StarsAction.SetFocalLength(it)) },
-                    onDecrease = { onAction(StarsAction.StepFocalLength(up = false)) },
-                    onIncrease = { onAction(StarsAction.StepFocalLength(up = true)) },
-                    decreaseDescription = stringResource(R.string.focal_length_shorter),
-                    increaseDescription = stringResource(R.string.focal_length_longer),
-                    error = state.invalid.messageFor(Input.FOCAL_LENGTH, UnitSystem.METRIC),
-                )
-                // the aperture counts only for NPF, which needs the resolution
-                if (StarRule.NPF in state.rules) {
-                    StopDial(
-                        label = stringResource(R.string.aperture),
-                        dial = state.aperture,
-                        onSelect = { onAction(StarsAction.SetAperture(it.actual)) },
-                        valueText = { stringResource(R.string.aperture_value, shortNumber(it.nominal, locale)) },
-                        tickLabel = { shortNumber(it.nominal, locale) },
-                        trailing = stringResource(R.string.npf_only),
-                    )
-                }
-            }
-        },
+        footer = { padding -> ControlSheet(padding) { StarsControls(state, onAction) } },
     ) {
         val camera = state.camera
-        val mp = state.resolutionMp?.let { shortNumber(it, locale) + " " + stringResource(R.string.symbol_mp) }
-        CameraChip(camera?.title, listOfNotNull(camera?.detail, mp).joinToString(" " + stringResource(R.string.separator)).ifEmpty { null }, onChooseCamera)
         if (camera == null) {
             ChooseCameraCard(stringResource(R.string.empty_format_stars), onChooseCamera)
         } else {
+            CameraSelector(camera, onChooseCamera)
             ResultCard { Result(state) }
             SegmentedChoice(
                 options = state.rules.map { stringResource(ruleName(it)) },
@@ -115,6 +87,23 @@ fun StarsContent(state: StarsUiState, onAction: (StarsAction) -> Unit, onBack: (
                 Modifier.padding(horizontal = 4.dp),
                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal, lineHeight = 19.sp),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun StarsControls(state: StarsUiState, onAction: (StarsAction) -> Unit) {
+    FocalLengthField(
+        state.focalLengthMm,
+        state.invalid.messageFor(Input.FOCAL_LENGTH, UnitSystem.METRIC),
+        onValueChange = { onAction(StarsAction.SetFocalLength(it)) },
+        onStep = { onAction(StarsAction.StepFocalLength(it)) },
+    )
+    if (StarRule.NPF in state.rules) {
+        ApertureDial(state.aperture, trailing = stringResource(R.string.npf_only)) {
+            onAction(
+                StarsAction.SetAperture(it)
             )
         }
     }

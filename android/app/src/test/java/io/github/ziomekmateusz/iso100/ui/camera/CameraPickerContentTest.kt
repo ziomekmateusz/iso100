@@ -75,9 +75,7 @@ class CameraPickerContentTest {
         compose.onNodeWithContentDescription("Search by model or EXIF name").performTextInput("nikon")
         compose.onNodeWithText("No camera matches “nikon”.").assertIsDisplayed()
         compose.onNodeWithText("Can’t find it? Choose only the sensor format").performClick()
-        compose.onNodeWithText("Sensor format").assertIsDisplayed()
-        compose.onNodeWithText("APS-C").performClick()
-        assertEquals(CameraPickerAction.ChooseFormat("aps-c"), actions.last())
+        assertEquals(CameraPickerAction.ShowFormats, actions.last())
     }
 
     @Test

@@ -1,6 +1,5 @@
 package io.github.ziomekmateusz.iso100.ui.components
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -9,23 +8,15 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
@@ -80,45 +71,16 @@ fun ResultTile(label: String, value: String, modifier: Modifier = Modifier) {
     }
 }
 
-/** The chosen camera ("Sony Alpha 7 III · Full Frame"), or a prompt to choose one. */
-@Composable
-fun CameraChip(title: String?, detail: String?, onClick: () -> Unit, modifier: Modifier = Modifier) {
-    val colors = MaterialTheme.colorScheme
-    Surface(
-        onClick = onClick,
-        modifier = modifier.heightIn(min = 40.dp),
-        shape = RoundedCornerShape(20.dp),
-        color = Color.Transparent,
-        border = BorderStroke(1.dp, colors.outlineVariant),
-    ) {
-        Row(
-            Modifier.padding(start = 12.dp, end = 14.dp, top = 8.dp, bottom = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Icon(painterResource(R.drawable.ic_camera), null, Modifier.size(18.dp), tint = colors.onSurface)
-            // one text, so that with large fonts it wraps instead of squeezing the detail
-            val separator = stringResource(R.string.separator)
-            Text(
-                buildAnnotatedString {
-                    append(title ?: stringResource(R.string.choose_camera))
-                    if (detail != null) withStyle(SpanStyle(color = colors.onSurfaceVariant)) { append(" $separator$detail") }
-                },
-                Modifier.weight(1f, fill = false),
-                fontSize = 15.sp,
-                color = colors.onSurface,
-            )
-            Icon(painterResource(R.drawable.ic_chevron_down), null, Modifier.size(16.dp), tint = colors.onSurfaceVariant)
-        }
-    }
-}
-
 /** The empty state of a tool that needs a sensor format, with a button to choose the camera. */
 @Composable
 fun ChooseCameraCard(message: String, onChooseCamera: () -> Unit, modifier: Modifier = Modifier) {
     ResultCard(modifier) {
         Text(message, style = MaterialTheme.typography.bodyLarge.copy(fontSize = 18.sp, lineHeight = 24.sp))
-        PrimaryButton(stringResource(R.string.choose_camera), onChooseCamera)
+        PrimaryButton(
+            stringResource(R.string.choose_camera),
+            onChooseCamera,
+            Modifier.fillMaxWidth()
+        )
     }
 }
 
@@ -133,8 +95,6 @@ fun PrimaryButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifi
 private fun CardsStates() {
     Surface(color = MaterialTheme.colorScheme.background) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-            CameraChip("Sony Alpha 7 III", "Full Frame (35 mm)", {})
-            CameraChip(null, null, {})
             ResultCard {
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     ResultTile("Profondità", "1,80 m", Modifier.weight(1f))

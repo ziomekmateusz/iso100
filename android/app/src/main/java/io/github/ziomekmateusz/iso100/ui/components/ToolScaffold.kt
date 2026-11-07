@@ -31,24 +31,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.BlendMode
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.CompositingStrategy
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import io.github.ziomekmateusz.iso100.R
-
-private val fadeLength = 48.dp
 
 /**
  * A tool screen: round back button and title fixed at the top, the optional [bottomBar] fixed at the
@@ -134,49 +122,6 @@ private fun ToolTopBar(
         actions()
     }
 }
-
-/**
- * Makes the content transparent under the bars [top] and [bottom] high, with a short fade at their
- * edges: it works on any background.
- */
-private fun Modifier.fadeUnder(top: Dp, bottom: Dp): Modifier = this
-    .graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
-    .drawWithContent {
-        drawContent()
-        val topEdge = top.toPx()
-        val bottomEdge = size.height - bottom.toPx()
-        val fade = fadeLength.toPx()
-        drawMask(
-            topEdge - fade,
-            topEdge,
-            Color.Transparent,
-            Color.Black,
-            rectTop = 0f,
-            rectBottom = topEdge
-        )
-        if (bottomEdge < size.height) drawMask(
-            bottomEdge,
-            bottomEdge + fade,
-            Color.Black,
-            Color.Transparent,
-            rectTop = bottomEdge,
-            rectBottom = size.height
-        )
-    }
-
-private fun DrawScope.drawMask(
-    startY: Float,
-    endY: Float,
-    startColor: Color,
-    endColor: Color,
-    rectTop: Float,
-    rectBottom: Float,
-) = drawRect(
-    brush = Brush.verticalGradient(listOf(startColor, endColor), startY = startY, endY = endY),
-    topLeft = Offset(0f, rectTop),
-    size = Size(size.width, rectBottom - rectTop),
-    blendMode = BlendMode.DstIn,
-)
 
 /** 48 dp round button on the surface colour, used in the screen headers. */
 @Composable

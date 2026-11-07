@@ -111,35 +111,62 @@ fun HomeContent(today: TodayUiState, onOpen: (Destination) -> Unit, onLocate: ()
             .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(spacing),
     ) {
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .height(56.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            val name = stringResource(R.string.app_name)
-            Text(
-                buildAnnotatedString {
-                    append(name.takeWhile { !it.isDigit() })
-                    withStyle(SpanStyle(color = colors.primary)) { append(name.dropWhile { !it.isDigit() }) }
-                },
-                Modifier.semantics { heading() },
-                style = TextStyle(fontFamily = Barlow, fontWeight = FontWeight.Bold, fontSize = 28.sp, letterSpacing = 0.02.em),
-                color = colors.onSurface,
-            )
-            RoundIconButton(R.drawable.ic_settings, stringResource(R.string.settings), onClick = { onOpen(Settings) })
-        }
+        HomeHeader(onSettings = { onOpen(Settings) })
         TodayCard(today, onOpen, onLocate)
-        for (row in tools.chunked(2)) {
-            Row(
-                Modifier.height(IntrinsicSize.Max),
-                horizontalArrangement = Arrangement.spacedBy(spacing)
-            ) {
-                for (tool in row) ToolTile(tool, onOpen, Modifier
-                    .weight(1f)
-                    .fillMaxHeight())
-            }
+        ToolGrid(onOpen)
+    }
+}
+
+@Composable
+private fun HomeHeader(onSettings: () -> Unit) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .height(56.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Wordmark()
+        RoundIconButton(
+            R.drawable.ic_settings,
+            stringResource(R.string.settings),
+            onClick = onSettings
+        )
+    }
+}
+
+/** "ISO100" with the number in the accent colour. */
+@Composable
+private fun Wordmark() {
+    val colors = MaterialTheme.colorScheme
+    val name = stringResource(R.string.app_name)
+    Text(
+        buildAnnotatedString {
+            append(name.takeWhile { !it.isDigit() })
+            withStyle(SpanStyle(color = colors.primary)) { append(name.dropWhile { !it.isDigit() }) }
+        },
+        Modifier.semantics { heading() },
+        style = TextStyle(
+            fontFamily = Barlow,
+            fontWeight = FontWeight.Bold,
+            fontSize = 28.sp,
+            letterSpacing = 0.02.em
+        ),
+        color = colors.onSurface,
+    )
+}
+
+/** Two tiles per row, as tall as the taller of the two. */
+@Composable
+private fun ToolGrid(onOpen: (Destination) -> Unit) {
+    for (row in tools.chunked(2)) {
+        Row(
+            Modifier.height(IntrinsicSize.Max),
+            horizontalArrangement = Arrangement.spacedBy(spacing)
+        ) {
+            for (tool in row) ToolTile(tool, onOpen, Modifier
+                .weight(1f)
+                .fillMaxHeight())
         }
     }
 }

@@ -28,11 +28,20 @@ val TEST_CATALOG = CatalogState.Ready(
 
 class CameraPickerStateTest {
     @Test
-    fun theSearchAndTheFormatListChangeTheInput() {
+    fun theSearchAndTheFormatSheetChangeTheInput() {
         val input = CameraPickerInput()
         assertEquals("alpha", input.reduce(CameraPickerAction.Search("alpha")).query)
-        assertTrue(input.reduce(CameraPickerAction.ShowFormats).formatsOnly)
-        assertEquals(input, input.reduce(CameraPickerAction.ShowFormats).reduce(CameraPickerAction.ShowCameras))
+        assertTrue(
+            CameraPickerUiState.from(
+                input.reduce(CameraPickerAction.ShowFormats),
+                TEST_CATALOG,
+                Settings()
+            ).formatSheet
+        )
+        assertEquals(
+            input,
+            input.reduce(CameraPickerAction.ShowFormats).reduce(CameraPickerAction.HideFormats)
+        )
         assertEquals(input, input.reduce(CameraPickerAction.ChooseCamera("canon-eos-r6")))
     }
 
@@ -45,8 +54,6 @@ class CameraPickerStateTest {
             state.groups[1].cameras[0],
         )
         assertEquals("APS-C", state.groups[1].cameras[1].format)
-        // with a camera chosen, no format is chosen on its own
-        assertTrue(state.formats.none { it.selected })
     }
 
     @Test
@@ -55,13 +62,6 @@ class CameraPickerStateTest {
         assertEquals(listOf("sony-alpha-7-iii"), ids("alpha 7"))
         assertEquals(listOf("sony-alpha-6400"), ids("ilce-6400"))
         assertEquals(emptyList<String>(), ids("nikon"))
-    }
-
-    @Test
-    fun aFormatChosenAloneIsMarked() {
-        val state = CameraPickerUiState.from(CameraPickerInput(formatsOnly = true), TEST_CATALOG, Settings(formatId = "aps-c"))
-        assertEquals(listOf("aps-c"), state.formats.filter { it.selected }.map { it.id })
-        assertTrue(state.groups.flatMap { it.cameras }.none { it.selected })
     }
 
     @Test
