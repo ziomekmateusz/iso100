@@ -110,7 +110,15 @@
     <string name="result_aperture">New aperture</string>
     <string name="result_shutter">New shutter speed</string>
     <string name="exact_value">Calculated: %1$s</string>
-    <string name="with_nd">with %1$s (−%2$s stop)</string>
+    <string name="with_nd">with %1$s</string>
+    <string name="start_timer">Start the timer</string>
+    <string name="title_timer">Timer</string>
+    <string name="timer_of">of %1$s</string>
+    <string name="timer_reset">Reset</string>
+    <string name="timer_start">Start</string>
+    <string name="timer_pause">Pause</string>
+    <string name="timer_resume">Resume</string>
+    <string name="timer_again">Again</string>
     <string name="out_of_scale_iso_high">Out of scale: it would take an ISO above %1$s.</string>
     <string name="out_of_scale_iso_low">Out of scale: it would take an ISO below %1$s.</string>
     <string name="out_of_scale_aperture_high">Out of scale: it would take an aperture smaller than f/%1$s.</string>

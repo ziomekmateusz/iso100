@@ -29,6 +29,7 @@ import io.github.ziomekmateusz.iso100.ui.settings.SettingsScreen
 import io.github.ziomekmateusz.iso100.ui.stars.StarsScreen
 import io.github.ziomekmateusz.iso100.ui.sun.SunScreen
 import io.github.ziomekmateusz.iso100.ui.timelapse.TimelapseScreen
+import io.github.ziomekmateusz.iso100.ui.timer.TimerScreen
 import kotlinx.serialization.Serializable
 
 /** The screens of the app: one key per tool, plus settings, camera picker, saved places and licenses. */
@@ -47,6 +48,8 @@ import kotlinx.serialization.Serializable
 @Serializable data object SavedPlaces : Destination
 @Serializable data object Licenses : Destination
 @Serializable data class LicenseText(val license: OpenLicense) : Destination
+@Serializable
+data class Timer(val seconds: Double, val settings: String) : Destination
 
 private val iosEasing = CubicBezierEasing(0.2f, 0.9f, 0.3f, 1f)
 private fun <T> ios() = tween<T>(durationMillis = 400, easing = iosEasing)
@@ -79,7 +82,18 @@ fun Iso100App(modifier: Modifier = Modifier) {
                 when (key) {
                     Home -> HomeScreen(onOpen = { backStack.add(it) })
                     CameraPicker -> CameraPickerScreen(onClose = back)
-                    Exposure -> ExposureScreen(onBack = back)
+                    Exposure -> ExposureScreen(
+                        onBack = back,
+                        onStartTimer = { seconds, settings ->
+                            backStack.add(
+                                Timer(
+                                    seconds,
+                                    settings
+                                )
+                            )
+                        })
+
+                    is Timer -> TimerScreen(key.seconds, key.settings, onBack = back)
                     Stars -> StarsScreen(onBack = back, onChooseCamera = chooseCamera)
                     Timelapse -> TimelapseScreen(onBack = back)
                     Sun -> SunScreen(onBack = back)

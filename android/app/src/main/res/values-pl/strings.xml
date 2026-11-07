@@ -94,7 +94,15 @@
     <string name="result_aperture">Nowa przysłona</string>
     <string name="result_shutter">Nowy czas naświetlania</string>
     <string name="exact_value">Obliczono: %1$s</string>
-    <string name="with_nd">z %1$s (−%2$s EV)</string>
+    <string name="with_nd">z %1$s</string>
+    <string name="start_timer">Uruchom timer</string>
+    <string name="title_timer">Timer</string>
+    <string name="timer_of">z %1$s</string>
+    <string name="timer_reset">Zeruj</string>
+    <string name="timer_start">Start</string>
+    <string name="timer_pause">Pauza</string>
+    <string name="timer_resume">Wznów</string>
+    <string name="timer_again">Jeszcze raz</string>
     <string name="out_of_scale_iso_high">Poza skalą: potrzebne byłoby ISO powyżej %1$s.</string>
     <string name="out_of_scale_iso_low">Poza skalą: potrzebne byłoby ISO poniżej %1$s.</string>
     <string name="out_of_scale_aperture_high">Poza skalą: potrzebna byłaby przysłona mniejsza niż f/%1$s.</string>

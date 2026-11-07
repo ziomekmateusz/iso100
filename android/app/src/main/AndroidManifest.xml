@@ -4,6 +4,8 @@
 
     <!-- sun and moon only need an approximate position -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- the bulb timer vibrates when the exposure is over -->
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".Iso100Application"

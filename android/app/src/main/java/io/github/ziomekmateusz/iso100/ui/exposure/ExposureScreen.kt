@@ -68,16 +68,30 @@ import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
 import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 
 @Composable
-fun ExposureScreen(onBack: () -> Unit, app: AppContainer = LocalAppContainer.current) {
+fun ExposureScreen(
+    onBack: () -> Unit,
+    onStartTimer: (seconds: Double, settings: String) -> Unit,
+    app: AppContainer = LocalAppContainer.current
+) {
     var input by rememberToolInput("exposure", ExposureInput())
     val settings by app.settings.settings.collectAsStateWithLifecycle(Settings())
     val selection by app.catalog.selection.collectAsStateWithLifecycle()
     val state = remember(input, settings, selection) { ExposureUiState.from(input, settings, selection) }
-    ExposureContent(state, onAction = { input = input.reduce(it) }, onBack = onBack)
+    ExposureContent(
+        state,
+        onAction = { input = input.reduce(it) },
+        onBack = onBack,
+        onStartTimer = onStartTimer
+    )
 }
 
 @Composable
-fun ExposureContent(state: ExposureUiState, onAction: (ExposureAction) -> Unit, onBack: () -> Unit) {
+fun ExposureContent(
+    state: ExposureUiState,
+    onAction: (ExposureAction) -> Unit,
+    onBack: () -> Unit,
+    onStartTimer: (seconds: Double, settings: String) -> Unit
+) {
     ToolScaffold(
         title = stringResource(R.string.title_exposure),
         onBack = onBack,
@@ -96,7 +110,7 @@ fun ExposureContent(state: ExposureUiState, onAction: (ExposureAction) -> Unit, 
             description = stringResource(R.string.solve_label),
         )
         Measured(state, onAction)
-        ResultCard { Result(state) }
+        ResultCard { Result(state, onStartTimer) }
         NdFilters(state.nd, onAction)
     }
     when (state.sheet) {
@@ -139,7 +153,10 @@ private fun Measured(state: ExposureUiState, onAction: (ExposureAction) -> Unit)
 }
 
 @Composable
-private fun Result(state: ExposureUiState) {
+private fun Result(
+    state: ExposureUiState,
+    onStartTimer: (seconds: Double, settings: String) -> Unit
+) {
     val colors = MaterialTheme.colorScheme
     val big = MaterialTheme.typography.displayMedium.copy(fontSize = 64.sp, lineHeight = 64.sp)
     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -164,18 +181,33 @@ private fun Result(state: ExposureUiState) {
             // the dials give only positive values: there is no input out of the domain here
             is Outcome.Invalid -> Text("—", style = big, color = colors.primary)
         }
-        Text(caption(state), fontSize = 15.sp, color = colors.onSurfaceVariant)
+        state.nd?.let {
+            Text(
+                stringResource(R.string.with_nd, it.name),
+                fontSize = 15.sp,
+                color = colors.onSurfaceVariant
+            )
+        }
+        (state.result as? Outcome.Ok)?.takeIf { state.bulb }?.let { bulb ->
+            val settings = shotSettings(state)
+            PrimaryButton(
+                text = stringResource(R.string.start_timer),
+                onClick = { onStartTimer(bulb.value.exact, settings) },
+                modifier = Modifier
+                    .padding(top = 8.dp)
+                    .fillMaxWidth()
+            )
+        }
     }
 }
 
-/** "ISO 100 · f/8 · with ND1000 (−10 stop)": what the result goes with. */
+/** "ISO 100 · f/8 · ND1000": the settings to shoot with, for the timer. */
 @Composable
-private fun caption(state: ExposureUiState): String {
-    val separator = " " + stringResource(R.string.separator)
-    val parts = state.kept.map { (setting, dial) -> settingText(setting, dial.value.nominal) }
-    val nd = state.nd?.let { stringResource(R.string.with_nd, it.name, shortNumber(it.stops, currentLocale())) }
-    return (parts + listOfNotNull(nd)).joinToString(separator)
-}
+private fun shotSettings(state: ExposureUiState): String =
+    (state.kept.map { (setting, dial) -> settingText(setting, dial.value.nominal) } + listOfNotNull(
+        state.nd?.name
+    ))
+        .joinToString(" " + stringResource(R.string.separator))
 
 @Composable
 private fun NdFilters(nd: NdFilter?, onAction: (ExposureAction) -> Unit) {
@@ -335,23 +367,39 @@ private val previewState = ExposureUiState.from(ExposureInput(nd = NdFilter.ND10
 @Preview(widthDp = 412, heightDp = 915)
 @Composable
 private fun ExposurePreview(@PreviewParameter(ThemePreviews::class) theme: AppTheme) {
-    Iso100Theme(theme) { ExposureContent(previewState, {}, {}) }
+    Iso100Theme(theme) { ExposureContent(previewState, {}, {}, { _, _ -> }) }
 }
 
 @Preview(widthDp = 412, heightDp = 915)
 @Composable
 private fun ExposureOutOfScalePreview() {
-    Iso100Theme { ExposureContent(ExposureUiState.from(ExposureInput(solve = APERTURE, nd = NdFilter.ND1024), Settings(), null), {}, {}) }
+    Iso100Theme {
+        ExposureContent(
+            ExposureUiState.from(
+                ExposureInput(
+                    solve = APERTURE,
+                    nd = NdFilter.ND1024
+                ), Settings(), null
+            ), {}, {}, { _, _ -> })
+    }
 }
 
 @Preview(widthDp = 412, heightDp = 915)
 @Composable
 private fun ExposureLongShutterPreview() {
-    Iso100Theme { ExposureContent(ExposureUiState.from(ExposureInput(measuredShutterS = 1.0 / 8, nd = NdFilter.ND1000), Settings(), null), {}, {}) }
+    Iso100Theme {
+        ExposureContent(
+            ExposureUiState.from(
+                ExposureInput(
+                    measuredShutterS = 1.0 / 8,
+                    nd = NdFilter.ND1000
+                ), Settings(), null
+            ), {}, {}, { _, _ -> })
+    }
 }
 
 @Preview(widthDp = 412, heightDp = 1800, fontScale = 2f)
 @Composable
 private fun ExposureLargeTextPreview() {
-    Iso100Theme { ExposureContent(previewState, {}, {}) }
+    Iso100Theme { ExposureContent(previewState, {}, {}, { _, _ -> }) }
 }

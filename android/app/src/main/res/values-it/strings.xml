@@ -93,7 +93,15 @@
     <string name="result_aperture">Nuovo diaframma</string>
     <string name="result_shutter">Nuovo tempo di scatto</string>
     <string name="exact_value">Calcolato: %1$s</string>
-    <string name="with_nd">con %1$s (−%2$s stop)</string>
+    <string name="with_nd">con %1$s</string>
+    <string name="start_timer">Avvia il timer</string>
+    <string name="title_timer">Timer</string>
+    <string name="timer_of">di %1$s</string>
+    <string name="timer_reset">Azzera</string>
+    <string name="timer_start">Avvia</string>
+    <string name="timer_pause">Pausa</string>
+    <string name="timer_resume">Riprendi</string>
+    <string name="timer_again">Di nuovo</string>
     <string name="out_of_scale_iso_high">Fuori scala: servirebbe un ISO sopra %1$s.</string>
     <string name="out_of_scale_iso_low">Fuori scala: servirebbe un ISO sotto %1$s.</string>
     <string name="out_of_scale_aperture_high">Fuori scala: servirebbe un diaframma più chiuso di f/%1$s.</string>

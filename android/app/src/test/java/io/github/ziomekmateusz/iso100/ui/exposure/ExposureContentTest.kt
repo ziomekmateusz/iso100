@@ -26,19 +26,39 @@ class ExposureContentTest {
     @get:Rule
     val compose = createComposeRule()
 
+    private var timer: Pair<Double, String>? = null
+
     private fun show(initial: ExposureInput = ExposureInput()): () -> ExposureInput {
         var input by mutableStateOf(initial)
-        compose.setContent { Iso100Theme { ExposureContent(ExposureUiState.from(input, Settings(), null), { input = input.reduce(it) }, {}) } }
+        compose.setContent {
+            Iso100Theme {
+                ExposureContent(
+                    ExposureUiState.from(input, Settings(), null),
+                    { input = input.reduce(it) },
+                    {},
+                    { seconds, settings -> timer = seconds to settings })
+            }
+        }
         return { input }
     }
 
     @Test
-    fun theNewShutterComesWithTheSettingsItGoesWith() {
+    fun theNewShutterNamesOnlyTheFilterTheDialsDoNotShow() {
         show(ExposureInput(nd = NdFilter.ND1000))
         compose.onNodeWithText("New shutter speed").assertIsDisplayed()
         compose.onNodeWithText("8 s").assertIsDisplayed()
-        compose.onNodeWithText("ISO 100 · f/8 · with ND1000 (−10 stop)").assertIsDisplayed()
+        compose.onNodeWithText("with ND1000").assertIsDisplayed()
         compose.onNodeWithText("Metered · EV 13").assertIsDisplayed()
+        compose.onNodeWithText("Start the timer").assertDoesNotExist()
+    }
+
+    @Test
+    fun aShutterBeyond30SecondsOpensTheTimerWithTheSettings() {
+        show(ExposureInput(measuredShutterS = 1.0, nd = NdFilter.ND1000))
+        compose.onNodeWithText("with ND1000").assertIsDisplayed()
+        compose.onNodeWithText("Start the timer").performScrollTo().performClick()
+        assertEquals(1000.0, timer?.first ?: 0.0, 0.5)
+        assertEquals("ISO 100 · f/8 · ND1000", timer?.second)
     }
 
     @Test

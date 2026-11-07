@@ -42,6 +42,21 @@ class ExposureStateTest {
     }
 
     @Test
+    fun `a shutter longer than the camera can time needs the bulb mode`() {
+        assertFalse(state(ExposureInput(nd = NdFilter.ND1000)).bulb)
+        assertTrue(state(ExposureInput(measuredShutterS = 1.0, nd = NdFilter.ND1000)).bulb)
+        assertFalse(
+            state(
+                ExposureInput(
+                    solve = APERTURE,
+                    measuredShutterS = 1.0,
+                    nd = NdFilter.ND1000
+                )
+            ).bulb
+        )
+    }
+
+    @Test
     fun theKeptSettingsAreTheTwoNotCalculated() {
         assertEquals(listOf(ISO, APERTURE), state().kept.keys.toList())
         assertEquals(listOf(ISO, SHUTTER), state(ExposureInput(solve = APERTURE)).kept.keys.toList())

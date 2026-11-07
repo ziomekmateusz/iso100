@@ -82,6 +82,8 @@ data class ExposureUiState(
     val exactDiffers: Boolean,
     /** The end of the scale that an out-of-scale result goes past. */
     val limit: ExposureValue?,
+    /** A shutter longer than the scale: the camera cannot time it, the bulb mode (B) is needed. */
+    val bulb: Boolean,
     val nd: NdFilter?,
     val sheet: ExposureSheet?,
 ) {
@@ -119,6 +121,7 @@ data class ExposureUiState(
                 result = result,
                 exactDiffers = nearest != null && scale.stopsBetween(exact, nearest.actual) > 0.05,
                 limit = (result as? Outcome.OutOfScale)?.let { if (it.tooHigh) scale.values.last() else scale.values.first() },
+                bulb = input.solve == SHUTTER && result is Outcome.Ok && nearest == null,
                 nd = input.nd,
                 sheet = input.sheet,
             )
