@@ -1,5 +1,6 @@
 package io.github.ziomekmateusz.iso100.ui.exposure
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -178,7 +179,6 @@ private fun Result(
                 Text("—", style = big, color = colors.primary)
                 ErrorText(outOfScaleMessage(state.solve, result.tooHigh, state.limit!!))
             }
-            // the dials give only positive values: there is no input out of the domain here
             is Outcome.Invalid -> Text("—", style = big, color = colors.primary)
         }
         state.nd?.let {
@@ -188,15 +188,26 @@ private fun Result(
                 color = colors.onSurfaceVariant
             )
         }
-        (state.result as? Outcome.Ok)?.takeIf { state.bulb }?.let { bulb ->
+        AnimatedVisibility(visible = state.bulb) {
             val settings = shotSettings(state)
             PrimaryButton(
                 text = stringResource(R.string.start_timer),
-                onClick = { onStartTimer(bulb.value.exact, settings) },
+                onClick = {
+                    (state.result as? Outcome.Ok)?.let {
+                        onStartTimer(
+                            it.value.exact,
+                            settings
+                        )
+                    }
+                },
                 modifier = Modifier
                     .padding(top = 8.dp)
                     .fillMaxWidth()
             )
+
+        }
+        (state.result as? Outcome.Ok)?.takeIf { state.bulb }?.let { bulb ->
+
         }
     }
 }
@@ -223,7 +234,6 @@ private fun NdFilters(nd: NdFilter?, onAction: (ExposureAction) -> Unit) {
                     onAction(ExposureAction.SetNd(filter))
                 }
             }
-            // a filter of the full list takes the place of "More"
             val other = nd?.takeIf { it !in ND_CHIPS }
             NdChip(
                 other?.name ?: stringResource(R.string.nd_more),

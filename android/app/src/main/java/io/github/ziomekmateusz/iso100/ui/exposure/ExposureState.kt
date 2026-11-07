@@ -91,7 +91,6 @@ data class ExposureUiState(
         fun from(input: ExposureInput, settings: Settings, selection: Selection?): ExposureUiState {
             val step = settings.stopStep
             val specs = selection?.camera?.specs
-            // ISO values the camera does not have are only dimmed, never blocked
             val isoRange = if (specs?.isoMin != null && specs.isoMax != null) specs.isoMin.toDouble()..specs.isoMax.toDouble() else null
             fun dials(iso: Double, aperture: Double, shutterS: Double) = linkedMapOf(
                 ISO to dial(ISO, step, iso, isoRange),

@@ -1,7 +1,10 @@
 package io.github.ziomekmateusz.iso100.ui.timer
 
 import android.content.Context
+import android.media.AudioAttributes
+import android.os.Build
 import android.os.SystemClock
+import android.os.VibrationAttributes
 import android.os.VibrationEffect
 import android.os.Vibrator
 import androidx.compose.animation.core.LinearEasing
@@ -208,8 +211,20 @@ private fun TimerButtons(
 
 /** Three long pulses: the exposure is over, close the shutter. */
 private fun vibrateEnd(context: Context) {
-    context.getSystemService(Vibrator::class.java)
-        ?.vibrate(VibrationEffect.createWaveform(longArrayOf(0, 500, 250, 500, 250, 500), -1))
+    val vibrator = context.getSystemService(Vibrator::class.java) ?: return
+    val pulses = VibrationEffect.createWaveform(longArrayOf(0, 500, 250, 500, 250, 500), -1)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        vibrator.vibrate(
+            pulses,
+            VibrationAttributes.createForUsage(VibrationAttributes.USAGE_ALARM)
+        )
+    } else {
+        @Suppress("DEPRECATION")
+        vibrator.vibrate(
+            pulses,
+            AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build()
+        )
+    }
 }
 
 @Preview
