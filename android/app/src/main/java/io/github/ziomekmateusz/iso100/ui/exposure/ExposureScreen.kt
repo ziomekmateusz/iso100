@@ -20,8 +20,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -84,8 +84,8 @@ fun ExposureContent(state: ExposureUiState, onAction: (ExposureAction) -> Unit, 
     ToolScaffold(
         title = stringResource(R.string.title_exposure),
         onBack = onBack,
-        sheet = {
-            ControlSheet {
+        footer = { padding ->
+            ControlSheet(padding) {
                 state.kept.forEach { (setting, dial) ->
                     SettingDial(setting, dial, state.step) { onAction(ExposureAction.SetNew(setting, it.actual)) }
                 }
@@ -123,7 +123,9 @@ private fun Measured(state: ExposureUiState, onAction: (ExposureAction) -> Unit)
             state.measured.forEach { (setting, dial) ->
                 OutlinedButton(
                     onClick = { onAction(ExposureAction.Open(ExposureSheet.MEASURED)) },
-                    modifier = Modifier.weight(1f).heightIn(min = 56.dp),
+                    modifier = Modifier
+                        .weight(1f)
+                        .heightIn(min = 56.dp),
                     shape = MaterialTheme.shapes.small,
                     border = BorderStroke(1.dp, colors.outlineVariant),
                 ) {
@@ -221,14 +223,18 @@ private fun NdChip(name: String, detail: String, selected: Boolean, modifier: Mo
 @Composable
 private fun MeasuredSheet(state: ExposureUiState, onAction: (ExposureAction) -> Unit) {
     ModalBottomSheet(onDismissRequest = { onAction(ExposureAction.CloseSheet) }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), containerColor = MaterialTheme.colorScheme.surface) {
-        Column(Modifier.navigationBarsPadding().padding(start = 16.dp, end = 16.dp, bottom = 24.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+        Column(Modifier
+            .navigationBarsPadding()
+            .padding(start = 16.dp, end = 16.dp, bottom = 24.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
             Text(stringResource(R.string.measured_title), style = MaterialTheme.typography.titleLarge)
             state.measured.forEach { (setting, dial) ->
                 SettingDial(setting, dial, state.step) { onAction(ExposureAction.SetMeasured(setting, it.actual)) }
             }
             OutlinedButton(
                 onClick = { onAction(ExposureAction.CloseSheet) },
-                modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 56.dp),
                 shape = RoundedCornerShape(28.dp),
                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
             ) { Text(stringResource(R.string.done), fontSize = 16.sp, color = MaterialTheme.colorScheme.onSurface) }
@@ -243,13 +249,19 @@ private fun NdSheet(nd: NdFilter?, onAction: (ExposureAction) -> Unit) {
     val locale = currentLocale()
     ModalBottomSheet(onDismissRequest = { onAction(ExposureAction.CloseSheet) }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), containerColor = colors.surface) {
         Text(stringResource(R.string.nd_filters), Modifier.padding(horizontal = 16.dp), style = MaterialTheme.typography.titleLarge)
-        LazyColumn(Modifier.navigationBarsPadding().padding(bottom = 16.dp)) {
+        LazyColumn(Modifier
+            .navigationBarsPadding()
+            .padding(bottom = 16.dp)) {
             items(listOf<NdFilter?>(null) + NdFilter.entries) { filter ->
                 Row(
                     Modifier
                         .fillMaxWidth()
                         .heightIn(min = 56.dp)
-                        .selectable(selected = filter == nd, onClick = { onAction(ExposureAction.SetNd(filter)) }, role = Role.RadioButton)
+                        .selectable(
+                            selected = filter == nd,
+                            onClick = { onAction(ExposureAction.SetNd(filter)) },
+                            role = Role.RadioButton
+                        )
                         .padding(horizontal = 16.dp),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalAlignment = Alignment.CenterVertically,

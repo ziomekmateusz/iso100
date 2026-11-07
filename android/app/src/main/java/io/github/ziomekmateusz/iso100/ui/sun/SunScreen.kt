@@ -1,7 +1,7 @@
 package io.github.ziomekmateusz.iso100.ui.sun
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,14 +25,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.clearAndSetSemantics
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.ziomekmateusz.iso100.AppContainer
 import io.github.ziomekmateusz.iso100.LocalAppContainer
@@ -81,7 +78,7 @@ fun SunContent(state: SunUiState, onAction: (SunAction) -> Unit, onBack: () -> U
         title = stringResource(R.string.tool_sun),
         onBack = onBack,
         actions = { PlaceChip(state.place) { onAction(SunAction.OpenPlaces) } },
-        sheet = {
+        bottomBar = {
             DateStepper(
                 label = if (state.today) stringResource(R.string.today) else dateFormatter("EEEE", locale).format(state.date).capitalized(locale),
                 value = dateFormatter("dMMMMy", locale).format(state.date),
@@ -157,13 +154,21 @@ private fun PhotoTable(state: SunUiState, time: (ZonedDateTime) -> String) {
 @Composable
 private fun PhotoRow(label: String, dot: Color, dotBorder: Color?, morning: String, evening: String) {
     Surface(shape = MaterialTheme.shapes.small, color = MaterialTheme.colorScheme.surface) {
-        Row(Modifier.heightIn(min = 52.dp).padding(horizontal = 14.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(Modifier
+            .heightIn(min = 52.dp)
+            .padding(horizontal = 14.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
             Row(Modifier.weight(1.3f), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
                 Box(
                     Modifier
                         .size(12.dp)
                         .background(dot, CircleShape)
-                        .then(if (dotBorder != null) Modifier.border(2.dp, dotBorder, CircleShape) else Modifier),
+                        .then(
+                            if (dotBorder != null) Modifier.border(
+                                2.dp,
+                                dotBorder,
+                                CircleShape
+                            ) else Modifier
+                        ),
                 )
                 Text(label, fontSize = 16.sp)
             }
@@ -176,7 +181,9 @@ private fun PhotoRow(label: String, dot: Color, dotBorder: Color?, morning: Stri
 private fun Twilights(astronomical: Crossing, nautical: Crossing, civil: Crossing, time: (ZonedDateTime) -> String) {
     Column(Modifier.padding(horizontal = 4.dp)) {
         listOf(R.string.twilight_astronomical to astronomical, R.string.twilight_nautical to nautical, R.string.twilight_civil to civil).forEach { (label, crossing) ->
-            Row(Modifier.heightIn(min = 38.dp).padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+            Row(Modifier
+                .heightIn(min = 38.dp)
+                .padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
                 Text(stringResource(label), Modifier.weight(1.3f), fontSize = 15.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Times(crossing.rise?.let(time) ?: "—", crossing.set?.let(time) ?: "—", 16.sp, FontWeight.Normal)
             }

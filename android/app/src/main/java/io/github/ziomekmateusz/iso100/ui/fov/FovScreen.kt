@@ -74,8 +74,8 @@ fun FovContent(state: FovUiState, onAction: (FovAction) -> Unit, onBack: () -> U
     ToolScaffold(
         title = stringResource(R.string.tool_fov),
         onBack = onBack,
-        sheet = {
-            ControlSheet {
+        footer = { padding ->
+            ControlSheet(padding) {
                 NumberField(
                     label = stringResource(R.string.focal_length),
                     value = state.focalLengthMm,
@@ -152,8 +152,12 @@ private fun Frame(result: FieldOfView, state: FovUiState) {
                 .semantics { contentDescription = description },
         ) {
             val label = MaterialTheme.typography.labelLarge.copy(fontSize = 15.sp, fontWeight = FontWeight.SemiBold, fontFeatureSettings = "tnum")
-            Text(width, Modifier.align(Alignment.TopCenter).padding(top = 6.dp), style = label, color = colors.primary)
-            Text(height, Modifier.align(Alignment.CenterStart).padding(start = 6.dp), style = label, color = colors.primary)
+            Text(width, Modifier
+                .align(Alignment.TopCenter)
+                .padding(top = 6.dp), style = label, color = colors.primary)
+            Text(height, Modifier
+                .align(Alignment.CenterStart)
+                .padding(start = 6.dp), style = label, color = colors.primary)
             state.frames.forEachIndexed { i, frame ->
                 val stroke = colors.onSurfaceVariant.copy(alpha = if (i == 0) 1f else 0.6f)
                 Box(
@@ -162,17 +166,25 @@ private fun Frame(result: FieldOfView, state: FovUiState) {
                         .fillMaxWidth(frame.widthRatio.toFloat())
                         .fillMaxHeight(frame.heightRatio.toFloat())
                         .drawBehind {
-                            val dash = if (i == 0) floatArrayOf(6.dp.toPx(), 4.dp.toPx()) else floatArrayOf(2.dp.toPx(), 3.dp.toPx())
+                            val dash = if (i == 0) floatArrayOf(
+                                6.dp.toPx(),
+                                4.dp.toPx()
+                            ) else floatArrayOf(2.dp.toPx(), 3.dp.toPx())
                             drawRoundRect(
                                 color = stroke,
                                 cornerRadius = CornerRadius(4.dp.toPx()),
-                                style = Stroke(width = 1.5.dp.toPx(), pathEffect = PathEffect.dashPathEffect(dash)),
+                                style = Stroke(
+                                    width = 1.5.dp.toPx(),
+                                    pathEffect = PathEffect.dashPathEffect(dash)
+                                ),
                             )
                         },
                 ) {
                     Text(
                         stringResource(formatShortName(frame.formatId)),
-                        Modifier.align(if (i == 0) Alignment.TopEnd else Alignment.BottomStart).padding(horizontal = 6.dp, vertical = 4.dp),
+                        Modifier
+                            .align(if (i == 0) Alignment.TopEnd else Alignment.BottomStart)
+                            .padding(horizontal = 6.dp, vertical = 4.dp),
                         fontSize = 13.sp,
                         color = colors.onSurfaceVariant,
                     )

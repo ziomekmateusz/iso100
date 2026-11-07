@@ -76,7 +76,7 @@ fun MoonContent(state: MoonUiState, onAction: (MoonAction) -> Unit, onBack: () -
         title = stringResource(R.string.tool_moon),
         onBack = onBack,
         actions = { PlaceChip(state.place) { onAction(MoonAction.OpenPlaces) } },
-        sheet = {
+        bottomBar = {
             DateStepper(
                 label = if (state.today) stringResource(R.string.today) else dateFormatter("EEEE", locale).format(date).capitalized(locale),
                 value = stringResource(R.string.date_and_time, dateFormatter("EEEdMMMM", locale).format(date), time(state.at)),
@@ -165,7 +165,11 @@ private fun NextPhases(phases: List<MoonPhaseTime>, time: (ZonedDateTime) -> Str
             val whenText = stringResource(R.string.date_and_time, dateFormatter("EEEdMMM", locale).format(phase.time), time(phase.time))
             Surface(shape = MaterialTheme.shapes.small, color = colors.surface) {
                 Row(
-                    Modifier.fillMaxWidth().heightIn(min = 52.dp).padding(horizontal = 14.dp, vertical = 6.dp).clearAndSetSemantics { contentDescription = "$name, $whenText" },
+                    Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 52.dp)
+                        .padding(horizontal = 14.dp, vertical = 6.dp)
+                        .clearAndSetSemantics { contentDescription = "$name, $whenText" },
                     horizontalArrangement = Arrangement.spacedBy(14.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {

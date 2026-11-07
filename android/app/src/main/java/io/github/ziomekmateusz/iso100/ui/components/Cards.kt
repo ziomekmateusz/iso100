@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -36,16 +35,22 @@ import io.github.ziomekmateusz.iso100.data.AppTheme
 import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
 import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 
-/** The panel of the controls at the bottom, rounded only at the top. */
+/** The panel of the controls at the bottom, rounded only at the top; [contentPadding] goes inside, under the controls. */
 @Composable
-fun ControlSheet(modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
+fun ControlSheet(
+    contentPadding: PaddingValues,
+    modifier: Modifier = Modifier,
+    content: @Composable ColumnScope.() -> Unit
+) {
     Surface(
         modifier.fillMaxWidth(),
         shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
         color = MaterialTheme.colorScheme.surface,
     ) {
         Column(
-            Modifier.navigationBarsPadding().padding(start = 16.dp, end = 16.dp, top = 18.dp, bottom = 24.dp),
+            Modifier
+                .padding(contentPadding)
+                .padding(start = 16.dp, end = 16.dp, top = 18.dp, bottom = 24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             content = content,
         )

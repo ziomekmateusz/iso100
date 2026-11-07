@@ -3,12 +3,9 @@ package io.github.ziomekmateusz.iso100.ui.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -40,14 +37,14 @@ import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 fun DateStepper(label: String, value: String, onPrevious: () -> Unit, onNext: () -> Unit, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val colors = MaterialTheme.colorScheme
     Row(
-        modifier
-            .windowInsetsPadding(WindowInsets.navigationBars)
-            .padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 24.dp),
+        modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 24.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         RoundStep(R.drawable.ic_back, stringResource(R.string.previous_day), onPrevious)
-        Surface(onClick = onClick, modifier = Modifier.weight(1f).heightIn(min = 56.dp), shape = RoundedCornerShape(28.dp), color = colors.surface) {
+        Surface(onClick = onClick, modifier = Modifier
+            .weight(1f)
+            .heightIn(min = 56.dp), shape = RoundedCornerShape(28.dp), color = colors.surface) {
             Column(Modifier.padding(horizontal = 12.dp, vertical = 6.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
                 Text(label, fontSize = 13.sp, color = colors.onSurfaceVariant, textAlign = TextAlign.Center)
                 Text(value, fontSize = 18.sp, fontWeight = FontWeight.SemiBold, color = colors.onSurface, textAlign = TextAlign.Center)
@@ -61,7 +58,9 @@ fun DateStepper(label: String, value: String, onPrevious: () -> Unit, onNext: ()
 private fun RoundStep(icon: Int, description: String, onClick: () -> Unit) {
     Surface(
         onClick = onClick,
-        modifier = Modifier.size(56.dp).semantics { contentDescription = description },
+        modifier = Modifier
+            .size(56.dp)
+            .semantics { contentDescription = description },
         shape = RoundedCornerShape(28.dp),
         color = MaterialTheme.colorScheme.surface,
     ) {

@@ -69,8 +69,8 @@ fun StarsContent(state: StarsUiState, onAction: (StarsAction) -> Unit, onBack: (
     ToolScaffold(
         title = stringResource(R.string.title_stars),
         onBack = onBack,
-        sheet = {
-            ControlSheet {
+        footer = { padding ->
+            ControlSheet(padding) {
                 NumberField(
                     label = stringResource(R.string.focal_length),
                     value = state.focalLengthMm,
@@ -136,7 +136,9 @@ private fun Result(state: StarsUiState) {
         state.results.forEach { result ->
             val on = result.rule == state.rule
             HorizontalDivider(color = colors.surfaceContainerHigh)
-            Row(Modifier.heightIn(min = 40.dp).padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+            Row(Modifier
+                .heightIn(min = 40.dp)
+                .padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     stringResource(ruleName(result.rule)),
                     Modifier.weight(1.4f),

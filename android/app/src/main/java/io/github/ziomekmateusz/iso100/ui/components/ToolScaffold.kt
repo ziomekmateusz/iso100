@@ -1,12 +1,13 @@
 package io.github.ziomekmateusz.iso100.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.exclude
@@ -18,7 +19,6 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -26,21 +26,37 @@ import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.CompositingStrategy
+import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import io.github.ziomekmateusz.iso100.R
 
+private val fadeLength = 48.dp
+
 /**
- * A tool screen: round back button and title, the [content] below, the [sheet] of the controls at the
- * bottom. It scrolls when it does not fit (large text, keyboard open).
+ * A tool screen: round back button and title fixed at the top, the optional [bottomBar] fixed at the
+ * bottom, and between them the [content] and the [footer], which scroll and fade under the bars.
+ *
+ * The [footer] (the controls) sits at the bottom when everything fits and scrolls with the content
+ * when it does not (large text, keyboard open). It is drawn edge to edge and gets the bottom padding
+ * to apply inside its background. The scaffold handles every inset: neither slot adds its own.
  */
 @Composable
 fun ToolScaffold(
@@ -48,38 +64,119 @@ fun ToolScaffold(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     actions: @Composable RowScope.() -> Unit = {},
-    sheet: (@Composable () -> Unit)? = null,
+    bottomBar: (@Composable () -> Unit)? = null,
+    footer: (@Composable (PaddingValues) -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit = {},
 ) {
-    // the Surface also sets the content colour for the texts of the screen
-    Surface(modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-        BoxWithConstraints(Modifier.windowInsetsPadding(WindowInsets.ime.exclude(WindowInsets.navigationBars))) {
+    Scaffold(
+        modifier.fillMaxSize(),
+        topBar = { ToolTopBar(title, onBack, actions) },
+        bottomBar = { Box(Modifier.windowInsetsPadding(WindowInsets.navigationBars)) { bottomBar?.invoke() } },
+        containerColor = MaterialTheme.colorScheme.background,
+        contentWindowInsets = WindowInsets(0),
+    ) { bars ->
+        val bottom = bars.calculateBottomPadding()
+        BoxWithConstraints(
+            Modifier
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.ime.exclude(WindowInsets.navigationBars))
+                .fadeUnder(
+                    top = bars.calculateTopPadding(),
+                    bottom = if (bottomBar != null) bottom else 0.dp
+                ),
+        ) {
             Column(
-                Modifier.verticalScroll(rememberScrollState()).heightIn(min = maxHeight),
+                Modifier
+                    .verticalScroll(rememberScrollState())
+                    .heightIn(min = maxHeight),
                 verticalArrangement = Arrangement.SpaceBetween,
             ) {
                 Column(
                     Modifier
-                        .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
-                        .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp),
+                        .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal))
+                        .padding(
+                            start = 16.dp,
+                            end = 16.dp,
+                            top = bars.calculateTopPadding() + 14.dp,
+                            bottom = 16.dp + if (footer == null) bottom else 0.dp,
+                        ),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
-                ) {
-                    Row(
-                        Modifier.heightIn(min = 56.dp),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        RoundIconButton(R.drawable.ic_back, stringResource(R.string.back), onBack)
-                        Text(title, Modifier.weight(1f).semantics { heading() }, style = MaterialTheme.typography.titleLarge)
-                        actions()
-                    }
-                    content()
-                }
-                if (sheet != null) sheet() else Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
+                    content = content,
+                )
+                footer?.invoke(PaddingValues(bottom = bottom))
             }
         }
     }
 }
+
+@Composable
+private fun ToolTopBar(
+    title: String,
+    onBack: () -> Unit,
+    actions: @Composable RowScope.() -> Unit
+) {
+    Row(
+        Modifier
+            .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
+            .padding(start = 16.dp, end = 16.dp, top = 8.dp)
+            .heightIn(min = 56.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        RoundIconButton(R.drawable.ic_back, stringResource(R.string.back), onBack)
+        Text(
+            title,
+            Modifier
+                .weight(1f)
+                .semantics { heading() },
+            style = MaterialTheme.typography.titleLarge
+        )
+        actions()
+    }
+}
+
+/**
+ * Makes the content transparent under the bars [top] and [bottom] high, with a short fade at their
+ * edges: it works on any background.
+ */
+private fun Modifier.fadeUnder(top: Dp, bottom: Dp): Modifier = this
+    .graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
+    .drawWithContent {
+        drawContent()
+        val topEdge = top.toPx()
+        val bottomEdge = size.height - bottom.toPx()
+        val fade = fadeLength.toPx()
+        drawMask(
+            topEdge - fade,
+            topEdge,
+            Color.Transparent,
+            Color.Black,
+            rectTop = 0f,
+            rectBottom = topEdge
+        )
+        if (bottomEdge < size.height) drawMask(
+            bottomEdge,
+            bottomEdge + fade,
+            Color.Black,
+            Color.Transparent,
+            rectTop = bottomEdge,
+            rectBottom = size.height
+        )
+    }
+
+private fun DrawScope.drawMask(
+    startY: Float,
+    endY: Float,
+    startColor: Color,
+    endColor: Color,
+    rectTop: Float,
+    rectBottom: Float,
+) = drawRect(
+    brush = Brush.verticalGradient(listOf(startColor, endColor), startY = startY, endY = endY),
+    topLeft = Offset(0f, rectTop),
+    size = Size(size.width, rectBottom - rectTop),
+    blendMode = BlendMode.DstIn,
+)
 
 /** 48 dp round button on the surface colour, used in the screen headers. */
 @Composable

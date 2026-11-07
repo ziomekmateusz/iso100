@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -74,8 +73,8 @@ fun TimelapseContent(state: TimelapseUiState, onAction: (TimelapseAction) -> Uni
     ToolScaffold(
         title = stringResource(R.string.tool_timelapse),
         onBack = onBack,
-        sheet = {
-            ControlSheet {
+        footer = { padding ->
+            ControlSheet(padding) {
                 if (state.solve != TimelapseTarget.RECORDING) {
                     DurationField(
                         label = stringResource(R.string.recording_time),
@@ -169,8 +168,14 @@ private fun Bars(result: Timelapse) {
 private fun Bar(label: String, value: String, fraction: Float, color: Color) {
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         Text(label, Modifier.widthIn(min = 64.dp), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Box(Modifier.weight(1f).height(12.dp)) {
-            Box(Modifier.fillMaxWidth(fraction).widthIn(min = 8.dp).height(12.dp).background(color, RoundedCornerShape(6.dp)))
+        Box(Modifier
+            .weight(1f)
+            .height(12.dp)) {
+            Box(Modifier
+                .fillMaxWidth(fraction)
+                .widthIn(min = 8.dp)
+                .height(12.dp)
+                .background(color, RoundedCornerShape(6.dp)))
         }
         Text(value, Modifier.widthIn(min = 52.dp), fontFamily = Barlow, fontSize = 14.sp, textAlign = TextAlign.End)
     }
@@ -192,7 +197,11 @@ private fun FpsChoice(fps: Int, onSelect: (Int) -> Unit, modifier: Modifier) {
                         .clip(shape)
                         .background(if (on) colors.outlineVariant else Color.Transparent)
                         .border(1.dp, if (on) colors.primary else colors.outlineVariant, shape)
-                        .selectable(selected = on, onClick = { onSelect(choice) }, role = Role.RadioButton),
+                        .selectable(
+                            selected = on,
+                            onClick = { onSelect(choice) },
+                            role = Role.RadioButton
+                        ),
                     contentAlignment = Alignment.Center,
                 ) {
                     Text("$choice", fontFamily = Barlow, fontSize = 17.sp, fontWeight = FontWeight.SemiBold, color = if (on) colors.onSurface else colors.onSurfaceVariant)
