@@ -52,6 +52,7 @@ import io.github.ziomekmateusz.iso100.ui.components.RollingText
 import io.github.ziomekmateusz.iso100.ui.components.StopDial
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
 import io.github.ziomekmateusz.iso100.ui.components.dial
+import io.github.ziomekmateusz.iso100.ui.components.twoDigits
 import io.github.ziomekmateusz.iso100.ui.currentLocale
 import io.github.ziomekmateusz.iso100.ui.distanceNumber
 import io.github.ziomekmateusz.iso100.ui.distanceSymbol
@@ -134,6 +135,17 @@ fun DofContent(state: DofUiState, onAction: (DofAction) -> Unit, onBack: () -> U
                             distanceText(state.focusM, units),
                             distanceText(it.hyperfocalM, units),
                         ),
+                        onFocus = { meters ->
+                            onAction(
+                                DofAction.SetFocus(
+                                    twoDigits(
+                                        units.fromMeters(
+                                            meters
+                                        )
+                                    ), units
+                                )
+                            )
+                        },
                     )
                     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                         ResultTile(stringResource(R.string.dof_depth), it.depthM?.let { d -> distanceText(d, units) } ?: stringResource(R.string.infinity), Modifier.weight(1f))

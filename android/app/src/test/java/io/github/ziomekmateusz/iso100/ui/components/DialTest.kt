@@ -34,4 +34,19 @@ class DialTest {
         assertEquals(0.9f, dofBarFraction(500.0), 0f)
         assertEquals(1f, dofBarFraction(null), 0f)
     }
+
+    @Test
+    fun draggingTheFocusReadsTheBarBack() {
+        assertEquals(0.5, dofBarMeters(0f), 1e-9)
+        assertEquals(3.0, dofBarMeters(dofBarFraction(3.0)), 1e-3)
+        assertEquals(32.9, dofBarMeters(1f), 0.1)
+        assertEquals(0.5, dofBarMeters(-0.2f), 1e-9)
+    }
+
+    @Test
+    fun aDraggedDistanceKeepsTwoDigits() {
+        assertEquals(11.0, twoDigits(10.83), 0.0)
+        assertEquals(3.3, twoDigits(3.2718), 0.0)
+        assertEquals(0.52, twoDigits(0.5234), 0.0)
+    }
 }
