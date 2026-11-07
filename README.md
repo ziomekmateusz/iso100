@@ -53,7 +53,9 @@ none, for two reasons:
 State comes in three categories, and each piece lives in only one:
 
 - **Data** (settings, catalog, location, saved places): singleton stores that expose `Flow`.
-- **User input**: the composable, with `rememberSaveable`.
+- **User input**: the composable, with `rememberSaveable`. The values of the tools (not open sheets or
+  dates) also have a last copy in `ToolValuesStore`, so a tool opens where the user left it:
+  `rememberToolInput` starts from that copy and saves each change.
 - **Results**: recomputed by pure functions, never saved.
 
 Without a ViewModel the risk is logic sliding into composables, so each screen has three parts:

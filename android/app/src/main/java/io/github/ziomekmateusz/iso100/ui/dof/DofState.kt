@@ -19,8 +19,10 @@ import io.github.ziomekmateusz.iso100.ui.components.stepDown
 import io.github.ziomekmateusz.iso100.ui.components.stepUp
 import io.github.ziomekmateusz.iso100.ui.label
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 /** What the user chose: the exact aperture (f/8 = 8.0, f/5.6 = 5.657), the focus in metres whatever the units. */
+@Serializable
 @Parcelize
 data class DofInput(val focalLengthMm: Double = 50.0, val aperture: Double = 8.0, val focusM: Double = 3.0) : Parcelable
 

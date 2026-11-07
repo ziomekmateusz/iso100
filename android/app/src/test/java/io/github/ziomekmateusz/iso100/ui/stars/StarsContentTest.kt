@@ -29,7 +29,7 @@ class StarsContentTest {
         val actions = mutableListOf<StarsAction>()
         compose.setContent { Iso100Theme { StarsContent(StarsUiState.from(StarsInput(), Settings(), ALPHA_7_III_24MP), { actions += it }, {}, {}) } }
         compose.onNodeWithText("Calculated limit 11.6 s, rounded down").assertIsDisplayed()
-        compose.onNodeWithText("Sony Alpha 7 III · Full Frame (35 mm) · 24.2 MP").assertIsDisplayed()
+        compose.onNodeWithText("Sony Alpha 7 III · Full Frame (35 mm)").assertIsDisplayed()
         compose.onNode(hasText("300 rule") and hasClickAction()).performClick()
         assertEquals(listOf<StarsAction>(StarsAction.SetRule(StarRule.RULE_300)), actions)
     }

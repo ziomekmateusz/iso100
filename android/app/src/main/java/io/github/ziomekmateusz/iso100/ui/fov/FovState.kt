@@ -16,8 +16,10 @@ import io.github.ziomekmateusz.iso100.ui.components.stepDown
 import io.github.ziomekmateusz.iso100.ui.components.stepUp
 import io.github.ziomekmateusz.iso100.ui.label
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 /** What the user typed; the distance is kept in metres whatever the units. */
+@Serializable
 @Parcelize
 data class FovInput(val focalLengthMm: Double = 24.0, val distanceM: Double = 10.0) : Parcelable
 

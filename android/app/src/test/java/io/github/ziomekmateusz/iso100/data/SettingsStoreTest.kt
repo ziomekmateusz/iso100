@@ -58,6 +58,14 @@ class SettingsStoreTest {
     }
 
     @Test
+    fun theScreenTurnsOffAsUsualUntilAskedToStayOn() = runTest {
+        val store = SettingsStore(dataStore(backgroundScope))
+        assertEquals(false, store.settings.first().keepScreenOn)
+        store.setKeepScreenOn(true)
+        assertEquals(true, store.settings.first().keepScreenOn)
+    }
+
+    @Test
     fun settingsSurviveARestart() = runTest {
         val firstRun = CoroutineScope(Dispatchers.IO + Job())
         SettingsStore(dataStore(firstRun)).apply {

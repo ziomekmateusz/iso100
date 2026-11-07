@@ -7,6 +7,7 @@ import io.github.ziomekmateusz.iso100.calc.valueOrNull
 import io.github.ziomekmateusz.iso100.ui.components.stepDown
 import io.github.ziomekmateusz.iso100.ui.components.stepUp
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 import io.github.ziomekmateusz.iso100.calc.timelapse.TimelapseInput as Solve
 
 /** What to calculate. */
@@ -20,6 +21,7 @@ private val INTERVALS = listOf(0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 8.0, 10.0, 15.0, 20
 private val CLIP_LENGTHS = listOf(5.0, 10.0, 15.0, 20.0, 30.0, 45.0, 60.0, 90.0, 120.0, 180.0, 300.0)
 
 /** Durations in seconds; only the two that are not [solve] are used. [photoSizeMb] null: no storage estimate. */
+@Serializable
 @Parcelize
 data class TimelapseInput(
     val solve: TimelapseTarget = TimelapseTarget.CLIP,

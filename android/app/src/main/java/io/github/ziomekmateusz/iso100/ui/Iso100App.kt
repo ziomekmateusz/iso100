@@ -9,6 +9,7 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.rememberNavBackStack
@@ -60,12 +61,13 @@ private val pop: ContentTransform =
         .apply { targetContentZIndex = -1f }
 
 @Composable
-fun Iso100App() {
+fun Iso100App(modifier: Modifier = Modifier) {
     val backStack = rememberNavBackStack(Home)
     val back: () -> Unit = { backStack.removeLastOrNull() }
 
     NavDisplay(
         backStack = backStack,
+        modifier = modifier,
         onBack = back,
         entryDecorators = listOf(rememberSaveableStateHolderNavEntryDecorator()),
         transitionSpec = { push },

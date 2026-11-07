@@ -17,6 +17,8 @@ import io.github.ziomekmateusz.iso100.data.Settings
 import io.github.ziomekmateusz.iso100.ui.components.Dial
 import io.github.ziomekmateusz.iso100.ui.components.dial
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 enum class ExposureSheet { MEASURED, ND_FILTERS }
 
@@ -24,6 +26,7 @@ enum class ExposureSheet { MEASURED, ND_FILTERS }
  * The metered exposure and the new settings, kept by value: the dials show the nearest value of the
  * scale at the step of the settings. Only the two settings that are not [solve] are used.
  */
+@Serializable
 @Parcelize
 data class ExposureInput(
     val solve: ExposureSetting = SHUTTER,
@@ -34,7 +37,8 @@ data class ExposureInput(
     val aperture: Double = 8.0,
     val shutterS: Double = 1.0 / 125,
     val nd: NdFilter? = null,
-    val sheet: ExposureSheet? = null,
+    // a sheet left open is not reopened next time
+    @Transient val sheet: ExposureSheet? = null,
 ) : Parcelable
 
 sealed interface ExposureAction {

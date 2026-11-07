@@ -278,6 +278,8 @@
     <string name="auto_red_night">Red night after sunset</string>
     <string name="auto_red_night_hint">Turns on by itself at the end of the civil twilight</string>
     <string name="auto_red_night_needs_place">Needs a place: your position or a saved place</string>
+    <string name="keep_screen_on">Keep the screen on</string>
+    <string name="keep_screen_on_hint">While the app is open, for long sessions on the tripod</string>
     <string name="spec_iso_range" translatable="false">ISO %1$d–%2$d</string>
     <string name="spec_fps_value" translatable="false">%1$s fps</string>
     <string name="spec_weight_value" translatable="false">%1$d g</string>

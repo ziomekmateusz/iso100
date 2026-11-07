@@ -247,6 +247,8 @@
     <string name="auto_red_night">Czerwona noc po zachodzie słońca</string>
     <string name="auto_red_night_hint">Włącza się sama pod koniec zmierzchu cywilnego</string>
     <string name="auto_red_night_needs_place">Potrzebne miejsce: bieżąca lokalizacja lub zapisane miejsce</string>
+    <string name="keep_screen_on">Ekran zawsze włączony</string>
+    <string name="keep_screen_on_hint">Gdy aplikacja jest otwarta, na długie sesje ze statywem</string>
     <string name="camera_details">Parametry aparatu %1$s</string>
     <string name="spec_format">Format</string>
     <string name="spec_mount">Mocowanie</string>

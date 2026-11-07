@@ -15,9 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,12 +56,13 @@ import io.github.ziomekmateusz.iso100.ui.currentLocale
 import io.github.ziomekmateusz.iso100.ui.distanceSymbol
 import io.github.ziomekmateusz.iso100.ui.messageFor
 import io.github.ziomekmateusz.iso100.ui.number
+import io.github.ziomekmateusz.iso100.ui.rememberToolInput
 import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
 import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 
 @Composable
 fun FovScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, app: AppContainer = LocalAppContainer.current) {
-    var input by rememberSaveable { mutableStateOf(FovInput()) }
+    var input by rememberToolInput("fov", FovInput())
     val settings by app.settings.settings.collectAsStateWithLifecycle(Settings())
     val selection by app.catalog.selection.collectAsStateWithLifecycle()
     val catalog by app.catalog.state.collectAsStateWithLifecycle()

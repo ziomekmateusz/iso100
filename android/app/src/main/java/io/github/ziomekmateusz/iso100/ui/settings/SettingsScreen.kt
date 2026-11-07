@@ -86,6 +86,11 @@ fun SettingsScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, onSavedPlaces
                 is SettingsAction.SetUnits -> app.scope.launch { app.settings.setUnits(action.units) }
                 is SettingsAction.SetTheme -> app.scope.launch { app.settings.setTheme(action.theme) }
                 is SettingsAction.SetAutoLocation -> app.scope.launch { app.settings.setAutoLocation(action.enabled) }
+                is SettingsAction.SetKeepScreenOn -> app.scope.launch {
+                    app.settings.setKeepScreenOn(
+                        action.enabled
+                    )
+                }
                 is SettingsAction.SetAutoRedNight -> {
                     app.scope.launch { app.settings.setAutoRedNight(action.enabled) }
                     // without a place the red night cannot know when it is night: ask the position now
@@ -162,6 +167,14 @@ private fun AppCard(state: SettingsUiState, onAction: (SettingsAction) -> Unit) 
                 stringResource(if (settings.autoRedNight && !state.hasPlace) R.string.auto_red_night_needs_place else R.string.auto_red_night_hint),
                 settings.autoRedNight,
             ) { onAction(SettingsAction.SetAutoRedNight(it)) }
+            RowDivider()
+            SwitchRow(
+                stringResource(R.string.keep_screen_on),
+                stringResource(R.string.keep_screen_on_hint),
+                settings.keepScreenOn
+            ) {
+                onAction(SettingsAction.SetKeepScreenOn(it))
+            }
             RowDivider()
             SwitchRow(
                 stringResource(R.string.auto_location),

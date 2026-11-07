@@ -14,6 +14,7 @@ import io.github.ziomekmateusz.iso100.data.LocationStore
 import io.github.ziomekmateusz.iso100.data.SavedPlacesSerializer
 import io.github.ziomekmateusz.iso100.data.SavedPlacesStore
 import io.github.ziomekmateusz.iso100.data.SettingsStore
+import io.github.ziomekmateusz.iso100.data.ToolValuesStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -40,6 +41,13 @@ class AppContainer(context: Context) {
     val geocoding = Geocoding(app)
 
     val location = LocationStore(app, geocoding, scope)
+
+    val toolValues = ToolValuesStore(
+        PreferenceDataStoreFactory.create(ReplaceFileCorruptionHandler { emptyPreferences() }) {
+            app.preferencesDataStoreFile("tool_values")
+        },
+        scope,
+    )
 
     val savedPlaces = SavedPlacesStore(
         DataStoreFactory.create(SavedPlacesSerializer, ReplaceFileCorruptionHandler { emptyList() }) {

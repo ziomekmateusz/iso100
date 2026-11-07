@@ -24,6 +24,7 @@ sealed interface SettingsAction {
     data class SetTheme(val theme: AppTheme) : SettingsAction
     data class SetAutoLocation(val enabled: Boolean) : SettingsAction
     data class SetAutoRedNight(val enabled: Boolean) : SettingsAction
+    data class SetKeepScreenOn(val enabled: Boolean) : SettingsAction
     data class SetLanguage(val tag: String?) : SettingsAction
     data object OpenLanguage : SettingsAction
     data object Dismiss : SettingsAction

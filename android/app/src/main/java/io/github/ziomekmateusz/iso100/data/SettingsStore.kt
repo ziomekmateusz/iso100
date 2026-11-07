@@ -31,6 +31,8 @@ data class Settings(
     val placeId: String? = null,
     /** Red night by itself after the civil twilight, at the place of Sun and Moon. */
     val autoRedNight: Boolean = false,
+    /** The screen stays on while the app is in front, for long sessions with the phone on the tripod. */
+    val keepScreenOn: Boolean = false,
 )
 
 class SettingsStore(private val dataStore: DataStore<Preferences>) {
@@ -46,6 +48,7 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
                 theme = p[THEME].toEnum(AppTheme.DARK),
                 placeId = p[PLACE],
                 autoRedNight = p[AUTO_RED_NIGHT] ?: false,
+                keepScreenOn = p[KEEP_SCREEN_ON] ?: false,
             )
         }
 
@@ -71,6 +74,8 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
 
     suspend fun setAutoRedNight(enabled: Boolean) = edit { it[AUTO_RED_NIGHT] = enabled }
 
+    suspend fun setKeepScreenOn(enabled: Boolean) = edit { it[KEEP_SCREEN_ON] = enabled }
+
     /** A saved place, or null for the current position. */
     suspend fun setPlace(id: String?) = edit { if (id == null) it.remove(PLACE) else it[PLACE] = id }
 
@@ -87,6 +92,7 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
         val THEME = stringPreferencesKey("theme")
         val PLACE = stringPreferencesKey("place")
         val AUTO_RED_NIGHT = booleanPreferencesKey("auto_red_night")
+        val KEEP_SCREEN_ON = booleanPreferencesKey("keep_screen_on")
     }
 }
 

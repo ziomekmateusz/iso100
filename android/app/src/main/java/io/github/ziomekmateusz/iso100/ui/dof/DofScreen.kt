@@ -12,9 +12,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -59,6 +57,7 @@ import io.github.ziomekmateusz.iso100.ui.distanceNumber
 import io.github.ziomekmateusz.iso100.ui.distanceSymbol
 import io.github.ziomekmateusz.iso100.ui.distanceText
 import io.github.ziomekmateusz.iso100.ui.messageFor
+import io.github.ziomekmateusz.iso100.ui.rememberToolInput
 import io.github.ziomekmateusz.iso100.ui.shortNumber
 import io.github.ziomekmateusz.iso100.ui.stopStepText
 import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
@@ -66,7 +65,7 @@ import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 
 @Composable
 fun DofScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, app: AppContainer = LocalAppContainer.current) {
-    var input by rememberSaveable { mutableStateOf(DofInput()) }
+    var input by rememberToolInput("dof", DofInput())
     val settings by app.settings.settings.collectAsStateWithLifecycle(Settings())
     val selection by app.catalog.selection.collectAsStateWithLifecycle()
     val state = remember(input, settings, selection) { DofUiState.from(input, settings, selection) }

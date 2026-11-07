@@ -12,6 +12,8 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.keepScreenOn
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val container = (application as Iso100Application).container
         val settings =
             container.settings.settings.stateIn(lifecycleScope, SharingStarted.Eagerly, null)
-        installSplashScreen().setKeepOnScreenCondition { settings.value == null }
+        installSplashScreen().setKeepOnScreenCondition { settings.value == null || !container.toolValues.isLoaded }
         super.onCreate(savedInstanceState)
         setContent {
             val current by settings.collectAsStateWithLifecycle()
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
         CompositionLocalProvider(LocalAppContainer provides container) {
             Iso100Theme(theme) {
-                Iso100App()
+                Iso100App(if (settings.keepScreenOn) Modifier.keepScreenOn() else Modifier)
             }
         }
     }

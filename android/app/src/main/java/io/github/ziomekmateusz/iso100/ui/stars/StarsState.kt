@@ -20,8 +20,10 @@ import io.github.ziomekmateusz.iso100.ui.components.stepDown
 import io.github.ziomekmateusz.iso100.ui.components.stepUp
 import io.github.ziomekmateusz.iso100.ui.label
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 /** [rule] null: the default for the camera, NPF if it has the resolution. The aperture is exact, as for the DOF. */
+@Serializable
 @Parcelize
 data class StarsInput(val rule: StarRule? = null, val focalLengthMm: Double = 24.0, val aperture: Double = 2.8) : Parcelable
 

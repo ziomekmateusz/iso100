@@ -244,6 +244,8 @@
     <string name="auto_red_night">Notte rossa dopo il tramonto</string>
     <string name="auto_red_night_hint">Si attiva da sola alla fine del crepuscolo civile</string>
     <string name="auto_red_night_needs_place">Serve un luogo: la posizione attuale o un luogo salvato</string>
+    <string name="keep_screen_on">Schermo sempre acceso</string>
+    <string name="keep_screen_on_hint">Con l\'app aperta, per le sessioni lunghe sul treppiede</string>
     <string name="camera_details">Caratteristiche di %1$s</string>
     <string name="spec_format">Formato</string>
     <string name="spec_mount">Attacco</string>

@@ -55,6 +55,7 @@ import io.github.ziomekmateusz.iso100.ui.components.parseDecimal
 import io.github.ziomekmateusz.iso100.ui.currentLocale
 import io.github.ziomekmateusz.iso100.ui.durationText
 import io.github.ziomekmateusz.iso100.ui.messageFor
+import io.github.ziomekmateusz.iso100.ui.rememberToolInput
 import io.github.ziomekmateusz.iso100.ui.shortNumber
 import io.github.ziomekmateusz.iso100.ui.theme.Barlow
 import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
@@ -62,7 +63,7 @@ import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 
 @Composable
 fun TimelapseScreen(onBack: () -> Unit) {
-    var input by rememberSaveable { mutableStateOf(TimelapseInput()) }
+    var input by rememberToolInput("timelapse", TimelapseInput())
     val state = remember(input) { TimelapseUiState.from(input) }
     TimelapseContent(state, onAction = { input = input.reduce(it) }, onBack = onBack)
 }
