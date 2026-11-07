@@ -4,22 +4,22 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.hasSetTextAction
 import androidx.compose.ui.test.hasText
-import androidx.compose.ui.test.onLast
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.test.junit4.StateRestorationTester
 import androidx.compose.ui.test.junit4.v2.createComposeRule
+import androidx.compose.ui.test.onLast
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextReplacement
-import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.text.AnnotatedString
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import io.github.ziomekmateusz.iso100.AppContainer
@@ -61,7 +61,9 @@ class FovContentTest {
     @Test
     fun theStepButtonsSendTheirActions() {
         val actions = mutableListOf<FovAction>()
-        compose.setContent { Iso100Theme { FovContent(FovUiState.from(FovInput(), Settings(), ALPHA_7_III, TEST_FORMATS), { actions += it }, {}, {}) } }
+        compose.setContent {
+            Iso100Theme { FovContent(FovUiState.from(FovInput(), Settings(), ALPHA_7_III, TEST_FORMATS), { actions += it }, {}, {}) }
+        }
         compose.onNodeWithContentDescription("Longer focal length").performScrollTo().performClick()
         assertEquals(listOf<FovAction>(FovAction.StepFocalLength(up = true)), actions)
     }
@@ -69,7 +71,9 @@ class FovContentTest {
     @Test
     fun withoutACameraTheEmptyStateAsksToChooseOne() {
         var chosen = false
-        compose.setContent { Iso100Theme { FovContent(FovUiState.from(FovInput(), Settings(), null, TEST_FORMATS), {}, {}, { chosen = true }) } }
+        compose.setContent {
+            Iso100Theme { FovContent(FovUiState.from(FovInput(), Settings(), null, TEST_FORMATS), {}, {}, { chosen = true }) }
+        }
         compose.onNodeWithText("Choose the camera or the sensor format to calculate the field of view.").assertIsDisplayed()
         // the chip and the button both say "Choose camera": the button comes last
         compose.onAllNodes(hasText("Choose camera")).onLast().performClick()

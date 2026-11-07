@@ -22,10 +22,7 @@ inline fun <reified T : Any> rememberToolInput(key: String, default: T): Mutable
 }
 
 @Composable
-fun <T : Any> rememberToolInput(
-    tool: ToolValues<T>,
-    store: ToolValuesStore = LocalAppContainer.current.toolValues
-): MutableState<T> {
+fun <T : Any> rememberToolInput(tool: ToolValues<T>, store: ToolValuesStore = LocalAppContainer.current.toolValues): MutableState<T> {
     val input = rememberSaveable { mutableStateOf(store.saved(tool)) }
     LaunchedEffect(input.value) { store.save(tool, input.value) }
     return input

@@ -56,11 +56,15 @@ fun SavedPlacesScreen(onBack: () -> Unit, app: AppContainer = LocalAppContainer.
             // the store writes on the app scope, so that they finish after the dialog closes
             val editing = state.editing
             when (action) {
-                SavedPlacesAction.Save -> if (editing != null) app.scope.launch {
-                    app.savedPlaces.rename(editing.id, state.name.trim())
-                    app.savedPlaces.setZone(editing.id, ZoneId.of(state.zoneId))
+                SavedPlacesAction.Save -> if (editing != null) {
+                    app.scope.launch {
+                        app.savedPlaces.rename(editing.id, state.name.trim())
+                        app.savedPlaces.setZone(editing.id, ZoneId.of(state.zoneId))
+                    }
                 }
+
                 SavedPlacesAction.Delete -> if (editing != null) app.scope.launch { app.savedPlaces.delete(editing.id) }
+
                 else -> Unit
             }
             input = input.reduce(action)
@@ -74,11 +78,22 @@ fun SavedPlacesContent(state: SavedPlacesUiState, onAction: (SavedPlacesAction) 
     val colors = MaterialTheme.colorScheme
     ToolScaffold(title = stringResource(R.string.title_saved_places), onBack = onBack) {
         if (state.places.isEmpty()) {
-            Text(stringResource(R.string.saved_places_empty), Modifier.padding(horizontal = 4.dp), style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
+            Text(
+                stringResource(R.string.saved_places_empty),
+                Modifier.padding(horizontal = 4.dp),
+                style = MaterialTheme.typography.bodyLarge,
+                color = colors.onSurfaceVariant,
+            )
         }
         state.places.forEach { place ->
             Surface(onClick = { onAction(SavedPlacesAction.Edit(place)) }, shape = MaterialTheme.shapes.small, color = colors.surface) {
-                Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).padding(horizontal = 16.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 64.dp)
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
                     Column(Modifier.weight(1f)) {
                         Text(place.name, fontSize = 17.sp)
                         Text(
@@ -95,13 +110,16 @@ fun SavedPlacesContent(state: SavedPlacesUiState, onAction: (SavedPlacesAction) 
     val editing = state.editing
     when {
         editing == null -> Unit
+
         state.zonePicker -> ZoneDialog(state, onAction)
+
         state.confirmDelete -> AlertDialog(
             onDismissRequest = { onAction(SavedPlacesAction.Dismiss) },
             text = { Text(stringResource(R.string.saved_place_delete_question, editing.name)) },
             confirmButton = { TextButton(onClick = { onAction(SavedPlacesAction.Delete) }) { Text(stringResource(R.string.delete)) } },
             dismissButton = { TextButton(onClick = { onAction(SavedPlacesAction.Dismiss) }) { Text(stringResource(R.string.cancel)) } },
         )
+
         else -> EditDialog(state, onAction)
     }
 }
@@ -130,7 +148,9 @@ private fun EditDialog(state: SavedPlacesUiState, onAction: (SavedPlacesAction) 
                 }
             }
         },
-        confirmButton = { TextButton(onClick = { onAction(SavedPlacesAction.Save) }, enabled = state.canSave) { Text(stringResource(R.string.save)) } },
+        confirmButton = {
+            TextButton(onClick = { onAction(SavedPlacesAction.Save) }, enabled = state.canSave) { Text(stringResource(R.string.save)) }
+        },
         dismissButton = { TextButton(onClick = { onAction(SavedPlacesAction.Dismiss) }) { Text(stringResource(R.string.cancel)) } },
     )
 }
@@ -154,11 +174,17 @@ private fun ZoneDialog(state: SavedPlacesUiState, onAction: (SavedPlacesAction) 
                             Modifier
                                 .fillMaxWidth()
                                 .heightIn(min = 48.dp)
-                                .selectable(zone.id == state.zoneId, onClick = { onAction(SavedPlacesAction.PickZone(zone.id)) }, role = Role.RadioButton),
+                                .selectable(zone.id == state.zoneId, onClick = {
+                                    onAction(SavedPlacesAction.PickZone(zone.id))
+                                }, role = Role.RadioButton),
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(zone.id.replace('_', ' '), Modifier.weight(1f), fontSize = 16.sp)
-                            Text(stringResource(R.string.utc_offset, zone.offset.id.replace("Z", "+00:00")), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Text(
+                                stringResource(R.string.utc_offset, zone.offset.id.replace("Z", "+00:00")),
+                                fontSize = 14.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
                         }
                     }
                 }
@@ -189,6 +215,15 @@ private fun SavedPlacesEmptyPreview() {
 @Composable
 private fun SavedPlacesEditPreview() {
     Iso100Theme {
-        SavedPlacesContent(SavedPlacesUiState.from(SavedPlacesInput().reduce(SavedPlacesAction.Edit(previewPlaces[1])), previewPlaces, Instant.EPOCH), {}, {})
+        SavedPlacesContent(
+            SavedPlacesUiState.from(
+                SavedPlacesInput().reduce(SavedPlacesAction.Edit(previewPlaces[1])),
+                previewPlaces,
+                Instant.EPOCH,
+            ),
+            {
+            },
+            {},
+        )
     }
 }

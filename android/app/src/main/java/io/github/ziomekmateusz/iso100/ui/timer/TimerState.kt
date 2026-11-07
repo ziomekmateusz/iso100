@@ -8,11 +8,7 @@ import kotlinx.parcelize.Parcelize
  * device and the time left is worked out from it, so a late frame never makes it drift.
  */
 @Parcelize
-data class TimerInput(
-    val totalMs: Long,
-    val remainingMs: Long = totalMs,
-    val endsAtMs: Long? = null
-) : Parcelable {
+data class TimerInput(val totalMs: Long, val remainingMs: Long = totalMs, val endsAtMs: Long? = null) : Parcelable {
     val running: Boolean get() = endsAtMs != null
 
     /** How long until the shown second changes, which is also exactly at zero on the last one. */
@@ -37,15 +33,19 @@ fun TimerInput.reduce(action: TimerAction): TimerInput = when (action) {
     is TimerAction.Pause -> endsAtMs?.let {
         copy(
             remainingMs = (it - action.nowMs).coerceAtLeast(0),
-            endsAtMs = null
+            endsAtMs = null,
         )
     } ?: this
 
     is TimerAction.Tick -> endsAtMs?.let { endsAt ->
-        if (action.nowMs >= endsAt) copy(
-            remainingMs = 0,
-            endsAtMs = null
-        ) else copy(remainingMs = endsAt - action.nowMs)
+        if (action.nowMs >= endsAt) {
+            copy(
+                remainingMs = 0,
+                endsAtMs = null,
+            )
+        } else {
+            copy(remainingMs = endsAt - action.nowMs)
+        }
     } ?: this
 
     TimerAction.Reset -> TimerInput(totalMs)
@@ -82,8 +82,7 @@ data class TimerUiState(
     }
 }
 
-private fun progress(remainingMs: Long, totalMs: Long): Float =
-    1f - remainingMs.coerceAtLeast(0).toFloat() / totalMs
+private fun progress(remainingMs: Long, totalMs: Long): Float = 1f - remainingMs.coerceAtLeast(0).toFloat() / totalMs
 
 /** Whole seconds rounded up: "0:01" until the very end, never "0:00" while time is left. */
 internal fun clockText(milliseconds: Long): String {
@@ -91,8 +90,12 @@ internal fun clockText(milliseconds: Long): String {
     val hours = seconds / 3600
     val minutes = seconds / 60 % 60
     val rest = seconds % 60
-    return if (hours > 0) "%d:%02d:%02d".format(hours, minutes, rest) else "%d:%02d".format(
-        minutes,
-        rest
-    )
+    return if (hours > 0) {
+        "%d:%02d:%02d".format(hours, minutes, rest)
+    } else {
+        "%d:%02d".format(
+            minutes,
+            rest,
+        )
+    }
 }

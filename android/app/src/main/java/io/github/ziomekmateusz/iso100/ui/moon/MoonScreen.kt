@@ -94,7 +94,11 @@ fun MoonContent(state: MoonUiState, onAction: (MoonAction) -> Unit, onBack: () -
     }
     when (state.dialog) {
         MoonDialog.DATE -> DateDialog(date, onPick = { onAction(MoonAction.SetDate(it)) }, onDismiss = { onAction(MoonAction.Dismiss) })
-        MoonDialog.TIME -> TimeDialog(state.at.toLocalTime(), onPick = { onAction(MoonAction.SetTime(it)) }, onDismiss = { onAction(MoonAction.Dismiss) })
+
+        MoonDialog.TIME -> TimeDialog(state.at.toLocalTime(), onPick = {
+            onAction(MoonAction.SetTime(it))
+        }, onDismiss = { onAction(MoonAction.Dismiss) })
+
         null -> Unit
     }
 }
@@ -109,13 +113,22 @@ private fun Phase(state: MoonUiState, time: (ZonedDateTime) -> String) {
     val percent = (moon.illumination * 100).toInt()
     val phase = stringResource(phaseName(moon.phase))
     ResultCard {
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Column(
+            Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
             MoonDisc(moon.illumination, moon.waxing, 200.dp, pluralStringResource(R.plurals.moon_disc_description, percent, percent, phase))
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(2.dp)) {
                 Text("$percent%", style = MaterialTheme.typography.displayMedium.copy(fontSize = 56.sp, lineHeight = 58.sp))
                 Text(
                     // "Luna piena · luna piena domani" says it twice: the next phase alone is enough
-                    listOfNotNull(phase.takeIf { moon.phase != moon.nextPhases.firstOrNull()?.phase }, moon.nextPhases.firstOrNull()?.let { nextQuarter(it, state.at) })
+                    listOfNotNull(
+                        phase.takeIf {
+                            moon.phase != moon.nextPhases.firstOrNull()?.phase
+                        },
+                        moon.nextPhases.firstOrNull()?.let { nextQuarter(it, state.at) },
+                    )
                         .joinToString(" " + stringResource(R.string.separator)),
                     fontSize = 17.sp,
                     color = colors.onSurfaceVariant,
@@ -133,7 +146,18 @@ private fun Phase(state: MoonUiState, time: (ZonedDateTime) -> String) {
             val direction = stringArrayResource(R.array.compass_points)[compassPoint(position.azimuthDeg)]
             val altitude = number(position.altitudeDeg, 0, locale)
             Text(
-                stringResource(if (position.altitudeDeg >= 0) R.string.moon_position_above else R.string.moon_position_below, time(state.at), altitude, direction),
+                stringResource(
+                    if (position.altitudeDeg >=
+                        0
+                    ) {
+                        R.string.moon_position_above
+                    } else {
+                        R.string.moon_position_below
+                    },
+                    time(state.at),
+                    altitude,
+                    direction,
+                ),
                 fontSize = 15.sp,
                 color = colors.onSurfaceVariant,
             )
@@ -173,9 +197,19 @@ private fun NextPhases(phases: List<MoonPhaseTime>, time: (ZonedDateTime) -> Str
                     horizontalArrangement = Arrangement.spacedBy(14.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    MoonDisc(quarterIllumination(phase.phase), waxing = phase.phase == MoonPhaseName.FIRST_QUARTER, size = 22.dp, description = null, outlined = true)
+                    MoonDisc(
+                        quarterIllumination(phase.phase),
+                        waxing = phase.phase == MoonPhaseName.FIRST_QUARTER,
+                        size = 22.dp,
+                        description = null,
+                        outlined = true,
+                    )
                     Text(name, Modifier.weight(1f), fontSize = 17.sp)
-                    Text(whenText, style = MaterialTheme.typography.titleMedium.copy(fontSize = 16.sp, lineHeight = 20.sp), color = colors.onSurfaceVariant)
+                    Text(
+                        whenText,
+                        style = MaterialTheme.typography.titleMedium.copy(fontSize = 16.sp, lineHeight = 20.sp),
+                        color = colors.onSurfaceVariant,
+                    )
                 }
             }
         }

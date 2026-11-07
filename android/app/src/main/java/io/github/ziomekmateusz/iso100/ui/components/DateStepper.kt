@@ -34,7 +34,14 @@ import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
  * [label] is "Oggi" or the weekday; [value] the date, with the hour for the Moon.
  */
 @Composable
-fun DateStepper(label: String, value: String, onPrevious: () -> Unit, onNext: () -> Unit, onClick: () -> Unit, modifier: Modifier = Modifier) {
+fun DateStepper(
+    label: String,
+    value: String,
+    onPrevious: () -> Unit,
+    onNext: () -> Unit,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     val colors = MaterialTheme.colorScheme
     Row(
         modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 24.dp),
@@ -42,10 +49,19 @@ fun DateStepper(label: String, value: String, onPrevious: () -> Unit, onNext: ()
         verticalAlignment = Alignment.CenterVertically,
     ) {
         RoundStep(R.drawable.ic_back, stringResource(R.string.previous_day), onPrevious)
-        Surface(onClick = onClick, modifier = Modifier
-            .weight(1f)
-            .heightIn(min = 56.dp), shape = RoundedCornerShape(28.dp), color = colors.surface) {
-            Column(Modifier.padding(horizontal = 12.dp, vertical = 6.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+        Surface(
+            onClick = onClick,
+            modifier = Modifier
+                .weight(1f)
+                .heightIn(min = 56.dp),
+            shape = RoundedCornerShape(28.dp),
+            color = colors.surface,
+        ) {
+            Column(
+                Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+            ) {
                 Text(label, fontSize = 13.sp, color = colors.onSurfaceVariant, textAlign = TextAlign.Center)
                 Text(value, fontSize = 18.sp, fontWeight = FontWeight.SemiBold, color = colors.onSurface, textAlign = TextAlign.Center)
             }

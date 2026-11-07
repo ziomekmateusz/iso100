@@ -28,11 +28,7 @@ import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 
 /** The panel of the controls at the bottom, rounded only at the top; [contentPadding] goes inside, under the controls. */
 @Composable
-fun ControlSheet(
-    contentPadding: PaddingValues,
-    modifier: Modifier = Modifier,
-    content: @Composable ColumnScope.() -> Unit
-) {
+fun ControlSheet(contentPadding: PaddingValues, modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
     Surface(
         modifier.fillMaxWidth(),
         shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
@@ -61,11 +57,15 @@ fun ResultCard(modifier: Modifier = Modifier, content: @Composable ColumnScope.(
 fun ResultTile(label: String, value: String, modifier: Modifier = Modifier) {
     Surface(modifier, shape = MaterialTheme.shapes.small, color = MaterialTheme.colorScheme.surfaceContainerHigh) {
         Column(Modifier.padding(horizontal = 14.dp, vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-            Text(label, style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal), color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(
+                label,
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
             RollingText(
                 value,
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
             )
         }
     }
@@ -79,7 +79,7 @@ fun ChooseCameraCard(message: String, onChooseCamera: () -> Unit, modifier: Modi
         PrimaryButton(
             stringResource(R.string.choose_camera),
             onChooseCamera,
-            Modifier.fillMaxWidth()
+            Modifier.fillMaxWidth(),
         )
     }
 }

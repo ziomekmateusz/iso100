@@ -32,7 +32,10 @@ class SavedPlacesTest {
         val editing = SavedPlacesInput().reduce(SavedPlacesAction.Edit(reykjavik)).reduce(SavedPlacesAction.OpenZones)
         val searched = SavedPlacesUiState.from(editing.reduce(SavedPlacesAction.SearchZone("reykj")), listOf(reykjavik), january)
         assertEquals(listOf(ZoneRow("Atlantic/Reykjavik", ZoneOffset.UTC)), searched.zones)
-        assertEquals("America/New_York", SavedPlacesUiState.from(editing.reduce(SavedPlacesAction.SearchZone("new york")), listOf(reykjavik), january).zones.single().id)
+        assertEquals(
+            "America/New_York",
+            SavedPlacesUiState.from(editing.reduce(SavedPlacesAction.SearchZone("new york")), listOf(reykjavik), january).zones.single().id,
+        )
         val picked = editing.reduce(SavedPlacesAction.PickZone("Atlantic/Reykjavik"))
         assertEquals("Atlantic/Reykjavik", picked.zoneId)
         assertFalse(picked.zonePicker)
@@ -53,7 +56,13 @@ class SavedPlacesTest {
         var input by mutableStateOf(SavedPlacesInput())
         val actions = mutableListOf<SavedPlacesAction>()
         compose.setContent {
-            Iso100Theme { SavedPlacesContent(SavedPlacesUiState.from(input, listOf(reykjavik), january), { actions += it; input = input.reduce(it) }, {}) }
+            Iso100Theme {
+                SavedPlacesContent(SavedPlacesUiState.from(input, listOf(reykjavik), january), {
+                    actions += it
+                    input =
+                        input.reduce(it)
+                }, {})
+            }
         }
         compose.onNodeWithText("Reykjavík").performClick()
         compose.onNodeWithText("Edit place").assertIsDisplayed()
@@ -64,6 +73,8 @@ class SavedPlacesTest {
     @Test
     fun withoutPlacesTheScreenSaysHowToSaveOne() {
         compose.setContent { Iso100Theme { SavedPlacesContent(SavedPlacesUiState.from(SavedPlacesInput(), emptyList(), january), {}, {}) } }
-        compose.onNodeWithText("No saved places yet. In Sun or Moon, choose a place and search it by name: it is saved here.").assertIsDisplayed()
+        compose.onNodeWithText(
+            "No saved places yet. In Sun or Moon, choose a place and search it by name: it is saved here.",
+        ).assertIsDisplayed()
     }
 }

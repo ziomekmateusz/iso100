@@ -57,11 +57,14 @@ private const val BAR_LAST_FINITE = 0.9
  * 0.149 further right, infinity (null) at the right edge.
  * shortcut: below 0.5 m and beyond about 33 m everything sticks to the ends; rescale if macro or landscape need it.
  */
-internal fun dofBarFraction(meters: Double?): Float =
-    if (meters == null) 1f else (log2(meters / BAR_START_M) * BAR_DOUBLING).coerceIn(
+internal fun dofBarFraction(meters: Double?): Float = if (meters == null) {
+    1f
+} else {
+    (log2(meters / BAR_START_M) * BAR_DOUBLING).coerceIn(
         0.0,
-        BAR_LAST_FINITE
+        BAR_LAST_FINITE,
     ).toFloat()
+}
 
 /** The distance under a point of the bar, the inverse of [dofBarFraction]; the infinity end gives the last finite distance. */
 internal fun dofBarMeters(fraction: Float): Double =
@@ -118,9 +121,11 @@ fun DofBar(
             },
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Canvas(Modifier
-            .fillMaxWidth()
-            .height(24.dp)) {
+        Canvas(
+            Modifier
+                .fillMaxWidth()
+                .height(24.dp),
+        ) {
             val barTop = 7.dp.toPx()
             val barHeight = 10.dp.toPx()
             val radius = CornerRadius(barHeight / 2)
@@ -130,12 +135,12 @@ fun DofBar(
                 colors.primary,
                 Offset(start, barTop),
                 Size((far * size.width - start).coerceAtLeast(barHeight), barHeight),
-                radius
+                radius,
             )
             drawRect(
                 colors.onSurfaceVariant,
                 Offset(hyperfocal * size.width - 1.dp.toPx(), 3.dp.toPx()),
-                Size(2.dp.toPx(), 18.dp.toPx())
+                Size(2.dp.toPx(), 18.dp.toPx()),
             )
             val focusPoint = Offset(focus * size.width, size.height / 2)
             drawCircle(colors.onSurface, 10.dp.toPx(), focusPoint)
@@ -143,9 +148,11 @@ fun DofBar(
         }
         // the labels grow with the font: the row takes the height of one of them
         val labelHeight = with(LocalDensity.current) { measurer.measure("0", labelStyle).size.height.toDp() }
-        Canvas(Modifier
-            .fillMaxWidth()
-            .height(labelHeight)) {
+        Canvas(
+            Modifier
+                .fillMaxWidth()
+                .height(labelHeight),
+        ) {
             for ((label, meters) in scale) {
                 val text = measurer.measure(label, labelStyle)
                 val x = if (meters == null) size.width - text.size.width else (dofBarFraction(meters) * size.width - text.size.width / 2f)

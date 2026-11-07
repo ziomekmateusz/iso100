@@ -52,10 +52,14 @@ class MainActivity : AppCompatActivity() {
         val theme = effectiveTheme(settings, place, now)
         val dark = theme.isDark(isSystemInDarkTheme())
         LaunchedEffect(dark) {
-            val bars = if (dark) SystemBarStyle.dark(Color.TRANSPARENT) else SystemBarStyle.light(
-                Color.TRANSPARENT,
-                Color.TRANSPARENT
-            )
+            val bars = if (dark) {
+                SystemBarStyle.dark(Color.TRANSPARENT)
+            } else {
+                SystemBarStyle.light(
+                    Color.TRANSPARENT,
+                    Color.TRANSPARENT,
+                )
+            }
             enableEdgeToEdge(bars, bars)
         }
         CompositionLocalProvider(LocalAppContainer provides container) {

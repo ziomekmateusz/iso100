@@ -48,7 +48,12 @@ fun DurationField(label: String, seconds: Double, onValueChange: (Double) -> Uni
     var minutes by rememberSaveable { mutableStateOf(split(seconds).second) }
     // a duration changed from outside replaces the text; the typed one stays
     LaunchedEffect(seconds) {
-        if (parseDuration(hours, minutes) != seconds) split(seconds).let { (h, m) -> hours = h; minutes = m }
+        if (parseDuration(hours, minutes) != seconds) {
+            split(seconds).let { (h, m) ->
+                hours = h
+                minutes = m
+            }
+        }
     }
     val message = if (parseDuration(hours, minutes) == null) stringResource(R.string.error_not_a_whole_number) else error
     Column(modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -56,7 +61,10 @@ fun DurationField(label: String, seconds: Double, onValueChange: (Double) -> Uni
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             ValueBox(
                 text = hours,
-                onTextChange = { hours = it; parseDuration(it, minutes)?.let(onValueChange) },
+                onTextChange = {
+                    hours = it
+                    parseDuration(it, minutes)?.let(onValueChange)
+                },
                 unit = stringResource(R.string.symbol_h),
                 description = stringResource(R.string.hours),
                 error = message,
@@ -65,7 +73,10 @@ fun DurationField(label: String, seconds: Double, onValueChange: (Double) -> Uni
             )
             ValueBox(
                 text = minutes,
-                onTextChange = { minutes = it; parseDuration(hours, it)?.let(onValueChange) },
+                onTextChange = {
+                    minutes = it
+                    parseDuration(hours, it)?.let(onValueChange)
+                },
                 unit = stringResource(R.string.symbol_min),
                 description = stringResource(R.string.minutes),
                 error = message,

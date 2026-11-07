@@ -83,19 +83,27 @@ fun PlacePickerSheet(onDismiss: () -> Unit, onLocate: () -> Unit, app: AppContai
             // the choice is saved on the app scope: the sheet closes at once
             when (action) {
                 is PlacePickerAction.Search -> query = action.query
+
                 PlacePickerAction.ChooseCurrent -> {
                     app.scope.launch { app.settings.setPlace(null) }
                     onLocate()
                     onDismiss()
                 }
+
                 is PlacePickerAction.ChooseSaved -> {
                     app.scope.launch { app.settings.setPlace(action.id) }
                     onDismiss()
                 }
+
                 is PlacePickerAction.ChooseFound -> {
                     // a new place takes the time zone of the phone; the user can change it among the saved places
                     app.scope.launch {
-                        val place = app.savedPlaces.add(action.candidate.name, action.candidate.latitude, action.candidate.longitude, ZoneId.systemDefault())
+                        val place = app.savedPlaces.add(
+                            action.candidate.name,
+                            action.candidate.latitude,
+                            action.candidate.longitude,
+                            ZoneId.systemDefault(),
+                        )
                         app.settings.setPlace(place.id)
                     }
                     onDismiss()
@@ -127,7 +135,13 @@ sealed interface PlacePickerAction {
 fun PlacePickerContent(state: PlacePickerUiState, onAction: (PlacePickerAction) -> Unit, onDismiss: () -> Unit) {
     AppBottomSheet(onDismiss = onDismiss) {
         LazyColumn(Modifier.padding(bottom = 16.dp)) {
-            item { Text(stringResource(R.string.choose_place), Modifier.padding(horizontal = 16.dp), style = MaterialTheme.typography.titleLarge) }
+            item {
+                Text(
+                    stringResource(R.string.choose_place),
+                    Modifier.padding(horizontal = 16.dp),
+                    style = MaterialTheme.typography.titleLarge,
+                )
+            }
             item { CurrentPlace(state) { onAction(PlacePickerAction.ChooseCurrent) } }
             savedPlaces(state) { onAction(PlacePickerAction.ChooseSaved(it)) }
             placeSearch(state, onAction)
@@ -160,10 +174,7 @@ private fun LazyListScope.savedPlaces(state: PlacePickerUiState, onChoose: (Stri
 }
 
 /** The search field and what it found, or why there is no search. */
-private fun LazyListScope.placeSearch(
-    state: PlacePickerUiState,
-    onAction: (PlacePickerAction) -> Unit
-) {
+private fun LazyListScope.placeSearch(state: PlacePickerUiState, onAction: (PlacePickerAction) -> Unit) {
     item { Header(stringResource(R.string.place_search)) }
     if (!state.searchAvailable) {
         item { Note(stringResource(R.string.place_search_unavailable)) }
@@ -173,12 +184,13 @@ private fun LazyListScope.placeSearch(
     val found = state.found
     when {
         found == null -> item { Searching() }
+
         found.isEmpty() && state.query.isNotBlank() -> item {
             Note(
                 stringResource(
                     R.string.place_not_found,
-                    state.query.trim()
-                )
+                    state.query.trim(),
+                ),
             )
         }
 
@@ -186,8 +198,8 @@ private fun LazyListScope.placeSearch(
             FoundPlace(candidate) {
                 onAction(
                     PlacePickerAction.ChooseFound(
-                        candidate
-                    )
+                        candidate,
+                    ),
                 )
             }
         }
@@ -202,7 +214,7 @@ private fun FoundPlace(candidate: PlaceCandidate, onChoose: () -> Unit) {
         stringResource(
             R.string.coordinates,
             number(candidate.latitude, 2, locale),
-            number(candidate.longitude, 2, locale)
+            number(candidate.longitude, 2, locale),
         ),
         selected = false,
         onClick = onChoose,
@@ -215,7 +227,7 @@ private fun Searching() {
         Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) { CircularProgressIndicator(Modifier.size(24.dp)) }
 }
 
@@ -235,18 +247,37 @@ private fun PlaceRow(title: String, detail: String?, selected: Boolean, onClick:
             Text(title, fontSize = 18.sp, fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal)
             if (detail != null) Text(detail, fontSize = 14.sp, color = colors.onSurfaceVariant)
         }
-        if (selected) Icon(painterResource(R.drawable.ic_check), null, Modifier.size(22.dp), tint = colors.primary) else Spacer(Modifier.size(22.dp))
+        if (selected) {
+            Icon(
+                painterResource(R.drawable.ic_check),
+                null,
+                Modifier.size(22.dp),
+                tint = colors.primary,
+            )
+        } else {
+            Spacer(Modifier.size(22.dp))
+        }
     }
 }
 
 @Composable
 private fun Header(text: String) {
-    Text(text, Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp), fontSize = 15.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    Text(
+        text,
+        Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp),
+        fontSize = 15.sp,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
 }
 
 @Composable
 private fun Note(text: String) {
-    Text(text, Modifier.padding(horizontal = 16.dp, vertical = 8.dp), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    Text(
+        text,
+        Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        style = MaterialTheme.typography.bodyLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
 }
 
 @Composable
@@ -279,7 +310,15 @@ private fun SearchField(query: String, onQueryChange: (String) -> Unit) {
             ) {
                 Icon(painterResource(R.drawable.ic_search), null, Modifier.size(20.dp), tint = colors.onSurfaceVariant)
                 Box(Modifier.weight(1f)) {
-                    if (query.isEmpty()) Text(stringResource(R.string.place_search_hint), fontSize = 18.sp, color = colors.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    if (query.isEmpty()) {
+                        Text(
+                            stringResource(R.string.place_search_hint),
+                            fontSize = 18.sp,
+                            color = colors.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
                     inner()
                 }
             }

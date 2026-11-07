@@ -28,8 +28,11 @@ class FormatPickerContentTest {
                 FormatPickerContent(
                     formatRows(
                         TEST_CATALOG,
-                        Settings(formatId = "full-frame")
-                    ), onChoose = { chosen += it }, onDismiss = {})
+                        Settings(formatId = "full-frame"),
+                    ),
+                    onChoose = { chosen += it },
+                    onDismiss = {},
+                )
             }
         }
         compose.onNodeWithText("Sensor format").assertIsDisplayed()

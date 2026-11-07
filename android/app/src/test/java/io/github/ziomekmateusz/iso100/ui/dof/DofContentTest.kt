@@ -60,7 +60,9 @@ class DofContentTest {
     @Test
     fun theDialIsASliderOnTheStopsOfTheScale() {
         var input by mutableStateOf(DofInput())
-        compose.setContent { Iso100Theme { DofContent(DofUiState.from(input, Settings(), ALPHA_7_III), { input = input.reduce(it) }, {}, {}) } }
+        compose.setContent {
+            Iso100Theme { DofContent(DofUiState.from(input, Settings(), ALPHA_7_III), { input = input.reduce(it) }, {}, {}) }
+        }
         val dial = compose.onNodeWithContentDescription("Aperture")
         dial.assert(SemanticsMatcher.expectValue(SemanticsProperties.StateDescription, "f/8"))
         dial.performSemanticsAction(SemanticsActions.SetProgress) { it(state.aperture.selected + 3f) }
@@ -71,7 +73,9 @@ class DofContentTest {
     @Test
     fun draggingTheDialRightOpensTheAperture() {
         var input by mutableStateOf(DofInput())
-        compose.setContent { Iso100Theme { DofContent(DofUiState.from(input, Settings(), ALPHA_7_III), { input = input.reduce(it) }, {}, {}) } }
+        compose.setContent {
+            Iso100Theme { DofContent(DofUiState.from(input, Settings(), ALPHA_7_III), { input = input.reduce(it) }, {}, {}) }
+        }
         compose.onNodeWithContentDescription("Aperture").performScrollTo().performTouchInput { swipeRight() }
         compose.runOnIdle { assertTrue("f/${input.aperture}", input.aperture < 8.0) }
     }

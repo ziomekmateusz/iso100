@@ -34,12 +34,19 @@ sealed interface SavedPlacesAction {
 
 fun SavedPlacesInput.reduce(action: SavedPlacesAction): SavedPlacesInput = when (action) {
     is SavedPlacesAction.Edit -> SavedPlacesInput(editing = action.place.id, name = action.place.name, zoneId = action.place.zoneId)
+
     is SavedPlacesAction.SetName -> copy(name = action.name)
+
     SavedPlacesAction.OpenZones -> copy(zonePicker = true, zoneQuery = "")
+
     is SavedPlacesAction.SearchZone -> copy(zoneQuery = action.query)
+
     is SavedPlacesAction.PickZone -> copy(zoneId = action.zoneId, zonePicker = false)
+
     SavedPlacesAction.AskDelete -> copy(confirmDelete = true)
+
     SavedPlacesAction.Save, SavedPlacesAction.Delete -> SavedPlacesInput()
+
     // the innermost dialog closes first
     SavedPlacesAction.Dismiss -> when {
         zonePicker -> copy(zonePicker = false)
@@ -74,14 +81,20 @@ data class SavedPlacesUiState(
                 zonePicker = input.zonePicker,
                 zoneQuery = input.zoneQuery,
                 // "rome", "new york": the ids write spaces as underscores
-                zones = if (!input.zonePicker) emptyList() else ZONES
-                    .filter { id -> words.all { it in id.lowercase().replace('_', ' ') } }
-                    .map { ZoneRow(it, ZoneId.of(it).rules.getOffset(now)) },
+                zones = if (!input.zonePicker) {
+                    emptyList()
+                } else {
+                    ZONES
+                        .filter { id -> words.all { it in id.lowercase().replace('_', ' ') } }
+                        .map { ZoneRow(it, ZoneId.of(it).rules.getOffset(now)) }
+                },
                 confirmDelete = input.confirmDelete,
             )
         }
 
         // the region ids only: no "Etc/GMT+3" or "SystemV/...", which nobody looks for by place
-        private val ZONES = ZoneId.getAvailableZoneIds().filter { '/' in it && !it.startsWith("Etc/") && !it.startsWith("SystemV/") }.sorted()
+        private val ZONES = ZoneId.getAvailableZoneIds().filter {
+            '/' in it && !it.startsWith("Etc/") && !it.startsWith("SystemV/")
+        }.sorted()
     }
 }

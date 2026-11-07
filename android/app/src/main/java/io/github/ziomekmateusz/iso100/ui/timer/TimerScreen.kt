@@ -84,14 +84,7 @@ fun TimerScreen(seconds: Double, settings: String, onBack: () -> Unit) {
 }
 
 @Composable
-fun TimerContent(
-    state: TimerUiState,
-    settings: String,
-    onStart: () -> Unit,
-    onPause: () -> Unit,
-    onReset: () -> Unit,
-    onBack: () -> Unit
-) {
+fun TimerContent(state: TimerUiState, settings: String, onStart: () -> Unit, onPause: () -> Unit, onReset: () -> Unit, onBack: () -> Unit) {
     ToolScaffold(
         title = stringResource(R.string.title_timer),
         onBack = onBack,
@@ -102,7 +95,7 @@ fun TimerContent(
                     state.phase,
                     onStart,
                     onPause,
-                    onReset
+                    onReset,
                 )
             }
         },
@@ -124,10 +117,14 @@ private fun TimerRing(state: TimerUiState) {
     val colors = MaterialTheme.colorScheme
     val progress by animateFloatAsState(
         targetValue = if (state.phase == TimerPhase.RUNNING) state.nextProgress else state.progress,
-        animationSpec = if (state.phase == TimerPhase.RUNNING) tween(
-            state.untilNextSecondMs.toInt(),
-            easing = LinearEasing
-        ) else snap(),
+        animationSpec = if (state.phase == TimerPhase.RUNNING) {
+            tween(
+                state.untilNextSecondMs.toInt(),
+                easing = LinearEasing,
+            )
+        } else {
+            snap()
+        },
     )
     Box(
         Modifier
@@ -148,7 +145,7 @@ private fun TimerRing(state: TimerUiState) {
                 useCenter = false,
                 topLeft = topLeft,
                 size = arcSize,
-                style = stroke
+                style = stroke,
             )
             drawArc(
                 colors.primary,
@@ -157,19 +154,19 @@ private fun TimerRing(state: TimerUiState) {
                 useCenter = false,
                 topLeft = topLeft,
                 size = arcSize,
-                style = stroke
+                style = stroke,
             )
         }
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             RollingText(
                 state.remainingText,
                 MaterialTheme.typography.displayLarge,
-                color = colors.onSurface
+                color = colors.onSurface,
             )
             Text(
                 stringResource(R.string.timer_of, clockText(state.totalMs)),
                 fontSize = 17.sp,
-                color = colors.onSurfaceVariant
+                color = colors.onSurfaceVariant,
             )
         }
     }
@@ -177,12 +174,7 @@ private fun TimerRing(state: TimerUiState) {
 
 /** Reset beside the main button, which starts, pauses, resumes or starts again. */
 @Composable
-private fun TimerButtons(
-    phase: TimerPhase,
-    onStart: () -> Unit,
-    onPause: () -> Unit,
-    onReset: () -> Unit
-) {
+private fun TimerButtons(phase: TimerPhase, onStart: () -> Unit, onPause: () -> Unit, onReset: () -> Unit) {
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         OutlinedButton(
             onClick = onReset,
@@ -196,7 +188,7 @@ private fun TimerButtons(
             Text(
                 stringResource(R.string.timer_reset),
                 fontSize = 16.sp,
-                fontWeight = FontWeight.SemiBold
+                fontWeight = FontWeight.SemiBold,
             )
         }
         val (label, onClick) = when (phase) {
@@ -216,13 +208,13 @@ private fun vibrateEnd(context: Context) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         vibrator.vibrate(
             pulses,
-            VibrationAttributes.createForUsage(VibrationAttributes.USAGE_ALARM)
+            VibrationAttributes.createForUsage(VibrationAttributes.USAGE_ALARM),
         )
     } else {
         @Suppress("DEPRECATION")
         vibrator.vibrate(
             pulses,
-            AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build()
+            AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build(),
         )
     }
 }
@@ -235,9 +227,15 @@ private fun TimerPreview(@PreviewParameter(ThemePreviews::class) theme: AppTheme
             TimerUiState.from(
                 TimerInput(
                     totalMs = 128_000,
-                    remainingMs = 64_000
-                )
-            ), "ISO 100 · f/8 · ND1000", {}, {}, {}, {})
+                    remainingMs = 64_000,
+                ),
+            ),
+            "ISO 100 · f/8 · ND1000",
+            {},
+            {},
+            {},
+            {},
+        )
     }
 }
 
@@ -251,6 +249,7 @@ private fun TimerLargeTextPreview() {
             {},
             {},
             {},
-            {})
+            {},
+        )
     }
 }

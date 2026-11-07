@@ -25,13 +25,12 @@ class ToolValuesStoreTest {
 
     private val lens = ToolValues("lens", LensValues.serializer(), LensValues())
 
-    private fun dataStore(scope: CoroutineScope) =
-        PreferenceDataStoreFactory.create(scope = scope) {
-            File(
-                folder.root,
-                "tool_values.preferences_pb"
-            )
-        }
+    private fun dataStore(scope: CoroutineScope) = PreferenceDataStoreFactory.create(scope = scope) {
+        File(
+            folder.root,
+            "tool_values.preferences_pb",
+        )
+    }
 
     @Test
     fun aToolNeverChangedOpensWithItsDefaults() = runTest {

@@ -32,8 +32,10 @@ class ExposureScale private constructor(val setting: ExposureSetting, val step: 
         val margin = stopFactor.pow(step.stops / 2)
         return when {
             exact < values.first().actual / margin -> Outcome.OutOfScale(tooHigh = false)
+
             exact > values.last().actual * margin ->
                 if (setting == ExposureSetting.SHUTTER) Outcome.Ok(Equivalent(exact, null)) else Outcome.OutOfScale(tooHigh = true)
+
             else -> Outcome.Ok(Equivalent(exact, nearest(exact)))
         }
     }
@@ -46,8 +48,7 @@ class ExposureScale private constructor(val setting: ExposureSetting, val step: 
             StopStep.entries.map { step -> ExposureScale(setting, step, select(table(setting), step)) }
         }
 
-        fun of(setting: ExposureSetting, step: StopStep): ExposureScale =
-            scales.first { it.setting == setting && it.step == step }
+        fun of(setting: ExposureSetting, step: StopStep): ExposureScale = scales.first { it.setting == setting && it.step == step }
     }
 }
 
@@ -87,4 +88,5 @@ private val SHUTTERS = listOf(
     8000, 6400, 6000, 5000, 4000, 3200, 3000, 2500, 2000, 1600, 1500, 1250, 1000, 800, 750, 640,
     500, 400, 350, 320, 250, 200, 180, 160, 125, 100, 90, 80, 60, 50, 45, 40, 30, 25, 20, 20,
     15, 13, 10, 10, 8, 6, 6, 5, 4, 3, 3, 2.5, 2, 1.6, 1.5, 1.3,
-).map { 1.0 / it.toDouble() } + listOf(1.0, 1.3, 1.5, 1.6, 2.0, 2.5, 3.0, 3.0, 4.0, 5.0, 6.0, 6.0, 8.0, 10.0, 10.0, 13.0, 15.0, 20.0, 20.0, 25.0, 30.0)
+).map { 1.0 / it.toDouble() } +
+        listOf(1.0, 1.3, 1.5, 1.6, 2.0, 2.5, 3.0, 3.0, 4.0, 5.0, 6.0, 6.0, 8.0, 10.0, 10.0, 13.0, 15.0, 20.0, 20.0, 25.0, 30.0)

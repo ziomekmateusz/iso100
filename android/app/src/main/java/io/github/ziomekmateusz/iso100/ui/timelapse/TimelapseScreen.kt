@@ -79,7 +79,7 @@ fun TimelapseContent(state: TimelapseUiState, onAction: (TimelapseAction) -> Uni
             options = listOf(
                 stringResource(R.string.timelapse_clip),
                 stringResource(R.string.timelapse_interval),
-                stringResource(R.string.timelapse_recording)
+                stringResource(R.string.timelapse_recording),
             ),
             selected = state.solve.ordinal,
             onSelect = { onAction(TimelapseAction.Solve(TimelapseTarget.entries[it])) },
@@ -148,8 +148,7 @@ private fun ClipField(state: TimelapseUiState, onAction: (TimelapseAction) -> Un
 
 /** In seconds: the messages of :calc speak in seconds whatever the units. */
 @Composable
-private fun TimelapseUiState.errorFor(input: Input): String? =
-    invalid.messageFor(input, UnitSystem.METRIC)
+private fun TimelapseUiState.errorFor(input: Input): String? = invalid.messageFor(input, UnitSystem.METRIC)
 
 @Composable
 private fun Result(state: TimelapseUiState) {
@@ -188,14 +187,18 @@ private fun Bars(result: Timelapse) {
 private fun Bar(label: String, value: String, fraction: Float, color: Color) {
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         Text(label, Modifier.widthIn(min = 64.dp), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Box(Modifier
-            .weight(1f)
-            .height(12.dp)) {
-            Box(Modifier
-                .fillMaxWidth(fraction)
-                .widthIn(min = 8.dp)
-                .height(12.dp)
-                .background(color, RoundedCornerShape(6.dp)))
+        Box(
+            Modifier
+                .weight(1f)
+                .height(12.dp),
+        ) {
+            Box(
+                Modifier
+                    .fillMaxWidth(fraction)
+                    .widthIn(min = 8.dp)
+                    .height(12.dp)
+                    .background(color, RoundedCornerShape(6.dp)),
+            )
         }
         Text(value, Modifier.widthIn(min = 52.dp), fontFamily = Barlow, fontSize = 14.sp, textAlign = TextAlign.End)
     }
@@ -220,11 +223,17 @@ private fun FpsChoice(fps: Int, onSelect: (Int) -> Unit, modifier: Modifier) {
                         .selectable(
                             selected = on,
                             onClick = { onSelect(choice) },
-                            role = Role.RadioButton
+                            role = Role.RadioButton,
                         ),
                     contentAlignment = Alignment.Center,
                 ) {
-                    Text("$choice", fontFamily = Barlow, fontSize = 17.sp, fontWeight = FontWeight.SemiBold, color = if (on) colors.onSurface else colors.onSurfaceVariant)
+                    Text(
+                        "$choice",
+                        fontFamily = Barlow,
+                        fontSize = 17.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = if (on) colors.onSurface else colors.onSurfaceVariant,
+                    )
                 }
             }
         }
@@ -238,7 +247,11 @@ private fun PhotoSizeField(value: Double?, onValueChange: (Double?) -> Unit, err
     var text by rememberSaveable { mutableStateOf(value?.let { shortNumber(it, locale, 2) }.orEmpty()) }
     val message = if (text.isNotBlank() && parseDecimal(text) == null) stringResource(R.string.error_not_a_number) else error
     Column(modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Text(stringResource(R.string.photo_size), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(
+            stringResource(R.string.photo_size),
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
         ValueBox(
             text = text,
             onTextChange = { new ->
@@ -271,7 +284,14 @@ private fun resultTitle(target: TimelapseTarget): Int = when (target) {
 @Composable
 private fun storageText(mb: Double): String {
     val locale = currentLocale()
-    return if (mb >= 1000) shortNumber(mb / 1000, locale) + " " + stringResource(R.string.symbol_gb) else shortNumber(mb, locale, 0) + " " + stringResource(R.string.symbol_mb)
+    return if (mb >=
+        1000
+    ) {
+        shortNumber(mb / 1000, locale) + " " + stringResource(R.string.symbol_gb)
+    } else {
+        shortNumber(mb, locale, 0) + " " +
+                stringResource(R.string.symbol_mb)
+    }
 }
 
 @Preview(widthDp = 412, heightDp = 915)

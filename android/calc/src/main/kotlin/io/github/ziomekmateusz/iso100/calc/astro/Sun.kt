@@ -45,8 +45,11 @@ fun sunDay(date: LocalDate, place: Place): SunDay {
         daylight = daylight(visual, start, end),
         sky = bands.fold(mutableListOf()) { sky, band ->
             val phase = PHASES[band.index]
-            if (sky.lastOrNull()?.phase == phase) sky[sky.lastIndex] = sky.last().copy(end = band.end)
-            else sky += SkySegment(phase, band.start, band.end)
+            if (sky.lastOrNull()?.phase == phase) {
+                sky[sky.lastIndex] = sky.last().copy(end = band.end)
+            } else {
+                sky += SkySegment(phase, band.start, band.end)
+            }
             sky
         },
         goldenHours = ranges(place, bands, 5..5, start, end),
@@ -67,7 +70,13 @@ fun isCivilNight(at: ZonedDateTime, place: Place): Boolean = sunPosition(at, pla
 // Band i lies between EDGES[i - 1] and EDGES[i]: night, astronomical, nautical, nautical and blue, civil and blue, golden, day.
 private val EDGES = doubleArrayOf(-18.0, -12.0, -8.0, -6.0, -4.0, 6.0)
 private val PHASES = listOf(
-    SkyPhase.NIGHT, SkyPhase.ASTRONOMICAL, SkyPhase.NAUTICAL, SkyPhase.NAUTICAL, SkyPhase.CIVIL, SkyPhase.GOLDEN, SkyPhase.DAY,
+    SkyPhase.NIGHT,
+    SkyPhase.ASTRONOMICAL,
+    SkyPhase.NAUTICAL,
+    SkyPhase.NAUTICAL,
+    SkyPhase.CIVIL,
+    SkyPhase.GOLDEN,
+    SkyPhase.DAY,
 )
 
 private class Band(val index: Int, val start: ZonedDateTime, val end: ZonedDateTime)
@@ -85,10 +94,14 @@ private fun daylight(t: SunTimes, start: ZonedDateTime, end: ZonedDateTime): Dur
     val set = t.set
     return when {
         t.isAlwaysUp -> Duration.between(start, end)
+
         rise != null && set != null ->
             if (rise < set) Duration.between(rise, set) else Duration.between(rise, end) + Duration.between(start, set)
+
         rise != null -> Duration.between(rise, end)
+
         set != null -> Duration.between(start, set)
+
         else -> Duration.ZERO
     }
 }

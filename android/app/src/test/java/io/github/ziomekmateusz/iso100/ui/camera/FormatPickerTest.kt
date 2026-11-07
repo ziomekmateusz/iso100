@@ -18,8 +18,9 @@ class FormatPickerTest {
         assertTrue(
             formatRows(
                 TEST_CATALOG,
-                Settings(cameraId = "sony-alpha-7-iii")
-            ).none { it.selected })
+                Settings(cameraId = "sony-alpha-7-iii"),
+            ).none { it.selected },
+        )
     }
 
     @Test

@@ -32,10 +32,12 @@ data class Timelapse(val clipS: Double, val intervalS: Double, val recordingS: D
                     firstInvalid(Input.INTERVAL to input.intervalS, Input.RECORDING_TIME to input.recordingS)?.let { return it }
                     Triple(input.recordingS / (input.intervalS * fps), input.intervalS, input.recordingS)
                 }
+
                 is TimelapseInput.FindInterval -> {
                     firstInvalid(Input.CLIP_LENGTH to input.clipS, Input.RECORDING_TIME to input.recordingS)?.let { return it }
                     Triple(input.clipS, input.recordingS / (fps * input.clipS), input.recordingS)
                 }
+
                 is TimelapseInput.FindRecording -> {
                     firstInvalid(Input.CLIP_LENGTH to input.clipS, Input.INTERVAL to input.intervalS)?.let { return it }
                     Triple(input.clipS, input.intervalS, input.intervalS * fps * input.clipS)

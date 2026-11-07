@@ -8,7 +8,14 @@ import java.time.LocalDate
 import java.time.ZonedDateTime
 
 enum class MoonPhaseName {
-    NEW_MOON, WAXING_CRESCENT, FIRST_QUARTER, WAXING_GIBBOUS, FULL_MOON, WANING_GIBBOUS, LAST_QUARTER, WANING_CRESCENT,
+    NEW_MOON,
+    WAXING_CRESCENT,
+    FIRST_QUARTER,
+    WAXING_GIBBOUS,
+    FULL_MOON,
+    WANING_GIBBOUS,
+    LAST_QUARTER,
+    WANING_CRESCENT,
 }
 
 data class MoonPhaseTime(val phase: MoonPhaseName, val time: ZonedDateTime)

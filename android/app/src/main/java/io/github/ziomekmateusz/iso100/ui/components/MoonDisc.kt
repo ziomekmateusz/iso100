@@ -56,7 +56,14 @@ internal fun nearestTurn(from: Float, to: Float): Float {
  * A new phase turns the disc through the cycle instead of jumping to it.
  */
 @Composable
-fun MoonDisc(illumination: Double, waxing: Boolean, size: Dp, description: String?, modifier: Modifier = Modifier, outlined: Boolean = false) {
+fun MoonDisc(
+    illumination: Double,
+    waxing: Boolean,
+    size: Dp,
+    description: String?,
+    modifier: Modifier = Modifier,
+    outlined: Boolean = false,
+) {
     val sky = LocalSkyColors.current
     val outline = MaterialTheme.colorScheme.outlineVariant
     val semantics = if (description != null) Modifier.semantics { contentDescription = description } else Modifier
@@ -65,12 +72,14 @@ fun MoonDisc(illumination: Double, waxing: Boolean, size: Dp, description: Strin
     LaunchedEffect(target) {
         cycle.animateTo(
             nearestTurn(cycle.value, target),
-            tween(MOON_TURN_MILLIS)
+            tween(MOON_TURN_MILLIS),
         )
     }
-    Canvas(modifier
-        .size(size)
-        .then(semantics)) {
+    Canvas(
+        modifier
+            .size(size)
+            .then(semantics),
+    ) {
         val r = this.size.minDimension / 2
         val k = litFraction(cycle.value)
         val litOnTheRight = cycle.value.mod(1f) < 0.5f
@@ -80,7 +89,7 @@ fun MoonDisc(illumination: Double, waxing: Boolean, size: Dp, description: Strin
             sky.moonLit,
             startAngle = if (litOnTheRight) -90f else 90f,
             sweepAngle = 180f,
-            useCenter = true
+            useCenter = true,
         )
         val rx = abs(2 * k - 1) * r
         drawOval(if (k < 0.5f) sky.moonShadow else sky.moonLit, Offset(center.x - rx, center.y - r), Size(2 * rx, 2 * r))

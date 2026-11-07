@@ -54,11 +54,13 @@ class ExposureScaleTest {
 
     @Test
     fun `every value rises along its scale and stays close to what is printed`() {
-        for (setting in ExposureSetting.entries) for (step in StopStep.entries) {
-            val values = ExposureScale.of(setting, step).values
-            values.zipWithNext { a, b -> assertTrue(a.actual < b.actual, "$setting $step $a $b") }
-            val stopsPerUnit = if (setting == ExposureSetting.APERTURE) 2.0 else 1.0
-            values.forEach { assertTrue(abs(log2(it.actual / it.nominal)) * stopsPerUnit < 0.2, "$setting $step $it") }
+        for (setting in ExposureSetting.entries) {
+            for (step in StopStep.entries) {
+                val values = ExposureScale.of(setting, step).values
+                values.zipWithNext { a, b -> assertTrue(a.actual < b.actual, "$setting $step $a $b") }
+                val stopsPerUnit = if (setting == ExposureSetting.APERTURE) 2.0 else 1.0
+                values.forEach { assertTrue(abs(log2(it.actual / it.nominal)) * stopsPerUnit < 0.2, "$setting $step $it") }
+            }
         }
     }
 

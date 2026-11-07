@@ -40,9 +40,13 @@ sealed interface MoonAction {
 fun MoonInput.reduce(action: MoonAction): MoonInput = when (action) {
     // a date chosen in the picker goes on to the time; the arrows change only the day
     is MoonAction.SetDate -> copy(epochDay = action.date.toEpochDay(), dialog = if (dialog == MoonDialog.DATE) MoonDialog.TIME else null)
+
     is MoonAction.SetTime -> copy(minuteOfDay = action.time.hour * 60 + action.time.minute, dialog = null)
+
     MoonAction.OpenDatePicker -> copy(dialog = MoonDialog.DATE)
+
     MoonAction.OpenPlaces -> copy(placePicker = true)
+
     MoonAction.Dismiss -> copy(dialog = null, placePicker = false)
 }
 

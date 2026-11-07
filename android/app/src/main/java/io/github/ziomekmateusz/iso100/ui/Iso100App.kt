@@ -36,18 +36,31 @@ import kotlinx.serialization.Serializable
 @Serializable sealed interface Destination : NavKey
 
 @Serializable data object Home : Destination
+
 @Serializable data object Exposure : Destination
+
 @Serializable data object Stars : Destination
+
 @Serializable data object Dof : Destination
+
 @Serializable data object Fov : Destination
+
 @Serializable data object Sun : Destination
+
 @Serializable data object Moon : Destination
+
 @Serializable data object Timelapse : Destination
+
 @Serializable data object Settings : Destination
+
 @Serializable data object CameraPicker : Destination
+
 @Serializable data object SavedPlaces : Destination
+
 @Serializable data object Licenses : Destination
+
 @Serializable data class LicenseText(val license: OpenLicense) : Destination
+
 @Serializable
 data class Timer(val seconds: Double, val settings: String) : Destination
 
@@ -59,8 +72,10 @@ private val push: ContentTransform =
             (slideOutHorizontally(ios()) { -it / 3 } + fadeOut(ios(), targetAlpha = 0.6f))
 
 private val pop: ContentTransform =
-    ((slideInHorizontally(ios()) { -it / 3 } + fadeIn(ios(), initialAlpha = 0.6f)) togetherWith
-            slideOutHorizontally(ios()) { it })
+    (
+            (slideInHorizontally(ios()) { -it / 3 } + fadeIn(ios(), initialAlpha = 0.6f)) togetherWith
+                    slideOutHorizontally(ios()) { it }
+            )
         .apply { targetContentZIndex = -1f }
 
 @Composable
@@ -81,29 +96,45 @@ fun Iso100App(modifier: Modifier = Modifier) {
                 val chooseCamera: () -> Unit = { backStack.add(CameraPicker) }
                 when (key) {
                     Home -> HomeScreen(onOpen = { backStack.add(it) })
+
                     CameraPicker -> CameraPickerScreen(onClose = back)
+
                     Exposure -> ExposureScreen(
                         onBack = back,
                         onStartTimer = { seconds, settings ->
                             backStack.add(
                                 Timer(
                                     seconds,
-                                    settings
-                                )
+                                    settings,
+                                ),
                             )
-                        })
+                        },
+                    )
 
                     is Timer -> TimerScreen(key.seconds, key.settings, onBack = back)
+
                     Stars -> StarsScreen(onBack = back, onChooseCamera = chooseCamera)
+
                     Timelapse -> TimelapseScreen(onBack = back)
+
                     Sun -> SunScreen(onBack = back)
+
                     Moon -> MoonScreen(onBack = back)
+
                     SavedPlaces -> SavedPlacesScreen(onBack = back)
-                    Settings -> SettingsScreen(onBack = back, onChooseCamera = chooseCamera, onSavedPlaces = { backStack.add(SavedPlaces) }, onLicenses = { backStack.add(Licenses) })
+
+                    Settings -> SettingsScreen(onBack = back, onChooseCamera = chooseCamera, onSavedPlaces = {
+                        backStack.add(SavedPlaces)
+                    }, onLicenses = { backStack.add(Licenses) })
+
                     Licenses -> LicensesScreen(onBack = back, onOpen = { backStack.add(LicenseText(it)) })
+
                     is LicenseText -> LicenseScreen(key.license, onBack = back)
+
                     Dof -> DofScreen(onBack = back, onChooseCamera = chooseCamera)
+
                     Fov -> FovScreen(onBack = back, onChooseCamera = chooseCamera)
+
                     else -> error("unknown destination $key")
                 }
             }

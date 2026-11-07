@@ -39,8 +39,13 @@ fun FitText(
 }
 
 @Composable
-fun FitText(text: String, style: TextStyle, modifier: Modifier = Modifier, color: Color = LocalContentColor.current, textAlign: TextAlign = TextAlign.Unspecified) =
-    FitText(AnnotatedString(text), style, modifier, color, textAlign)
+fun FitText(
+    text: String,
+    style: TextStyle,
+    modifier: Modifier = Modifier,
+    color: Color = LocalContentColor.current,
+    textAlign: TextAlign = TextAlign.Unspecified,
+) = FitText(AnnotatedString(text), style, modifier, color, textAlign)
 
 /** A time in large figures; the AM/PM of the 12-hour format is drawn smaller. */
 @Composable

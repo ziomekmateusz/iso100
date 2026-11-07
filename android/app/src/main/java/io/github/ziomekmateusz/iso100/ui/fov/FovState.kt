@@ -34,9 +34,12 @@ sealed interface FovAction {
 
 fun FovInput.reduce(action: FovAction): FovInput = when (action) {
     is FovAction.SetFocalLength -> copy(focalLengthMm = action.mm)
+
     is FovAction.StepFocalLength ->
         copy(focalLengthMm = if (action.up) stepUp(focalLengthMm, FOCAL_LENGTHS) else stepDown(focalLengthMm, FOCAL_LENGTHS))
+
     is FovAction.SetDistance -> copy(distanceM = action.units.toMeters(action.value))
+
     is FovAction.StepDistance -> {
         val shown = action.units.fromMeters(distanceM)
         copy(distanceM = action.units.toMeters(if (action.up) stepUp(shown, DISTANCES) else stepDown(shown, DISTANCES)))

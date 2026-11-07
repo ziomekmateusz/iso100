@@ -41,14 +41,19 @@ sealed interface DofAction {
 
 fun DofInput.reduce(action: DofAction): DofInput = when (action) {
     is DofAction.SetAperture -> copy(aperture = action.actual)
+
     is DofAction.SetFocalLength -> copy(focalLengthMm = action.mm)
+
     is DofAction.StepFocalLength ->
         copy(focalLengthMm = if (action.up) stepUp(focalLengthMm, FOCAL_LENGTHS) else stepDown(focalLengthMm, FOCAL_LENGTHS))
+
     is DofAction.SetFocus -> copy(focusM = action.units.toMeters(action.value))
+
     is DofAction.StepFocus -> {
         val shown = action.units.fromMeters(focusM)
         copy(focusM = action.units.toMeters(if (action.up) stepUp(shown, DISTANCES) else stepDown(shown, DISTANCES)))
     }
+
     is DofAction.FocusAt -> copy(focusM = action.meters)
 }
 

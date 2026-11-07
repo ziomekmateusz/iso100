@@ -26,8 +26,7 @@ fun stopStepText(step: StopStep): String = stringResource(
 )
 
 @Composable
-fun distanceSymbol(units: UnitSystem): String =
-    stringResource(if (units == UnitSystem.METRIC) R.string.symbol_m else R.string.symbol_ft)
+fun distanceSymbol(units: UnitSystem): String = stringResource(if (units == UnitSystem.METRIC) R.string.symbol_m else R.string.symbol_ft)
 
 /** A shutter time: "1/125 s", "1,3 s", "30 s"; from a minute on as [durationText]. */
 @Composable
@@ -63,6 +62,7 @@ fun distanceText(meters: Double, units: UnitSystem): String =
 @Composable
 fun invalidMessage(invalid: Outcome.Invalid, units: UnitSystem): String {
     val locale = currentLocale()
+
     @Composable
     fun plain(symbol: Int) = shortNumber(invalid.minimum, locale, 2) + " " + stringResource(symbol)
     return when (invalid.input) {

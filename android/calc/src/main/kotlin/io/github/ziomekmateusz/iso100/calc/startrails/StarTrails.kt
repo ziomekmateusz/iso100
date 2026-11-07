@@ -26,7 +26,9 @@ fun maxStarExposure(
     firstInvalid(Input.FOCAL_LENGTH to focalLengthMm)?.let { return it }
     return when (rule) {
         StarRule.RULE_500 -> Outcome.Ok(500 / (focalLengthMm * format.cropFactor))
+
         StarRule.RULE_300 -> Outcome.Ok(300 / (focalLengthMm * format.cropFactor))
+
         StarRule.NPF -> {
             val n = aperture ?: Double.NaN
             val mp = resolutionMp ?: Double.NaN
@@ -36,9 +38,7 @@ fun maxStarExposure(
     }
 }
 
-fun pixelPitchUm(format: SensorFormat, resolutionMp: Double): Double =
-    sqrt(format.widthMm * format.heightMm / (resolutionMp * 1e6)) * 1000
+fun pixelPitchUm(format: SensorFormat, resolutionMp: Double): Double = sqrt(format.widthMm * format.heightMm / (resolutionMp * 1e6)) * 1000
 
 /** The shutter to suggest: the longest of the scale that is not above the limit. */
-fun suggestedShutter(limitS: Double, step: StopStep): ExposureValue? =
-    ExposureScale.of(ExposureSetting.SHUTTER, step).longestAtMost(limitS)
+fun suggestedShutter(limitS: Double, step: StopStep): ExposureValue? = ExposureScale.of(ExposureSetting.SHUTTER, step).longestAtMost(limitS)

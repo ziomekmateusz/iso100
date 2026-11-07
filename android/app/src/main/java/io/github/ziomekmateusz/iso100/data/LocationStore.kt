@@ -73,24 +73,22 @@ class LocationStore(private val context: Context, private val geocoding: Geocodi
     }
 
     @SuppressLint("InlinedApi")
-    private fun providers(manager: LocationManager): List<String> =
-        listOf(LocationManager.FUSED_PROVIDER, LocationManager.NETWORK_PROVIDER)
-            .filter { LocationManagerCompat.hasProvider(manager, it) && manager.isProviderEnabled(it) }
+    private fun providers(manager: LocationManager): List<String> = listOf(LocationManager.FUSED_PROVIDER, LocationManager.NETWORK_PROVIDER)
+        .filter { LocationManagerCompat.hasProvider(manager, it) && manager.isProviderEnabled(it) }
 
     @SuppressLint("MissingPermission")
     private fun lastKnownLocation(manager: LocationManager, providers: List<String>): Location? =
         providers.mapNotNull { manager.getLastKnownLocation(it) }.maxByOrNull { it.elapsedRealtimeNanos }
 
     @SuppressLint("MissingPermission")
-    private suspend fun currentLocation(manager: LocationManager, provider: String): Location? {
-        return suspendCancellableCoroutine { continuation ->
+    private suspend fun currentLocation(manager: LocationManager, provider: String): Location? =
+        suspendCancellableCoroutine { continuation ->
             val cancel = CancellationSignal()
             continuation.invokeOnCancellation { cancel.cancel() }
             LocationManagerCompat.getCurrentLocation(manager, provider, cancel, ContextCompat.getMainExecutor(context)) {
                 continuation.resume(it)
             }
         }
-    }
 }
 
 /** A place found by name. */
@@ -110,9 +108,8 @@ class Geocoding(private val context: Context) {
     suspend fun name(latitude: Double, longitude: Double): String? =
         addresses { it.getFromLocation(latitude, longitude, 1) }.firstOrNull()?.label()
 
-    suspend fun search(query: String): List<PlaceCandidate> =
-        addresses { it.getFromLocationName(query, 5) }
-            .mapNotNull { address -> address.label()?.let { PlaceCandidate(it, address.latitude, address.longitude) } }
+    suspend fun search(query: String): List<PlaceCandidate> = addresses { it.getFromLocationName(query, 5) }
+        .mapNotNull { address -> address.label()?.let { PlaceCandidate(it, address.latitude, address.longitude) } }
 
     private fun Address.label(): String? = locality ?: subAdminArea ?: adminArea ?: countryName
 

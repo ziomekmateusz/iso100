@@ -30,9 +30,13 @@ class StarTrailsTest {
 
     @Test
     fun `suggested shutter never exceeds the limit`() {
-        for (focalLength in listOf(14.0, 24.0, 50.0)) for (format in listOf(fullFrame, apsC)) for (rule in StarRule.entries) {
-            val limit = maxStarExposure(rule, focalLength, format, 2.8, 24.0).ok()
-            for (step in StopStep.entries) assertTrue(suggestedShutter(limit, step)!!.nominal <= limit, "$rule $focalLength $step")
+        for (focalLength in listOf(14.0, 24.0, 50.0)) {
+            for (format in listOf(fullFrame, apsC)) {
+                for (rule in StarRule.entries) {
+                    val limit = maxStarExposure(rule, focalLength, format, 2.8, 24.0).ok()
+                    for (step in StopStep.entries) assertTrue(suggestedShutter(limit, step)!!.nominal <= limit, "$rule $focalLength $step")
+                }
+            }
         }
         assertEquals(15.0, suggestedShutter(20.83, StopStep.FULL)!!.nominal)
         assertEquals(20.0, suggestedShutter(20.83, StopStep.THIRD)!!.nominal)

@@ -38,8 +38,8 @@ class TodayTest {
         assertNull(
             TodayUiState.from(
                 PlaceChoice.Unavailable(LocationState.Unknown),
-                JUNE_21
-            ).goldenHour
+                JUNE_21,
+            ).goldenHour,
         )
     }
 
@@ -70,8 +70,11 @@ class TodayTest {
                 HomeContent(
                     TodayUiState.from(
                         PlaceChoice.Unavailable(LocationState.PermissionDenied),
-                        JUNE_21
-                    ), {}, { located = true })
+                        JUNE_21,
+                    ),
+                    {},
+                    { located = true },
+                )
             }
         }
         compose.onNodeWithText("Allow").performClick()

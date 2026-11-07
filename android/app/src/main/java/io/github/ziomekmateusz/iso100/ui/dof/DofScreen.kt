@@ -92,7 +92,7 @@ fun DofContent(state: DofUiState, onAction: (DofAction) -> Unit, onBack: () -> U
 private fun DofControls(state: DofUiState, onAction: (DofAction) -> Unit) {
     ApertureDial(
         state.aperture,
-        trailing = stopStepText(state.step)
+        trailing = stopStepText(state.step),
     ) { onAction(DofAction.SetAperture(it)) }
     FocalLengthField(
         state.focalLengthMm,
@@ -122,8 +122,8 @@ private fun FocusField(state: DofUiState, onAction: (DofAction) -> Unit) {
                 HyperfocalButton {
                     onAction(
                         DofAction.FocusAt(
-                            result.hyperfocalM
-                        )
+                            result.hyperfocalM,
+                        ),
                     )
                 }
             }
@@ -161,8 +161,8 @@ private fun FocusBar(result: DepthOfField, state: DofUiState, onAction: (DofActi
             onAction(
                 DofAction.SetFocus(
                     twoDigits(units.fromMeters(meters)),
-                    units
-                )
+                    units,
+                ),
             )
         },
     )
@@ -176,7 +176,7 @@ private fun DepthTiles(result: DepthOfField, units: UnitSystem) {
         ResultTile(
             stringResource(R.string.dof_hyperfocal),
             distanceText(result.hyperfocalM, units),
-            Modifier.weight(1f)
+            Modifier.weight(1f),
         )
     }
 }
@@ -262,7 +262,9 @@ private fun DofPreview(@PreviewParameter(ThemePreviews::class) theme: AppTheme) 
 @Preview(widthDp = 412, heightDp = 915)
 @Composable
 private fun DofInfinityPreview() {
-    Iso100Theme { DofContent(previewState.copy(focalLengthMm = 24.0, focus = 5.0, focusM = 5.0, result = DepthOfField(1.32, null, 1.81)), {}, {}, {}) }
+    Iso100Theme {
+        DofContent(previewState.copy(focalLengthMm = 24.0, focus = 5.0, focusM = 5.0, result = DepthOfField(1.32, null, 1.81)), {}, {}, {})
+    }
 }
 
 @Preview(widthDp = 412, heightDp = 915)
@@ -275,7 +277,18 @@ private fun DofEmptyPreview() {
 @Composable
 private fun DofErrorPreview() {
     Iso100Theme {
-        DofContent(previewState.copy(focus = 0.03, focusM = 0.03, result = null, invalid = Outcome.Invalid(Input.FOCUS_DISTANCE, minimum = 0.05)), {}, {}, {})
+        DofContent(
+            previewState.copy(
+                focus = 0.03,
+                focusM = 0.03,
+                result = null,
+                invalid = Outcome.Invalid(Input.FOCUS_DISTANCE, minimum = 0.05),
+            ),
+            {
+            },
+            {},
+            {},
+        )
     }
 }
 

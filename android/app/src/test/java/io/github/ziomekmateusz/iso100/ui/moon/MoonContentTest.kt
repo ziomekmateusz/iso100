@@ -41,7 +41,9 @@ class MoonContentTest {
 
     @Test
     fun withoutAPlaceThePhaseStaysAndThePositionIsAsked() {
-        compose.setContent { Iso100Theme { MoonContent(MoonUiState.from(MoonInput(), PlaceChoice.Unavailable(LocationState.Unknown), now), {}, {}, {}) } }
+        compose.setContent {
+            Iso100Theme { MoonContent(MoonUiState.from(MoonInput(), PlaceChoice.Unavailable(LocationState.Unknown), now), {}, {}, {}) }
+        }
         compose.onNodeWithText("Use your position, or choose a place.").performScrollTo().assertIsDisplayed()
         compose.onNodeWithText("Rises").assertDoesNotExist()
     }

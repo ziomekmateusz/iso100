@@ -12,8 +12,16 @@ sealed interface Outcome<out T> {
 }
 
 enum class Input {
-    FOCAL_LENGTH, FOCUS_DISTANCE, SUBJECT_DISTANCE, APERTURE, RESOLUTION,
-    CLIP_LENGTH, INTERVAL, RECORDING_TIME, FPS, PHOTO_SIZE,
+    FOCAL_LENGTH,
+    FOCUS_DISTANCE,
+    SUBJECT_DISTANCE,
+    APERTURE,
+    RESOLUTION,
+    CLIP_LENGTH,
+    INTERVAL,
+    RECORDING_TIME,
+    FPS,
+    PHOTO_SIZE,
 }
 
 fun <T> Outcome<T>.valueOrNull(): T? = (this as? Outcome.Ok)?.value

@@ -32,28 +32,24 @@ internal fun Modifier.fadeUnder(top: Dp, bottom: Dp): Modifier = this
             Color.Transparent,
             Color.Black,
             rectTop = 0f,
-            rectBottom = topEdge
+            rectBottom = topEdge,
         )
-        if (bottomEdge < size.height) drawMask(
-            bottomEdge,
-            bottomEdge + fade,
-            Color.Black,
-            Color.Transparent,
-            rectTop = bottomEdge,
-            rectBottom = size.height
-        )
+        if (bottomEdge < size.height) {
+            drawMask(
+                bottomEdge,
+                bottomEdge + fade,
+                Color.Black,
+                Color.Transparent,
+                rectTop = bottomEdge,
+                rectBottom = size.height,
+            )
+        }
     }
 
-private fun DrawScope.drawMask(
-    startY: Float,
-    endY: Float,
-    startColor: Color,
-    endColor: Color,
-    rectTop: Float,
-    rectBottom: Float,
-) = drawRect(
-    brush = Brush.verticalGradient(listOf(startColor, endColor), startY = startY, endY = endY),
-    topLeft = Offset(0f, rectTop),
-    size = Size(size.width, rectBottom - rectTop),
-    blendMode = BlendMode.DstIn,
-)
+private fun DrawScope.drawMask(startY: Float, endY: Float, startColor: Color, endColor: Color, rectTop: Float, rectBottom: Float) =
+    drawRect(
+        brush = Brush.verticalGradient(listOf(startColor, endColor), startY = startY, endY = endY),
+        topLeft = Offset(0f, rectTop),
+        size = Size(size.width, rectBottom - rectTop),
+        blendMode = BlendMode.DstIn,
+    )

@@ -36,9 +36,12 @@ sealed interface StarsAction {
 
 fun StarsInput.reduce(action: StarsAction): StarsInput = when (action) {
     is StarsAction.SetRule -> copy(rule = action.rule)
+
     is StarsAction.SetFocalLength -> copy(focalLengthMm = action.mm)
+
     is StarsAction.StepFocalLength ->
         copy(focalLengthMm = if (action.up) stepUp(focalLengthMm, FOCAL_LENGTHS) else stepDown(focalLengthMm, FOCAL_LENGTHS))
+
     is StarsAction.SetAperture -> copy(aperture = action.actual)
 }
 
@@ -65,7 +68,13 @@ data class StarsUiState(
         fun from(input: StarsInput, settings: Settings, selection: Selection?): StarsUiState {
             // the resolution of the catalog is only an estimate, used for NPF alone
             val mp = selection?.camera?.specs?.resolutionMp
-            val rules = if (mp != null) listOf(StarRule.RULE_500, StarRule.RULE_300, StarRule.NPF) else listOf(StarRule.RULE_500, StarRule.RULE_300)
+            val rules = if (mp !=
+                null
+            ) {
+                listOf(StarRule.RULE_500, StarRule.RULE_300, StarRule.NPF)
+            } else {
+                listOf(StarRule.RULE_500, StarRule.RULE_300)
+            }
             val rule = input.rule?.takeIf { it in rules } ?: if (mp != null) StarRule.NPF else StarRule.RULE_500
             val aperture = dial(ExposureSetting.APERTURE, settings.stopStep, input.aperture)
             val format = selection?.format?.sensor

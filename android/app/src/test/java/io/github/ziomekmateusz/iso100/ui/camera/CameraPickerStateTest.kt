@@ -18,7 +18,12 @@ val TEST_CATALOG = CatalogState.Ready(
         cameras = listOf(
             CatalogCamera("canon-eos-r6", "Canon", "EOS R6", "full-frame"),
             CatalogCamera(
-                "sony-alpha-7-iii", "Sony", "Alpha 7 III", "full-frame", mount = "Sony E", aliases = listOf("ILCE-7M3"),
+                "sony-alpha-7-iii",
+                "Sony",
+                "Alpha 7 III",
+                "full-frame",
+                mount = "Sony E",
+                aliases = listOf("ILCE-7M3"),
                 specs = CameraSpecs(isoMin = 100, isoMax = 51200, resolutionMp = 24.2, weightG = 650),
             ),
             CatalogCamera("sony-alpha-6400", "Sony", "Alpha 6400", "aps-c", aliases = listOf("ILCE-6400")),
@@ -35,12 +40,12 @@ class CameraPickerStateTest {
             CameraPickerUiState.from(
                 input.reduce(CameraPickerAction.ShowFormats),
                 TEST_CATALOG,
-                Settings()
-            ).formatSheet
+                Settings(),
+            ).formatSheet,
         )
         assertEquals(
             input,
-            input.reduce(CameraPickerAction.ShowFormats).reduce(CameraPickerAction.HideFormats)
+            input.reduce(CameraPickerAction.ShowFormats).reduce(CameraPickerAction.HideFormats),
         )
         assertEquals(input, input.reduce(CameraPickerAction.ChooseCamera("canon-eos-r6")))
     }
@@ -58,7 +63,8 @@ class CameraPickerStateTest {
 
     @Test
     fun theSearchFindsModelsAndExifNames() {
-        fun ids(query: String) = CameraPickerUiState.from(CameraPickerInput(query), TEST_CATALOG, Settings()).groups.flatMap { g -> g.cameras.map { it.id } }
+        fun ids(query: String) =
+            CameraPickerUiState.from(CameraPickerInput(query), TEST_CATALOG, Settings()).groups.flatMap { g -> g.cameras.map { it.id } }
         assertEquals(listOf("sony-alpha-7-iii"), ids("alpha 7"))
         assertEquals(listOf("sony-alpha-6400"), ids("ilce-6400"))
         assertEquals(emptyList<String>(), ids("nikon"))
@@ -75,7 +81,12 @@ class CameraPickerStateTest {
         assertEquals(null, CameraPickerUiState.from(open.reduce(CameraPickerAction.HideDetails), TEST_CATALOG, Settings()).details)
         val withoutSpecs = CameraPickerInput().reduce(CameraPickerAction.ShowDetails("canon-eos-r6"))
         assertEquals(null, CameraPickerUiState.from(withoutSpecs, TEST_CATALOG, Settings()).details)
-        assertEquals(listOf(false, true, false), CameraPickerUiState.from(CameraPickerInput(), TEST_CATALOG, Settings()).groups.flatMap { g -> g.cameras.map { it.hasSpecs } })
+        assertEquals(
+            listOf(false, true, false),
+            CameraPickerUiState.from(CameraPickerInput(), TEST_CATALOG, Settings()).groups.flatMap { g ->
+                g.cameras.map { it.hasSpecs }
+            },
+        )
     }
 
     @Test

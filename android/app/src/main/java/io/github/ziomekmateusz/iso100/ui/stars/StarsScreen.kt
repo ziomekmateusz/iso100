@@ -102,7 +102,7 @@ private fun StarsControls(state: StarsUiState, onAction: (StarsAction) -> Unit) 
     if (StarRule.NPF in state.rules) {
         ApertureDial(state.aperture, trailing = stringResource(R.string.npf_only)) {
             onAction(
-                StarsAction.SetAperture(it)
+                StarsAction.SetAperture(it),
             )
         }
     }
@@ -119,15 +119,20 @@ private fun Result(state: StarsUiState) {
             style = MaterialTheme.typography.displayMedium.copy(fontSize = 64.sp, lineHeight = 64.sp),
             color = colors.primary,
         )
-        chosen?.limitS?.let { Text(stringResource(R.string.stars_limit, durationText(it)), fontSize = 15.sp, color = colors.onSurfaceVariant) }
+        chosen?.limitS?.let {
+            Text(stringResource(R.string.stars_limit, durationText(it)), fontSize = 15.sp, color = colors.onSurfaceVariant)
+        }
     }
     Column {
         state.results.forEach { result ->
             val on = result.rule == state.rule
             HorizontalDivider(color = colors.surfaceContainerHigh)
-            Row(Modifier
-                .heightIn(min = 40.dp)
-                .padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                Modifier
+                    .heightIn(min = 40.dp)
+                    .padding(vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Text(
                     stringResource(ruleName(result.rule)),
                     Modifier.weight(1.4f),
@@ -135,7 +140,15 @@ private fun Result(state: StarsUiState) {
                     fontWeight = if (on) FontWeight.SemiBold else FontWeight.Normal,
                     color = if (on) colors.primary else colors.onSurface,
                 )
-                Text(result.limitS?.let { durationText(it) } ?: "—", Modifier.weight(1f), fontFamily = Barlow, fontSize = 15.sp, color = colors.onSurfaceVariant)
+                Text(
+                    result.limitS?.let {
+                        durationText(it)
+                    } ?: "—",
+                    Modifier.weight(1f),
+                    fontFamily = Barlow,
+                    fontSize = 15.sp,
+                    color = colors.onSurfaceVariant,
+                )
                 Text(
                     result.shutter?.let { shutterText(it.nominal) } ?: "—",
                     Modifier.weight(1f),

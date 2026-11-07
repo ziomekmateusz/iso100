@@ -74,7 +74,11 @@ fun NumberField(
     LaunchedEffect(value) { if (parseDecimal(text) != value) text = shortNumber(value, locale, 2) }
     val message = if (parseDecimal(text) == null) stringResource(R.string.error_not_a_number) else error
     Column(modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
             Text(label, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
             labelAction?.invoke()
         }
@@ -159,7 +163,9 @@ internal fun ValueBox(
 private fun StepButton(sign: String, description: String, onClick: () -> Unit) {
     Surface(
         onClick = onClick,
-        modifier = Modifier.size(56.dp).semantics { contentDescription = description },
+        modifier = Modifier
+            .size(56.dp)
+            .semantics { contentDescription = description },
         shape = MaterialTheme.shapes.small,
         color = MaterialTheme.colorScheme.surfaceContainerHigh,
     ) {
@@ -171,7 +177,12 @@ private fun StepButton(sign: String, description: String, onClick: () -> Unit) {
 
 @Composable
 internal fun ErrorText(message: String, modifier: Modifier = Modifier) {
-    Text(message, modifier, style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal), color = MaterialTheme.colorScheme.error)
+    Text(
+        message,
+        modifier,
+        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal),
+        color = MaterialTheme.colorScheme.error,
+    )
 }
 
 @Composable

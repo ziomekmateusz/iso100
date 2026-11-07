@@ -48,7 +48,14 @@ fun LicensesScreen(onBack: () -> Unit, onOpen: (OpenLicense) -> Unit) {
     ToolScaffold(title = stringResource(R.string.title_licenses), onBack = onBack) {
         OpenLicense.entries.forEach { license ->
             Surface(onClick = { onOpen(license) }, shape = MaterialTheme.shapes.medium, color = colors.surface) {
-                Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 64.dp)
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
                     Column(Modifier.weight(1f)) {
                         Text(stringResource(license.title), fontSize = 17.sp)
                         Text(stringResource(license.covers), fontSize = 14.sp, color = colors.onSurfaceVariant)

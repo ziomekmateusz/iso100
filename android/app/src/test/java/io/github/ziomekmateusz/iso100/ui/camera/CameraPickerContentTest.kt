@@ -42,7 +42,10 @@ class CameraPickerContentTest {
             Iso100Theme {
                 CameraPickerContent(
                     CameraPickerUiState.from(input, TEST_CATALOG, settings),
-                    { actions?.add(it); input = input.reduce(it) },
+                    {
+                        actions?.add(it)
+                        input = input.reduce(it)
+                    },
                     onClose,
                 )
             }
@@ -93,7 +96,9 @@ class CameraPickerContentTest {
 
     @Test
     fun anUnreadableCatalogShowsAnError() {
-        compose.setContent { Iso100Theme { CameraPickerContent(CameraPickerUiState.from(CameraPickerInput(), CatalogState.Failed("x"), Settings()), {}, {}) } }
+        compose.setContent {
+            Iso100Theme { CameraPickerContent(CameraPickerUiState.from(CameraPickerInput(), CatalogState.Failed("x"), Settings()), {}, {}) }
+        }
         compose.onNodeWithText("The camera catalog cannot be read.").assertIsDisplayed()
     }
 
@@ -101,7 +106,16 @@ class CameraPickerContentTest {
     fun choosingACameraSavesItAndCloses() {
         val container = AppContainer(ApplicationProvider.getApplicationContext())
         var closed = false
-        compose.setContent { CompositionLocalProvider(LocalAppContainer provides container) { Iso100Theme { CameraPickerScreen({ closed = true }) } } }
+        compose.setContent {
+            CompositionLocalProvider(LocalAppContainer provides container) {
+                Iso100Theme {
+                    CameraPickerScreen({
+                        closed =
+                            true
+                    })
+                }
+            }
+        }
         compose.waitUntil(5_000) { container.catalog.state.value is CatalogState.Ready }
         compose.onNode(hasScrollToKeyAction()).performScrollToKey("sony-alpha-7-iii")
         compose.onNodeWithText("Alpha 7 III").performClick()

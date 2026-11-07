@@ -50,9 +50,9 @@ class ExposureStateTest {
                 ExposureInput(
                     solve = APERTURE,
                     measuredShutterS = 1.0,
-                    nd = NdFilter.ND1000
-                )
-            ).bulb
+                    nd = NdFilter.ND1000,
+                ),
+            ).bulb,
         )
     }
 
@@ -94,7 +94,15 @@ class ExposureStateTest {
     fun `ISO values the camera does not have are dimmed`() {
         val camera = ALPHA_7_III.copy(camera = ALPHA_7_III.camera!!.copy(specs = CameraSpecs(isoMin = 100, isoMax = 51200)))
         val iso = ExposureUiState.from(ExposureInput(), Settings(), camera).kept.getValue(ISO)
-        assertEquals(listOf(25.0, 32.0, 40.0, 50.0, 64.0, 80.0, 102400.0), iso.values.filterIndexed { i, _ -> iso.dimmed[i] }.map { it.nominal }.let { it.take(6) + it.last() })
+        assertEquals(
+            listOf(25.0, 32.0, 40.0, 50.0, 64.0, 80.0, 102400.0),
+            iso.values.filterIndexed { i, _ ->
+                iso.dimmed[i]
+            }.map { it.nominal }.let {
+                it.take(6) +
+                        it.last()
+            },
+        )
         assertFalse(iso.dimmed[iso.selected])
     }
 

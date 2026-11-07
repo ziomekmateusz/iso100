@@ -30,7 +30,15 @@ sealed interface PlaceChoice {
 /** The saved place of the settings, if it still exists; otherwise the current position. */
 fun choosePlace(placeId: String?, saved: List<SavedPlace>, location: LocationState): PlaceChoice {
     saved.firstOrNull { it.id == placeId }?.let { return PlaceChoice.Ready(it.place, it.name, current = false) }
-    return if (location is LocationState.Found) PlaceChoice.Ready(location.place, location.name, current = true) else PlaceChoice.Unavailable(location)
+    return if (location is LocationState.Found) {
+        PlaceChoice.Ready(
+            location.place,
+            location.name,
+            current = true,
+        )
+    } else {
+        PlaceChoice.Unavailable(location)
+    }
 }
 
 fun shouldLocate(settings: Settings, saved: List<SavedPlace>, location: LocationState): Boolean =
@@ -52,7 +60,8 @@ fun rememberPlace(app: AppContainer): PlaceHandle {
     val permission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { app.location.refresh() }
     val locate = remember(app) {
         {
-            val granted = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+            val granted =
+                ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
             if (granted) app.location.refresh() else permission.launch(Manifest.permission.ACCESS_COARSE_LOCATION)
         }
     }

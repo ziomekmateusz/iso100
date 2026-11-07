@@ -38,12 +38,7 @@ private const val ROLL_MILLIS = 220
  * digit keeps its place when the number changes length. Read as one text by TalkBack and tests.
  */
 @Composable
-fun RollingText(
-    text: AnnotatedString,
-    style: TextStyle,
-    modifier: Modifier = Modifier,
-    color: Color = Color.Unspecified
-) {
+fun RollingText(text: AnnotatedString, style: TextStyle, modifier: Modifier = Modifier, color: Color = Color.Unspecified) {
     val slots = rollingSlots(text.text)
     Row(modifier.clearAndSetSemantics { this.text = text }) {
         for (index in text.indices) {
@@ -52,7 +47,7 @@ fun RollingText(
                     text.subSequence(index, index + 1),
                     style,
                     color,
-                    Modifier.alignByBaseline()
+                    Modifier.alignByBaseline(),
                 )
             }
         }
@@ -60,12 +55,7 @@ fun RollingText(
 }
 
 @Composable
-fun RollingText(
-    text: String,
-    style: TextStyle,
-    modifier: Modifier = Modifier,
-    color: Color = Color.Unspecified
-) =
+fun RollingText(text: String, style: TextStyle, modifier: Modifier = Modifier, color: Color = Color.Unspecified) =
     RollingText(AnnotatedString(text), style, modifier, color)
 
 /**
@@ -73,12 +63,7 @@ fun RollingText(
  * the roll never moves or grows the surrounding line.
  */
 @Composable
-private fun RollingCharacter(
-    character: AnnotatedString,
-    style: TextStyle,
-    color: Color,
-    modifier: Modifier
-) {
+private fun RollingCharacter(character: AnnotatedString, style: TextStyle, color: Color, modifier: Modifier) {
     var shown by remember { mutableStateOf(character) }
     var leaving by remember { mutableStateOf<AnnotatedString?>(null) }
     val roll = remember { Animatable(1f) }

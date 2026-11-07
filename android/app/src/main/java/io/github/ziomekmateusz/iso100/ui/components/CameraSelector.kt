@@ -35,13 +35,13 @@ fun CameraSelector(camera: CameraLabel?, onClick: () -> Unit) {
                 .heightIn(min = 64.dp)
                 .padding(horizontal = 16.dp, vertical = 8.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Column(Modifier.weight(1f)) {
                 Text(
                     stringResource(R.string.title_camera),
                     fontSize = 14.sp,
-                    color = colors.onSurfaceVariant
+                    color = colors.onSurfaceVariant,
                 )
                 Text(
                     buildAnnotatedString {
@@ -50,8 +50,8 @@ fun CameraSelector(camera: CameraLabel?, onClick: () -> Unit) {
                             withStyle(
                                 SpanStyle(
                                     fontWeight = FontWeight.Normal,
-                                    color = colors.onSurfaceVariant
-                                )
+                                    color = colors.onSurfaceVariant,
+                                ),
                             ) { append(" " + stringResource(R.string.separator) + it) }
                         }
                     },
@@ -63,7 +63,7 @@ fun CameraSelector(camera: CameraLabel?, onClick: () -> Unit) {
                 painterResource(R.drawable.ic_forward),
                 null,
                 Modifier.size(20.dp),
-                tint = colors.onSurfaceVariant
+                tint = colors.onSurfaceVariant,
             )
         }
     }

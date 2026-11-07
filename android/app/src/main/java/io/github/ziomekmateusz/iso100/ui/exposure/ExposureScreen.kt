@@ -72,7 +72,7 @@ import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 fun ExposureScreen(
     onBack: () -> Unit,
     onStartTimer: (seconds: Double, settings: String) -> Unit,
-    app: AppContainer = LocalAppContainer.current
+    app: AppContainer = LocalAppContainer.current,
 ) {
     var input by rememberToolInput("exposure", ExposureInput())
     val settings by app.settings.settings.collectAsStateWithLifecycle(Settings())
@@ -82,7 +82,7 @@ fun ExposureScreen(
         state,
         onAction = { input = input.reduce(it) },
         onBack = onBack,
-        onStartTimer = onStartTimer
+        onStartTimer = onStartTimer,
     )
 }
 
@@ -91,7 +91,7 @@ fun ExposureContent(
     state: ExposureUiState,
     onAction: (ExposureAction) -> Unit,
     onBack: () -> Unit,
-    onStartTimer: (seconds: Double, settings: String) -> Unit
+    onStartTimer: (seconds: Double, settings: String) -> Unit,
 ) {
     ToolScaffold(
         title = stringResource(R.string.title_exposure),
@@ -154,10 +154,7 @@ private fun Measured(state: ExposureUiState, onAction: (ExposureAction) -> Unit)
 }
 
 @Composable
-private fun Result(
-    state: ExposureUiState,
-    onStartTimer: (seconds: Double, settings: String) -> Unit
-) {
+private fun Result(state: ExposureUiState, onStartTimer: (seconds: Double, settings: String) -> Unit) {
     val colors = MaterialTheme.colorScheme
     val big = MaterialTheme.typography.displayMedium.copy(fontSize = 64.sp, lineHeight = 64.sp)
     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -168,24 +165,32 @@ private fun Result(
                     settingText(
                         state.solve,
                         result.value.nearest?.nominal ?: result.value.exact,
-                        plain = true
-                    ), style = big, color = colors.primary
+                        plain = true,
+                    ),
+                    style = big,
+                    color = colors.primary,
                 )
                 if (state.exactDiffers) {
-                    Text(stringResource(R.string.exact_value, settingText(state.solve, result.value.exact, plain = true)), fontSize = 15.sp, color = colors.onSurfaceVariant)
+                    Text(
+                        stringResource(R.string.exact_value, settingText(state.solve, result.value.exact, plain = true)),
+                        fontSize = 15.sp,
+                        color = colors.onSurfaceVariant,
+                    )
                 }
             }
+
             is Outcome.OutOfScale -> {
                 Text("—", style = big, color = colors.primary)
                 ErrorText(outOfScaleMessage(state.solve, result.tooHigh, state.limit!!))
             }
+
             is Outcome.Invalid -> Text("—", style = big, color = colors.primary)
         }
         state.nd?.let {
             Text(
                 stringResource(R.string.with_nd, it.name),
                 fontSize = 15.sp,
-                color = colors.onSurfaceVariant
+                color = colors.onSurfaceVariant,
             )
         }
         AnimatedVisibility(visible = state.bulb) {
@@ -196,41 +201,50 @@ private fun Result(
                     (state.result as? Outcome.Ok)?.let {
                         onStartTimer(
                             it.value.exact,
-                            settings
+                            settings,
                         )
                     }
                 },
                 modifier = Modifier
                     .padding(top = 8.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
             )
-
         }
         (state.result as? Outcome.Ok)?.takeIf { state.bulb }?.let { bulb ->
-
         }
     }
 }
 
 /** "ISO 100 · f/8 · ND1000": the settings to shoot with, for the timer. */
 @Composable
-private fun shotSettings(state: ExposureUiState): String =
-    (state.kept.map { (setting, dial) -> settingText(setting, dial.value.nominal) } + listOfNotNull(
-        state.nd?.name
-    ))
-        .joinToString(" " + stringResource(R.string.separator))
+private fun shotSettings(state: ExposureUiState): String = (
+        state.kept.map { (setting, dial) -> settingText(setting, dial.value.nominal) } + listOfNotNull(
+            state.nd?.name,
+        )
+        )
+    .joinToString(" " + stringResource(R.string.separator))
 
 @Composable
 private fun NdFilters(nd: NdFilter?, onAction: (ExposureAction) -> Unit) {
     val locale = currentLocale()
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Text(stringResource(R.string.nd_filter), Modifier.padding(start = 4.dp), fontSize = 15.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(
+            stringResource(R.string.nd_filter),
+            Modifier.padding(start = 4.dp),
+            fontSize = 15.sp,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             NdChip(stringResource(R.string.nd_none), stringResource(R.string.nd_stops, "0"), nd == null, Modifier.weight(1f)) {
                 onAction(ExposureAction.SetNd(null))
             }
             ND_CHIPS.forEach { filter ->
-                NdChip(filter.name, stringResource(R.string.nd_stops, shortNumber(filter.stops, locale)), nd == filter, Modifier.weight(1f)) {
+                NdChip(
+                    filter.name,
+                    stringResource(R.string.nd_stops, shortNumber(filter.stops, locale)),
+                    nd == filter,
+                    Modifier.weight(1f),
+                ) {
                     onAction(ExposureAction.SetNd(filter))
                 }
             }
@@ -256,10 +270,24 @@ private fun NdChip(name: String, detail: String, selected: Boolean, modifier: Mo
         color = if (selected) colors.outlineVariant else colors.background,
         border = BorderStroke(1.dp, if (selected) colors.primary else colors.outlineVariant),
     ) {
-        Column(Modifier.padding(vertical = 6.dp, horizontal = 2.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+        Column(
+            Modifier.padding(vertical = 6.dp, horizontal = 2.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
             val color = if (selected) colors.onSurface else colors.onSurfaceVariant
-            FitText(name, MaterialTheme.typography.labelLarge.copy(fontSize = 15.sp, fontWeight = FontWeight.SemiBold), color = color, textAlign = TextAlign.Center)
-            FitText(detail, MaterialTheme.typography.labelLarge.copy(fontSize = 13.sp, fontWeight = FontWeight.Normal), color = color, textAlign = TextAlign.Center)
+            FitText(
+                name,
+                MaterialTheme.typography.labelLarge.copy(fontSize = 15.sp, fontWeight = FontWeight.SemiBold),
+                color = color,
+                textAlign = TextAlign.Center,
+            )
+            FitText(
+                detail,
+                MaterialTheme.typography.labelLarge.copy(fontSize = 13.sp, fontWeight = FontWeight.Normal),
+                color = color,
+                textAlign = TextAlign.Center,
+            )
         }
     }
 }
@@ -267,8 +295,11 @@ private fun NdChip(name: String, detail: String, selected: Boolean, modifier: Mo
 @Composable
 private fun MeasuredSheet(state: ExposureUiState, onAction: (ExposureAction) -> Unit) {
     AppBottomSheet(onDismiss = { onAction(ExposureAction.CloseSheet) }) {
-        Column(Modifier
-            .padding(start = 16.dp, end = 16.dp, bottom = 24.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+        Column(
+            Modifier
+                .padding(start = 16.dp, end = 16.dp, bottom = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
             Text(stringResource(R.string.measured_title), style = MaterialTheme.typography.titleLarge)
             state.measured.forEach { (setting, dial) ->
                 SettingDial(setting, dial, state.step) { onAction(ExposureAction.SetMeasured(setting, it.actual)) }
@@ -277,7 +308,7 @@ private fun MeasuredSheet(state: ExposureUiState, onAction: (ExposureAction) -> 
                 modifier = Modifier
                     .fillMaxWidth(),
                 text = stringResource(R.string.done),
-                onClick = { onAction(ExposureAction.CloseSheet) }
+                onClick = { onAction(ExposureAction.CloseSheet) },
             )
         }
     }
@@ -298,7 +329,7 @@ private fun NdSheet(nd: NdFilter?, onAction: (ExposureAction) -> Unit) {
                         .selectable(
                             selected = filter == nd,
                             onClick = { onAction(ExposureAction.SetNd(filter)) },
-                            role = Role.RadioButton
+                            role = Role.RadioButton,
                         )
                         .padding(horizontal = 16.dp),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -307,7 +338,12 @@ private fun NdSheet(nd: NdFilter?, onAction: (ExposureAction) -> Unit) {
                     Text(filter?.name ?: stringResource(R.string.nd_none), Modifier.weight(1f), fontSize = 18.sp)
                     if (filter != null) {
                         Text(
-                            stringResource(R.string.nd_detail, filter.factor, shortNumber(filter.stops, locale), shortNumber(filter.opticalDensity, locale)),
+                            stringResource(
+                                R.string.nd_detail,
+                                filter.factor,
+                                shortNumber(filter.stops, locale),
+                                shortNumber(filter.opticalDensity, locale),
+                            ),
                             fontFamily = Barlow,
                             fontSize = 14.sp,
                             color = colors.onSurfaceVariant,
@@ -365,8 +401,16 @@ private fun resultTitle(setting: ExposureSetting): Int = when (setting) {
 private fun outOfScaleMessage(setting: ExposureSetting, tooHigh: Boolean, limit: ExposureValue): String {
     val locale = currentLocale()
     return when (setting) {
-        ISO -> stringResource(if (tooHigh) R.string.out_of_scale_iso_high else R.string.out_of_scale_iso_low, shortNumber(limit.nominal, locale, 0))
-        APERTURE -> stringResource(if (tooHigh) R.string.out_of_scale_aperture_high else R.string.out_of_scale_aperture_low, shortNumber(limit.nominal, locale))
+        ISO -> stringResource(
+            if (tooHigh) R.string.out_of_scale_iso_high else R.string.out_of_scale_iso_low,
+            shortNumber(limit.nominal, locale, 0),
+        )
+
+        APERTURE -> stringResource(
+            if (tooHigh) R.string.out_of_scale_aperture_high else R.string.out_of_scale_aperture_low,
+            shortNumber(limit.nominal, locale),
+        )
+
         // a shutter longer than the scale is still a result: only "too short" is out of scale
         SHUTTER -> stringResource(R.string.out_of_scale_shutter_low, shutterText(limit.nominal))
     }
@@ -388,9 +432,15 @@ private fun ExposureOutOfScalePreview() {
             ExposureUiState.from(
                 ExposureInput(
                     solve = APERTURE,
-                    nd = NdFilter.ND1024
-                ), Settings(), null
-            ), {}, {}, { _, _ -> })
+                    nd = NdFilter.ND1024,
+                ),
+                Settings(),
+                null,
+            ),
+            {},
+            {},
+            { _, _ -> },
+        )
     }
 }
 
@@ -402,9 +452,15 @@ private fun ExposureLongShutterPreview() {
             ExposureUiState.from(
                 ExposureInput(
                     measuredShutterS = 1.0 / 8,
-                    nd = NdFilter.ND1000
-                ), Settings(), null
-            ), {}, {}, { _, _ -> })
+                    nd = NdFilter.ND1000,
+                ),
+                Settings(),
+                null,
+            ),
+            {},
+            {},
+            { _, _ -> },
+        )
     }
 }
 

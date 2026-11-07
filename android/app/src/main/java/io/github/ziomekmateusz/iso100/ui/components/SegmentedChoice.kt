@@ -94,7 +94,7 @@ private fun DrawScope.drawIndicator(position: Float, count: Int, color: Color) {
         color,
         Offset(left, 0f),
         Size(width, size.height),
-        CornerRadius(segmentRadius.toPx())
+        CornerRadius(segmentRadius.toPx()),
     )
 }
 

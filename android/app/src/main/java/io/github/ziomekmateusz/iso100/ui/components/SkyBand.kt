@@ -43,7 +43,11 @@ fun SkyBand(segments: List<BandSegment>, now: Float?, description: String, modif
     val sky = LocalSkyColors.current
     val marker = MaterialTheme.colorScheme.onSurface
     Column(modifier.semantics { contentDescription = description }, verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Canvas(Modifier.fillMaxWidth().height(26.dp)) {
+        Canvas(
+            Modifier
+                .fillMaxWidth()
+                .height(26.dp)
+        ) {
             val top = 4.dp.toPx()
             val height = 18.dp.toPx()
             val band = Path().apply { addRoundRect(RoundRect(0f, top, size.width, top + height, CornerRadius(height / 2))) }
@@ -63,9 +67,19 @@ fun SkyBand(segments: List<BandSegment>, now: Float?, description: String, modif
 }
 
 private val previewSegments = listOf(
-    BandSegment(SkyPhase.NIGHT, 0f, 0.14f), BandSegment(SkyPhase.ASTRONOMICAL, 0.14f, 0.178f), BandSegment(SkyPhase.NAUTICAL, 0.178f, 0.208f),
+    BandSegment(
+        SkyPhase.NIGHT,
+        0f,
+        0.14f,
+    ),
+    BandSegment(SkyPhase.ASTRONOMICAL, 0.14f, 0.178f), BandSegment(SkyPhase.NAUTICAL, 0.178f, 0.208f),
     BandSegment(SkyPhase.CIVIL, 0.208f, 0.232f), BandSegment(SkyPhase.GOLDEN, 0.232f, 0.262f), BandSegment(SkyPhase.DAY, 0.262f, 0.837f),
-    BandSegment(SkyPhase.GOLDEN, 0.837f, 0.866f), BandSegment(SkyPhase.CIVIL, 0.866f, 0.891f), BandSegment(SkyPhase.NAUTICAL, 0.891f, 0.921f),
+    BandSegment(
+        SkyPhase.GOLDEN,
+        0.837f,
+        0.866f,
+    ),
+    BandSegment(SkyPhase.CIVIL, 0.866f, 0.891f), BandSegment(SkyPhase.NAUTICAL, 0.891f, 0.921f),
     BandSegment(SkyPhase.ASTRONOMICAL, 0.921f, 0.959f), BandSegment(SkyPhase.NIGHT, 0.959f, 1f),
 )
 

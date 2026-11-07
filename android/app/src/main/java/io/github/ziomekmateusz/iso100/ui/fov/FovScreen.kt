@@ -130,7 +130,11 @@ private fun Angles(result: FieldOfView?) {
 @Composable
 private fun Angle(label: String, value: String, color: Color, modifier: Modifier) {
     Column(modifier, verticalArrangement = Arrangement.spacedBy(2.dp)) {
-        Text(label, style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal), color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(
+            label,
+            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
         RollingText(value, style = MaterialTheme.typography.headlineMedium, color = color)
     }
 }
@@ -158,7 +162,7 @@ private fun Frame(result: FieldOfView, state: FovUiState) {
             state.frames.forEachIndexed { index, frame ->
                 ComparedFormat(
                     frame,
-                    closest = index == 0
+                    closest = index == 0,
                 )
             }
         }
@@ -173,7 +177,7 @@ private fun BoxScope.FrameSizeLabels(width: String, height: String) {
     val label = MaterialTheme.typography.labelLarge.copy(
         fontSize = 15.sp,
         fontWeight = FontWeight.SemiBold,
-        fontFeatureSettings = "tnum"
+        fontFeatureSettings = "tnum",
     )
     Text(
         width,
@@ -181,7 +185,7 @@ private fun BoxScope.FrameSizeLabels(width: String, height: String) {
             .align(Alignment.TopCenter)
             .padding(top = 6.dp),
         style = label,
-        color = primary
+        color = primary,
     )
     Text(
         height,
@@ -189,7 +193,7 @@ private fun BoxScope.FrameSizeLabels(width: String, height: String) {
             .align(Alignment.CenterStart)
             .padding(start = 6.dp),
         style = label,
-        color = primary
+        color = primary,
     )
 }
 
@@ -203,16 +207,20 @@ private fun BoxScope.ComparedFormat(frame: FovFrame, closest: Boolean) {
             .fillMaxWidth(frame.widthRatio.toFloat())
             .fillMaxHeight(frame.heightRatio.toFloat())
             .drawBehind {
-                val dash = if (closest) floatArrayOf(
-                    6.dp.toPx(),
-                    4.dp.toPx()
-                ) else floatArrayOf(2.dp.toPx(), 3.dp.toPx())
+                val dash = if (closest) {
+                    floatArrayOf(
+                        6.dp.toPx(),
+                        4.dp.toPx(),
+                    )
+                } else {
+                    floatArrayOf(2.dp.toPx(), 3.dp.toPx())
+                }
                 drawRoundRect(
                     color = stroke,
                     cornerRadius = CornerRadius(4.dp.toPx()),
                     style = Stroke(
                         width = 1.5.dp.toPx(),
-                        pathEffect = PathEffect.dashPathEffect(dash)
+                        pathEffect = PathEffect.dashPathEffect(dash),
                     ),
                 )
             },
@@ -233,7 +241,7 @@ private fun FrameCaption(distance: String, compared: Boolean) {
     Text(
         stringResource(
             if (compared) R.string.fov_caption_compared else R.string.fov_caption,
-            distance
+            distance,
         ),
         Modifier.fillMaxWidth(),
         style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal),
@@ -277,8 +285,14 @@ private fun FovEmptyPreview() {
 private fun FovErrorPreview() {
     Iso100Theme {
         FovContent(
-            previewState.copy(result = null, invalid = io.github.ziomekmateusz.iso100.calc.Outcome.Invalid(Input.FOCAL_LENGTH), focalLengthMm = 0.0),
-            {}, {}, {},
+            previewState.copy(
+                result = null,
+                invalid = io.github.ziomekmateusz.iso100.calc.Outcome.Invalid(Input.FOCAL_LENGTH),
+                focalLengthMm = 0.0,
+            ),
+            {},
+            {},
+            {},
         )
     }
 }

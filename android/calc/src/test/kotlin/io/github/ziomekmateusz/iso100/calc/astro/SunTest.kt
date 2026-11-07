@@ -56,13 +56,15 @@ class SunTest {
     @Test
     fun `the sky band covers the whole day without gaps`() {
         val dates = listOf(LocalDate.of(2026, 3, 20), LocalDate.of(2026, 6, 21), LocalDate.of(2026, 9, 23), LocalDate.of(2026, 12, 21))
-        for (place in listOf(rome, reykjavik, tromso, longyearbyen, sydney)) for (date in dates) {
-            val sky = sunDay(date, place).sky
-            assertTrue(sky.first().start.isEqual(date.atStartOfDay(place.zone)), "$place $date starts at 00:00")
-            assertTrue(sky.last().end.isEqual(date.plusDays(1).atStartOfDay(place.zone)), "$place $date ends at 24:00")
-            sky.zipWithNext { a, b ->
-                assertTrue(a.end.isEqual(b.start), "$place $date has no gaps")
-                assertNotEquals(a.phase, b.phase, "$place $date segments are merged")
+        for (place in listOf(rome, reykjavik, tromso, longyearbyen, sydney)) {
+            for (date in dates) {
+                val sky = sunDay(date, place).sky
+                assertTrue(sky.first().start.isEqual(date.atStartOfDay(place.zone)), "$place $date starts at 00:00")
+                assertTrue(sky.last().end.isEqual(date.plusDays(1).atStartOfDay(place.zone)), "$place $date ends at 24:00")
+                sky.zipWithNext { a, b ->
+                    assertTrue(a.end.isEqual(b.start), "$place $date has no gaps")
+                    assertNotEquals(a.phase, b.phase, "$place $date segments are merged")
+                }
             }
         }
     }

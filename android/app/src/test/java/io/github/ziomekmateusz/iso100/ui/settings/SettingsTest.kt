@@ -62,7 +62,11 @@ class SettingsTest {
         compose.onNodeWithText("Full").performClick()
         compose.onNode(hasText("Approximate position") and isToggleable()).assertIsOff().performClick()
         assertEquals(
-            listOf(SettingsAction.SetUnits(UnitSystem.IMPERIAL), SettingsAction.SetStopStep(StopStep.FULL), SettingsAction.SetAutoLocation(true)),
+            listOf(
+                SettingsAction.SetUnits(UnitSystem.IMPERIAL),
+                SettingsAction.SetStopStep(StopStep.FULL),
+                SettingsAction.SetAutoLocation(true),
+            ),
             actions,
         )
     }

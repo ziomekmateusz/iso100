@@ -54,18 +54,23 @@ sealed interface ExposureAction {
 
 fun ExposureInput.reduce(action: ExposureAction): ExposureInput = when (action) {
     is ExposureAction.Solve -> copy(solve = action.setting)
+
     is ExposureAction.SetMeasured -> when (action.setting) {
         ISO -> copy(measuredIso = action.value)
         APERTURE -> copy(measuredAperture = action.value)
         SHUTTER -> copy(measuredShutterS = action.value)
     }
+
     is ExposureAction.SetNew -> when (action.setting) {
         ISO -> copy(iso = action.value)
         APERTURE -> copy(aperture = action.value)
         SHUTTER -> copy(shutterS = action.value)
     }
+
     is ExposureAction.SetNd -> copy(nd = action.filter, sheet = null)
+
     is ExposureAction.Open -> copy(sheet = action.sheet)
+
     ExposureAction.CloseSheet -> copy(sheet = null)
 }
 
@@ -99,7 +104,12 @@ data class ExposureUiState(
             )
             val measured = dials(input.measuredIso, input.measuredAperture, input.measuredShutterS)
             val new = dials(input.iso, input.aperture, input.shutterS)
-            val metered = Exposure(measured.getValue(ISO).value.actual, measured.getValue(APERTURE).value.actual, measured.getValue(SHUTTER).value.actual)
+            val metered =
+                Exposure(
+                    measured.getValue(ISO).value.actual,
+                    measured.getValue(APERTURE).value.actual,
+                    measured.getValue(SHUTTER).value.actual,
+                )
             val iso = new.getValue(ISO).value.actual
             val aperture = new.getValue(APERTURE).value.actual
             val shutter = new.getValue(SHUTTER).value.actual

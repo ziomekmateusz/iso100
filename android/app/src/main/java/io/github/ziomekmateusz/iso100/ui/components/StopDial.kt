@@ -110,13 +110,27 @@ fun StopDial(
     val tickStyle = TextStyle(fontFamily = Barlow, fontSize = 13.sp, fontFeatureSettings = "tnum")
     val count = dial.values.size
     val ticksPerStop = (count.toFloat() / dial.fullStops.count { it }.coerceAtLeast(1)).roundToInt()
-    val spacing = with(LocalDensity.current) { (if (ticksPerStop <= 1) 48.dp else if (ticksPerStop == 2) 28.dp else 20.dp).toPx() }
+    val spacing = with(LocalDensity.current) {
+        (
+                if (ticksPerStop <= 1) {
+                    48.dp
+                } else if (ticksPerStop == 2) {
+                    28.dp
+                } else {
+                    20.dp
+                }
+                ).toPx()
+    }
     val tickLabels = remember(dial, measurer, tickStyle) {
         dial.values.mapIndexed { index, value ->
-            if (dial.fullStops[index]) measurer.measure(
-                tickLabel(value),
-                tickStyle
-            ) else null
+            if (dial.fullStops[index]) {
+                measurer.measure(
+                    tickLabel(value),
+                    tickStyle,
+                )
+            } else {
+                null
+            }
         }
     }
     val labelHeight = remember(measurer, tickStyle) { measurer.measure("0", tickStyle).size.height }
@@ -165,7 +179,7 @@ fun StopDial(
                         snapFlingBehavior(
                             ticks,
                             dialDecay,
-                            spring(stiffness = Spring.StiffnessMediumLow)
+                            spring(stiffness = Spring.StiffnessMediumLow),
                         )
                     },
                 )
@@ -175,7 +189,7 @@ fun StopDial(
                     progressBarRangeInfo = ProgressBarRangeInfo(
                         position.toFloat(),
                         0f..(count - 1).toFloat(),
-                        steps = (count - 2).coerceAtLeast(0)
+                        steps = (count - 2).coerceAtLeast(0),
                     )
                     setProgress { target ->
                         onSelect(dial.values[target.roundToInt().coerceIn(0, count - 1)])
@@ -244,7 +258,7 @@ private fun DialHeader(label: String, value: String, trailing: String) {
             Text(
                 trailing,
                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal),
-                color = colors.onSurfaceVariant
+                color = colors.onSurfaceVariant,
             )
         },
         modifier = Modifier
@@ -262,8 +276,7 @@ private fun DialHeader(label: String, value: String, trailing: String) {
         val (labelText, before, after, trailingText) = placeables
         val centre = if (before.width == 0) width / 2 - after.width / 2 else width / 2
         layout(width, height) {
-            fun Placeable.placeOnBaseline(x: Int, index: Int) =
-                place(x, baseline - baselines[index])
+            fun Placeable.placeOnBaseline(x: Int, index: Int) = place(x, baseline - baselines[index])
             labelText.placeOnBaseline(0, 0)
             before.placeOnBaseline(centre - before.width, 1)
             after.placeOnBaseline(centre, 2)
@@ -309,6 +322,9 @@ private fun StopDialPreview(@PreviewParameter(ThemePreviews::class) theme: AppTh
 @Composable
 private fun StopDialLargeTextPreview() {
     Iso100Theme {
-        Surface { StopDial("Diaframma", dial(ExposureSetting.SHUTTER, StopStep.FULL, 1.0 / 125), {}, { "1/${(1 / it.nominal).toInt()} s" }, { "1/${(1 / it.nominal).toInt()}" }, "1 stop", Modifier.padding(16.dp)) }
+        Surface {
+            StopDial("Diaframma", dial(ExposureSetting.SHUTTER, StopStep.FULL, 1.0 / 125), {
+            }, { "1/${(1 / it.nominal).toInt()} s" }, { "1/${(1 / it.nominal).toInt()}" }, "1 stop", Modifier.padding(16.dp))
+        }
     }
 }

@@ -27,10 +27,7 @@ class ToolValues<T>(val key: String, val serializer: KSerializer<T>, val default
  * the value in memory and writes it a moment later, once the user stops changing it.
  * Called from the main thread.
  */
-class ToolValuesStore(
-    private val dataStore: DataStore<Preferences>,
-    private val scope: CoroutineScope
-) {
+class ToolValuesStore(private val dataStore: DataStore<Preferences>, private val scope: CoroutineScope) {
     private val stored = dataStore.data
         .catch { if (it is IOException) emit(emptyPreferences()) else throw it }
         .stateIn(scope, SharingStarted.Eagerly, null)

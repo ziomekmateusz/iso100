@@ -36,7 +36,8 @@ class ExposureContentTest {
                     ExposureUiState.from(input, Settings(), null),
                     { input = input.reduce(it) },
                     {},
-                    { seconds, settings -> timer = seconds to settings })
+                    { seconds, settings -> timer = seconds to settings },
+                )
             }
         }
         return { input }

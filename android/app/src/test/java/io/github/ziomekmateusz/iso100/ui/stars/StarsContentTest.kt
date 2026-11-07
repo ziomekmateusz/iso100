@@ -27,7 +27,9 @@ class StarsContentTest {
     @Test
     fun theSuggestedShutterAndTheLimitAreShown() {
         val actions = mutableListOf<StarsAction>()
-        compose.setContent { Iso100Theme { StarsContent(StarsUiState.from(StarsInput(), Settings(), ALPHA_7_III_24MP), { actions += it }, {}, {}) } }
+        compose.setContent {
+            Iso100Theme { StarsContent(StarsUiState.from(StarsInput(), Settings(), ALPHA_7_III_24MP), { actions += it }, {}, {}) }
+        }
         compose.onNodeWithText("Calculated limit 11.6 s, rounded down").assertIsDisplayed()
         compose.onNodeWithText("Sony Alpha 7 III · Full Frame (35 mm)").assertIsDisplayed()
         compose.onNode(hasText("300 rule") and hasClickAction()).performClick()
@@ -36,7 +38,9 @@ class StarsContentTest {
 
     @Test
     fun `without the resolution there is no NPF and no aperture`() {
-        compose.setContent { Iso100Theme { StarsContent(StarsUiState.from(StarsInput(), Settings(), Selection(null, TEST_FORMATS[0])), {}, {}, {}) } }
+        compose.setContent {
+            Iso100Theme { StarsContent(StarsUiState.from(StarsInput(), Settings(), Selection(null, TEST_FORMATS[0])), {}, {}, {}) }
+        }
         compose.onNodeWithText("NPF").assertDoesNotExist()
         compose.onNodeWithText("NPF only").assertDoesNotExist()
         compose.onNode(hasText("500 rule") and hasClickAction()).assertIsDisplayed()

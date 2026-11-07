@@ -89,7 +89,8 @@ import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
 import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 import kotlinx.coroutines.launch
 
-// lifts the search and the format button off the list scrolling under them; in the dark themes the lighter container and the border do it, the shadow barely shows
+// lifts the search and the format button off the list scrolling under them;
+// in the dark themes the lighter container and the border do it, the shadow barely shows
 private val searchElevation = 6.dp
 
 @Composable
@@ -108,17 +109,15 @@ fun CameraPickerScreen(onClose: () -> Unit, app: AppContainer = LocalAppContaine
         },
         onBack = onClose,
     )
-    if (state.formatSheet) FormatPickerSheet(onDismiss = {
-        input = input.reduce(CameraPickerAction.HideFormats)
-    }, onChosen = onClose)
+    if (state.formatSheet) {
+        FormatPickerSheet(onDismiss = {
+            input = input.reduce(CameraPickerAction.HideFormats)
+        }, onChosen = onClose)
+    }
 }
 
 @Composable
-fun CameraPickerContent(
-    state: CameraPickerUiState,
-    onAction: (CameraPickerAction) -> Unit,
-    onBack: () -> Unit
-) {
+fun CameraPickerContent(state: CameraPickerUiState, onAction: (CameraPickerAction) -> Unit, onBack: () -> Unit) {
     Scaffold(
         Modifier.fillMaxSize(),
         topBar = { PickerTopBar(onBack) },
@@ -133,11 +132,7 @@ fun CameraPickerContent(
 
 /** The cameras by maker: it scrolls under the bars and fades there. A new search starts from the top. */
 @Composable
-private fun PickerList(
-    state: CameraPickerUiState,
-    onAction: (CameraPickerAction) -> Unit,
-    bars: PaddingValues
-) {
+private fun PickerList(state: CameraPickerUiState, onAction: (CameraPickerAction) -> Unit, bars: PaddingValues) {
     val listState = rememberLazyListState()
     LaunchedEffect(state.query) { listState.scrollToItem(0) }
     val top = bars.calculateTopPadding()
@@ -152,15 +147,16 @@ private fun PickerList(
             start = 16.dp,
             end = 16.dp,
             top = top + 14.dp,
-            bottom = bottom + 16.dp
+            bottom = bottom + 16.dp,
         ),
     ) {
         when {
             state.failed -> item { Message(stringResource(R.string.catalog_error)) }
+
             state.groups.isEmpty() && state.query.isNotBlank() -> item {
                 NoCameraFound(state.query) {
                     onAction(
-                        CameraPickerAction.ShowFormats
+                        CameraPickerAction.ShowFormats,
                     )
                 }
             }
@@ -170,10 +166,7 @@ private fun PickerList(
     }
 }
 
-private fun LazyListScope.cameraGroups(
-    groups: List<CameraGroup>,
-    onAction: (CameraPickerAction) -> Unit
-) {
+private fun LazyListScope.cameraGroups(groups: List<CameraGroup>, onAction: (CameraPickerAction) -> Unit) {
     groups.forEachIndexed { groupIndex, group ->
         item(key = "maker " + group.maker) { MakerHeader(group, first = groupIndex == 0) }
         itemsIndexed(group.cameras, key = { _, camera -> camera.id }) { index, camera ->
@@ -195,7 +188,7 @@ private fun MakerHeader(group: CameraGroup, first: Boolean) {
             R.plurals.camera_group,
             group.cameras.size,
             group.maker,
-            group.cameras.size
+            group.cameras.size,
         ),
         Modifier
             .padding(start = 4.dp, top = if (first) 0.dp else 16.dp, bottom = 6.dp)
@@ -206,13 +199,7 @@ private fun MakerHeader(group: CameraGroup, first: Boolean) {
 }
 
 @Composable
-private fun CameraItem(
-    camera: CameraRow,
-    first: Boolean,
-    last: Boolean,
-    onChoose: () -> Unit,
-    onDetails: () -> Unit
-) {
+private fun CameraItem(camera: CameraRow, first: Boolean, last: Boolean, onChoose: () -> Unit, onDetails: () -> Unit) {
     Item(camera.selected, first, last, onChoose) {
         Lines(camera.model, camera.alias, camera.selected)
         FormatChip(camera.format)
@@ -240,7 +227,7 @@ private fun NoCameraFound(query: String, onShowFormats: () -> Unit) {
         TextButton(onClick = onShowFormats) {
             Text(
                 stringResource(R.string.choose_format_only),
-                fontSize = 16.sp
+                fontSize = 16.sp,
             )
         }
     }
@@ -261,7 +248,7 @@ private fun PickerBottomBar(state: CameraPickerUiState, onAction: (CameraPickerA
             SearchField(
                 state.query,
                 { onAction(CameraPickerAction.Search(it)) },
-                Modifier.weight(1f)
+                Modifier.weight(1f),
             )
             FormatOnlyButton { onAction(CameraPickerAction.ShowFormats) }
         }
@@ -300,13 +287,13 @@ private fun FormatOnlyButton(onClick: () -> Unit) {
             .size(56.dp),
         colors = IconButtonDefaults.filledIconButtonColors(
             containerColor = colors.surfaceContainerHigh,
-            contentColor = colors.onSurface
+            contentColor = colors.onSurface,
         ),
     ) {
         Icon(
             painterResource(R.drawable.ic_sensor),
             stringResource(R.string.choose_format_only),
-            Modifier.size(24.dp)
+            Modifier.size(24.dp),
         )
     }
 }
@@ -324,7 +311,12 @@ private fun DetailsSheet(details: CameraDetails, onAction: (CameraPickerAction) 
         R.string.spec_format to details.format,
         R.string.spec_mount to details.mount,
         R.string.spec_resolution to specs.resolutionMp?.let { shortNumber(it, locale) + " " + stringResource(R.string.symbol_mp) },
-        R.string.spec_iso to if (specs.isoMin != null && specs.isoMax != null) stringResource(R.string.spec_iso_range, specs.isoMin, specs.isoMax) else null,
+        R.string.spec_iso to
+                if (specs.isoMin != null && specs.isoMax != null) stringResource(
+                    R.string.spec_iso_range,
+                    specs.isoMin,
+                    specs.isoMax
+                ) else null,
         R.string.spec_af_points to specs.afPoints?.toString(),
         R.string.spec_fps to specs.fps?.let { stringResource(R.string.spec_fps_value, shortNumber(it, locale)) },
         R.string.spec_stabilization to flag(specs.stabilization),
@@ -344,10 +336,13 @@ private fun DetailsSheet(details: CameraDetails, onAction: (CameraPickerAction) 
             Column {
                 rows.forEach { (label, value) ->
                     if (value != null) {
-                        Row(Modifier
-                            .fillMaxWidth()
-                            .heightIn(min = 44.dp)
-                            .padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Row(
+                            Modifier
+                                .fillMaxWidth()
+                                .heightIn(min = 44.dp)
+                                .padding(vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
                             Text(stringResource(label), Modifier.weight(1f), fontSize = 16.sp, color = colors.onSurfaceVariant)
                             Text(value, fontSize = 16.sp)
                         }
@@ -356,17 +351,15 @@ private fun DetailsSheet(details: CameraDetails, onAction: (CameraPickerAction) 
                 }
             }
             Text(stringResource(R.string.specs_note), fontSize = 14.sp, color = colors.onSurfaceVariant)
-            PrimaryButton(stringResource(R.string.choose_this_camera), { onAction(CameraPickerAction.ChooseCamera(details.id)) }, Modifier.fillMaxWidth())
+            PrimaryButton(stringResource(R.string.choose_this_camera), {
+                onAction(CameraPickerAction.ChooseCamera(details.id))
+            }, Modifier.fillMaxWidth())
         }
     }
 }
 
 @Composable
-private fun SearchField(
-    query: String,
-    onQueryChange: (String) -> Unit,
-    modifier: Modifier = Modifier
-) {
+private fun SearchField(query: String, onQueryChange: (String) -> Unit, modifier: Modifier = Modifier) {
     val colors = MaterialTheme.colorScheme
     val keyboard = LocalSoftwareKeyboardController.current
     var focused by remember { mutableStateOf(false) }
@@ -392,7 +385,7 @@ private fun SearchField(
                     .border(
                         if (focused) 2.dp else 1.dp,
                         if (focused) colors.primary else colors.outlineVariant,
-                        shape
+                        shape,
                     )
                     .padding(start = 16.dp, end = 6.dp),
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
@@ -400,12 +393,25 @@ private fun SearchField(
             ) {
                 Icon(painterResource(R.drawable.ic_search), null, Modifier.size(20.dp), tint = colors.onSurfaceVariant)
                 Box(Modifier.weight(1f)) {
-                    if (query.isEmpty()) Text(stringResource(R.string.camera_search_hint), fontSize = 18.sp, color = colors.onSurfaceVariant, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    if (query.isEmpty()) {
+                        Text(
+                            stringResource(R.string.camera_search_hint),
+                            fontSize = 18.sp,
+                            color = colors.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
                     inner()
                 }
                 if (query.isNotEmpty()) {
                     IconButton(onClick = { onQueryChange("") }) {
-                        Icon(painterResource(R.drawable.ic_close), stringResource(R.string.clear_search), Modifier.size(18.dp), tint = colors.onSurfaceVariant)
+                        Icon(
+                            painterResource(R.drawable.ic_close),
+                            stringResource(R.string.clear_search),
+                            Modifier.size(18.dp),
+                            tint = colors.onSurfaceVariant,
+                        )
                     }
                 }
             }
@@ -415,19 +421,15 @@ private fun SearchField(
 
 /** A row of a list in a rounded card: the card is cut by the first and the last row of the group. */
 @Composable
-internal fun Item(
-    selected: Boolean,
-    first: Boolean,
-    last: Boolean,
-    onClick: () -> Unit,
-    content: @Composable RowScope.() -> Unit
-) {
+internal fun Item(selected: Boolean, first: Boolean, last: Boolean, onClick: () -> Unit, content: @Composable RowScope.() -> Unit) {
     val colors = MaterialTheme.colorScheme
     val top = if (first) 20.dp else 0.dp
     val bottom = if (last) 20.dp else 0.dp
-    Column(Modifier
-        .clip(RoundedCornerShape(top, top, bottom, bottom))
-        .background(colors.surface)) {
+    Column(
+        Modifier
+            .clip(RoundedCornerShape(top, top, bottom, bottom))
+            .background(colors.surface),
+    ) {
         Row(
             Modifier
                 .fillMaxWidth()
@@ -472,7 +474,12 @@ private fun FormatChip(name: String) {
 
 @Composable
 private fun Message(text: String) {
-    Text(text, Modifier.padding(horizontal = 4.dp, vertical = 8.dp), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    Text(
+        text,
+        Modifier.padding(horizontal = 4.dp, vertical = 8.dp),
+        style = MaterialTheme.typography.bodyLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
 }
 
 private val previewState = CameraPickerUiState(
@@ -507,7 +514,17 @@ private fun CameraPickerNoResultPreview() {
 @Preview(widthDp = 412, heightDp = 915)
 @Composable
 private fun CameraPickerDetailsPreview(@PreviewParameter(ThemePreviews::class) theme: AppTheme) {
-    val specs = CameraSpecs(isoMin = 100, isoMax = 51200, resolutionMp = 24.2, afPoints = 693, fps = 10.0, stabilization = true, weatherSealed = true, wifi = true, weightG = 650)
+    val specs = CameraSpecs(
+        isoMin = 100,
+        isoMax = 51200,
+        resolutionMp = 24.2,
+        afPoints = 693,
+        fps = 10.0,
+        stabilization = true,
+        weatherSealed = true,
+        wifi = true,
+        weightG = 650,
+    )
     val details = CameraDetails("sony-alpha-7-iii", "Sony Alpha 7 III", "Full Frame (35 mm)", "Sony E", listOf("ILCE-7M3"), specs)
     Iso100Theme(theme) { CameraPickerContent(previewState.copy(details = details), {}, {}) }
 }

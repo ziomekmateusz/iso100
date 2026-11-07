@@ -70,7 +70,7 @@ fun ToolScaffold(
                 .windowInsetsPadding(WindowInsets.ime.exclude(WindowInsets.navigationBars))
                 .fadeUnder(
                     top = bars.calculateTopPadding(),
-                    bottom = if (bottomBar != null) bottom else 0.dp
+                    bottom = if (bottomBar != null) bottom else 0.dp,
                 ),
         ) {
             Column(
@@ -98,11 +98,7 @@ fun ToolScaffold(
 }
 
 @Composable
-private fun ToolTopBar(
-    title: String,
-    onBack: () -> Unit,
-    actions: @Composable RowScope.() -> Unit
-) {
+private fun ToolTopBar(title: String, onBack: () -> Unit, actions: @Composable RowScope.() -> Unit) {
     Row(
         Modifier
             .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
@@ -117,7 +113,7 @@ private fun ToolTopBar(
             Modifier
                 .weight(1f)
                 .semantics { heading() },
-            style = MaterialTheme.typography.titleLarge
+            style = MaterialTheme.typography.titleLarge,
         )
         actions()
     }

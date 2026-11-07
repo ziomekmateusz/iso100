@@ -31,8 +31,8 @@ class PlaceChoiceTest {
             shouldLocate(
                 Settings(autoLocation = false),
                 emptyList(),
-                LocationState.Unknown
-            )
+                LocationState.Unknown,
+            ),
         )
     }
 
@@ -41,7 +41,7 @@ class PlaceChoiceTest {
         listOf(
             LocationState.NotFound,
             LocationState.LocationOff,
-            LocationState.PermissionDenied
+            LocationState.PermissionDenied,
         ).forEach { error ->
             assertFalse(shouldLocate(Settings(), emptyList(), error))
         }
@@ -51,7 +51,7 @@ class PlaceChoiceTest {
     fun aRunningOrKnownPositionIsNotAskedAgain() {
         listOf(
             LocationState.Locating,
-            LocationState.Found(oslo.place, oslo.name)
+            LocationState.Found(oslo.place, oslo.name),
         ).forEach { state ->
             assertFalse(shouldLocate(Settings(), emptyList(), state))
         }

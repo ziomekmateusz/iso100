@@ -64,7 +64,13 @@ import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 import kotlinx.coroutines.launch
 
 @Composable
-fun SettingsScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, onSavedPlaces: () -> Unit, onLicenses: () -> Unit, app: AppContainer = LocalAppContainer.current) {
+fun SettingsScreen(
+    onBack: () -> Unit,
+    onChooseCamera: () -> Unit,
+    onSavedPlaces: () -> Unit,
+    onLicenses: () -> Unit,
+    app: AppContainer = LocalAppContainer.current,
+) {
     val context = LocalContext.current
     var input by rememberSaveable { mutableStateOf(SettingsInput()) }
     val settings by app.settings.settings.collectAsStateWithLifecycle(Settings())
@@ -83,25 +89,35 @@ fun SettingsScreen(onBack: () -> Unit, onChooseCamera: () -> Unit, onSavedPlaces
         onAction = { action ->
             when (action) {
                 is SettingsAction.SetStopStep -> app.scope.launch { app.settings.setStopStep(action.step) }
+
                 is SettingsAction.SetUnits -> app.scope.launch { app.settings.setUnits(action.units) }
+
                 is SettingsAction.SetTheme -> app.scope.launch { app.settings.setTheme(action.theme) }
+
                 is SettingsAction.SetAutoLocation -> app.scope.launch { app.settings.setAutoLocation(action.enabled) }
+
                 is SettingsAction.SetKeepScreenOn -> app.scope.launch {
                     app.settings.setKeepScreenOn(
-                        action.enabled
+                        action.enabled,
                     )
                 }
+
                 is SettingsAction.SetAutoRedNight -> {
                     app.scope.launch { app.settings.setAutoRedNight(action.enabled) }
                     // without a place the red night cannot know when it is night: ask the position now
                     if (action.enabled && !hasPlace) place.locate()
                 }
+
                 is SettingsAction.SetLanguage -> AppCompatDelegate.setApplicationLocales(
                     if (action.tag == null) LocaleListCompat.getEmptyLocaleList() else LocaleListCompat.forLanguageTags(action.tag),
                 )
+
                 SettingsAction.ChooseCamera -> onChooseCamera()
+
                 SettingsAction.OpenSavedPlaces -> onSavedPlaces()
+
                 SettingsAction.OpenLicenses -> onLicenses()
+
                 SettingsAction.OpenLanguage, SettingsAction.Dismiss -> Unit
             }
             input = input.reduce(action)
@@ -118,10 +134,13 @@ fun SettingsContent(state: SettingsUiState, onAction: (SettingsAction) -> Unit, 
         AppCard(state, onAction)
         Footer(state)
     }
-    if (state.languageDialog) LanguageDialog(
-        state.language,
-        { onAction(SettingsAction.SetLanguage(it)) },
-        { onAction(SettingsAction.Dismiss) })
+    if (state.languageDialog) {
+        LanguageDialog(
+            state.language,
+            { onAction(SettingsAction.SetLanguage(it)) },
+            { onAction(SettingsAction.Dismiss) },
+        )
+    }
 }
 
 /** Stop step, units and theme: how the tools count and look. */
@@ -130,7 +149,7 @@ private fun CalculationCard(settings: Settings, onAction: (SettingsAction) -> Un
     SettingsCard {
         Column(
             Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
-            verticalArrangement = Arrangement.spacedBy(14.dp)
+            verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
             Choice(
                 stringResource(R.string.stop_step_label),
@@ -148,7 +167,7 @@ private fun CalculationCard(settings: Settings, onAction: (SettingsAction) -> Un
                     R.string.theme_system,
                     R.string.theme_dark,
                     R.string.theme_light,
-                    R.string.theme_red_night
+                    R.string.theme_red_night,
                 ),
                 THEMES.indexOf(settings.theme),
             ) { onAction(SettingsAction.SetTheme(THEMES[it])) }
@@ -164,14 +183,22 @@ private fun AppCard(state: SettingsUiState, onAction: (SettingsAction) -> Unit) 
         Column(Modifier.padding(horizontal = 16.dp)) {
             SwitchRow(
                 stringResource(R.string.auto_red_night),
-                stringResource(if (settings.autoRedNight && !state.hasPlace) R.string.auto_red_night_needs_place else R.string.auto_red_night_hint),
+                stringResource(
+                    if (settings.autoRedNight &&
+                        !state.hasPlace
+                    ) {
+                        R.string.auto_red_night_needs_place
+                    } else {
+                        R.string.auto_red_night_hint
+                    },
+                ),
                 settings.autoRedNight,
             ) { onAction(SettingsAction.SetAutoRedNight(it)) }
             RowDivider()
             SwitchRow(
                 stringResource(R.string.keep_screen_on),
                 stringResource(R.string.keep_screen_on_hint),
-                settings.keepScreenOn
+                settings.keepScreenOn,
             ) {
                 onAction(SettingsAction.SetKeepScreenOn(it))
             }
@@ -179,25 +206,25 @@ private fun AppCard(state: SettingsUiState, onAction: (SettingsAction) -> Unit) 
             SwitchRow(
                 stringResource(R.string.auto_location),
                 stringResource(R.string.auto_location_hint),
-                settings.autoLocation
+                settings.autoLocation,
             ) {
                 onAction(SettingsAction.SetAutoLocation(it))
             }
             RowDivider()
             LinkRow(
                 stringResource(R.string.title_saved_places),
-                state.savedPlaces.toString()
+                state.savedPlaces.toString(),
             ) { onAction(SettingsAction.OpenSavedPlaces) }
             RowDivider()
             LinkRow(stringResource(R.string.language), languageName(state.language)) {
                 onAction(
-                    SettingsAction.OpenLanguage
+                    SettingsAction.OpenLanguage,
                 )
             }
             RowDivider()
             LinkRow(
                 stringResource(R.string.title_licenses),
-                ""
+                "",
             ) { onAction(SettingsAction.OpenLicenses) }
         }
     }
@@ -208,7 +235,7 @@ private fun SettingsCard(content: @Composable () -> Unit) {
     Surface(
         shape = MaterialTheme.shapes.medium,
         color = MaterialTheme.colorScheme.surface,
-        content = content
+        content = content,
     )
 }
 
@@ -225,7 +252,15 @@ private val THEMES = listOf(AppTheme.SYSTEM, AppTheme.DARK, AppTheme.LIGHT, AppT
 private fun Choice(label: String, options: List<Int>, selected: Int, onSelect: (Int) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Text(label, fontSize = 15.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        SegmentedChoice(options.map { stringResource(it) }, selected, onSelect, label, containerColor = MaterialTheme.colorScheme.background)
+        SegmentedChoice(
+            options.map {
+                stringResource(it)
+            },
+            selected,
+            onSelect,
+            label,
+            containerColor = MaterialTheme.colorScheme.background,
+        )
     }
 }
 
@@ -284,8 +319,11 @@ private fun Footer(state: SettingsUiState) {
     Column(Modifier.padding(horizontal = 4.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
         val catalog = state.catalogVersion
         Text(
-            if (catalog == null) stringResource(R.string.settings_version, state.appVersion)
-            else pluralStringResource(R.plurals.settings_catalog, state.cameras, state.appVersion, catalog, state.cameras),
+            if (catalog == null) {
+                stringResource(R.string.settings_version, state.appVersion)
+            } else {
+                pluralStringResource(R.plurals.settings_catalog, state.cameras, state.appVersion, catalog, state.cameras)
+            },
             fontSize = 14.sp,
             color = colors.onSurfaceVariant,
         )
@@ -294,7 +332,9 @@ private fun Footer(state: SettingsUiState) {
         Text(
             buildAnnotatedString {
                 append(sentence.substringBefore(lensfun))
-                withLink(LinkAnnotation.Url("https://lensfun.github.io", TextLinkStyles(SpanStyle(color = colors.primary)))) { append(lensfun) }
+                withLink(LinkAnnotation.Url("https://lensfun.github.io", TextLinkStyles(SpanStyle(color = colors.primary)))) {
+                    append(lensfun)
+                }
                 append(sentence.substringAfter(lensfun))
             },
             fontSize = 14.sp,
@@ -326,7 +366,7 @@ private fun LanguageDialog(current: String?, onPick: (String?) -> Unit, onDismis
                             .selectable(
                                 tag == current,
                                 onClick = { onPick(tag) },
-                                role = Role.RadioButton
+                                role = Role.RadioButton,
                             ),
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                         verticalAlignment = Alignment.CenterVertically,

@@ -2,8 +2,8 @@ package io.github.ziomekmateusz.iso100.ui.sun
 
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.junit4.v2.createComposeRule
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -49,7 +49,12 @@ class SunContentTest {
         var located = false
         val actions = mutableListOf<SunAction>()
         compose.setContent {
-            Iso100Theme { SunContent(SunUiState.from(SunInput(), PlaceChoice.Unavailable(LocationState.PermissionDenied), JUNE_21), { actions += it }, {}, { located = true }) }
+            Iso100Theme {
+                SunContent(SunUiState.from(SunInput(), PlaceChoice.Unavailable(LocationState.PermissionDenied), JUNE_21), {
+                    actions +=
+                        it
+                }, {}, { located = true })
+            }
         }
         compose.onNodeWithText("Allow the approximate position, or choose a place.").assertIsDisplayed()
         compose.onNodeWithText("Allow").performClick()

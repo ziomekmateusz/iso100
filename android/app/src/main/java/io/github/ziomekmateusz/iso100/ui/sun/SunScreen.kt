@@ -80,7 +80,13 @@ fun SunContent(state: SunUiState, onAction: (SunAction) -> Unit, onBack: () -> U
         actions = { PlaceChip(state.place) { onAction(SunAction.OpenPlaces) } },
         bottomBar = {
             DateStepper(
-                label = if (state.today) stringResource(R.string.today) else dateFormatter("EEEE", locale).format(state.date).capitalized(locale),
+                label = if (state.today) {
+                    stringResource(
+                        R.string.today,
+                    )
+                } else {
+                    dateFormatter("EEEE", locale).format(state.date).capitalized(locale)
+                },
                 value = dateFormatter("dMMMMy", locale).format(state.date),
                 onPrevious = { onAction(SunAction.SetDate(state.date.minusDays(1))) },
                 onNext = { onAction(SunAction.SetDate(state.date.plusDays(1))) },
@@ -91,14 +97,20 @@ fun SunContent(state: SunUiState, onAction: (SunAction) -> Unit, onBack: () -> U
         val day = state.day
         val place = state.place
         if (day == null || place !is PlaceChoice.Ready) {
-            LocationMessage((place as? PlaceChoice.Unavailable)?.location ?: LocationState.Unknown, onLocate, { onAction(SunAction.OpenPlaces) })
+            LocationMessage((place as? PlaceChoice.Unavailable)?.location ?: LocationState.Unknown, onLocate, {
+                onAction(SunAction.OpenPlaces)
+            })
         } else {
             val time = timeFormatter()
             ResultCard {
                 RiseAndSet(day.sunriseSunset, time)
                 SkyBand(state.band, state.now, stringResource(R.string.sky_band_description))
                 val noon = day.noon?.let(time) ?: "—"
-                Text(stringResource(R.string.sun_daylight, durationText(day.daylight.seconds.toDouble()), noon), fontSize = 15.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(
+                    stringResource(R.string.sun_daylight, durationText(day.daylight.seconds.toDouble()), noon),
+                    fontSize = 15.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
             PhotoTable(state, time)
             Twilights(day.astronomical, day.nautical, day.civil, time)
@@ -112,15 +124,31 @@ fun SunContent(state: SunUiState, onAction: (SunAction) -> Unit, onBack: () -> U
 private fun RiseAndSet(crossing: Crossing, time: (ZonedDateTime) -> String) {
     val big = MaterialTheme.typography.displayMedium.copy(fontSize = 48.sp, lineHeight = 50.sp)
     when {
-        crossing.alwaysAbove -> Text(stringResource(R.string.sun_always_up), style = MaterialTheme.typography.titleLarge.copy(fontSize = 26.sp, lineHeight = 32.sp))
-        crossing.alwaysBelow -> Text(stringResource(R.string.sun_always_down), style = MaterialTheme.typography.titleLarge.copy(fontSize = 26.sp, lineHeight = 32.sp))
+        crossing.alwaysAbove -> Text(
+            stringResource(R.string.sun_always_up),
+            style = MaterialTheme.typography.titleLarge.copy(fontSize = 26.sp, lineHeight = 32.sp),
+        )
+
+        crossing.alwaysBelow -> Text(
+            stringResource(R.string.sun_always_down),
+            style = MaterialTheme.typography.titleLarge.copy(fontSize = 26.sp, lineHeight = 32.sp),
+        )
+
         else -> Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Text(stringResource(R.string.sun_sunrise), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(
+                    stringResource(R.string.sun_sunrise),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
                 BigTime(crossing.rise?.let(time) ?: "—", big)
             }
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Text(stringResource(R.string.sun_sunset), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(
+                    stringResource(R.string.sun_sunset),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
                 BigTime(crossing.set?.let(time) ?: "—", big)
             }
         }
@@ -138,8 +166,20 @@ private fun PhotoTable(state: SunUiState, time: (ZonedDateTime) -> String) {
             Text(stringResource(R.string.morning), Modifier.weight(1f), fontSize = 14.sp, color = colors.onSurfaceVariant)
             Text(stringResource(R.string.evening), Modifier.weight(1f), fontSize = 14.sp, color = colors.onSurfaceVariant)
         }
-        PhotoRow(stringResource(R.string.blue_hour), sky.civil, null, rangeText(state.blueHours.morning, time), rangeText(state.blueHours.evening, time))
-        PhotoRow(stringResource(R.string.golden_hour), sky.golden, null, rangeText(state.goldenHours.morning, time), rangeText(state.goldenHours.evening, time))
+        PhotoRow(
+            stringResource(R.string.blue_hour),
+            sky.civil,
+            null,
+            rangeText(state.blueHours.morning, time),
+            rangeText(state.blueHours.evening, time),
+        )
+        PhotoRow(
+            stringResource(R.string.golden_hour),
+            sky.golden,
+            null,
+            rangeText(state.goldenHours.morning, time),
+            rangeText(state.goldenHours.evening, time),
+        )
         // darkness goes on into the night: only when it ends in the morning and when it starts in the evening
         PhotoRow(
             stringResource(R.string.full_darkness),
@@ -154,20 +194,31 @@ private fun PhotoTable(state: SunUiState, time: (ZonedDateTime) -> String) {
 @Composable
 private fun PhotoRow(label: String, dot: Color, dotBorder: Color?, morning: String, evening: String) {
     Surface(shape = MaterialTheme.shapes.small, color = MaterialTheme.colorScheme.surface) {
-        Row(Modifier
-            .heightIn(min = 52.dp)
-            .padding(horizontal = 14.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
-            Row(Modifier.weight(1.3f), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            Modifier
+                .heightIn(min = 52.dp)
+                .padding(horizontal = 14.dp, vertical = 6.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Row(
+                Modifier.weight(1.3f),
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Box(
                     Modifier
                         .size(12.dp)
                         .background(dot, CircleShape)
                         .then(
-                            if (dotBorder != null) Modifier.border(
-                                2.dp,
-                                dotBorder,
-                                CircleShape
-                            ) else Modifier
+                            if (dotBorder != null) {
+                                Modifier.border(
+                                    2.dp,
+                                    dotBorder,
+                                    CircleShape,
+                                )
+                            } else {
+                                Modifier
+                            },
                         ),
                 )
                 Text(label, fontSize = 16.sp)
@@ -180,10 +231,17 @@ private fun PhotoRow(label: String, dot: Color, dotBorder: Color?, morning: Stri
 @Composable
 private fun Twilights(astronomical: Crossing, nautical: Crossing, civil: Crossing, time: (ZonedDateTime) -> String) {
     Column(Modifier.padding(horizontal = 4.dp)) {
-        listOf(R.string.twilight_astronomical to astronomical, R.string.twilight_nautical to nautical, R.string.twilight_civil to civil).forEach { (label, crossing) ->
-            Row(Modifier
-                .heightIn(min = 38.dp)
-                .padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        listOf(
+            R.string.twilight_astronomical to astronomical,
+            R.string.twilight_nautical to nautical,
+            R.string.twilight_civil to civil,
+        ).forEach { (label, crossing) ->
+            Row(
+                Modifier
+                    .heightIn(min = 38.dp)
+                    .padding(vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Text(stringResource(label), Modifier.weight(1.3f), fontSize = 15.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Times(crossing.rise?.let(time) ?: "—", crossing.set?.let(time) ?: "—", 16.sp, FontWeight.Normal)
             }

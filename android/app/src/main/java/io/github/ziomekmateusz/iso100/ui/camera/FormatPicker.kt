@@ -29,13 +29,7 @@ import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
 import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 import kotlinx.coroutines.launch
 
-data class FormatRow(
-    val id: String,
-    val name: String,
-    val widthMm: Double,
-    val heightMm: Double,
-    val selected: Boolean
-)
+data class FormatRow(val id: String, val name: String, val widthMm: Double, val heightMm: Double, val selected: Boolean)
 
 /** The sensor formats of the catalog; one is [FormatRow.selected] only when it was chosen without a camera. */
 internal fun formatRows(catalogState: CatalogState, settings: Settings): List<FormatRow> {
@@ -47,18 +41,14 @@ internal fun formatRows(catalogState: CatalogState, settings: Settings): List<Fo
             format.name,
             format.widthMm,
             format.heightMm,
-            selection?.camera == null && format.id == selection?.format?.id
+            selection?.camera == null && format.id == selection?.format?.id,
         )
     }
 }
 
 /** For a camera that is not in the catalog: the choice is saved on the app scope, then [onChosen] closes the picker. */
 @Composable
-fun FormatPickerSheet(
-    onDismiss: () -> Unit,
-    onChosen: () -> Unit,
-    app: AppContainer = LocalAppContainer.current
-) {
+fun FormatPickerSheet(onDismiss: () -> Unit, onChosen: () -> Unit, app: AppContainer = LocalAppContainer.current) {
     val settings by app.settings.settings.collectAsStateWithLifecycle(Settings())
     val catalog by app.catalog.state.collectAsStateWithLifecycle()
     FormatPickerContent(
@@ -72,11 +62,7 @@ fun FormatPickerSheet(
 }
 
 @Composable
-fun FormatPickerContent(
-    formats: List<FormatRow>,
-    onChoose: (String) -> Unit,
-    onDismiss: () -> Unit
-) {
+fun FormatPickerContent(formats: List<FormatRow>, onChoose: (String) -> Unit, onDismiss: () -> Unit) {
     AppBottomSheet(onDismiss = onDismiss) {
         LazyColumn(Modifier.padding(start = 16.dp, end = 16.dp, bottom = 24.dp)) {
             item { SheetTitle() }
@@ -101,7 +87,7 @@ private fun LazyListScope.formatItems(formats: List<FormatRow>, onChoose: (Strin
         FormatItem(
             format,
             first = index == 0,
-            last = index == formats.lastIndex
+            last = index == formats.lastIndex,
         ) { onChoose(format.id) }
     }
 }
@@ -115,7 +101,7 @@ private fun FormatItem(format: FormatRow, first: Boolean, last: Boolean, onChoos
             stringResource(
                 R.string.format_size,
                 shortNumber(format.widthMm, locale, 2),
-                shortNumber(format.heightMm, locale, 2)
+                shortNumber(format.heightMm, locale, 2),
             ),
             format.selected,
         )

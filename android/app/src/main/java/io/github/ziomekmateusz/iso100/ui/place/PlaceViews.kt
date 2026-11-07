@@ -1,8 +1,6 @@
 package io.github.ziomekmateusz.iso100.ui.place
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -29,11 +27,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.ziomekmateusz.iso100.R
 import io.github.ziomekmateusz.iso100.calc.astro.Place
+import io.github.ziomekmateusz.iso100.data.AppTheme
 import io.github.ziomekmateusz.iso100.data.LocationState
 import io.github.ziomekmateusz.iso100.ui.components.PrimaryButton
 import io.github.ziomekmateusz.iso100.ui.currentLocale
 import io.github.ziomekmateusz.iso100.ui.number
-import io.github.ziomekmateusz.iso100.data.AppTheme
 import io.github.ziomekmateusz.iso100.ui.theme.Iso100Theme
 import io.github.ziomekmateusz.iso100.ui.theme.ThemePreviews
 import java.time.ZoneId
@@ -60,7 +58,11 @@ fun PlaceChip(choice: PlaceChoice, onClick: () -> Unit) {
         border = BorderStroke(1.dp, colors.outlineVariant),
         modifier = Modifier.heightIn(min = 40.dp),
     ) {
-        Row(Modifier.padding(start = 12.dp, end = 14.dp, top = 8.dp, bottom = 8.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            Modifier.padding(start = 12.dp, end = 14.dp, top = 8.dp, bottom = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
             Icon(painterResource(R.drawable.ic_pin), null, Modifier.size(16.dp), tint = colors.onSurface)
             Text(text, fontSize = 15.sp, color = colors.onSurface, maxLines = 1)
         }

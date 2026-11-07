@@ -130,7 +130,7 @@ private fun HomeHeader(onSettings: () -> Unit) {
         RoundIconButton(
             R.drawable.ic_settings,
             stringResource(R.string.settings),
-            onClick = onSettings
+            onClick = onSettings,
         )
     }
 }
@@ -150,7 +150,7 @@ private fun Wordmark() {
             fontFamily = Barlow,
             fontWeight = FontWeight.Bold,
             fontSize = 28.sp,
-            letterSpacing = 0.02.em
+            letterSpacing = 0.02.em,
         ),
         color = colors.onSurface,
     )
@@ -162,11 +162,17 @@ private fun ToolGrid(onOpen: (Destination) -> Unit) {
     for (row in tools.chunked(2)) {
         Row(
             Modifier.height(IntrinsicSize.Max),
-            horizontalArrangement = Arrangement.spacedBy(spacing)
+            horizontalArrangement = Arrangement.spacedBy(spacing),
         ) {
-            for (tool in row) ToolTile(tool, onOpen, Modifier
-                .weight(1f)
-                .fillMaxHeight())
+            for (tool in row) {
+                ToolTile(
+                    tool,
+                    onOpen,
+                    Modifier
+                        .weight(1f)
+                        .fillMaxHeight(),
+                )
+            }
         }
     }
 }
@@ -214,11 +220,15 @@ private fun TodayCard(today: TodayUiState, onOpen: (Destination) -> Unit, onLoca
     Surface(shape = MaterialTheme.shapes.large, color = colors.surface) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(spacing)) {
             Text(
-                if (place is PlaceChoice.Ready) stringResource(
-                    R.string.today_in,
-                    placeName(place.name, place.place),
-                    date
-                ) else stringResource(R.string.today_plain, date),
+                if (place is PlaceChoice.Ready) {
+                    stringResource(
+                        R.string.today_in,
+                        placeName(place.name, place.place),
+                        date,
+                    )
+                } else {
+                    stringResource(R.string.today_plain, date)
+                },
                 Modifier
                     .padding(horizontal = 2.dp)
                     .semantics { heading() },
@@ -247,7 +257,7 @@ private fun TodayValues(today: TodayUiState, onOpen: (Destination) -> Unit) {
             stringResource(R.string.golden_hour),
             today.goldenHour?.let { relativeText(today.now, it) },
             { onOpen(Sun) },
-            tile
+            tile,
         ) {
             BigTime(today.goldenHour?.let(time) ?: "—", value, color = colors.primary)
         }
@@ -255,7 +265,7 @@ private fun TodayValues(today: TodayUiState, onOpen: (Destination) -> Unit) {
             stringResource(R.string.sun_sunset),
             today.sunset?.let { relativeText(today.now, it) },
             { onOpen(Sun) },
-            tile
+            tile,
         ) {
             BigTime(today.sunset?.let(time) ?: "—", value)
         }
@@ -268,19 +278,13 @@ private fun TodayValues(today: TodayUiState, onOpen: (Destination) -> Unit) {
 }
 
 @Composable
-private fun TodayValue(
-    label: String,
-    detail: String?,
-    onClick: () -> Unit,
-    modifier: Modifier,
-    value: @Composable () -> Unit
-) {
+private fun TodayValue(label: String, detail: String?, onClick: () -> Unit, modifier: Modifier, value: @Composable () -> Unit) {
     val colors = MaterialTheme.colorScheme
     Surface(
         onClick = onClick,
         modifier = modifier.heightIn(min = 88.dp),
         shape = MaterialTheme.shapes.small,
-        color = colors.surfaceContainerHigh
+        color = colors.surfaceContainerHigh,
     ) {
         Column(Modifier.padding(horizontal = 12.dp, vertical = 10.dp)) {
             Text(label, fontSize = 14.sp, color = colors.onSurfaceVariant)
@@ -335,7 +339,8 @@ private fun HomeWithoutPlacePreview() {
         HomeContent(
             previewToday.copy(place = PlaceChoice.Unavailable(LocationState.PermissionDenied)),
             onOpen = {},
-            onLocate = {})
+            onLocate = {},
+        )
     }
 }
 

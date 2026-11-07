@@ -11,11 +11,7 @@ import kotlinx.parcelize.Parcelize
  * characteristics are open ([details], its id).
  */
 @Parcelize
-data class CameraPickerInput(
-    val query: String = "",
-    val formatSheet: Boolean = false,
-    val details: String? = null
-) : Parcelable
+data class CameraPickerInput(val query: String = "", val formatSheet: Boolean = false, val details: String? = null) : Parcelable
 
 sealed interface CameraPickerAction {
     data class Search(val query: String) : CameraPickerAction
@@ -38,7 +34,14 @@ fun CameraPickerInput.reduce(action: CameraPickerAction): CameraPickerInput = wh
 }
 
 /** [alias] is the first EXIF name, [format] the short name of the format: "Full Frame", "APS-C". */
-data class CameraRow(val id: String, val model: String, val alias: String?, val format: String, val selected: Boolean, val hasSpecs: Boolean)
+data class CameraRow(
+    val id: String,
+    val model: String,
+    val alias: String?,
+    val format: String,
+    val selected: Boolean,
+    val hasSpecs: Boolean,
+)
 
 data class CameraGroup(val maker: String, val cameras: List<CameraRow>)
 
@@ -70,13 +73,27 @@ data class CameraPickerUiState(
                         maker,
                         cameras.map { camera ->
                             val format = catalog?.format(camera.format)?.name.orEmpty().substringBefore(" (")
-                            CameraRow(camera.id, camera.model, camera.aliases.firstOrNull(), format, camera.id == selection?.camera?.id, camera.specs != null)
+                            CameraRow(
+                                camera.id,
+                                camera.model,
+                                camera.aliases.firstOrNull(),
+                                format,
+                                camera.id == selection?.camera?.id,
+                                camera.specs != null,
+                            )
                         },
                     )
                 }
             val details = catalog?.camera(input.details)?.let { camera ->
                 camera.specs?.let { specs ->
-                    CameraDetails(camera.id, "${camera.maker} ${camera.model}", catalog.format(camera.format)?.name.orEmpty(), camera.mount, camera.aliases, specs)
+                    CameraDetails(
+                        camera.id,
+                        "${camera.maker} ${camera.model}",
+                        catalog.format(camera.format)?.name.orEmpty(),
+                        camera.mount,
+                        camera.aliases,
+                        specs,
+                    )
                 }
             }
             return CameraPickerUiState(
@@ -84,7 +101,7 @@ data class CameraPickerUiState(
                 input.formatSheet,
                 groups,
                 catalogState is CatalogState.Failed,
-                details
+                details,
             )
         }
     }

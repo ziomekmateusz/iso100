@@ -8,12 +8,7 @@ import io.github.ziomekmateusz.iso100.ui.shortNumber
 
 /** The focal length in mm: typed, or stepped through the usual lenses with [onStep]. */
 @Composable
-fun FocalLengthField(
-    valueMm: Double,
-    error: String?,
-    onValueChange: (Double) -> Unit,
-    onStep: (up: Boolean) -> Unit
-) {
+fun FocalLengthField(valueMm: Double, error: String?, onValueChange: (Double) -> Unit, onStep: (up: Boolean) -> Unit) {
     NumberField(
         label = stringResource(R.string.focal_length),
         value = valueMm,
