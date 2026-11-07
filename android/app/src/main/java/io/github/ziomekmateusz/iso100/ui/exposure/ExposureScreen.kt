@@ -58,6 +58,7 @@ import io.github.ziomekmateusz.iso100.ui.components.Dial
 import io.github.ziomekmateusz.iso100.ui.components.ErrorText
 import io.github.ziomekmateusz.iso100.ui.components.FitText
 import io.github.ziomekmateusz.iso100.ui.components.ResultCard
+import io.github.ziomekmateusz.iso100.ui.components.RollingText
 import io.github.ziomekmateusz.iso100.ui.components.SegmentedChoice
 import io.github.ziomekmateusz.iso100.ui.components.StopDial
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
@@ -149,7 +150,13 @@ private fun Result(state: ExposureUiState) {
         Text(stringResource(resultTitle(state.solve)), style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
         when (val result = state.result) {
             is Outcome.Ok -> {
-                Text(settingText(state.solve, result.value.nearest?.nominal ?: result.value.exact, plain = true), style = big, color = colors.primary)
+                RollingText(
+                    settingText(
+                        state.solve,
+                        result.value.nearest?.nominal ?: result.value.exact,
+                        plain = true
+                    ), style = big, color = colors.primary
+                )
                 if (state.exactDiffers) {
                     Text(stringResource(R.string.exact_value, settingText(state.solve, result.value.exact, plain = true)), fontSize = 15.sp, color = colors.onSurfaceVariant)
                 }

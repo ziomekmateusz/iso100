@@ -41,6 +41,7 @@ import io.github.ziomekmateusz.iso100.ui.components.ChooseCameraCard
 import io.github.ziomekmateusz.iso100.ui.components.ControlSheet
 import io.github.ziomekmateusz.iso100.ui.components.NumberField
 import io.github.ziomekmateusz.iso100.ui.components.ResultCard
+import io.github.ziomekmateusz.iso100.ui.components.RollingText
 import io.github.ziomekmateusz.iso100.ui.components.SegmentedChoice
 import io.github.ziomekmateusz.iso100.ui.components.StopDial
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
@@ -125,7 +126,7 @@ private fun Result(state: StarsUiState) {
     val chosen = state.chosen
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Text(stringResource(R.string.stars_max), style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
-        Text(
+        RollingText(
             chosen?.shutter?.let { shutterText(it.nominal) } ?: "—",
             style = MaterialTheme.typography.displayMedium.copy(fontSize = 64.sp, lineHeight = 64.sp),
             color = colors.primary,

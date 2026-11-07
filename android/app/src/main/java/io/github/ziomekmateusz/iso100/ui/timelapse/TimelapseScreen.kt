@@ -47,6 +47,7 @@ import io.github.ziomekmateusz.iso100.ui.components.ErrorText
 import io.github.ziomekmateusz.iso100.ui.components.NumberField
 import io.github.ziomekmateusz.iso100.ui.components.ResultCard
 import io.github.ziomekmateusz.iso100.ui.components.ResultTile
+import io.github.ziomekmateusz.iso100.ui.components.RollingText
 import io.github.ziomekmateusz.iso100.ui.components.SegmentedChoice
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
 import io.github.ziomekmateusz.iso100.ui.components.ValueBox
@@ -137,7 +138,7 @@ private fun Result(state: TimelapseUiState) {
     val result = state.result
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Text(stringResource(resultTitle(state.solve)), style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
-        Text(
+        RollingText(
             result?.let { durationText(solved(it, state.solve)) } ?: "—",
             style = MaterialTheme.typography.displayMedium.copy(fontSize = 64.sp, lineHeight = 64.sp),
             color = colors.primary,

@@ -48,6 +48,7 @@ import io.github.ziomekmateusz.iso100.ui.components.DofBar
 import io.github.ziomekmateusz.iso100.ui.components.NumberField
 import io.github.ziomekmateusz.iso100.ui.components.ResultCard
 import io.github.ziomekmateusz.iso100.ui.components.ResultTile
+import io.github.ziomekmateusz.iso100.ui.components.RollingText
 import io.github.ziomekmateusz.iso100.ui.components.StopDial
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
 import io.github.ziomekmateusz.iso100.ui.components.dial
@@ -173,7 +174,7 @@ private fun SharpZone(result: DepthOfField?, units: UnitSystem) {
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         Text(stringResource(R.string.dof_sharp_from), style = MaterialTheme.typography.bodyLarge, color = colors.onSurfaceVariant)
-        Text(text, style = MaterialTheme.typography.displayMedium, color = colors.onSurface)
+        RollingText(text, style = MaterialTheme.typography.displayMedium, color = colors.onSurface)
     }
 }
 

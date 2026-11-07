@@ -50,6 +50,7 @@ import io.github.ziomekmateusz.iso100.ui.components.ChooseCameraCard
 import io.github.ziomekmateusz.iso100.ui.components.ControlSheet
 import io.github.ziomekmateusz.iso100.ui.components.NumberField
 import io.github.ziomekmateusz.iso100.ui.components.ResultCard
+import io.github.ziomekmateusz.iso100.ui.components.RollingText
 import io.github.ziomekmateusz.iso100.ui.components.ToolScaffold
 import io.github.ziomekmateusz.iso100.ui.currentLocale
 import io.github.ziomekmateusz.iso100.ui.distanceSymbol
@@ -128,7 +129,7 @@ private fun Angles(result: FieldOfView?) {
 private fun Angle(label: String, value: String, color: Color, modifier: Modifier) {
     Column(modifier, verticalArrangement = Arrangement.spacedBy(2.dp)) {
         Text(label, style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Normal), color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Text(value, style = MaterialTheme.typography.headlineMedium, color = color)
+        RollingText(value, style = MaterialTheme.typography.headlineMedium, color = color)
     }
 }
 
