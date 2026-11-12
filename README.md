@@ -56,7 +56,9 @@ State comes in three categories, and each piece lives in only one:
 - **User input**: the composable, with `rememberSaveable`. The values of the tools (not open sheets or
   dates) also have a last copy in `ToolValuesStore`, so a tool opens where the user left it:
   `rememberToolInput` starts from that copy and saves each change.
-- **Results**: recomputed by pure functions, never saved.
+- **Results**: recomputed by pure functions, never saved. When a result depends on the current time,
+  the screen collects `minuteTicks()` and passes `now` in, as Home does. Calling `Instant.now()` inside
+  `remember` would freeze the time at the moment the screen opened.
 
 Without a ViewModel the risk is logic sliding into composables, so each screen has three parts:
 `XxxInput` with `reduce(action)` and `XxxUiState.from(...)` are pure functions and carry the logic;

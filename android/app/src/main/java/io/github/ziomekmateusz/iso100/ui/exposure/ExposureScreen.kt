@@ -181,7 +181,7 @@ private fun Result(state: ExposureUiState, onStartTimer: (seconds: Double, setti
 
             is Outcome.OutOfScale -> {
                 Text("—", style = big, color = colors.primary)
-                ErrorText(outOfScaleMessage(state.solve, result.tooHigh, state.limit!!))
+                state.limit?.let { ErrorText(outOfScaleMessage(state.solve, result.tooHigh, it)) }
             }
 
             is Outcome.Invalid -> Text("—", style = big, color = colors.primary)

@@ -46,7 +46,7 @@ fun SkyBand(segments: List<BandSegment>, now: Float?, description: String, modif
         Canvas(
             Modifier
                 .fillMaxWidth()
-                .height(26.dp)
+                .height(26.dp),
         ) {
             val top = 4.dp.toPx()
             val height = 18.dp.toPx()

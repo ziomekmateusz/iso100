@@ -312,11 +312,15 @@ private fun DetailsSheet(details: CameraDetails, onAction: (CameraPickerAction) 
         R.string.spec_mount to details.mount,
         R.string.spec_resolution to specs.resolutionMp?.let { shortNumber(it, locale) + " " + stringResource(R.string.symbol_mp) },
         R.string.spec_iso to
-                if (specs.isoMin != null && specs.isoMax != null) stringResource(
+                if (specs.isoMin != null && specs.isoMax != null) {
+                    stringResource(
                     R.string.spec_iso_range,
                     specs.isoMin,
-                    specs.isoMax
-                ) else null,
+                        specs.isoMax,
+                    )
+                } else {
+                    null
+                },
         R.string.spec_af_points to specs.afPoints?.toString(),
         R.string.spec_fps to specs.fps?.let { stringResource(R.string.spec_fps_value, shortNumber(it, locale)) },
         R.string.spec_stabilization to flag(specs.stabilization),
